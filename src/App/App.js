@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-import { NavigationView } from './NavigationView'
+import {NavigationView} from './NavigationView'
 
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <NavigationView />
-      </div>
-    );
-  }
-}
-
-export default App;
+export default (props) => (
+  <div className="App">
+    <NavigationView />
+    {props.children}
+  </div>
+);
