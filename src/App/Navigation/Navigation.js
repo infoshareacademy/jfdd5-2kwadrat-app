@@ -6,7 +6,7 @@ export default () => {
         <Navbar>
             <Navbar.Header>
                 <Navbar.Brand>
-                    <a href="#">INSIDE MY FRIDGE</a>
+                    <a href="/">INSIDE MY FRIDGE</a>
                 </Navbar.Brand>
             </Navbar.Header>
             <Nav>
