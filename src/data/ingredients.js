@@ -79,24 +79,4 @@ export default [
         name: 'marchewka',
         unitOfMeasure: 'pcs.',
     },
-    {
-        id: 17,
-        name: 'marchewka',
-        unitOfMeasure: 'pcs.',
-    },
-    {
-        id: 18,
-        name: 'marchewka',
-        unitOfMeasure: 'pcs.',
-    },
-    {
-        id: 19,
-        name: 'marchewka',
-        unitOfMeasure: 'pcs.',
-    },
-    {
-        id: 20,
-        name: 'marchewka',
-        unitOfMeasure: 'pcs.',
-    },
 ]

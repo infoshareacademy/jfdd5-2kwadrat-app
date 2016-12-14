@@ -1,42 +1,36 @@
 import React from 'react'
+import './styles.css';
 
-import { FormGroup, Checkbox } from 'react-bootstrap'
+import { FormGroup, Checkbox, Image, Grid, Row, Col } from 'react-bootstrap'
 
 export default () => (
   <div>
     <h1>FridgeView</h1>
-      <FormGroup>
-          <Checkbox inline>
-              1. link do 'ingredients.id'
-          </Checkbox>
+      {/*<FormGroup>*/}
+        <Grid>
+          <Row className="show-grid">
+            <Col xs={12} sm={6} md={4}>
+                <Image src="/assets/thumbnail.png" responsive />
+                <Checkbox inline>
+                1. link do 'ingredients.id'
+                </Checkbox>
+            </Col>
 
-          <Checkbox inline>
-              2. link do 'ingredients.id'
-          </Checkbox>
+            <Col xs={12} sm={6} md={4}>
+                <Image src="/assets/thumbnail.png" responsive />
+                <Checkbox inline>
+                2. link do 'ingredients.id'
+                </Checkbox>
+            </Col>
 
-          <Checkbox inline>
-              3. link do 'ingredients.id'
-          </Checkbox>
-
-          <Checkbox inline>
-              4. link do 'ingredients.id'
-          </Checkbox>
-
-          <Checkbox inline>
-              5. link do 'ingredients.id'
-          </Checkbox>
-
-          <Checkbox inline>
-              6. link do 'ingredients.id'
-          </Checkbox>
-
-          <Checkbox inline>
-              7. link do 'ingredients.id'
-          </Checkbox>
-
-          <Checkbox inline>
-              8. link do 'ingredients.id'
-          </Checkbox>
-      </FormGroup>
+            <Col xs={12} sm={6} md={4}>
+                <Image src="/assets/thumbnail.png" responsive />
+                <Checkbox inline>
+                3. link do 'ingredients.id'
+                </Checkbox>
+            </Col>
+          </Row>
+        </Grid>
+  {/*</FormGroup>*/}
   </div>
 )
