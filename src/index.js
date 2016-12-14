@@ -1,13 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {App} from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { App } from './App'
 
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
 
-import './index.css';
+import { FridgeView } from './FridgeView'
+import { AllRecipesView } from './AllRecipesView'
+import { RecipeView } from './RecipeView'
+import { AvailabilityView } from './AvailabilityView'
+
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap-theme.css'
+
+import './index.css'
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+  <Router history={browserHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={FridgeView} />
+
+      <Route path="/recipes" component={AllRecipesView}>
+        <Route path="/recipes/:recipeId" component={RecipeView}/>
+      </Route>
+
+      <Route path="/shops" component={AvailabilityView}>
+      </Route>
+
+    </Route>
+  </Router>,
+document.getElementById('root')
+)
