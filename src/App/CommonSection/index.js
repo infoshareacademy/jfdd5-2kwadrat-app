@@ -1,1 +1,1 @@
-export { CommonSection } from './CommonSection'
+export { default as CommonSection } from './CommonSection'

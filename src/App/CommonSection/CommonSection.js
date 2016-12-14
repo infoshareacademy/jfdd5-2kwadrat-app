@@ -1,7 +1,7 @@
 import React from 'react'
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
-export const CommonSection = () => {
+export default () => {
     return (
         <Navbar>
             <Navbar.Header>
