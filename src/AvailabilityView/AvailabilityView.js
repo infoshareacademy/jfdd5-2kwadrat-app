@@ -3,9 +3,9 @@ import { ShopsLogoView } from './ShopsLogoView'
 
 
 
-export default () => (
+export default (props) => (
   <div>
-    <h1>AvailabilityView</h1>
     <ShopsLogoView/>
+      {props.children}
   </div>
 )
