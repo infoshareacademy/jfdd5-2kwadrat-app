@@ -9,4 +9,4 @@ export default (props) => (
     <NavigationView />
     {props.children}
   </div>
-);
+)
