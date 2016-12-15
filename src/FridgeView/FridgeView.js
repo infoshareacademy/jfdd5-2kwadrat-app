@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 
-import { FormGroup, Checkbox, Image, Grid, Row, Col } from 'react-bootstrap'
+import { Checkbox, Image, Grid, Row, Col } from 'react-bootstrap'
 
 export default () => (
   <div>
