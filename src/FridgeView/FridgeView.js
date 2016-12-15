@@ -11,7 +11,7 @@ export default () => (
       ingredients.map(
         ingredient => {
           return (
-            <Col xs={12} sm={6} md={4} lg={3}>
+            <Col key={ingredient.id} className="ingredientField" xs={12} sm={6} md={4} lg={3}>
               <Image src={ingredient.img} height="50px"/>
               <Checkbox inline>
                 {ingredient.name}
