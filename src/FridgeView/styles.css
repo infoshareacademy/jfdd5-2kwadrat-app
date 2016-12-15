@@ -1,4 +1,7 @@
-.ingredientField {
-  background-color: darkgray;
+.ingredientFieldContent {
+  width: 95%;
+  background-color: cornflowerblue;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
 }
-
