@@ -2,7 +2,7 @@ import React from 'react'
 
 import {NavigationView} from './NavigationView'
 
-import './App.css';
+import './App.css'
 
 export default (props) => (
   <div className="App">

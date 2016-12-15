@@ -1,12 +1,11 @@
 import React from 'react'
-import './styles.css';
+import './styles.css'
 
 import { FormGroup, Checkbox, Image, Grid, Row, Col } from 'react-bootstrap'
 
 export default () => (
   <div>
     <h1>FridgeView</h1>
-      {/*<FormGroup>*/}
         <Grid>
           <Row className="show-grid">
             <Col xs={12} sm={6} md={4}>
@@ -31,6 +30,5 @@ export default () => (
             </Col>
           </Row>
         </Grid>
-  {/*</FormGroup>*/}
   </div>
 )
