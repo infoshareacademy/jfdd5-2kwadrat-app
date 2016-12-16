@@ -150,7 +150,7 @@ export default [
     ],
     image: 'http://static.zmiksowani.pl/image/photo/2014/07/15/565747_45.jpg',
     description: 'Duis sed est. Integer aliquam. In et ultrices posuere cubilia Curae, ' +
-    'In hac habitasse platea dictumst. ' + 'Quisque ut nibh nulla ligula nunc, accumsan adipiscing, ' +
+    'In hac habitasse platea dictumst. Quisque ut nibh nulla ligula nunc, accumsan adipiscing, ' +
     'risus sit amet eros. Ut sodales felis, volutpat eu, pede.'
   },
   {
