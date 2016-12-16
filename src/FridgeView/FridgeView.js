@@ -11,14 +11,7 @@ export default class FridgeView extends React.Component {
 
     this.handleSubmit = (event) => {
       event.preventDefault()
-      this.setState({
-        ingredients: this.state.ingredients.concat({
-          name: this.state.ingredients.name,
-          id: this.state.ingredients.id
-        })
-      }, function () {
-        localStorage.setItem('my-app-state', JSON.stringify(this.state))
-      })
+      localStorage.setItem('my-app-state', JSON.stringify(this.state))
     }
 
     const data = localStorage.getItem('my-app-state')
