@@ -12,6 +12,7 @@ import {AllRecipesView} from './AllRecipesView'
 import {RecipeView} from './RecipeView'
 import {AvailabilityView} from './AvailabilityView'
 import  {ShopView} from './AvailabilityView/ShopView'
+import  {IngredientView} from './IngredientView'
 
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -27,6 +28,7 @@ ReactDOM.render(
 
         <Route path="/recipes" component={AllRecipesView}/>
         <Route path="/recipes/:recipeId" component={RecipeView}/>
+        <Route path="ingredient/:ingredientId" component={IngredientView}/>
 
         <Route path="/shops" component={AvailabilityView}>
           <Route path="/shops/:shopId" component={ShopView}/>
