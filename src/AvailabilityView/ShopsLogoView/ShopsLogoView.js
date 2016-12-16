@@ -3,20 +3,33 @@ import {Image, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {Modal, Button} from 'react-bootstrap'
 
-import {shops} from '../../data'
+import {shops, ingredients} from '../../data'
 
 export default  React.createClass({
+
     getInitialState() {
-        return {showModal: false};
+        return {
+            showModal: false,
+            shop: {
+                ingriedients: []
+            },
+
+        }
     },
 
     close() {
-        this.setState({showModal: false});
+        this.setState({
+            showModal: false,
+
+        })
     },
 
-    open() {
-        console.log(this.state)
-        this.setState({showModal: true});
+    open(thisShop) {
+        this.setState({
+                showModal: true,
+                shop: thisShop
+            },
+        )
     },
 
     render() {
@@ -29,7 +42,8 @@ export default  React.createClass({
                             return (
                                 <Col key={shop.name} xs={12} sm={6} md={4}>
                                     <Link key={shop.name}
-                                          onClick={this.open}
+                                          onClick={() => this.open(shop)
+                                          }
                                     > <Image src={shop.logo}
                                              height="100px"
                                              width="auto" rounded
@@ -39,9 +53,28 @@ export default  React.createClass({
                                     </Link>
                                     < Modal show={this.state.showModal} onHide={this.close}>
                                         <Modal.Header closeButton>
-                                            <Modal.Title>{shop.id}</Modal.Title>
+                                            <Modal.Title >{this.state.shop.name}</Modal.Title>
                                         </Modal.Header>
                                         <Modal.Body>
+                                            <Image src={this.state.shop.logo}
+                                                   height="100px"
+                                                   width="auto" rounded
+                                            />
+                                            <ul>
+                                                {
+                                                    this.state.shop.ingriedients.map(
+                                                        shopIngre =>
+                                                            ingredients.find(
+                                                                ingre =>
+                                                                ingre.id === shopIngre.ingriedientId
+                                                            )
+                                                    ).map(
+                                                        item =>
+                                                            <li key={item.id}>{item.name}</li>
+                                                    )
+                                                }
+                                            </ul>
+
                                         </Modal.Body>
                                         <Modal.Footer>
                                             <Button onClick={this.close}>Close</Button>
@@ -53,34 +86,6 @@ export default  React.createClass({
                 }
 
             </div>
-        );
+        )
     }
-});
-
-
-// (props) => (
-//     <div>
-//         <h1>ShopsView</h1>
-//         {
-//             shops.map(
-//                 shop => {
-//                     return (
-//
-//                         <Col key={shop.id} xs={12} sm={6} md={4}>
-//                             <Link to={'/shops/' + shop.id}>
-//                                 <Image src={shop.logo}
-//                                        height="100px"
-//                                        width="auto" rounded
-//                                 />
-//                             </Link>
-//                             <br/>
-//                             <br/>
-//                         </Col>
-//
-//                     )
-//                 }
-//             )
-//         }
-//     </div>
-// )
-//
+})
