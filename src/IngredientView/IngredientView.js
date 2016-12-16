@@ -5,58 +5,38 @@ import {Image, Col} from 'react-bootstrap'
 
 
 export default (props) => {
-  const shopWithId = shops.find(
+  const shopsWithId = shops.find(
       shop => shop.id === parseInt(props.params.shopId, 10)
   )
   return (
       <div>
         <Col xs={6}>
-          <Image src={
-            shopWithId.img}
-                 width="auto"
-                 height="200px"
-          /><br/>
 
-          <h1>{shopWithId.name}</h1>
-        </Col>
-        <Col xs={6}>
-          <ul>
-            {
-              shopWithId.ingriedients.map( //ZMIENIC!
-                  shopIngre =>
-                      ingredients.find(
-                          ingre =>
-                          ingre.id === shopIngre.ingriedientId
-                      )
-              ).map(
-                  item =>
-                      <li key={item.id}>{item.name}</li>
-              )
-            }
+          <div key={shopsWithId.id}>
+            <Col xs={12}>
+              <h1>{shopsWithId.name}</h1>
+              <Image src={shopsWithId.img}/>
+              <div>
+                <h3> SKLEPY: </h3>
+                <ul>
+                  {
+                    shopsWithId.ingriedients.map(     //nazwa skladnika do poprawki w shopach
+                        ingriedients =>
+                            <li key={ingriedients.id}>
+                              {ingriedients.ingriedientId}
+                              <p key={shops.id}>{shops.find( ingriedients => ingriedients.ingriedientId === ingriedients.ingriedientId ).ingriedientPrice}</p>
+                            </li>
+                    )
+                  }
+                </ul>
+              </div>
+            </Col>
+            {props.children}
+          </div>
 
-          </ul>
         </Col>
+
       </div>
   )
 }
 
-// <div key={ingredientWithId.id}>
-//   <Col xs={12}>
-//     <h1>{ingredientWithId.name}</h1>
-//     <Image src={ingredientWithId.img}/>
-//     <div>
-//       <h3> SKLEPY: </h3>
-//       <ul>
-//         {
-//           shops.ingriedients.map(     //nazwa skladnika do poprawki
-//               ingredient =>
-//                   <li key={ingredient.id}>
-//                     {ingredient.id}
-//                     <p key={shops.id}>{shops.find( item => item.id === shops.id ).name}</p>
-//                   </li>
-//           )
-//         }
-//       </ul>
-//     </div>
-//   </Col>
-// </div>
