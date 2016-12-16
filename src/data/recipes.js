@@ -5,17 +5,17 @@ export default [
     category: 'dinner',
     ingredients: [
       {
-        ingredientId: 1,
+        id: 1,
         ingredientAmount: 300,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 2,
+        id: 2,
         ingredientAmount: 200,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 3,
+        id: 3,
         ingredientAmount: 600,
         unitMeasure: 'gr'
       }
@@ -31,17 +31,17 @@ export default [
     category: 'soup',
     ingredients: [
       {
-        ingredientId: 4,
+        id: 4,
         ingredientAmount: 500,
         unitMeasure: 'ml'
       },
       {
-        ingredientId: 3,
+        id: 3,
         ingredientAmount: 230,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 5,
+        id: 5,
         ingredientAmount: 100,
         unitMeasure: 'gr'
       }
@@ -56,17 +56,17 @@ export default [
     category: 'dinner',
     ingredients: [
       {
-        ingredientId: 8,
+        id: 8,
         ingredientAmount: 600,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 9,
+        id: 9,
         ingredientAmount: 250,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 10,
+        id: 10,
         ingredientAmount: 400,
         unitMeasure: 'gr'
       }
@@ -82,17 +82,17 @@ export default [
     category: 'soup',
     ingredients: [
       {
-        ingredientId: 4,
+        id: 4,
         ingredientAmount: 600,
         unitMeasure: 'ml'
       },
       {
-        ingredientId: 12,
+        id: 12,
         ingredientAmount: 250,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 13,
+        id: 13,
         ingredientAmount: 400,
         unitMeasure: 'gr'
       }
@@ -107,17 +107,17 @@ export default [
     category: 'dinner',
     ingredients: [
       {
-        ingredientId: 9,
+        id: 9,
         ingredientAmount: 600,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 8,
+        id: 8,
         ingredientAmount: 200,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 10,
+        id: 10,
         ingredientAmount: 600,
         unitMeasure: 'gr'
       }
@@ -133,24 +133,24 @@ export default [
     category: 'dinner',
     ingredients: [
       {
-        ingredientId: 8,
+        id: 8,
         ingredientAmount: 600,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 9,
+        id: 9,
         ingredientAmount: 250,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 10,
+        id: 10,
         ingredientAmount: 400,
         unitMeasure: 'gr'
       }
     ],
     image: 'http://static.zmiksowani.pl/image/photo/2014/07/15/565747_45.jpg',
     description: 'Duis sed est. Integer aliquam. In et ultrices posuere cubilia Curae, ' +
-    'In hac habitasse platea dictumst. ' + 'Quisque ut nibh nulla ligula nunc, accumsan adipiscing, ' +
+    'In hac habitasse platea dictumst. Quisque ut nibh nulla ligula nunc, accumsan adipiscing, ' +
     'risus sit amet eros. Ut sodales felis, volutpat eu, pede.'
   },
   {
@@ -159,12 +159,12 @@ export default [
     category: 'breakfast',
     ingredients: [
       {
-        ingredientId: 14,
+        id: 14,
         ingredientAmount: 4,
         unitMeasure: 'szt'
       },
       {
-        ingredientId: 15,
+        id: 15,
         ingredientAmount: 250,
         unitMeasure: 'gr'
       },
@@ -179,17 +179,17 @@ export default [
     category: 'dinner',
     ingredients: [
       {
-        ingredientId: 16,
+        id: 16,
         ingredientAmount: 600,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 15,
+        id: 15,
         ingredientAmount: 250,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 1,
+        id: 1,
         ingredientAmount: 400,
         unitMeasure: 'gr'
       }
@@ -204,17 +204,17 @@ export default [
     category: 'soup',
     ingredients: [
       {
-        ingredientId: 4,
+        id: 4,
         ingredientAmount: 600,
         unitMeasure: 'ml'
       },
       {
-        ingredientId: 17,
+        id: 17,
         ingredientAmount: 250,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 10,
+        id: 10,
         ingredientAmount: 400,
         unitMeasure: 'gr'
       }
@@ -229,17 +229,17 @@ export default [
     category: 'salad',
     ingredients: [
       {
-        ingredientId: 18,
+        id: 18,
         ingredientAmount: 650,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 19,
+        id: 19,
         ingredientAmount: 270,
         unitMeasure: 'gr'
       },
       {
-        ingredientId: 20,
+        id: 20,
         ingredientAmount: 450,
         unitMeasure: 'gr'
       }

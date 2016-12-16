@@ -74,11 +74,11 @@ export default [
                 ingriedientPrice: 4.84
             },
             {
-                ingriedientId: 11,
+                ingriedientId: 1,
                 ingriedientPrice: 3.04
             },
             {
-                ingriedientId: 12,
+                ingriedientId: 2,
                 ingriedientPrice: 2.04
             },
             {
@@ -86,7 +86,7 @@ export default [
                 ingriedientPrice: 4.84
             },
             {
-                ingriedientId: 15,
+                ingriedientId: 5,
                 ingriedientPrice: 3.04
             }
         ]
@@ -98,15 +98,15 @@ export default [
         logo: 'http://rabatuj.pl/r/i/r/images/polomarket_logo.png',
         ingriedients: [
             {
-                ingriedientId: 10,
+                ingriedientId: 1,
                 ingriedientPrice: 2.04
             },
             {
-                ingriedientId: 14,
+                ingriedientId: 4,
                 ingriedientPrice: 4.84
             },
             {
-                ingriedientId: 16,
+                ingriedientId: 6,
                 ingriedientPrice: 3.04
             },
         ]
