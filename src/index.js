@@ -21,9 +21,8 @@ ReactDOM.render(
     <Route path="/" component={App}>
       <IndexRoute component={FridgeView} />
 
-      <Route path="/recipes" component={AllRecipesView}>
-        <Route path="/recipes/:recipeId" component={RecipeView}/>
-      </Route>
+      <Route path="/recipes" component={AllRecipesView} />
+      <Route path="/recipes/:recipeId" component={RecipeView}/>
 
       <Route path="/shops" component={AvailabilityView}>
           <Route path="/shops/:shopId" component={ShopView}/>
