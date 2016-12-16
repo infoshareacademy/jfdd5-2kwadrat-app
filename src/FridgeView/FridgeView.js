@@ -83,14 +83,14 @@ export default class FridgeView extends React.Component {
 
         <Row>
           <h2>Chosen ingredients</h2>
-          {/*<ul>*/}
-            {/*{*/}
-              {/*this.state.ingredients.map(*/}
-                {/*ingredient =>*/}
-                  {/*<li key={ingredient.id}>{ingredient.name}</li>*/}
-              {/*)*/}
-            {/*}*/}
-          {/*</ul>*/}
+          <ul>
+            {
+              this.state.ingredients.map(
+                ingredient =>
+                  <li key={ingredient.id}>{ingredient.name}</li>
+              )
+            }
+          </ul>
         </Row>
       </div>
     )
