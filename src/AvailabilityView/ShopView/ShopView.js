@@ -1,7 +1,7 @@
 import React from 'react'
 import {Image, Col} from 'react-bootstrap'
 
-import {shops,ingredients} from '../../data'
+import {shops, ingredients} from '../../data'
 
 export default (props) => {
     const shopWithId = shops.find(
@@ -20,18 +20,22 @@ export default (props) => {
                 <h1>{shopWithId.name}</h1>
             </Col>
             <Col xs={6}>
-                {/*<ul>*/}
-                    {/*{*/}
-                        {/*shopWithId.ingredients.map(*/}
-                            {/*ingredient => ingredients.find(*/}
-                                {/*item => item.id === ingredient.ingredientId*/}
-                            {/*)*/}
-                        {/*).map(*/}
-                           {/*item2 =>*/}
-                           {/*<li key={item2.id}>{item2.name}</li>*/}
-                       {/*)*/}
-                    {/*}*/}
-                {/*</ul>*/}
+                {console.log(shopWithId)}
+                <ul>
+                    {
+                        shopWithId.ingriedients.map(
+                            shopIngre =>
+                                ingredients.find(
+                                    ingre =>
+                                    ingre.id === shopIngre.ingriedientId
+                                )
+                        ).map(
+                            item =>
+                                <li key={item.id}>{item.name}</li>
+                        )
+                    }
+
+                </ul>
             </Col>
         </div>
     )
