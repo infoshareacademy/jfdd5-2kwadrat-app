@@ -1,6 +1,7 @@
 import React from 'react'
 import {recipes} from '../data'
 import {Image, Col} from 'react-bootstrap'
+import {Link} from 'react-router'
 
 export default (props) => (
   <div>
@@ -9,12 +10,15 @@ export default (props) => (
       recipes.map(recipe => {
           return (
             <Col key={recipe.id} xs={12} sm={6} md={4}>
-              <h2>{recipe.name}</h2>
-              <Image src={recipe.image}/>
+              <Link to={'/recipes/' + recipe.id}>
+                <h2>{recipe.name}</h2>
+                <Image src={recipe.image}/>
+              </Link>
             </Col>
           )
         }
       )
     }
+    {props.children}
   </div>
 )
