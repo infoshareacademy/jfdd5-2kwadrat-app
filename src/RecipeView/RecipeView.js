@@ -20,9 +20,9 @@ export default (props) => {
             {
               recipeWithId.ingredients.map(
                 ingredient =>
-                  <li>
+                  <li key={ingredient.id}>
                     {ingredient.id} {ingredient.ingredientAmount} {ingredient.unitMeasure}
-                    <p>{ingredients.find( item => item.id === ingredient.id ).name}</p>
+                    <p key={ingredient.id}>{ingredients.find( item => item.id === ingredient.id ).name}</p>
                   </li>
               )
             }
