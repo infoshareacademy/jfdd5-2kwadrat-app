@@ -6,7 +6,7 @@ import {Image, Col} from 'react-bootstrap'
 
 export default (props) => {
   const ingredientsWithId = ingredients.find(
-      ingredients => ingredients.id === parseInt(props.params.ingredientsId, 10)
+      ingredient => ingredient.id === parseInt(props.params.ingredientId, 10)
   )
   return (
       <div>
@@ -18,17 +18,17 @@ export default (props) => {
               <Image src={ingredientsWithId.img}/>
               <div>
                 <h3> SKLEPY: </h3>
-                <ul>
-                  {
-                    shops.ingriedients.map(     //nazwe skladnika trzeba poprawic
-                        ingriedients =>
-                            <li key={ingriedients.id}>
-                              {ingriedients.ingriedientId}
-                              <p key={shops.id}>{shops.ingriedients.find( item => item.ingriedientId === ingriedients.ingriedientId ).name}</p>
-                            </li>
-                    )
-                  }
-                </ul>
+                {/*<ul>*/}
+                  {/*{*/}
+                    {/*shops.ingriedients.map(     //nazwe skladnika trzeba poprawic*/}
+                        {/*ingriedients =>*/}
+                            {/*<li key={ingriedients.id}>*/}
+                              {/*{ingriedients.ingriedientId}*/}
+                              {/*<p key={shops.id}>{shops.ingriedients.find( item => item.ingriedientId === ingriedients.ingriedientId ).name}</p>*/}
+                            {/*</li>*/}
+                    {/*)*/}
+                  {/*}*/}
+                {/*</ul>*/}
               </div>
             </Col>
             {props.children}
