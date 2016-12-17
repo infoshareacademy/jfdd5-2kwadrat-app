@@ -24,7 +24,7 @@ export default (props) => {
                         ingriedients =>
                             <li key={ingriedients.id}>
                               {ingriedients.ingriedientId}
-                              <p key={shops.id}>{shops.ingriedients.find( ingriedients => ingriedients.ingriedientId === ingriedients.ingriedientId ).ingriedientId}</p>
+                              <p key={shops.id}>{shops.ingriedients.find( item => item.ingriedientId === ingriedients.ingriedientId ).name}</p>
                             </li>
                     )
                   }
@@ -39,4 +39,3 @@ export default (props) => {
       </div>
   )
 }
-
