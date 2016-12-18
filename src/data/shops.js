@@ -16,7 +16,7 @@ export default [
             {
                 ingriedientId: 3,
                 ingriedientPrice: 3.04
-            },
+            }
         ]
     },
     {
@@ -108,7 +108,51 @@ export default [
             {
                 ingriedientId: 6,
                 ingriedientPrice: 3.04
+            }
+        ]
+    },
+    {
+        id: 5,
+        name: 'polo-market',
+        location: 'GPS-5',
+        logo: 'http://rabatuj.pl/r/i/r/images/polomarket_logo.png',
+        ingriedients: [
+            {
+                ingriedientId: 9,
+                ingriedientPrice: 2.04
             },
+            {
+                ingriedientId: 10,
+                ingriedientPrice: 4.84
+            },
+            {
+                ingriedientId: 11,
+                ingriedientPrice: 3.04
+            },
+            {
+                ingriedientId: 12,
+                ingriedientPrice: 2.04
+            },
+            {
+                ingriedientId: 13,
+                ingriedientPrice: 4.84
+            },
+            {
+                ingriedientId: 14,
+                ingriedientPrice: 3.04
+            },
+            {
+                ingriedientId: 15,
+                ingriedientPrice: 2.04
+            },
+            {
+                ingriedientId: 16,
+                ingriedientPrice: 4.84
+            },
+            {
+                ingriedientId: 17,
+                ingriedientPrice: 3.04
+            }
         ]
     }
 ]

@@ -117,40 +117,6 @@ export default [
     unitOfMeasure: 'pcs.',
     amount: 0,
     img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
-  },
-  {
-    id: 18,
-    name: 'marchewka18',
-    unitOfMeasure: 'pcs.',
-    amount: 0,
-    img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
-  },
-  {
-    id: 19,
-    name: 'marchewka19',
-    unitOfMeasure: 'pcs.',
-    amount: 0,
-    img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
-  },
-  {
-    id: 20,
-    name: 'marchewka20',
-    unitOfMeasure: 'pcs.',
-    amount: 0,
-    img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
-  },
-  {
-    id: 21,
-    name: 'marchewka21',
-    unitOfMeasure: 'pcs.',
-    amount: 0,
-    img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
-  },
-  {
-    id: 22,
-    name: 'marchewka22',
-    unitOfMeasure: 'pcs.',
-    amount: 0,
-    img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
-  },
+  }
+
 ]
