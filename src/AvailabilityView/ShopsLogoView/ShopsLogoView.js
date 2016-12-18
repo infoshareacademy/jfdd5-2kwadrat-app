@@ -26,7 +26,6 @@ const ShopsLogoView = React.createClass({
     close() {
         this.setState({
             showModal: false,
-
         })
     },
 
@@ -67,10 +66,10 @@ const ShopsLogoView = React.createClass({
                                             <ul key={shop.id}>
                                                 {
                                                     this.state.shop.ingredients.map(
-                                                        shopIngre =>
+                                                        shopIngredients =>
                                                             ingredients.find(
-                                                                ingre =>
-                                                                ingre.id === shopIngre.ingredientId
+                                                                ingredient =>
+                                                                ingredient.id === shopIngredients.ingredientId
                                                             )
                                                     ).map(
                                                         item =>
@@ -82,7 +81,6 @@ const ShopsLogoView = React.createClass({
                                                     )
                                                 }
                                             </ul>
-
                                         </Modal.Body>
                                         <Modal.Footer>
                                             <Button onClick={this.close}>Close</Button>
@@ -92,7 +90,6 @@ const ShopsLogoView = React.createClass({
                         }
                     )
                 }
-
             </div>
         )
     }
