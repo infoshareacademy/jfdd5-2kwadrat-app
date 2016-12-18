@@ -1,6 +1,6 @@
 import React from 'react'
 import {ingredients} from '../data'
-import {shops} from '../data'
+import { shops } from '../data'
 import {Image, Col} from 'react-bootstrap'
 
 
@@ -19,14 +19,25 @@ export default (props) => {
               <div>
                 <h3> SKLEPY: </h3>
 
-                <ul key={ingredientsWithId.id}>
-                  {
-
-                    shops.find(
-                        arrayOfIngredients => arrayOfIngredients.ingriedients.map(
-                        item => item.ingriedientId === ingredientsWithId.id).ingriedientId // :(
+                <ul>
+                    {
+                      shops.filter(
+                        shop => shop.ingriedients.indexOf(ingredientsWithId.id) !== -1
+                    ).map(
+                        shop =>
+                            <li key={shop.id}>
+                              {shop.name}
+                            </li>
                     )
                   }
+
+                  {/*{*/}
+
+                    {/*shops.find(*/}
+                        {/*arrayOfIngredients => arrayOfIngredients.ingriedients.map(*/}
+                        {/*item => item.ingriedientId === ingredientsWithId.id).ingriedientId // :(*/}
+                    {/*)*/}
+                  {/*}*/}
                 </ul>
               </div>
             </Col>
