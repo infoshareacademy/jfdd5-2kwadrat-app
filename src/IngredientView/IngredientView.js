@@ -6,7 +6,7 @@ import {Image, Col} from 'react-bootstrap'
 
 export default (props) => {
   const ingredientsWithId = ingredients.find(
-      ingredient => ingredient.id === parseInt(props.params.ingriedientId, 10)
+      ingredient => ingredient.id === parseInt(props.params.ingredientId, 10)
   )
 
   return (
@@ -23,8 +23,8 @@ export default (props) => {
                   {
 
                     shops.find(
-                        arrayOfIngredients => arrayOfIngredients.ingriedients.map(
-                        item => item.ingriedientId === ingredientsWithId.id).ingriedientId // :(
+                        arrayOfIngredients => arrayOfIngredients.ingredients.map(
+                        item => item.ingredientId === ingredientsWithId.id).ingredientId // :(
                     )
                   }
                 </ul>
