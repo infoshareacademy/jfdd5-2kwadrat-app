@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux'
-import { reducer as shopReducer } from './AvailabilityView/ShopsLogoView'
+import { reducer as shopsReducer } from './AvailabilityView/ShopsLogoView'
 
 const reducer = combineReducers({
-   shopData : shopReducer
+   shopsData : shopsReducer
 })
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

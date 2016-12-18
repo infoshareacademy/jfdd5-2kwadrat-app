@@ -2,10 +2,15 @@ import React from 'react'
 import {Image, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {Modal, Button} from 'react-bootstrap'
+import { connect } from 'react-redux'
 
-import {shops, ingredients} from '../../data'
+import {ingredients} from '../../data'
 
-export default  React.createClass({
+const mapStateToProps = state =>({
+    shops: state.shopsData.shops
+})
+
+ const ShopsLogoView =  React.createClass ({
 
     getInitialState() {
         return {
@@ -37,7 +42,7 @@ export default  React.createClass({
             <div>
                 <p>Shop</p>
                 {
-                    shops.map(
+                    this.props.shops.map(
                         shop => {
                             return (
                                 <Col key={shop.name} xs={12} sm={6} md={4}>
@@ -89,3 +94,5 @@ export default  React.createClass({
         )
     }
 })
+
+export default connect(mapStateToProps)(ShopsLogoView)
