@@ -19,7 +19,7 @@ export default (props) => {
               <div>
                 <h3> SKLEPY: </h3>
 
-                <ul>
+                <ul key={ingredientsWithId.id}>
                   {
 
                     shops.find(
