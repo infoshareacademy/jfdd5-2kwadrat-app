@@ -69,7 +69,7 @@ const ShopsLogoView = React.createClass({
                                                         shopIngredients =>
                                                             ingredients.find(
                                                                 ingredient =>
-                                                                ingredient.id === shopIngredients.ingredientId
+                                                                ingredient.id === shopIngredients.id
                                                             )
                                                     ).map(
                                                         item =>
