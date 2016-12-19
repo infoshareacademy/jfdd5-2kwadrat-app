@@ -3,25 +3,39 @@ import './styles.css'
 import {ingredients} from '../data'
 
 import {Image, Col, Row} from 'react-bootstrap'
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => ({
+  selectedIngredients: state.ingredientsReducer
+})
+
+const mapDispatchToProps = dispatch => ({
+  addIngredient: (ingredient) => dispatch({
+    type : 'ADD_SELECTED_INGREDIENT',
+    ingredient: ingredient
+
+  }),
+  removeIngredient :(ingredient) => dispatch({
+    type : 'REMOVE_SELECTED_INGREDIENT',
+    ingredientId: ingredient
+
+  })
+})
 
 
-export default class FridgeView extends React.Component {
+ class FridgeView extends React.Component {
   constructor() {
     super()
 
     this.handleSubmit = (event) => {
       event.preventDefault()
-      localStorage.setItem('my-app-state', JSON.stringify(this.state))
     }
 
-    const data = localStorage.getItem('my-app-state')
-    if (data) {
-      this.state = JSON.parse(data)
-    } else {
+
       this.state = {
         ingredients: []
       }
-    }
+
   }
 
   render() {
@@ -50,13 +64,19 @@ export default class FridgeView extends React.Component {
                                       name: ingredient.name,
                                       id: ingredient.id
                                     })
-                                })
+                                },
+                                  () => this.props.addIngredient(ingredient)
+                                  )
+
+
                             } else {
                               this.setState(
                                 {
                                   ingredients: this.state.ingredients.filter(
                                     item => item.id !== ingredient.id)
-                                }
+                                },
+                                  () => this.props.removeIngredient(ingredient.id)
+
                               )
                             }
                           }
@@ -89,3 +109,4 @@ export default class FridgeView extends React.Component {
     )
   }
 }
+export default connect(mapStateToProps,mapDispatchToProps)(FridgeView)
