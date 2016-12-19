@@ -2,6 +2,7 @@ import React from 'react'
 import {Image, Col} from 'react-bootstrap'
 import { recipes } from '../data'
 import {ingredients} from '../data'
+import {Link} from 'react-router'
 
 
 export default (props) => {
@@ -22,13 +23,16 @@ export default (props) => {
                 ingredient =>
                   <li key={ingredient.id}>
                     {ingredient.id} {ingredient.ingredientAmount} {ingredient.unitMeasure}
-                    <p key={ingredient.id}>{ingredients.find( item => item.id === ingredient.id ).name}</p>
+                    <Link to={'/ingredient/' + ingredient.id}>
+                      <p key={ingredient.id}>{ingredients.find( item => item.id === ingredient.id ).name}</p>
+                    </Link>
                   </li>
               )
             }
           </ul>
         </div>
       </Col>
+      {props.children}
     </div>
   )
 }
