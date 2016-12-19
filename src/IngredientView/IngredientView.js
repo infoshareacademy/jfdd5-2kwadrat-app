@@ -21,34 +21,17 @@ export default (props) => {
 
 <<<<<<< HEAD
                 <ul>
-                    {
-                      shops.filter(
-                        shop => shop.ingriedients.indexOf(ingredientsWithId.id) !== -1
-                    ).map(
-                        shop =>
-                            <li key={shop.id}>
-                              {shop.name}
-                            </li>
-                    )
-                  }
-
-                  {/*{*/}
-
-                    {/*shops.find(*/}
-                        {/*arrayOfIngredients => arrayOfIngredients.ingriedients.map(*/}
-                        {/*item => item.ingriedientId === ingredientsWithId.id).ingriedientId // :(*/}
-                    {/*)*/}
-                  {/*}*/}
-=======
-                <ul key={ingredientsWithId.id}>
                   {
-
-                    shops.find(
-                        arrayOfIngredients => arrayOfIngredients.ingredients.map(
-                        item => item.ingredientId === ingredientsWithId.id).ingredientId // :(
+                    shops.filter(
+                      shop => shop.ingredients.find(ingredient => ingredient.id === ingredientsWithId.id)
+                    ).map(
+                      shop =>
+                        <li key={shop.id}>
+                          {shop.name}
+                        </li>
                     )
                   }
->>>>>>> develop
+
                 </ul>
               </div>
             </Col>
