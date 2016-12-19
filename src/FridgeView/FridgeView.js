@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.css'
 import {ingredients} from '../data'
+import { FilteredRecpiesView } from './FridgeView'
 
 import {Image, Col, Row} from 'react-bootstrap'
 import { connect } from 'react-redux'
@@ -65,7 +66,7 @@ const mapDispatchToProps = dispatch => ({
                                       id: ingredient.id
                                     })
                                 },
-                                  () => this.props.addIngredient(ingredient)
+                                  () => this.props.addIngredient(ingredient.id)
                                   )
 
 
@@ -108,5 +109,6 @@ const mapDispatchToProps = dispatch => ({
       </div>
     )
   }
+
 }
 export default connect(mapStateToProps,mapDispatchToProps)(FridgeView)
