@@ -4,19 +4,19 @@ export default [
         name: 'biedronka',
         location: 'GPS-1',
         logo: 'http://www.jeronimomartins.pt/media/330161/logo_biedronka.jpg',
-        ingriedients: [
+        ingredients: [
             {
-                ingriedientId: 1,
-                ingriedientPrice: 2.04
+                ingredientId: 1,
+                ingredientPrice: 2.04
             },
             {
-                ingriedientId: 2,
-                ingriedientPrice: 4.84
+                ingredientId: 2,
+                ingredientPrice: 4.84
             },
             {
-                ingriedientId: 3,
-                ingriedientPrice: 3.04
-            },
+                ingredientId: 3,
+                ingredientPrice: 3.04
+            }
         ]
     },
     {
@@ -24,14 +24,14 @@ export default [
         name: 'lidl',
         location: 'GPS-2',
         logo: 'http://www.kreno-consulting.fr/wp-content/uploads/2014/03/Logo_LIDL.png',
-        ingriedients: [
+        ingredients: [
             {
-                ingriedientId: 4,
-                ingriedientPrice: 10.50
+                ingredientId: 4,
+                ingredientPrice: 10.50
             },
             {
-                ingriedientId: 1,
-                ingriedientPrice: 2.15
+                ingredientId: 1,
+                ingredientPrice: 2.15
             }
         ]
     },
@@ -40,22 +40,22 @@ export default [
         name: 'tesco',
         location: 'GPS-3',
         logo: 'http://logok.org/wp-content/uploads/2014/12/Tesco-Logo-880x654.png',
-        ingriedients: [
+        ingredients: [
             {
-                ingriedientId: 6,
-                ingriedientPrice: 7.89
+                ingredientId: 6,
+                ingredientPrice: 7.89
             },
             {
-                ingriedientId: 7,
-                ingriedientPrice: 2.24
+                ingredientId: 7,
+                ingredientPrice: 2.24
             },
             {
-                ingriedientId: 8,
-                ingriedientPrice: 5.54
+                ingredientId: 8,
+                ingredientPrice: 5.54
             },
             {
-                ingriedientId: 4,
-                ingriedientPrice: 3.34
+                ingredientId: 4,
+                ingredientPrice: 3.34
             }
         ]
     },
@@ -64,30 +64,30 @@ export default [
         name: 'stokrotka',
         location: 'GPS-4',
         logo: 'http://www.fresh-market.pl/files/570854499/stokrotka1.png',
-        ingriedients: [
+        ingredients: [
             {
-                ingriedientId: 1,
-                ingriedientPrice: 2.04
+                ingredientId: 1,
+                ingredientPrice: 2.04
             },
             {
-                ingriedientId: 5,
-                ingriedientPrice: 4.84
+                ingredientId: 5,
+                ingredientPrice: 4.84
             },
             {
-                ingriedientId: 1,
-                ingriedientPrice: 3.04
+                ingredientId: 1,
+                ingredientPrice: 3.04
             },
             {
-                ingriedientId: 2,
-                ingriedientPrice: 2.04
+                ingredientId: 2,
+                ingredientPrice: 2.04
             },
             {
-                ingriedientId: 3,
-                ingriedientPrice: 4.84
+                ingredientId: 3,
+                ingredientPrice: 4.84
             },
             {
-                ingriedientId: 5,
-                ingriedientPrice: 3.04
+                ingredientId: 5,
+                ingredientPrice: 3.04
             }
         ]
     },
@@ -96,19 +96,87 @@ export default [
         name: 'polo-market',
         location: 'GPS-5',
         logo: 'http://rabatuj.pl/r/i/r/images/polomarket_logo.png',
-        ingriedients: [
+        ingredients: [
             {
-                ingriedientId: 1,
-                ingriedientPrice: 2.04
+                ingredientId: 1,
+                ingredientPrice: 2.04
             },
             {
-                ingriedientId: 4,
-                ingriedientPrice: 4.84
+                ingredientId: 4,
+                ingredientPrice: 4.84
             },
             {
-                ingriedientId: 6,
-                ingriedientPrice: 3.04
+                ingredientId: 6,
+                ingredientPrice: 3.04
+            }
+        ]
+    },
+    {
+        id: 6,
+        name: 'malinka',
+        location: 'GPS-5',
+        logo: 'http://malinkamarket.pl/Galeria/131008184219Malinka%20logo.jpg',
+        ingredients: [
+            {
+                ingredientId: 9,
+                ingredientPrice: 2.04
             },
+            {
+                ingredientId: 10,
+                ingredientPrice: 4.84
+            },
+            {
+                ingredientId: 11,
+                ingredientPrice: 3.04
+            },
+            {
+                ingredientId: 12,
+                ingredientPrice: 2.04
+            },
+            {
+                ingredientId: 13,
+                ingredientPrice: 4.84
+            },
+            {
+                ingredientId: 14,
+                ingredientPrice: 3.04
+            },
+            {
+                ingredientId: 15,
+                ingredientPrice: 2.04
+            },
+            {
+                ingredientId: 16,
+                ingredientPrice: 4.84
+            },
+            {
+                ingredientId: 17,
+                ingredientPrice: 3.04
+            },
+            {
+                ingredientId: 18,
+                ingredientPrice: 3.04
+            },
+            {
+                ingredientId: 19,
+                ingredientPrice: 3.04
+            },
+            {
+                ingredientId: 20,
+                ingredientPrice: 3.04
+            },
+            {
+                ingredientId: 21,
+                ingredientPrice: 3.04
+            },
+            {
+                ingredientId: 22,
+                ingredientPrice: 3.04
+            },
+            {
+                ingredientId: 23,
+                ingredientPrice: 3.04
+            }
         ]
     }
 ]

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Image, Col} from 'react-bootstrap'
-import {recipes} from '../data'
+import { recipes } from '../data'
 import {ingredients} from '../data'
 import {Link} from 'react-router'
 

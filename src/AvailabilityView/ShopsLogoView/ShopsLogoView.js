@@ -2,16 +2,22 @@ import React from 'react'
 import {Image, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {Modal, Button} from 'react-bootstrap'
+import {connect} from 'react-redux'
 
-import {shops, ingredients} from '../../data'
+import {ingredients} from '../../data'
+import './ShopLogoView.css'
 
-export default  React.createClass({
+const mapStateToProps = state => ({
+    shops: state.shopsData.shops
+})
+
+const ShopsLogoView = React.createClass({
 
     getInitialState() {
         return {
             showModal: false,
             shop: {
-                ingriedients: []
+                ingredients: []
             },
 
         }
@@ -20,7 +26,6 @@ export default  React.createClass({
     close() {
         this.setState({
             showModal: false,
-
         })
     },
 
@@ -35,12 +40,12 @@ export default  React.createClass({
     render() {
         return (
             <div>
-                <p>Shop</p>
+                <h1>Shops: </h1>
                 {
-                    shops.map(
+                    this.props.shops.map(
                         shop => {
                             return (
-                                <Col key={shop.name} xs={12} sm={6} md={4}>
+                                <Col key={shop.id} xs={12} sm={6} md={4} className='shop-container'>
                                     <Link key={shop.name}
                                           onClick={() => this.open(shop)
                                           }
@@ -48,8 +53,6 @@ export default  React.createClass({
                                              height="100px"
                                              width="auto" rounded
                                     />
-                                        {shop.name}
-
                                     </Link>
                                     < Modal show={this.state.showModal} onHide={this.close}>
                                         <Modal.Header closeButton>
@@ -60,21 +63,24 @@ export default  React.createClass({
                                                    height="100px"
                                                    width="auto" rounded
                                             />
-                                            <ul>
+                                            <ul key={shop.id}>
                                                 {
-                                                    this.state.shop.ingriedients.map(
-                                                        shopIngre =>
+                                                    this.state.shop.ingredients.map(
+                                                        shopIngredients =>
                                                             ingredients.find(
-                                                                ingre =>
-                                                                ingre.id === shopIngre.ingriedientId
+                                                                ingredient =>
+                                                                ingredient.id === shopIngredients.ingredientId
                                                             )
                                                     ).map(
                                                         item =>
-                                                            <li key={item.id}>{item.name}</li>
+                                                            <li key={item.id}>{item.name}
+                                                                <Image src={item.img}
+                                                                       height="40px"
+                                                                       width="auto" rounded
+                                                                /></li>
                                                     )
                                                 }
                                             </ul>
-
                                         </Modal.Body>
                                         <Modal.Footer>
                                             <Button onClick={this.close}>Close</Button>
@@ -84,8 +90,9 @@ export default  React.createClass({
                         }
                     )
                 }
-
             </div>
         )
     }
 })
+
+export default connect(mapStateToProps)(ShopsLogoView)

@@ -19,6 +19,7 @@ export default (props) => {
               <div>
                 <h3> SKLEPY: </h3>
 
+<<<<<<< HEAD
                 <ul>
                     {
                       shops.filter(
@@ -38,6 +39,16 @@ export default (props) => {
                         {/*item => item.ingriedientId === ingredientsWithId.id).ingriedientId // :(*/}
                     {/*)*/}
                   {/*}*/}
+=======
+                <ul key={ingredientsWithId.id}>
+                  {
+
+                    shops.find(
+                        arrayOfIngredients => arrayOfIngredients.ingredients.map(
+                        item => item.ingredientId === ingredientsWithId.id).ingredientId // :(
+                    )
+                  }
+>>>>>>> develop
                 </ul>
               </div>
             </Col>
@@ -48,90 +59,4 @@ export default (props) => {
 
       </div>
   )
-}
-//
-// <ul>
-//   {
-//     shopWithId.ingriedients.map(
-//         shopIngre =>
-//             ingredients.find(
-//                 ingre =>
-//                 ingre.id === shopIngre.ingriedientId
-//             )
-//     ).map(
-//         item =>
-//             <li key={item.id}>{item.name}</li>
-//     )
-//   }
-//
-// </ul>
-//
-// <ul>
-// {
-//   ingredientsWithId.ingriedients.map(     //nazwe skladnika trzeba poprawic
-//     ingriedients =>
-//
-//           ingriedients.find (
-//               ingr =>
-//               ingr.id === ingriedients.ingriedientId
-//           )
-//             ).map(
-//                 item =>
-//                     <li key={item.id}>{item.name}</li>
-//
-//
-// )
-// }
-// </ul>
-
-{/*{*/
-}
-{/*ingredientsWithId.map(     //nazwe skladnika trzeba poprawic*/
-}
-{/*ingriedients =>*/
-}
-
-{/*ingriedients.find (*/
-}
-{/*ingr =>*/
-}
-{/*ingr.id === ingriedients.ingriedientId*/
-}
-{/*)*/
-}
-{/*).map(*/
-}
-{/*item =>*/
-}
-{/*<li key={item.id}>{item.name}</li>*/
-}
-
-
-{/*)*/
-}
-{/*}*/
-}
-
-
-{/*<ul>*/
-}
-{/*{*/
-}
-{/*ingredientsWithId.ingriedients.map(     //nazwe skladnika trzeba poprawic*/
-}
-{/*ingriedients =>*/
-}
-{/*<li key={ingriedients.ingriedientId}>*/
-}
-{/*{ingriedients.ingriedientId}*/
-}
-{/*<p key={shops.id}>{shops.ingriedients.find( item => item.ingriedientId === ingriedients.ingriedientId ).name}</p>*/
-}
-{/*</li>*/
-}
-{/*)*/
-}
-{/*}*/
-}
-{/*</ul>*/
 }
