@@ -1,12 +1,12 @@
 import React from 'react'
 import {ingredients} from '../data'
-import { shops } from '../data'
+import {shops} from '../data'
 import {Image, Col} from 'react-bootstrap'
 
 
 export default (props) => {
   const ingredientsWithId = ingredients.find(
-      ingredient => ingredient.id === parseInt(props.params.ingredientId, 10)
+    ingredient => ingredient.id === parseInt(props.params.ingredientId, 10)
   )
 
   return (
