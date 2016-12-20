@@ -20,6 +20,10 @@ return (
       <LinkContainer to="/shops">
         <NavItem eventKey={2} href="#">Shops</NavItem>
       </LinkContainer>
+
+        <LinkContainer to="/filtered-recipes">
+            <NavItem eventKey={3} href="#">Recipes for you</NavItem>
+        </LinkContainer>
     </Nav>
   </Navbar>
 )
