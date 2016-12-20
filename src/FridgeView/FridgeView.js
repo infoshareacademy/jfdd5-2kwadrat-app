@@ -7,7 +7,7 @@ import {Image, Col, Row} from 'react-bootstrap'
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => ({
-  selectedIngredients: state.ingredientsReducer
+  ingredient: state.selectedIngredients
 })
 
 const mapDispatchToProps = dispatch => ({
