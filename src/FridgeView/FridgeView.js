@@ -1,30 +1,30 @@
 import React from 'react'
 import './styles.css'
 import {ingredients} from '../data'
-import { FilteredRecpiesView } from './FridgeView'
+import {FilteredRecpiesView} from './FridgeView'
 
 import {Image, Col, Row} from 'react-bootstrap'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 const mapStateToProps = state => ({
-  selectedIngredients: state.ingredientsReducer
+  selectedIngredients: state.selectedIngredients.selectedIngredients
 })
 
 const mapDispatchToProps = dispatch => ({
   addIngredient: (ingredient) => dispatch({
-    type : 'ADD_SELECTED_INGREDIENT',
+    type: 'ADD_SELECTED_INGREDIENT',
     ingredient: ingredient
 
   }),
-  removeIngredient :(ingredient) => dispatch({
-    type : 'REMOVE_SELECTED_INGREDIENT',
+  removeIngredient: (ingredient) => dispatch({
+    type: 'REMOVE_SELECTED_INGREDIENT',
     ingredientId: ingredient
 
   })
 })
 
 
- class FridgeView extends React.Component {
+class FridgeView extends React.Component {
   constructor() {
     super()
 
@@ -33,9 +33,9 @@ const mapDispatchToProps = dispatch => ({
     }
 
 
-      this.state = {
-        ingredients: []
-      }
+    this.state = {
+      ingredients: []
+    }
 
   }
 
@@ -45,7 +45,12 @@ const mapDispatchToProps = dispatch => ({
         <form onSubmit={this.handleSubmit}>
           <Row>
             <h1>FridgeView</h1>
-            {ingredients.map(
+            <Row>
+              <input onChange={(event) => this.setState({search: event.target.value})}/>
+            </Row>
+            {ingredients.filter(
+              ingredient => ingredient.name.includes(this.state.search)
+            ).slice(0, 3).map(
               ingredient => {
                 return (
                   <Col key={ingredient.id} xs={12} sm={6} md={4} lg={3}>
@@ -54,6 +59,7 @@ const mapDispatchToProps = dispatch => ({
                       {ingredient.name}
                       <input
                         key={ingredient.id}
+                        value={this.props.selectedIngredients.indexOf(ingredient.id) !== -1 ? 'on' : 'off'}
                         type="checkbox"
                         onChange={
                           event => {
@@ -63,21 +69,20 @@ const mapDispatchToProps = dispatch => ({
                                   ingredients: this.state.ingredients.concat(
                                     {
                                       name: ingredient.name,
-                                      id: ingredient.id
+                                      id: ingredient.id,
+                                      img: ingredient.img
                                     })
                                 },
-                                  () => this.props.addIngredient(ingredient.id)
-                                  )
-
-
+                                () => this.props.addIngredient(ingredient.id)
+                              )
                             } else {
                               this.setState(
                                 {
                                   ingredients: this.state.ingredients.filter(
-                                    item => item.id !== ingredient.id)
+                                    item => item.id !== ingredient.id
+                                  )
                                 },
-                                  () => this.props.removeIngredient(ingredient.id)
-
+                                () => this.props.removeIngredient(ingredient.id)
                               )
                             }
                           }
@@ -97,18 +102,39 @@ const mapDispatchToProps = dispatch => ({
 
         <Row>
           <h2>Chosen ingredients</h2>
-          <ul>
-            {
-              this.state.ingredients.map(
-                ingredient =>
-                  <li key={ingredient.id}>{ingredient.name}</li>
-              )
-            }
-          </ul>
+          {
+            this.state.ingredients.map(
+              ingredient =>
+                <Col key={ingredient.id} xs={12} sm={6} md={4} lg={3}>
+                  <div className="ingredientFieldContent">
+                    <Image src={ingredient.img} height="50px"/>
+                    {ingredient.name}
+                    <input
+                      key={ingredient.id}
+                      type="checkbox"
+                      checked={this.props.selectedIngredients.indexOf(ingredient.id) !== -1 ? 'on' : 'off'}
+                      onChange={
+                        event => {
+                          if (event.target.checked === false) {
+                            this.setState(
+                              {
+                                ingredients: this.state.ingredients.filter(
+                                  item => item.id !== ingredient.id)
+                              },
+                              () => this.props.removeIngredient(ingredient.id)
+                            )
+                          }
+                        }
+                      }
+                    />
+                  </div>
+                </Col>
+            )
+          }
         </Row>
       </div>
     )
   }
 
 }
-export default connect(mapStateToProps,mapDispatchToProps)(FridgeView)
+export default connect(mapStateToProps, mapDispatchToProps)(FridgeView)
