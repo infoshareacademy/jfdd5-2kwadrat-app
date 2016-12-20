@@ -66,7 +66,7 @@ const mapDispatchToProps = dispatch => ({
                                       id: ingredient.id
                                     })
                                 },
-                                  () => this.props.addIngredient(ingredient.id)
+                                  () => this.props.addIngredient(ingredient)
                                   )
 
 
