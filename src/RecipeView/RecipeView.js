@@ -3,12 +3,23 @@ import {Image, Col} from 'react-bootstrap'
 import { recipes } from '../data'
 import {ingredients} from '../data'
 import {Link} from 'react-router'
+import { connect } from 'react-redux'
+const mapStateToProps = state => ({
+  selectedIngredients: state.selectedIngredients.selectedIngredients
+})
 
 
-export default (props) => {
+export default connect(mapStateToProps)( (props) => {
   const recipeWithId = recipes.find(
     recipe => recipe.id === parseInt(props.params.recipeId, 10)
+
   )
+  const arrayOfSelectedIngredientsID =
+      props.selectedIngredients.map(
+          selected =>
+              selected.id
+      )
+
   return (
     <div key={recipeWithId.id}>
       <Col xs={12}>
@@ -23,9 +34,19 @@ export default (props) => {
                 ingredient =>
                   <li key={ingredient.id}>
                     {ingredient.id} {ingredient.ingredientAmount} {ingredient.unitMeasure}
-                    <Link to={'/ingredient/' + ingredient.id}>
-                      <p key={ingredient.id}>{ingredients.find( item => item.id === ingredient.id ).name}</p>
-                    </Link>
+                    <p>
+                      <Link to={'/ingredient/' + ingredient.id}>
+                        {ingredients.find( item => item.id === ingredient.id ).name}
+                      </Link>
+                    </p>
+
+                    <p key={ingredient.id}>
+                      {
+
+                            arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ? <p>jest</p> : <p>llllll</p>
+
+                      }
+                    </p>
                   </li>
               )
             }
@@ -35,4 +56,4 @@ export default (props) => {
       {props.children}
     </div>
   )
-}
+})
