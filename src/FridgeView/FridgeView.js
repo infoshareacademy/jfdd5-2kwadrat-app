@@ -73,7 +73,7 @@ class FridgeView extends React.Component {
                                       img: ingredient.img
                                     })
                                 },
-                                () => this.props.addIngredient(ingredient.id)
+                                () => this.props.addIngredient(ingredient)
                               )
                             } else {
                               this.setState(
