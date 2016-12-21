@@ -49,7 +49,7 @@ class FridgeView extends React.Component {
               <input onChange={(event) => this.setState({search: event.target.value})}/>
             </Row>
             {ingredients.filter(
-              ingredient => ingredient.name.includes(this.state.search)
+              ingredient => this.state.search === '' ? false : ingredient.name.includes(this.state.search)
             ).slice(0, 3).map(
               ingredient => {
                 return (
