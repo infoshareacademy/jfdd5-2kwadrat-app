@@ -28,68 +28,38 @@ const FilteredRecipes = (props) => {
                 selected.id
         )
 
-    recipes.map(
+    const newRecipesArray = recipes.map(
         recipe => (
         {
             ...recipe,
-            arrayOfIngredients: recipe.ingredients.map(
+            numberOfFittedIngredients: parseInt(recipe.ingredients.map(
                 ingredient =>
                     arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ? 1 : 0
-            )
+            ).reduce((prev, next)=>
+                prev + next
+                , 0))
         }
         )
     )
     return (
         <div>
             <h1>DUPA</h1>
-
-            {
-                recipes.filter(
-                    recipe =>
-                        recipe.ingredients.every(
-                            ingredient =>
-                                props.selectedIngredients.find(
-                                    selected =>
-                                    selected.id === ingredient.id
-                                )
-                        )
-                ).map(
-                    recipe =>
-                        <Col key={recipe.id} xs={12} sm={6} md={4}>
-                            <h1>
-                                MAM WSZYSTKIE SKLADNIKI
-                            </h1>
-                            <Link to={'/recipes/' + recipe.id}>
-                                <h2>{recipe.name}</h2>
-                                <Image src={recipe.image}/>
-                            </Link>
-                        </Col>
-                )}
-
-            {
-                recipes.filter(
-                    recipe =>
-                        recipe.ingredients.find(
-                            ingredient =>
-                                props.selectedIngredients.find(
-                                    selected =>
-                                    selected.id === ingredient.id
-                                )
-                        )
-                ).map(
-                    recipe =>
-                        <Col key={recipe.id} xs={12} sm={6} md={4}>
-                            <h1>Mam kikla</h1>
-                            <Link to={'/recipes/' + recipe.id}>
-                                <h2>{recipe.name}</h2>
-                                <Image src={recipe.image}/>
-                            </Link>
-                        </Col>
-                )
-
-
-            }
-
+            {/*{*/}
+                {/*newRecipesArray.map(*/}
+                    {/*recipe => {*/}
+                        {/*return*/}
+                        {/*switch (recipe.numberOfFittedIngredients) {*/}
+                            {/*case 1:*/}
+                                {/*return {}*/}
+                            {/*case 2:*/}
+                                {/*return {}*/}
+                            {/*case 3:*/}
+                                {/*return {}*/}
+                            {/*default:*/}
+                                {/*return state*/}
+                        {/*}*/}
+                    {/*})*/}
+            {/*}*/}
         </div>
     )
 }
