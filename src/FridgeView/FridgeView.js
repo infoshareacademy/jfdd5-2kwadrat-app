@@ -94,10 +94,6 @@ class FridgeView extends React.Component {
               }
             )}
           </Row>
-
-          <Row>
-            <button type="submit">Wyszukaj przepisy</button>
-          </Row>
         </form>
 
         <Row>
@@ -131,6 +127,10 @@ class FridgeView extends React.Component {
                 </Col>
             )
           }
+        </Row>
+
+        <Row>
+          <button type="submit">Wyszukaj przepisy</button>
         </Row>
       </div>
     )
