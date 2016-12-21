@@ -49,7 +49,7 @@ class FridgeView extends React.Component {
               <input onChange={(event) => this.setState({search: event.target.value})}/>
             </Row>
             {ingredients.filter(
-              ingredient => ingredient.name.includes(this.state.search)
+              ingredient => this.state.search === '' ? false : ingredient.name.includes(this.state.search)
             ).slice(0, 3).map(
               ingredient => {
                 return (
@@ -59,8 +59,8 @@ class FridgeView extends React.Component {
                       {ingredient.name}
                       <input
                         key={ingredient.id}
-                        value={this.props.selectedIngredients.indexOf(ingredient.id) !== -1 ? 'on' : 'off'}
                         type="checkbox"
+                        checked={this.props.selectedIngredients.find(item => item.id === ingredient.id) !== undefined}
                         onChange={
                           event => {
                             if (event.target.checked === true) {
@@ -94,10 +94,6 @@ class FridgeView extends React.Component {
               }
             )}
           </Row>
-
-          <Row>
-            <button type="submit">Wyszukaj przepisy</button>
-          </Row>
         </form>
 
         <Row>
@@ -112,14 +108,15 @@ class FridgeView extends React.Component {
                     <input
                       key={ingredient.id}
                       type="checkbox"
-                      checked={this.props.selectedIngredients.indexOf(ingredient.id) !== -1 ? 'on' : 'off'}
+                      checked= 'true'
                       onChange={
                         event => {
                           if (event.target.checked === false) {
                             this.setState(
                               {
                                 ingredients: this.state.ingredients.filter(
-                                  item => item.id !== ingredient.id)
+                                  item => item.id !== ingredient.id
+                                )
                               },
                               () => this.props.removeIngredient(ingredient.id)
                             )
@@ -131,6 +128,10 @@ class FridgeView extends React.Component {
                 </Col>
             )
           }
+        </Row>
+
+        <Row>
+          <button type="submit">Wyszukaj przepisy</button>
         </Row>
       </div>
     )
