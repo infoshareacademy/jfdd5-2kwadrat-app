@@ -1,5 +1,5 @@
 import React from 'react'
-import {ingredients} from '../../../data'
+import {ingredients} from '../../data'
 import {connect} from 'react-redux'
 import {Modal, Button} from 'react-bootstrap'
 import {Link} from 'react-router'
