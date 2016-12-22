@@ -3,6 +3,7 @@ import './styles.css'
 import {ingredients} from '../data'
 import {FilteredRecipesView} from './FridgeView'
 
+
 import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 
@@ -89,7 +90,9 @@ class FridgeView extends React.Component {
                   }>
                     <div className="ingredientFieldContent">
                       <Image className="ingredientImage" src={ingredient.img}/>
-                      {ingredient.name}
+                      <div className="ingredientName">
+                        {ingredient.name}
+                      </div>
                     </div>
                   </Col>
                 )
@@ -118,8 +121,10 @@ class FridgeView extends React.Component {
                   }
                 }>
                   <div className="ingredientFieldContent">
-                    <Image src={ingredient.img} height="50px"/>
-                    {ingredient.name}
+                    <Image className="ingredientImage" src={ingredient.img}/>
+                    <div className="ingredientName">
+                      {ingredient.name}
+                    </div>
                   </div>
                 </Col>
             )
@@ -127,7 +132,14 @@ class FridgeView extends React.Component {
         </Row>
 
         <Row>
-          {this.props.selectedIngredients.length === 0 ? null : <Button bsStyle="primary" type="submit">Wyszukaj przepisy</Button>}
+            {this.props.selectedIngredients.length === 0 ? null :
+              <Button
+                href='/filtered-recipes'
+                bsStyle="primary"
+                type="submit"
+              >
+                Wyszukaj przepisy
+              </Button>}
         </Row>
       </div>
     )
