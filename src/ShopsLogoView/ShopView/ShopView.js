@@ -34,7 +34,7 @@ const ShopView = React.createClass({
             },
         )
     },
-
+    
     render(){
         return (
             <div>
