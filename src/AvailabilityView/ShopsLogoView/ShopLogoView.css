@@ -5,6 +5,9 @@
     text-align: center;
     font-size: 40px;
 }
+.modal-backdrop.in {
+    opacity: 0.3;
+}
 .shop-container {
     padding:20px
 }
