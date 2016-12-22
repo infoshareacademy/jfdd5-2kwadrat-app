@@ -4,6 +4,11 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import {App} from './App'
 import {Provider} from 'react-redux'
 
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap-theme.css'
+import './index.css'
+
 import store from './store'
 
 
@@ -16,9 +21,6 @@ import {FilteredRecipesView} from './FilteredRecipesView'
 
 
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/css/bootstrap-theme.css'
-import './index.css'
 
 ReactDOM.render(
   <Provider store={store}>
