@@ -2,6 +2,7 @@ import React from 'react'
 import {ingredients} from '../data'
 import {shops} from '../data'
 import {Image, Col} from 'react-bootstrap'
+import GoogleMap from 'google-map-react'
 
 
 export default (props) => {
@@ -31,6 +32,20 @@ export default (props) => {
                 }
               </ul>
             </div>
+
+            <div style={{height: 300, width: 600}}>
+              <GoogleMap
+                bootstrapURLKeys={{key: "AIzaSyDHlXcvJJKgck_i5M0uDbdZylQ2ERTDJHY" }}
+                defaultCenter={{
+                  lat: 54.2296756,
+                  lng: 18.012228700000037
+                }}
+                defaultZoom={10}>
+                {/*<IngredientMarker lat={52.2296756}*/}
+                                {/*lng={52.2296756} />*/}
+              </GoogleMap>
+            </div>
+
           </Col>
           {props.children}
         </div>
