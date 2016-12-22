@@ -20,7 +20,10 @@ export default (props) => {
               <h3> SKLEPY: </h3>
               <ul>
                 {
-                  shops.filter(
+                  shops.reduce(
+                  (prev, next) => prev.find(item => item.name === next.name) ? prev : prev.concat(next),
+                  []
+                  ).filter(
                     shop => shop.ingredients.find(ingredient => ingredient.id === ingredientsWithId.id)
                   ).map(
                     shop =>
