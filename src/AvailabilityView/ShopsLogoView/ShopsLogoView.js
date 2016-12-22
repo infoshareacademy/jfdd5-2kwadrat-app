@@ -45,7 +45,10 @@ const ShopsLogoView = React.createClass({
                 <div>
                     <h1>Shops: </h1>
                     {
-                        this.props.shops.map(
+                        this.props.shops.reduce(
+                            (prev, next) => prev.find(item => item.name === next.name) ? prev : prev.concat(next),
+                            []
+                        ).map(
                             shop => {
                                 return (
                                     <Col key={shop.id} xs={12} sm={6} md={4} className='shop-container'>
