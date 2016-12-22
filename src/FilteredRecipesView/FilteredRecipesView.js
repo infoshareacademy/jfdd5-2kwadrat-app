@@ -44,22 +44,52 @@ const FilteredRecipes = (props) => {
     return (
         <div>
             <h1>DUPA</h1>
-            {/*{*/}
-                {/*newRecipesArray.map(*/}
-                    {/*recipe => {*/}
-                        {/*return*/}
-                        {/*switch (recipe.numberOfFittedIngredients) {*/}
-                            {/*case 1:*/}
-                                {/*return {}*/}
-                            {/*case 2:*/}
-                                {/*return {}*/}
-                            {/*case 3:*/}
-                                {/*return {}*/}
-                            {/*default:*/}
-                                {/*return state*/}
-                        {/*}*/}
-                    {/*})*/}
-            {/*}*/}
+            <h3>
+                {
+                    newRecipesArray.filter(
+                        recipe =>
+                        recipe.numberOfFittedIngredients === 3
+                    ).map(
+                        recipe =>(
+                            <p> Mam wszystkie skladniki:
+                                { <Link to={'/recipes/' + recipe.id}>
+                                    <h2>{recipe.name}</h2>
+                                    <Image src={recipe.image}/>
+                                </Link>}</p>
+                        )
+                    )
+                }
+
+                {
+                    newRecipesArray.filter(
+                        recipe =>
+                        recipe.numberOfFittedIngredients === 2
+                    ).map(
+                        recipe =>(
+                            <p> Mam kilka(2) skladniki:
+                                { <Link to={'/recipes/' + recipe.id}>
+                                    <h2>{recipe.name}</h2>
+                                    <Image src={recipe.image}/>
+                                </Link>}</p>
+                        )
+                    )
+                }
+
+                {
+                    newRecipesArray.filter(
+                        recipe =>
+                        recipe.numberOfFittedIngredients === 1
+                    ).map(
+                        recipe =>(
+                            <p> Mam mało skladniki:
+                                { <Link to={'/recipes/' + recipe.id}>
+                                    <h2>{recipe.name}</h2>
+                                    <Image src={recipe.image}/>
+                                </Link>}</p>
+                        )
+                    )
+                }
+            </h3>
         </div>
     )
 }
