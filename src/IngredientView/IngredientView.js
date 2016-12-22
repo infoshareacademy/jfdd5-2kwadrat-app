@@ -4,7 +4,7 @@ import {shops} from '../data'
 import {Image, Col} from 'react-bootstrap'
 import GoogleMap from 'google-map-react'
 
-import ShopMarker from '../AvailabilityView/ShopsLogoView/ShopMarker/ShopMarker'
+import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
 
 
 export default (props) => {
@@ -37,7 +37,7 @@ export default (props) => {
                       <li key={shop.id}>
                       {shop.name}
                     </li>
-                    )
+
 
                   )
                 }
