@@ -4,10 +4,16 @@ import {shops} from '../data'
 import {Image, Col} from 'react-bootstrap'
 import GoogleMap from 'google-map-react'
 
+import ShopMarker from '../AvailabilityView/ShopsLogoView/ShopMarker/ShopMarker'
+
 
 export default (props) => {
   const ingredientsWithId = ingredients.find(
     ingredient => ingredient.id === parseInt(props.params.ingredientId, 10)
+  )
+
+  const myShops = shops.filter(
+    shop => shop.ingredients.find(ingredient => ingredient.id === ingredientsWithId.id)
   )
 
   return (
@@ -21,13 +27,14 @@ export default (props) => {
               <h3> SKLEPY: </h3>
               <ul>
                 {
-                  shops.filter(
-                    shop => shop.ingredients.find(ingredient => ingredient.id === ingredientsWithId.id)
-                  ).map(
-                    shop =>
+                  myShops.map(
+                    shop =>(
+
                       <li key={shop.id}>
-                        {shop.name}
-                      </li>
+                      {shop.name}
+                    </li>
+                    )
+
                   )
                 }
               </ul>
@@ -41,8 +48,16 @@ export default (props) => {
                   lng: 18.012228700000037
                 }}
                 defaultZoom={10}>
-                {/*<IngredientMarker lat={52.2296756}*/}
-                                {/*lng={52.2296756} />*/}
+
+                {myShops.map(
+                  shop =>
+                    <ShopMarker lat={shop.location.lat}
+                                lng={shop.location.lng}
+                                  name ={shop.name}/>
+                )}
+
+
+
               </GoogleMap>
             </div>
 
