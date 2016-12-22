@@ -45,7 +45,7 @@ const ShopView = React.createClass({
                       }
                 >
                     <Image src={this.props.shop.logo}
-                           height="100px"
+                           height={this.props.height}
                            width="auto"
                            rounded
                     />
@@ -62,7 +62,7 @@ const ShopView = React.createClass({
                     </Modal.Header>
                     <Modal.Body>
                         <Image src={this.state.shop.logo}
-                               height="100px"
+                               height='50px'
                                width="auto"
                                rounded
                         />

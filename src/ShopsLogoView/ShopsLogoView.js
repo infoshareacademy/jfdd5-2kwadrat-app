@@ -33,7 +33,9 @@ const ShopsLogoView = (props) => {
                                      sm={6}
                                      md={4}
                                      className='shop-container'>
-                                    <ShopView shop={shop}/>
+                                    <ShopView shop={shop}
+                                              height='150px'
+                                    />
                                 </Col>
                             )
                         }

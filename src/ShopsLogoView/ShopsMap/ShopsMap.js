@@ -25,7 +25,9 @@ const ShopsMap = props => (
                                 name={shop.name}
                                 lat={shop.location.lat}
                                 lng={shop.location.lng}
-                                text={shop.name}/>
+                                text={shop.name}
+                                shop={shop}
+                    />
             )}
         </GoogleMap>
     </div>
