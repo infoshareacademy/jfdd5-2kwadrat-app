@@ -1,7 +1,7 @@
 import React from 'react'
 import './styles.css'
 import {ingredients} from '../data'
-import {FilteredRecpiesView} from './FridgeView'
+import {FilteredRecipesView} from './FridgeView'
 
 import {Image, Col, Row} from 'react-bootstrap'
 import {connect} from 'react-redux'
@@ -14,8 +14,8 @@ const mapDispatchToProps = dispatch => ({
   addIngredient: (ingredient) => dispatch({
     type: 'ADD_SELECTED_INGREDIENT',
     ingredient: ingredient
-
   }),
+
   removeIngredient: (ingredient) => dispatch({
     type: 'REMOVE_SELECTED_INGREDIENT',
     ingredientId: ingredient
@@ -53,41 +53,35 @@ class FridgeView extends React.Component {
             ).slice(0, 3).map(
               ingredient => {
                 return (
-                  <Col key={ingredient.id} xs={12} sm={6} md={4} lg={3}>
+                  <Col key={ingredient.id} xs={12} sm={6} md={4} lg={3} onClick={
+                    () => {
+                      if (this.props.selectedIngredients.find(item => item.id === ingredient.id) === undefined) {
+                        this.setState(
+                          {
+                            ingredients: this.state.ingredients.concat(
+                              {
+                                name: ingredient.name,
+                                id: ingredient.id,
+                                img: ingredient.img
+                              })
+                          },
+                          () => this.props.addIngredient(ingredient)
+                        )
+                      } else {
+                        this.setState(
+                          {
+                            ingredients: this.state.ingredients.filter(
+                              item => item.id !== ingredient.id
+                            )
+                          },
+                          () => this.props.removeIngredient(ingredient.id)
+                        )
+                      }
+                    }
+                  }>
                     <div className="ingredientFieldContent">
                       <Image src={ingredient.img} height="50px"/>
                       {ingredient.name}
-                      <input
-                        key={ingredient.id}
-                        type="checkbox"
-                        checked={this.props.selectedIngredients.find(item => item.id === ingredient.id) !== undefined}
-                        onChange={
-                          event => {
-                            if (event.target.checked === true) {
-                              this.setState(
-                                {
-                                  ingredients: this.state.ingredients.concat(
-                                    {
-                                      name: ingredient.name,
-                                      id: ingredient.id,
-                                      img: ingredient.img
-                                    })
-                                },
-                                () => this.props.addIngredient(ingredient)
-                              )
-                            } else {
-                              this.setState(
-                                {
-                                  ingredients: this.state.ingredients.filter(
-                                    item => item.id !== ingredient.id
-                                  )
-                                },
-                                () => this.props.removeIngredient(ingredient.id)
-                              )
-                            }
-                          }
-                        }
-                      />
                     </div>
                   </Col>
                 )
@@ -101,29 +95,23 @@ class FridgeView extends React.Component {
           {
             this.state.ingredients.map(
               ingredient =>
-                <Col key={ingredient.id} xs={12} sm={6} md={4} lg={3}>
+                <Col key={ingredient.id} xs={12} sm={6} md={4} lg={3} onClick={
+                  () => {
+                    if (this.props.removeIngredient(ingredient.id)) {
+                      this.setState(
+                        {
+                          ingredients: this.state.ingredients.filter(
+                            item => item.id !== ingredient.id
+                          )
+                        },
+                        () => this.props.removeIngredient(ingredient.id)
+                      )
+                    }
+                  }
+                }>
                   <div className="ingredientFieldContent">
                     <Image src={ingredient.img} height="50px"/>
                     {ingredient.name}
-                    <input
-                      key={ingredient.id}
-                      type="checkbox"
-                      checked= 'true'
-                      onChange={
-                        event => {
-                          if (event.target.checked === false) {
-                            this.setState(
-                              {
-                                ingredients: this.state.ingredients.filter(
-                                  item => item.id !== ingredient.id
-                                )
-                              },
-                              () => this.props.removeIngredient(ingredient.id)
-                            )
-                          }
-                        }
-                      }
-                    />
                   </div>
                 </Col>
             )
@@ -136,6 +124,6 @@ class FridgeView extends React.Component {
       </div>
     )
   }
-
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(FridgeView)
