@@ -42,7 +42,9 @@ const FilteredRecipes = (props) => {
         )
     )
     return (
+
         <div>
+          <Link to={'/'}><button href='/recipes'>Wstecz</button></Link>
             <h1>DUPA</h1>
             <h3>
                 {

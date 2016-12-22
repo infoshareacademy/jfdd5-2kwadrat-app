@@ -15,7 +15,7 @@ import store from './store'
 import {FridgeView} from './FridgeView'
 import {AllRecipesView} from './AllRecipesView'
 import {RecipeView} from './RecipeView'
-import {AvailabilityView} from './AvailabilityView'
+import {ShopsLogoView} from './ShopsLogoView'
 import {IngredientView} from './IngredientView'
 import {FilteredRecipesView} from './FilteredRecipesView'
 
@@ -33,7 +33,7 @@ ReactDOM.render(
         <Route path="ingredient/:ingredientId" component={IngredientView}/>
         <Route path="/filtered-recipes" component={FilteredRecipesView}/>
 
-        <Route path="/shops" component={AvailabilityView}/>
+        <Route path="/shops" component={ShopsLogoView}/>
 
 
       </Route>

@@ -27,9 +27,13 @@ export default (props) => {
               <h3> SKLEPY: </h3>
               <ul>
                 {
-                  myShops.map(
-                    shop =>(
-
+                  shops.reduce(
+                  (prev, next) => prev.find(item => item.name === next.name) ? prev : prev.concat(next),
+                  []
+                  ).filter(
+                    shop => shop.ingredients.find(ingredient => ingredient.id === ingredientsWithId.id)
+                  ).map(
+                    shop =>
                       <li key={shop.id}>
                       {shop.name}
                     </li>
