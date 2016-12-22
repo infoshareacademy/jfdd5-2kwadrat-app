@@ -1,4 +1,4 @@
-import { shops } from '../../data'
+import { shops } from '../data'
 
 const initialState = {
     shops: shops
