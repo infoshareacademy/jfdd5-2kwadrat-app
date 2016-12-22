@@ -55,9 +55,13 @@ export default (props) => {
 
                 {myShops.map(
                   shop =>
-                    <ShopMarker lat={shop.location.lat}
+                    <ShopMarker key={shop.id}
+                                img={shop.logo}
+                                name={shop.name}
+                                lat={shop.location.lat}
                                 lng={shop.location.lng}
-                                  name ={shop.name}/>
+                                text={shop.name}
+                                shop={shop}/>
                 )}
 
 
