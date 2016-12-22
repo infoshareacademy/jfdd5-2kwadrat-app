@@ -30,7 +30,7 @@ ReactDOM.render(
 
         <Route path="/recipes" component={AllRecipesView}/>
         <Route path="/recipes/:recipeId" component={RecipeView}/>
-        <Route path="ingredient/:ingredientId" component={IngredientView}/>
+        <Route path="/ingredient/:ingredientId" component={IngredientView}/>
         <Route path="/filtered-recipes" component={FilteredRecipesView}/>
 
         <Route path="/shops" component={ShopsLogoView}/>
