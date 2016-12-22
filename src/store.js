@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux'
-import { reducer as shopsReducer } from './AvailabilityView/ShopsLogoView'
+import { reducer as shopsReducer } from './ShopsLogoView'
 import { reducer as ingredientsReducer } from './FridgeView'
 
 const reducer = combineReducers({

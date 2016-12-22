@@ -46,29 +46,6 @@ export default [
         ]
     },
     {
-        id: 3,
-        name: 'biedronka',
-        location: {
-            lat: 54.406826,
-            lng: 18.591389
-        },
-        logo: 'http://www.webtailor.pl/cms/img/u/case/biedronka_logo.png',
-        ingredients: [
-            {
-                id: 1,
-                ingredientPrice: 2.04
-            },
-            {
-                id: 2,
-                ingredientPrice: 4.84
-            },
-            {
-                id: 3,
-                ingredientPrice: 3.04
-            }
-        ]
-    },
-    {
         id: 4,
         name: 'biedronka',
         location: {
