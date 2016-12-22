@@ -1,8 +1,6 @@
 import React from 'react'
 import './styles.css'
 import {ingredients} from '../data'
-import {FilteredRecipesView} from './FridgeView'
-
 
 import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
