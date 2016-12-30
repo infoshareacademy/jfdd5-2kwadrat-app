@@ -1,0 +1,20 @@
+.container {
+    background-color: #FFF;
+}
+
+.logoIMF {
+    background-color: white;
+    border-left: 3px solid #55acee;
+    border-right: 3px solid #55acee;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 300px;
+    letter-spacing: 4px;
+}
+
+.navigation {
+    background-color: white;
+    font-family: 'Reem Kufi', sans-serif;
+    padding: 10px;
+    font-size: 18px;
+    color: black;
+}
