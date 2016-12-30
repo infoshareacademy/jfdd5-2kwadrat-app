@@ -1,4 +1,5 @@
 import React from 'react'
+import './RecipeViewStyle.css'
 import {Image, Col} from 'react-bootstrap'
 import {recipes} from '../data'
 import {ingredients} from '../data'
@@ -23,7 +24,7 @@ export default connect(mapStateToProps)((props) => {
         <div key={recipeWithId.id}>
             <Col xs={12}>
                 <h1>{recipeWithId.name}</h1>
-                <Image src={recipeWithId.image}/>
+                <Image className = "photo" src={recipeWithId.image}/>
                 <p>{recipeWithId.description} </p>
                 <div>
                     <h3> SKŁADNIKI: </h3>
