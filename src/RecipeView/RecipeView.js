@@ -39,11 +39,11 @@ export default connect(mapStateToProps)((props) => {
 
                                         <p key={ingredient.id}>
                                             {
-                                            <Link to={'/ingredient/' + ingredient.id}>
-                                                { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
-                                                    <p>Zlokalizuj wiecej {ingredient.name}</p> :
-                                                    <p>Znajdz składnik</p>}
-                                            </Link>
+                                                <Link to={'/ingredient/' + ingredient.id}>
+                                                    { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
+                                                        <p>Zlokalizuj wiecej {ingredient.name}</p> :
+                                                        <p>Znajdz składnik</p>}
+                                                </Link>
                                             }
                                         </p>
                                     </li>
