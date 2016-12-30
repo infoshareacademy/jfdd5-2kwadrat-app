@@ -1,8 +1,6 @@
 import React from 'react'
-import './App/NavigationView/NavigationViewStyle.css'
 import ReactDOM from 'react-dom'
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
-import {App} from './App'
 import {Provider} from 'react-redux'
 
 
@@ -10,11 +8,11 @@ import {Provider} from 'react-redux'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import './index.css'
-
+import {App} from './App'
 
 import store from './store'
 
-
+import './App/NavigationView/NavigationViewStyle.css'
 import {FridgeView} from './FridgeView'
 import {AllRecipesView} from './AllRecipesView'
 import {RecipeView} from './RecipeView'
