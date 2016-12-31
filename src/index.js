@@ -1,24 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
-import {App} from './App'
 import {Provider} from 'react-redux'
+
 
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import './index.css'
+import {App} from './App'
 
 import store from './store'
 
-
+import './App/NavigationView/NavigationViewStyle.css'
 import {FridgeView} from './FridgeView'
 import {AllRecipesView} from './AllRecipesView'
 import {RecipeView} from './RecipeView'
 import {ShopsLogoView} from './ShopsLogoView'
 import {IngredientView} from './IngredientView'
 import {FilteredRecipesView} from './FilteredRecipesView'
-
 
 
 

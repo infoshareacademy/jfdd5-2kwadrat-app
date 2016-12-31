@@ -1,0 +1,40 @@
+.container {
+    background-color: #FFF;
+    border: none;
+}
+
+.navigation {
+    background-color: white;
+    font-family: 'Reem Kufi', sans-serif;
+    padding: 10px;
+    font-size: 22px;
+    color: black;
+}
+
+.navbar-default {
+    color: black;
+    box-shadow: none;
+    border: none;
+}
+
+.logoIMF {
+    color: black;
+    border-left: 3px solid #55acee;
+    border-right: 3px solid #55acee;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 30px;
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+.Brand {
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+
+    .navbar-header {
+        justify-content: center;
+        display: flex;
+
+    }
+}
