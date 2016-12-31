@@ -37,9 +37,9 @@ export default [
     {
         id: 6,
         name: 'pomidor',
-        unitOfMeasure: 'pcs.',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://www.pngall.com/wp-content/uploads/2016/04/Tomato-High-Quality-PNG.png'
+        img: 'http://domowa-uroda.pl/wp-content/uploads/2012/05/pomidor.jpg'
     },
     {
         id: 7,
@@ -57,22 +57,22 @@ export default [
     },
     {
         id: 9,
-        name: 'kasza',
+        name: 'kasza gryczana',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://www.colourbox.com/preview/3460316-some-barley-grains-isolated-on-the-white-background.jpg'
+        img: 'http://www.niam.pl/rimages/crop/600/450/files/images/PRODUCT/BACKUP/23438917452_qxxsfognmwsvenhclseu.jpg'
     },
     {
         id: 10,
         name: 'papryka',
-        unitOfMeasure: 'pcs.',
+        unitOfMeasure: 'gr.',
         amount: 0,
         img: 'http://www.stickpng.com/assets/thumbs/580b57fcd9996e24bc43c226.png'
     },
     {
         id: 11,
         name: 'ogórek',
-        unitOfMeasure: 'pcs.',
+        unitOfMeasure: 'szt.',
         amount: 0,
         img: 'http://www.stickpng.com/assets/thumbs/580b57fcd9996e24bc43c214.png'
     },
@@ -85,80 +85,80 @@ export default [
     },
     {
         id: 13,
-        name: 'marchewka13',
-        unitOfMeasure: 'pcs.',
+        name: 'pieczarka',
+        unitOfMeasure: 'szt.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'http://bucket-panoramafirm.s3.amazonaws.com/images/6/5/116869465.jpg'
     },
     {
         id: 14,
-        name: 'marchewka14',
-        unitOfMeasure: 'pcs.',
+        name: 'biała kapusta',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'http://www.gieldakaliska.com.pl/files/kapusta_biala.jpg'
     },
     {
         id: 15,
-        name: 'marchewka15',
-        unitOfMeasure: 'pcs.',
+        name: 'kiełbasa',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'http://vignette2.wikia.nocookie.net/kielbasa/images/4/49/Kielbasa-Podwawelska.jpg/revision/latest?cb=20130322180720&path-prefix=pl'
     },
     {
         id: 16,
-        name: 'marchewka16',
-        unitOfMeasure: 'pcs.',
+        name: 'marchewka',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'http://info.ecomania.com.pl/wp-content/uploads/2013/03/marchewka.jpg'
     },
     {
         id: 17,
-        name: 'marchewka17',
-        unitOfMeasure: 'pcs.',
+        name: 'pietruszka',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'http://budujesz.info//pliki/image/artykuly/warzywa/duze/pietruszka-korzen-i-nac1543.jpg'
     },
     {
         id: 18,
-        name: 'marchewka18',
-        unitOfMeasure: 'pcs.',
+        name: 'seler',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'http://sposobynapotencje.pl/wp-content/uploads/2015/09/seler-potencja.jpg'
     },
     {
         id: 19,
-        name: 'marchewka19',
-        unitOfMeasure: 'pcs.',
+        name: 'kuskus',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'http://zielonaesencja.pl/pol_pl_Kasza-kuskus-500-g-GREEN-ESSENCE-491_2.jpg'
     },
     {
         id: 20,
-        name: 'marchewka20',
-        unitOfMeasure: 'pcs.',
+        name: 'filet z kurczaka',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'http://www.alleceny.pl/static/images/Aleceny_Model_Product_Table/big/filet-z-kurczaka_42982290a04af54baa0492b7de56a60f.jpg'
     },
     {
         id: 21,
-        name: 'marchewka21',
-        unitOfMeasure: 'pcs.',
+        name: 'czerwona fasola',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'http://michiganbean.org/wp-content/uploads/2013/09/SRB.jpg'
     },
     {
         id: 22,
-        name: 'marchewka22',
-        unitOfMeasure: 'pcs.',
+        name: 'ser typu feta',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'http://annakobieta.blog.onet.pl/files/2015/07/ser-feta.jpg'
     },
     {
         id: 23,
-        name: 'marchewka23',
-        unitOfMeasure: 'pcs.',
+        name: 'kasza jaglana',
+        unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://cdn2.iconfinder.com/data/icons/thesquid-ink-40-free-flat-icon-pack/64/carrot-128.png'
+        img: 'https://www.colourbox.com/preview/3460316-some-barley-grains-isolated-on-the-white-background.jpg '
     }
 
 
