@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Image, Col} from 'react-bootstrap'
+import {Image} from 'react-bootstrap'
 import {Link} from 'react-router'
 
 
@@ -37,7 +37,7 @@ const FilteredRecipes = (props) => {
                     arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ? 1 : 0
             ).reduce((prev, next)=>
                 prev + next
-                , 0))
+                , 0),10)
         }
         )
     )
