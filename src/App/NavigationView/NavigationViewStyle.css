@@ -24,17 +24,9 @@
     font-family: 'Reem Kufi', sans-serif;
     font-size: 30px;
     letter-spacing: 4px;
-    margin-top: 10px;
-}
-.Brand {
-    color: black;
+    margin: 10px;
 }
 
-@media screen and (max-width: 768px) {
-
-    .navbar-header {
-        justify-content: center;
-        display: flex;
-
-    }
+.hamburger {
+    background-color: black;
 }
