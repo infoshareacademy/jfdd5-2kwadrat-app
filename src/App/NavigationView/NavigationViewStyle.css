@@ -24,17 +24,22 @@
     font-family: 'Reem Kufi', sans-serif;
     font-size: 30px;
     letter-spacing: 4px;
-    margin-top: 10px;
-}
-.Brand {
-    color: black;
+    margin: 10px;
 }
 
-@media screen and (max-width: 768px) {
+.hamburger {
+    margin-top: 15px;
+}
 
-    .navbar-header {
-        justify-content: center;
-        display: flex;
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #000;
+}
 
+@media (max-width: 992px) {
+    .logoIMF {
+        font-size: 18px;
+    }
+    .navigation {
+        font-size: 15px;
     }
 }
