@@ -14,7 +14,7 @@ export default () => {
           </Navbar.Brand>
           <Navbar.Toggle className="hamburger"/>
         </Navbar.Header>
-        <Navbar.Collapse toggleNavKey={1}>
+        <Navbar.Collapse>
           <Nav pullRight className="navigation">
             <LinkContainer className="navItem" to="/recipes">
               <NavItem eventKey={1} href="">Przepisy</NavItem>
