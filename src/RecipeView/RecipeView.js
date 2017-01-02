@@ -24,7 +24,7 @@ export default connect(mapStateToProps)((props) => {
         <div key={recipeWithId.id}>
             <Col xs={12}>
                 <h1>{recipeWithId.name}</h1>
-                <Image className = "photo" src={recipeWithId.image}/>
+                <Image className="photo" src={recipeWithId.image}/>
                 <p>{recipeWithId.description} </p>
                 <div>
                     <h3> SKŁADNIKI: </h3>

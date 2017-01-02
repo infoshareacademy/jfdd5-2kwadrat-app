@@ -1,7 +1,8 @@
 
 //dupa
 const initialState = {
-    selectedIngredients:[]
+    selectedIngredients:[],
+    haveSelectedIngredients:false
 
 }
 
@@ -10,7 +11,8 @@ export default ( state = initialState,action ) => {
         case 'ADD_SELECTED_INGREDIENT':
             return {
                 ...state,
-                selectedIngredients: state.selectedIngredients.concat(action.ingredient)
+                selectedIngredients: state.selectedIngredients.concat(action.ingredient),
+                haveSelectedIngredients:true
 
             }
         case 'REMOVE_SELECTED_INGREDIENT':

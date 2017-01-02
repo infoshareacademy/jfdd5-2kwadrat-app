@@ -6,7 +6,8 @@ import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 
 const mapStateToProps = state => ({
-  selectedIngredients: state.selectedIngredients.selectedIngredients
+  selectedIngredients: state.selectedIngredients.selectedIngredients,
+    haveSelectedIngredients:state.selectedIngredients.haveSelectedIngredients
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -40,7 +41,7 @@ class FridgeView extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <Row className="ingredientInputRow">
-            <h1>FridgeView</h1>
+            <h1>Co znajduje się w Twojej lodówce?</h1>
             <Col xs={12} sm={6} md={4}
                  xsOffset={0} smOffset={3} mdOffset={4}
             >
@@ -100,7 +101,11 @@ class FridgeView extends React.Component {
         </form>
 
         <Row>
-          <h2>Chosen ingredients</h2>
+            {
+              this.props.haveSelectedIngredients ?
+                <h2>Składniki w Twojej lodówce:</h2> :
+                ''
+            }
           {
             this.state.ingredients.map(
               ingredient =>
