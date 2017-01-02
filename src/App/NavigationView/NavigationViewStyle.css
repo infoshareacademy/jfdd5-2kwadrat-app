@@ -80,3 +80,9 @@
     font-size: 15px;
   }
 }
+
+@media (max-width: 375px) {
+  .logoIMF {
+    font-size: 10px;
+  }
+}
