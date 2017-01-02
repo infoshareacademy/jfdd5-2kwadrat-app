@@ -101,11 +101,7 @@ class FridgeView extends React.Component {
         </form>
 
         <Row>
-            {
-              this.props.haveSelectedIngredients ?
-                <h2>Składniki w Twojej lodówce:</h2> :
-                ''
-            }
+          
           {
             this.state.ingredients.map(
               ingredient =>
