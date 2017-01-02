@@ -13,7 +13,7 @@ export default (props) => (
             <Col key={recipe.id} xs={12} sm={6} md={4}>
               <div className="recipeCard">
               <Link to={'/recipes/' + recipe.id}>
-                <Image className="photo" src={recipe.image}/>
+                <Image className="photo image" src={recipe.image}/>
                 <h2>{recipe.name}</h2>
 
               </Link>
