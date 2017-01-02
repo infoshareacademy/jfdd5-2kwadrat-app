@@ -2,7 +2,6 @@
   margin-top: 40px;
 }
 
-
 .recipeCard {
   position: relative;
   width: 300px;
@@ -20,7 +19,6 @@
   background-image: url("http://www.ravelo.pl/pub/mm/img/220/11522901.jpg");
   background-size: cover;
 
-  
   transition: all .4s ease-in-out;
 }
 
