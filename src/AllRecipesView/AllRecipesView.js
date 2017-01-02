@@ -5,16 +5,23 @@ import {Image, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 
 export default (props) => (
-  <div>
-    <h1>RecipeView</h1>
+  <div className="wrapper">
     {
       recipes.map(recipe => {
           return (
-            <Col key={recipe.id} xs={12} sm={6} md={3}>
+
+            <Col key={recipe.id} xs={12} sm={6} md={4}>
+              <div className="recipeCard">
               <Link to={'/recipes/' + recipe.id}>
+                <Image className="photo image" src={recipe.image}/>
                 <h2>{recipe.name}</h2>
-                <Image className="photo" src={recipe.image}/>
+
               </Link>
+                <div className="icons">
+                  <div className="recipeTime">{recipe.time}</div>
+                  <div className="recipeDifficult">{recipe.difficult}</div>
+                </div>
+              </div>
             </Col>
           )
         }
