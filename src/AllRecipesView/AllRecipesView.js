@@ -10,7 +10,7 @@ export default (props) => (
     {
       recipes.map(recipe => {
           return (
-            <Col key={recipe.id} xs={12} sm={6} md={6}>
+            <Col key={recipe.id} xs={12} sm={6} md={3}>
               <Link to={'/recipes/' + recipe.id}>
                 <h2>{recipe.name}</h2>
                 <Image className="photo" src={recipe.image}/>
