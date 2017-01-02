@@ -7,25 +7,25 @@ export default () => {
 
     return (
         <div className="container">
-            <Navbar className="navbar-default">
+            <Navbar className="navbar-default" collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand >
                         <a className="logoIMF navbar-brand navbar-header" href="/">INSIDE MY FRIDGE</a>
                     </Navbar.Brand>
                     <Navbar.Toggle className="hamburger" />
                 </Navbar.Header>
-                <Navbar.Collapse>
+                <Navbar.Collapse toggleNavKey={1}>
                     <Nav pullRight className="navigation">
                         <LinkContainer className="navItem" to="/recipes">
-                            <NavItem eventKey={1} href="">PRZEPISY</NavItem>
+                            <NavItem eventKey={1} href="">Przepisy</NavItem>
                         </LinkContainer>
 
                         <LinkContainer to="/shops">
-                            <NavItem eventKey={2} href="#">SKLEPY</NavItem>
+                            <NavItem eventKey={2} href="#">Sklepy</NavItem>
                         </LinkContainer>
 
                         <LinkContainer to="/filtered-recipes">
-                            <NavItem eventKey={3} href="#">PRZEPISY DLA CIEBIE</NavItem>
+                            <NavItem eventKey={3} href="#">Przepisy dla Ciebie</NavItem>
                         </LinkContainer>
                     </Nav>
                 </Navbar.Collapse>
