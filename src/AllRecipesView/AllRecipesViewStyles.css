@@ -1,0 +1,89 @@
+.wrapper {
+  margin-top: 40px;
+}
+
+.recipeCard {
+  position: relative;
+  width: 300px;
+  margin: 0 auto 50px auto;
+  height: 430px;
+  border: 1px solid #666;
+  -webkit-box-shadow: 2px 2px 19px 0 rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 2px 2px 19px 0 rgba(50, 50, 50, 0.75);
+  box-shadow: 2px 2px 19px 0 rgba(50, 50, 50, 0.75);
+  border-radius: 5px;
+
+  /*background-image: url("http://cdn.mysitemyway.com/etc-mysitemyway/backgrounds/legacy-previews/backgrounds/brushed-metal/brushed-metal-002801-lime-green.jpg");*/
+  /*background-image: url("http://cdn.mysitemyway.com/etc-mysitemyway/backgrounds/legacy-previews/backgrounds/curtains/curtains-001561-lime-green.jpg");*/
+  /*background-image: url("http://wallpapercave.com/wp/P2TWdXy.jpg");*/
+  background-image: url("http://www.ravelo.pl/pub/mm/img/220/11522901.jpg");
+  background-size: cover;
+
+  transition: all .4s ease-in-out;
+}
+
+.recipeCard:hover{
+  transform: scale(1.05);
+}
+
+.image {
+  height: 200px;
+  max-width: 100%;
+  clear: both;
+  border-radius: 5px 5px 0 0;
+}
+
+h2 {
+  color: #000;
+  padding-top: 70px;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
+.recipeTime {
+  position: relative;
+  font-size: 20px;
+  line-height:1.5em;
+  float: left;
+  padding-left: 7px;
+  color: #000;
+}
+
+.recipeTime:before {
+  content: "";
+  display: block;
+  background: url('https://cdn2.iconfinder.com/data/icons/wirecons-free-vector-icons/32/475340-alarm-clock-128.png') no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin-right: 7px;
+}
+
+.recipeDifficult {
+  position: relative;
+  float: right;
+  font-size: 20px;
+  line-height:1.5em;
+  padding-right: 7px;
+  color: #000;
+}
+
+.recipeDifficult:before {
+  content: "";
+  display: block;
+  background: url('http://icons.iconarchive.com/icons/icons8/windows-8/256/Network-Medium-Connection-icon.png') no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin-right: 7px;
+}
+
+.icons {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+}
