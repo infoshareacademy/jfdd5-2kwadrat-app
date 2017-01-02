@@ -40,7 +40,7 @@ class FridgeView extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <Row className="ingredientInputRow">
-            <h1>FridgeView</h1>
+            <h1 className="titles">Wybierz produkty, które posiadasz</h1>
             <Col xs={12} sm={6} md={4}
                  xsOffset={0} smOffset={3} mdOffset={4}
             >
@@ -57,10 +57,10 @@ class FridgeView extends React.Component {
           <Row>
             {ingredients.filter(
               ingredient => this.state.search === '' ? false : ingredient.name.includes(this.state.search)
-            ).slice(0, 3).map(
+            ).slice(0, 4).map(
               ingredient => {
                 return (
-                  <Col key={ingredient.id} xs={12} sm={6} md={4} onClick={
+                  <Col key={ingredient.id} xs={6} sm={4} md={3} onClick={
                     () => {
                       if (this.props.selectedIngredients.find(item => item.id === ingredient.id) === undefined) {
                         this.setState(
@@ -86,8 +86,8 @@ class FridgeView extends React.Component {
                       }
                     }
                   }>
-                    <div className="ingredientFieldContent">
-                      <Image className="ingredientImage" src={ingredient.img}/>
+                    <div className="ingredientFieldContent filtered">
+                      <Image className="filteredIngredientImage" src={ingredient.img}/>
                       <div className="ingredientName">
                         {ingredient.name}
                       </div>
@@ -100,7 +100,9 @@ class FridgeView extends React.Component {
         </form>
 
         <Row>
-          <h2>Chosen ingredients</h2>
+          {this.props.selectedIngredients.length === 0 ? null :
+          <h2 className="titles">Produkty, na podstawie których zostaną wyszukane przepisy</h2>}
+
           {
             this.state.ingredients.map(
               ingredient =>
@@ -118,8 +120,8 @@ class FridgeView extends React.Component {
                     }
                   }
                 }>
-                  <div className="ingredientFieldContent">
-                    <Image className="ingredientImage" src={ingredient.img}/>
+                  <div className="ingredientFieldContent chosen">
+                    <Image className="chosenIngredientImage" src={ingredient.img}/>
                     <div className="ingredientName">
                       {ingredient.name}
                     </div>
