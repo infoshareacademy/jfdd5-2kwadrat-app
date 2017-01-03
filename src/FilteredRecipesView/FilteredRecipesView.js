@@ -75,8 +75,7 @@ const FilteredRecipes = (props) => {
                     {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
                       '' :
                       <p className="missing-ingredients-info">
-                        Brakuje Ci {recipe.ingredients.length - recipe.numberOfFittedIngredients.length }
-                        skladników
+                        Brakuje Ci {recipe.ingredients.length - recipe.numberOfFittedIngredients.length } skladników
                       </p>
                     }
 
