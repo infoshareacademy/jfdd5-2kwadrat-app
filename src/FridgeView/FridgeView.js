@@ -2,7 +2,8 @@ import React from 'react'
 import './styles.css'
 import {ingredients} from '../data'
 
-import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
+import {Image, Col, Row, FormControl, Button, Nav, NavItem} from 'react-bootstrap'
+import {LinkContainer} from 'react-router-bootstrap'
 import {connect} from 'react-redux'
 
 const mapStateToProps = state => ({
@@ -101,7 +102,7 @@ class FridgeView extends React.Component {
 
         <Row>
           {this.props.selectedIngredients.length === 0 ? null :
-          <h2 className="titles">Produkty, na podstawie których zostaną wyszukane przepisy</h2>}
+            <h2 className="titles">Produkty, na podstawie których zostaną wyszukane przepisy</h2>}
 
           {
             this.state.ingredients.map(
@@ -132,14 +133,12 @@ class FridgeView extends React.Component {
         </Row>
 
         <Row>
-            {this.props.selectedIngredients.length === 0 ? null :
-              <Button
-                href='/filtered-recipes'
-                bsStyle="primary"
-                type="submit"
-              >
-                Wyszukaj przepisy
-              </Button>}
+          {this.props.selectedIngredients.length === 0 ? null :
+            <Button className="yourRecipesButton">
+              <LinkContainer to="/filtered-recipes">
+                <NavItem eventKey={4} href="#">Przepisy dla Ciebie</NavItem>
+              </LinkContainer>
+            </Button>}
         </Row>
       </div>
     )
