@@ -1,0 +1,10 @@
+.recipeCardHeight {
+    height: 490px;
+}
+.button-back {
+    margin:20px;
+}
+.missing-ingredients-info {
+    color:white;
+    transition: none;
+}
