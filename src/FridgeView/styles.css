@@ -1,15 +1,43 @@
-.ingredientFieldContent {
+form {
+  /*background-color: #00aced;*/
+}
+
+.ingredientFieldContent,
+.filtered {
   width: 95%;
   margin: 10px auto;
-  padding: 10px;
   border-radius: 10px;
-  border: 5px outset #00aced;
   display: inline-flex;
+}
+
+.filtered {
+  padding: 5px;
+  border: 3px solid #00aced;
+}
+
+.chosen {
+  padding: 10px;
+  border: 5px solid #00aced;
+}
+
+.ingredientFieldContent:hover {
+  transform: scale(1.05);
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+}
+
+.filteredIngredientImage {
+  height: 40px;
+  margin-left: 10px;
+}
+
+.chosenIngredientImage {
+  height: 50px;
+  margin-left: 10px;
 }
 
 .ingredientImage {
   height: 50px;
-  margin-left: 10px;
 }
 
 .ingredientInput {
@@ -27,4 +55,9 @@
   text-align: center;
   align-items: center;
   margin: auto;
+}
+
+.titles {
+  margin-bottom: 20px;
+  font-family: Lato, sans-serif;
 }

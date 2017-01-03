@@ -4,7 +4,6 @@ import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 import {Provider} from 'react-redux'
 
 
-
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import './index.css'
@@ -19,7 +18,6 @@ import {RecipeView} from './RecipeView'
 import {ShopsLogoView} from './ShopsLogoView'
 import {IngredientView} from './IngredientView'
 import {FilteredRecipesView} from './FilteredRecipesView'
-
 
 
 ReactDOM.render(
@@ -39,5 +37,5 @@ ReactDOM.render(
       </Route>
     </Router>
   </Provider>,
-document.getElementById('root')
+  document.getElementById('root')
 )
