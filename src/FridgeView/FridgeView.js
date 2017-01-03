@@ -3,6 +3,7 @@ import './styles.css'
 import {ingredients} from '../data'
 
 import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
+import {Link} from 'react-router'
 import {connect} from 'react-redux'
 
 const mapStateToProps = state => ({
@@ -133,13 +134,11 @@ class FridgeView extends React.Component {
 
         <Row>
             {this.props.selectedIngredients.length === 0 ? null :
-              <Button
-                href='/filtered-recipes'
-                bsStyle="primary"
-                type="submit"
-              >
+              <Link to={'/filtered-recipes'}>
+              <Button>
                 Wyszukaj przepisy
-              </Button>}
+              </Button>
+              </Link>}
         </Row>
       </div>
     )

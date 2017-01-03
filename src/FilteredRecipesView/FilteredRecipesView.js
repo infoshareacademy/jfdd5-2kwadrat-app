@@ -44,9 +44,9 @@ const FilteredRecipes = (props) => {
     return (
 
         <div>
-          <Link to={'/'}><button href='/recipes'>Wstecz</button></Link>
+          <Link to={'/'}><button>Wstecz</button></Link>
             <h1>DUPA</h1>
-            <h3>
+            <h3>{console.log(newRecipesArray)}
                 {
                     newRecipesArray.filter(
                         recipe =>
@@ -68,7 +68,7 @@ const FilteredRecipes = (props) => {
                         recipe.numberOfFittedIngredients === 2
                     ).map(
                         recipe =>(
-                            <p> Mam kilka(2) skladniki:
+                            <p key={recipe.id}> Mam kilka(2) skladniki:
                                 { <Link to={'/recipes/' + recipe.id}>
                                     <h2>{recipe.name}</h2>
                                     <Image src={recipe.image}/>
