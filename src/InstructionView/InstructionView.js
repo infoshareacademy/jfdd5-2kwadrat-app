@@ -4,8 +4,8 @@ import {Link} from 'react-router'
 import './InstructionView.css'
 
 export default () => (
-  <div>
-    <Col xs={6}>
+  <div className="instruction-view">
+    <Col xs={4} className="instruction-image">
       <img src={process.env.PUBLIC_URL + '/images/fridge-512.gif'}
            alt="lodowka"
            height={140}
