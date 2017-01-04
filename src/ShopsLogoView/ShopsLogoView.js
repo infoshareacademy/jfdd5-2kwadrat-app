@@ -14,8 +14,8 @@ const mapStateToProps = state => ({
 const ShopsLogoView = (props) => {
     return (
         <div>
-            <div>
-                <h1>Shops: </h1>
+              <Col xs={6}>
+                <h1>Partnerskie sklepy:</h1>
                 {
                     props.shops.reduce(
                         (prev, next) =>
@@ -29,20 +29,18 @@ const ShopsLogoView = (props) => {
                         shop => {
                             return (
                                 <Col key={shop.id}
-                                     xs={12}
-                                     sm={6}
-                                     md={4}
+                                     xs={6}
                                      className='shop-container'>
                                     <ShopView shop={shop}
-                                              height='150px'
+
                                     />
                                 </Col>
                             )
                         }
                     )
                 }
-            </div>
-            <Col xs={12}>
+              </Col>
+          <Col xs={6}>
                 {<ShopsMap />}
             </Col>
         </div>

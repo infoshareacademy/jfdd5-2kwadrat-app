@@ -60,8 +60,5 @@ form {
 .titles {
   margin-bottom: 20px;
   font-family: Lato, sans-serif;
-}
-
-.yourRecipesButton {
-  list-style-type: none;
+  color: white;
 }

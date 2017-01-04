@@ -2,8 +2,8 @@ import React from 'react'
 import './styles.css'
 import {ingredients} from '../data'
 
-import {Image, Col, Row, FormControl, Button, Nav, NavItem} from 'react-bootstrap'
-import {LinkContainer} from 'react-router-bootstrap'
+import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
+import {Link} from 'react-router'
 import {connect} from 'react-redux'
 
 const mapStateToProps = state => ({
@@ -41,7 +41,7 @@ class FridgeView extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <Row className="ingredientInputRow">
-            <h1 className="titles">Wybierz produkty, które posiadasz</h1>
+            <h1 className="titles"><span className="span-blue">Wybierz produkty, które posiadasz</span></h1>
             <Col xs={12} sm={6} md={4}
                  xsOffset={0} smOffset={3} mdOffset={4}
             >
@@ -102,10 +102,9 @@ class FridgeView extends React.Component {
 
         <Row>
           {this.props.selectedIngredients.length === 0 ? null :
-            <h2 className="titles">Produkty, na podstawie których zostaną wyszukane przepisy</h2>}
-
+            <h2 className="titles"><span className="span-blue">Produkty, na podstawie których zostaną wyszukane przepisy</span></h2>}
           {
-            this.state.ingredients.map(
+            this.props.selectedIngredients.map(
               ingredient =>
                 <Col key={ingredient.id} xs={12} sm={6} md={4} onClick={
                   () => {
@@ -124,7 +123,7 @@ class FridgeView extends React.Component {
                   <div className="ingredientFieldContent chosen">
                     <Image className="chosenIngredientImage" src={ingredient.img}/>
                     <div className="ingredientName">
-                      {ingredient.name}
+                      {ingredient.name + ingredient.id}
                     </div>
                   </div>
                 </Col>
@@ -134,11 +133,10 @@ class FridgeView extends React.Component {
 
         <Row>
           {this.props.selectedIngredients.length === 0 ? null :
-            <Button className="yourRecipesButton">
-              <LinkContainer to="/filtered-recipes">
-                <NavItem eventKey={4} href="#">Przepisy dla Ciebie</NavItem>
-              </LinkContainer>
-            </Button>}
+            <h1><span className="span-button"><Link to={'/filtered-recipes'}>
+              Znajdź przepisy
+            </Link>
+        </span></h1>}
         </Row>
       </div>
     )

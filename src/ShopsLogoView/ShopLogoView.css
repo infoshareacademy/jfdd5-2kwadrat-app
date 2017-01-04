@@ -1,3 +1,4 @@
+
 .modal-body {
     text-align: center;
 }
@@ -9,8 +10,12 @@
     opacity: 0.3;
 }
 .shop-container {
-    padding:20px
+    padding:20px;
+    text-align: left;
 }
 ul li {
     list-style-type: none;
+}
+.shop-logo:hover {
+    opacity:0.5;
 }
