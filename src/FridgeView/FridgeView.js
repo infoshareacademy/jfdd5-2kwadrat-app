@@ -102,10 +102,9 @@ class FridgeView extends React.Component {
 
         <Row>
           {this.props.selectedIngredients.length === 0 ? null :
-          <h2 className="titles">Produkty, na podstawie których zostaną wyszukane przepisy</h2>}
-
+            <h2 className="titles">Produkty, na podstawie których zostaną wyszukane przepisy</h2>}
           {
-            this.state.ingredients.map(
+            this.props.selectedIngredients.map(
               ingredient =>
                 <Col key={ingredient.id} xs={12} sm={6} md={4} onClick={
                   () => {
@@ -124,7 +123,7 @@ class FridgeView extends React.Component {
                   <div className="ingredientFieldContent chosen">
                     <Image className="chosenIngredientImage" src={ingredient.img}/>
                     <div className="ingredientName">
-                      {ingredient.name}
+                      {ingredient.name + ingredient.id}
                     </div>
                   </div>
                 </Col>
@@ -133,12 +132,12 @@ class FridgeView extends React.Component {
         </Row>
 
         <Row>
-            {this.props.selectedIngredients.length === 0 ? null :
-              <Link to={'/filtered-recipes'}>
+          {this.props.selectedIngredients.length === 0 ? null :
+            <Link to={'/filtered-recipes'}>
               <Button>
                 Wyszukaj przepisy
               </Button>
-              </Link>}
+            </Link>}
         </Row>
       </div>
     )
