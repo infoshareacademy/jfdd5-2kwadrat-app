@@ -3,8 +3,16 @@ h2 {
     line-height: 55px;
 }
 
-span {
-    color:#44C2FC;
-    border:#44C2FC 2px solid;
-    border-radius: 5px;
+.span-button {
+    background-color:#44C2FC;
+    border: #44C2FC 2px solid;
+    border-radius: 40px;
+    padding: 2px 15px;
+}
+a{
+    color:white;
+}
+
+a:hover {
+    color:white;
 }

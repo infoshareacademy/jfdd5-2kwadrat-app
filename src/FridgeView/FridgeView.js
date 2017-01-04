@@ -133,11 +133,10 @@ class FridgeView extends React.Component {
 
         <Row>
           {this.props.selectedIngredients.length === 0 ? null :
-            <Link to={'/filtered-recipes'}>
-              <Button>
-                Wyszukaj przepisy
-              </Button>
-            </Link>}
+            <h1><span className="span-button"><Link to={'/filtered-recipes'}>
+              Znajdź przepisy
+            </Link>
+        </span></h1>}
         </Row>
       </div>
     )

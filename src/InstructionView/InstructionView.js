@@ -14,7 +14,8 @@ export default () => (
     <Col xs={6}>
       <h1>Nie masz pomysłu na obiad?</h1>
       <h2>
-        Wypełnij <span><Link to={'/form'}>formularz</Link></span> aby zobaczyć <span><Link to={'/filtered-recipes'}>Przepisy dla Ciebie</Link></span>.
+        Wypełnij <span className="span-button"><Link to={'/form'}>formularz</Link></span>, a nasza wyszukiwarka znajdzie<br/>
+        <span className="span-button"><Link to={'/filtered-recipes'}>Przepisy dla Ciebie</Link></span>.
       </h2>
     </Col>
   </div>
