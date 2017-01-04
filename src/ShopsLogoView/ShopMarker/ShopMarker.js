@@ -5,6 +5,6 @@ import {default as ShopView} from '../ShopView/ShopView'
 export default (props) => (
     <div>
         <ShopView shop={props.shop}
-                  height={50}/>
+                  height={30}/>
     </div>
 )

@@ -16,3 +16,6 @@
 ul li {
     list-style-type: none;
 }
+.shop-logo:hover {
+    opacity:0.5;
+}

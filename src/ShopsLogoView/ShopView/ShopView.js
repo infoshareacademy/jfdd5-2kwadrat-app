@@ -34,12 +34,18 @@ const ShopView = React.createClass({
             },
         )
     },
+  onMouseEnterHandler () {
+      console.log('on mouse enter')
+  },
     
     render(){
         return (
             <div>
                 <Link key={this.props.shop.name}
-                      onClick={
+                      onMouseEnter={
+                        this.onMouseEnterHandler
+                      }
+                        onClick={
                           () =>
                           this.open(this.props.shop)
                       }
@@ -48,6 +54,7 @@ const ShopView = React.createClass({
                            height={this.props.height}
                            width="auto"
                            rounded
+                           className="shop-logo"
                     />
                 </Link>
                 < Modal show={this.state.showModal}
