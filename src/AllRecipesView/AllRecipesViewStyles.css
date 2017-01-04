@@ -12,17 +12,12 @@
   -moz-box-shadow: 2px 2px 19px 0 rgba(50, 50, 50, 0.75);
   box-shadow: 2px 2px 19px 0 rgba(50, 50, 50, 0.75);
   border-radius: 5px;
-
-  /*background-image: url("http://cdn.mysitemyway.com/etc-mysitemyway/backgrounds/legacy-previews/backgrounds/brushed-metal/brushed-metal-002801-lime-green.jpg");*/
-  /*background-image: url("http://cdn.mysitemyway.com/etc-mysitemyway/backgrounds/legacy-previews/backgrounds/curtains/curtains-001561-lime-green.jpg");*/
-  /*background-image: url("http://wallpapercave.com/wp/P2TWdXy.jpg");*/
   background-image: url("http://www.ravelo.pl/pub/mm/img/220/11522901.jpg");
   background-size: cover;
-
   transition: all .4s ease-in-out;
 }
 
-.recipeCard:hover{
+.recipeCard:hover {
   transform: scale(1.05);
 }
 
@@ -40,12 +35,13 @@ h2 {
 
 a:-webkit-any-link {
   text-decoration: none;
+  -moz-text-decoration: none;
 }
 
 .recipeTime {
   position: relative;
   font-size: 20px;
-  line-height:1.5em;
+  line-height: 1.5em;
   float: left;
   padding-left: 7px;
   color: #000;
@@ -66,7 +62,7 @@ a:-webkit-any-link {
   position: relative;
   float: right;
   font-size: 20px;
-  line-height:1.5em;
+  line-height: 1.5em;
   padding-right: 7px;
   color: #000;
 }

@@ -1,3 +1,124 @@
-.photo {
-    width: 300px;
+.pic {
+    height: 400px;
+    width: 500px;
+    margin: 20px;
+    overflow: hidden;
+    border: 1px solid #bbb;
+    -webkit-box-shadow: 10px 10px 30px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 30px -6px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 30px -6px rgba(0,0,0,0.75);
+}
+
+.grow .recipeImage {
+    height: 400px;
+    width: 500px;
+
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -ms-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+.grow .recipeImage:hover {
+    width: 520px;
+    height: 420px;
+}
+.ingredientsList {
+    text-align: justify;
+}
+
+.ingredientsList li {
+    list-style-type: circle;
+    font-size: 25px;
+}
+
+.cos {
+    float: right;
+}
+
+.recipeName {
+    background-color: #2CA733;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    border-radius: 40px 40px 0 0;
+    color: #FFF;
+    padding: 7px;
+    text-shadow: -1px 0 #DDD, 0 1px #DDD, 1px 0 #DDD, 0 -1px #DDD;
+
+}
+
+.recipeViewWrapper {
+    border-radius: 0 0 30px 30px;
+    padding: 30px;
+    border-bottom: 1px solid #BBB;
+    border-left: 1px solid #BBB;
+    border-right: 1px solid #BBB;
+}
+
+.favorite {
+    position: absolute;
+    height: 110px;
+    bottom: 25px;
+    font-size: 65px;
+    color: silver;
+    right: 60px;
+    overflow: hidden;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
+@-webkit-keyframes pulse {
+    25% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    75% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+}
+
+@keyframes pulse {
+    25% {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    75% {
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+}
+
+
+.favorite:hover {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+    color: gold;
+}
+
+@media (max-width: 1200px) {
+    .favorite {
+        right: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+    .pic {
+        height: 100%;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .favorite {
+        right: 130px;
+    }
 }

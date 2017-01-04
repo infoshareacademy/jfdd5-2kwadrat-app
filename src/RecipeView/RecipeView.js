@@ -7,51 +7,60 @@ import {Link} from 'react-router'
 import {connect} from 'react-redux'
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients
-})
+});
 
 
 export default connect(mapStateToProps)((props) => {
   const recipeWithId = recipes.find(
     recipe => recipe.id === parseInt(props.params.recipeId, 10)
-  )
+  );
   const arrayOfSelectedIngredientsID =
     props.selectedIngredients.map(
       selected =>
         selected.id
-    )
+    );
 
   return (
     <div key={recipeWithId.id}>
-      <Col xs={12}>
-        <h1>{recipeWithId.name}</h1>
-        <Image className="photo" src={recipeWithId.image}/>
-        <p>{recipeWithId.description} </p>
-        <div>
-          <h3> SKŁADNIKI: </h3>
-          <ul>
-            {
-              recipeWithId.ingredients.map(
-                ingredient =>
-                  <li key={ingredient.id}>
-                    {ingredient.ingredientAmount} {ingredient.unitMeasure}
-                    <p>
+      <h1 className="recipeName">{recipeWithId.name}</h1>
+      <Col xs={12} className="recipeViewWrapper">
+        <Col lg={6}>
+          <div className="grow pic">
+            <Image className="photo recipeImage" src={recipeWithId.image}/>
+          </div>
+          <span title="Dodaj do ulubionych" className="favorite">&#9055;</span>
+        </Col>
+        <Col lg={6}>
+          <div>
+            <span> SKŁADNIKI: </span><span>Znajd</span>
+            <ul className="ingredientsList">
+              {
+                recipeWithId.ingredients.map(
+                  ingredient =>
+                    <li key={ingredient.id}>
+                    <span>
                       {ingredients.find(item => item.id === ingredient.id).name}
-                    </p>
-
-                    <p key={ingredient.id}>
+                    </span>
+                      {" "}{ingredient.ingredientAmount} {ingredient.unitMeasure}
+                      <span key={ingredient.id}>
                       {
-                        <Link to={'/ingredient/' + ingredient.id}>
+                        <Link className="cos" to={'/ingredient/' + ingredient.id}>
                           { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
-                            <p>Zlokalizuj wiecej {ingredient.name}</p> :
-                            <p>Znajdz składnik</p>}
+                            <span>Zlokalizuj wiecej {ingredient.name}</span> :
+                            <span>===></span>
+                          }
                         </Link>
                       }
-                    </p>
-                  </li>
-              )
-            }
-          </ul>
-        </div>
+                    </span>
+                    </li>
+                )
+              }
+            </ul>
+          </div>
+        </Col>
+        <Col xs={12}>
+          <p>{recipeWithId.description}</p>
+        </Col>
       </Col>
       {props.children}
     </div>
