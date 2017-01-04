@@ -32,7 +32,7 @@ export default connect(mapStateToProps)((props) => {
         </Col>
         <Col lg={6}>
           <div>
-            <span> SKŁADNIKI: </span><span>Znajd</span>
+            <span>Znajd</span>
             <ul className="ingredientsList">
               {
                 recipeWithId.ingredients.map(
@@ -44,7 +44,7 @@ export default connect(mapStateToProps)((props) => {
                       {" "}{ingredient.ingredientAmount} {ingredient.unitMeasure}
                       <span key={ingredient.id}>
                       {
-                        <Link className="cos" to={'/ingredient/' + ingredient.id}>
+                        <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
                           { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
                             <span>Zlokalizuj wiecej {ingredient.name}</span> :
                             <span>===></span>
