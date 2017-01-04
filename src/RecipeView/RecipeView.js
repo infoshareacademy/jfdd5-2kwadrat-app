@@ -31,8 +31,10 @@ export default connect(mapStateToProps)((props) => {
           <span title="Dodaj do ulubionych" className="favorite">&#9055;</span>
         </Col>
         <Col lg={6}>
-          <div>
-            <span>Znajd</span>
+          <hr className="cutIt" />
+          <div className="manualView">
+            <span className="ingred">Składniki:</span>
+
             <ul className="ingredientsList">
               {
                 recipeWithId.ingredients.map(
@@ -41,13 +43,13 @@ export default connect(mapStateToProps)((props) => {
                     <span>
                       {ingredients.find(item => item.id === ingredient.id).name}
                     </span>
-                      {" "}{ingredient.ingredientAmount} {ingredient.unitMeasure}
+                      {" "}<span className="amount">{ingredient.ingredientAmount}</span> {ingredient.unitMeasure}
                       <span key={ingredient.id}>
                       {
                         <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
                           { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
                             <span>Zlokalizuj wiecej {ingredient.name}</span> :
-                            <span>===></span>
+                            <span className='bunchIngredients'> </span>
                           }
                         </Link>
                       }
@@ -59,7 +61,7 @@ export default connect(mapStateToProps)((props) => {
           </div>
         </Col>
         <Col xs={12}>
-          <p>{recipeWithId.description}</p>
+          <p className="description">{recipeWithId.description}</p>
         </Col>
       </Col>
       {props.children}
