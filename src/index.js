@@ -12,13 +12,13 @@ import {App} from './App'
 import store from './store'
 
 import './App/NavigationView/NavigationViewStyle.css'
+import {InstructionView} from './InstructionView'
 import {FridgeView} from './FridgeView'
 import {AllRecipesView} from './AllRecipesView'
 import {RecipeView} from './RecipeView'
 import {ShopsLogoView} from './ShopsLogoView'
 import {IngredientView} from './IngredientView'
 import {FilteredRecipesView} from './FilteredRecipesView'
-import {InstructionView} from './InstructionView'
 
 
 ReactDOM.render(
