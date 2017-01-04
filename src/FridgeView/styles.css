@@ -1,13 +1,11 @@
-form {
-  /*background-color: #00aced;*/
-}
-
 .ingredientFieldContent,
 .filtered {
-  width: 95%;
+  width: 90%;
   margin: 10px auto;
   border-radius: 10px;
-  display: inline-flex;
+  background-color: white;
+  box-shadow: 0 0 0 1px white;
+  display: block;
 }
 
 .filtered {
@@ -27,13 +25,11 @@ form {
 }
 
 .filteredIngredientImage {
-  height: 40px;
-  margin-left: 10px;
+  height: 60px;
 }
 
 .chosenIngredientImage {
   height: 50px;
-  margin-left: 10px;
 }
 
 .ingredientImage {
@@ -42,8 +38,11 @@ form {
 
 .ingredientInput {
   text-align: center;
-  width: 94%;
+  width: 73%;
   margin: auto;
+  border-radius: 20px;
+  font-size: 30px;
+  box-shadow: 0 0 10px 1px black;
 }
 
 .ingredientInputRow {
@@ -55,10 +54,18 @@ form {
   text-align: center;
   align-items: center;
   margin: auto;
+  font-size: 16px;
 }
 
 .titles {
   margin-bottom: 20px;
   font-family: Lato, sans-serif;
   color: white;
+}
+
+.background {
+  background-color: #00aced;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 2px black;
+  margin-bottom: 20px;
 }
