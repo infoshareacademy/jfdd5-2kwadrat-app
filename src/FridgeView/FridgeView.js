@@ -41,7 +41,7 @@ class FridgeView extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <Row className="ingredientInputRow">
-            <h1 className="titles">Wybierz produkty, które posiadasz</h1>
+            <h1 className="titles"><span className="span-blue">Wybierz produkty, które posiadasz</span></h1>
             <Col xs={12} sm={6} md={4}
                  xsOffset={0} smOffset={3} mdOffset={4}
             >
@@ -102,7 +102,7 @@ class FridgeView extends React.Component {
 
         <Row>
           {this.props.selectedIngredients.length === 0 ? null :
-            <h2 className="titles">Produkty, na podstawie których zostaną wyszukane przepisy</h2>}
+            <h2 className="titles"><span className="span-blue">Produkty, na podstawie których zostaną wyszukane przepisy</span></h2>}
           {
             this.props.selectedIngredients.map(
               ingredient =>
@@ -133,11 +133,10 @@ class FridgeView extends React.Component {
 
         <Row>
           {this.props.selectedIngredients.length === 0 ? null :
-            <Link to={'/filtered-recipes'}>
-              <Button>
-                Wyszukaj przepisy
-              </Button>
-            </Link>}
+            <h1><span className="span-button"><Link to={'/filtered-recipes'}>
+              Znajdź przepisy
+            </Link>
+        </span></h1>}
         </Row>
       </div>
     )

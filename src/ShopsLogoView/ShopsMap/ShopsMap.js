@@ -9,14 +9,14 @@ const mapStateToProps = state => ({
 
 const ShopsMap = props => (
 
-    <div style={{height: 600, width: 900}}>
+    <div style={{height: 600, width: 600}}>
         <GoogleMap
             bootstrapURLKeys={{key: "AIzaSyCTKvmsmExcSySC_66go30qvDRqt_3teBo"}}
             defaultCenter={{
                 lat: 54.403003,
                 lng: 18.572261
             }}
-            defaultZoom={14}>
+            defaultZoom={12}>
 
             {props.shops.map(
                 shop =>

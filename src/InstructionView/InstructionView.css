@@ -1,0 +1,30 @@
+.instruction-view {
+    margin-top:130px;
+}
+.instruction-image {
+    padding-top:40px;
+    text-align: right;
+}
+.instruction-text {
+    padding-top:0;
+    line-height: 55px;
+}
+
+.span-button, .span-blue {
+    background-color:#44C2FC;
+    border: #44C2FC 2px solid;
+    border-radius: 40px;
+    padding: 2px 15px;
+}
+.span-button:hover {
+   box-shadow:  0px 11px 38px -6px lightskyblue;
+
+}
+
+a{
+    color:white;
+}
+
+a:hover {
+    color:white;
+}

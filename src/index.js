@@ -12,6 +12,7 @@ import {App} from './App'
 import store from './store'
 
 import './App/NavigationView/NavigationViewStyle.css'
+import {InstructionView} from './InstructionView'
 import {FridgeView} from './FridgeView'
 import {AllRecipesView} from './AllRecipesView'
 import {RecipeView} from './RecipeView'
@@ -24,12 +25,15 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={FridgeView}/>
+        <IndexRoute component={InstructionView}/>
+
+
 
         <Route path="/recipes" component={AllRecipesView}/>
         <Route path="/recipes/:recipeId" component={RecipeView}/>
         <Route path="/ingredient/:ingredientId" component={IngredientView}/>
         <Route path="/filtered-recipes" component={FilteredRecipesView}/>
+        <Route path="/form" component={FridgeView}/>
 
         <Route path="/shops" component={ShopsLogoView}/>
 

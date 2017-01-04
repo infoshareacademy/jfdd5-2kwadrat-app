@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Image, Col, Button} from 'react-bootstrap'
+import {Image, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import './FilteredRecipesView.css'
 
@@ -45,9 +45,12 @@ const FilteredRecipes = (props) => {
 
   return (
     <div>
-      <div className="button-back">
-        <Link to={'/'}><Button>Wstecz</Button></Link>
-      </div>
+      {
+        arrayOfSelectedIngredientsID.length !== 0 ?
+          <div className="button-back">
+            <h1><span className="span-button"><Link to={'/form'}>Wróć</Link></span></h1>
+          </div> : ''
+      }
       {
         arrayOfSelectedIngredientsID.length !== 0 ?
           newRecipesArray.map(
@@ -88,7 +91,7 @@ const FilteredRecipes = (props) => {
               </Link>
             )
           ) :
-          <h1>Pokaż co masz w lodówce ; )</h1>
+          <h1><span className="span-button"><Link to={'/form'}>Co masz w lodówce?</Link></span></h1>
       }
     </div>
   )
