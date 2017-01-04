@@ -38,13 +38,14 @@ class FridgeView extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="background">
         <form onSubmit={this.handleSubmit}>
           <Row className="ingredientInputRow">
-            <h1 className="titles"><span className="span-blue">Wybierz produkty, które posiadasz</span></h1>
-            <Col xs={12} sm={6} md={4}
-                 xsOffset={0} smOffset={3} mdOffset={4}
+            <Col xs={12} sm={8} md={6}
+                 xsOffset={0} smOffset={2} mdOffset={3}
             >
+              <h2 className="titles"><span className="span-blue">Wybierz posiadane produkty</span></h2>
+
               <FormControl
                 className="ingredientInput"
                 bsSize="sm"
@@ -102,7 +103,7 @@ class FridgeView extends React.Component {
 
         <Row>
           {this.props.selectedIngredients.length === 0 ? null :
-            <h2 className="titles"><span className="span-blue">Produkty, na podstawie których zostaną wyszukane przepisy</span></h2>}
+          <h2 className="titles"><span className="span-blue">Wybrałaś/eś następujęce produkty</span></h2>}
           {
             this.props.selectedIngredients.map(
               ingredient =>
