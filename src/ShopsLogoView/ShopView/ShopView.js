@@ -35,7 +35,7 @@ const ShopView = React.createClass({
         )
     },
   onMouseEnterHandler () {
-      console.log('on mouse enter')
+      console.log(this)
   },
     
     render(){

@@ -18,18 +18,22 @@ import {RecipeView} from './RecipeView'
 import {ShopsLogoView} from './ShopsLogoView'
 import {IngredientView} from './IngredientView'
 import {FilteredRecipesView} from './FilteredRecipesView'
+import {InstructionView} from './InstructionView'
 
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={FridgeView}/>
+        <IndexRoute component={InstructionView}/>
+
+
 
         <Route path="/recipes" component={AllRecipesView}/>
         <Route path="/recipes/:recipeId" component={RecipeView}/>
         <Route path="/ingredient/:ingredientId" component={IngredientView}/>
         <Route path="/filtered-recipes" component={FilteredRecipesView}/>
+        <Route path="/form" component={FridgeView}/>
 
         <Route path="/shops" component={ShopsLogoView}/>
 

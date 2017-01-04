@@ -1,0 +1,10 @@
+h2 {
+    padding-top:0;
+    line-height: 55px;
+}
+
+span {
+    color:#44C2FC;
+    border:#44C2FC 2px solid;
+    border-radius: 5px;
+}
