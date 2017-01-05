@@ -95,6 +95,29 @@ hr.cutIt {
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
+.socialIcons {
+  position: relative;
+  text-align: right;
+  padding: 30px;
+  margin-top: 111px;
+}
+
+.socialIcon {
+  margin-right: 15px;
+}
+
+.socialGplus {
+
+}
+
+.socialFacebook {
+
+}
+
+.socialTwitter {
+
+}
+
 .bunchIngredients:hover {
   -webkit-animation-name: shakeYourAss;
   -webkit-animation-duration: 0.8s;

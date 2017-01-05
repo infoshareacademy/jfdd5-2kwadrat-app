@@ -11,6 +11,7 @@
 .ingredientPicture {
   position: absolute;
   bottom: 0;
+  left: 97px;
   max-width: 200px;
 }
 
@@ -49,17 +50,17 @@
   margin-right: 20px;
 }
 
-.basket {
+.addToList {
   position: absolute;
-  left: 20px;
-  bottom: 20px;
-  color: #53f442;
+  right: 80px;
+  top: 150px;
+  color: #148800;
   width: 100px;
   height:auto;
   transition: all .2s ease-in-out;
 }
 
-.basket:hover {
+.addToList:hover {
   cursor: pointer;
   transform: scale(1.2);
 }

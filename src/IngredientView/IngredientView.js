@@ -4,6 +4,7 @@ import {shops} from '../data'
 import {Image, Col} from 'react-bootstrap'
 import GoogleMap from 'google-map-react'
 import './ingredientViewStyle.css'
+import GoChecklist from 'react-icons/lib/go/checklist'
 
 import FaShoppingBasket from 'react-icons/lib/fa/shopping-basket'
 
@@ -48,7 +49,7 @@ export default (props) => {
                 }
               </ul>
             </div>
-            <span title="Dodaj do listy zakupów"><FaShoppingBasket className="basket"/></span>
+            <span title="Dodaj do listy zakupów"><GoChecklist className="addToList"/></span>
           </Col>
           <Col xs={6}>
             <div className="googleMap">
