@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    name: 'biedronka',
+    name: 'Biedronka',
     location: {
       lat: 54.407109,
       lng: 18.591712
@@ -24,7 +24,7 @@ export default [
   },
   {
     id: 2,
-    name: 'biedronka',
+    name: 'Biedronka',
     location: {
       lat: 54.415598,
       lng: 18.578969
@@ -47,7 +47,7 @@ export default [
   },
   {
     id: 3,
-    name: 'biedronka',
+    name: 'Biedronka',
     location: {
       lat: 54.606173,
       lng: 18.656232
@@ -70,7 +70,7 @@ export default [
   },
   {
     id: 4,
-    name: 'biedronka',
+    name: 'Biedronka',
     location: {
       lat: 54.423173,
       lng: 18.622232
@@ -93,7 +93,7 @@ export default [
   },
   {
     id: 5,
-    name: 'biedronka',
+    name: 'Biedronka',
     location: {
       lat: 54.409173,
       lng: 18.615232
@@ -116,7 +116,7 @@ export default [
   },
   {
     id: 6,
-    name: 'biedronka',
+    name: 'Biedronka',
     location: {
       lat: 54.476173,
       lng: 18.663232
@@ -139,7 +139,7 @@ export default [
   },
   {
     id: 7,
-    name: 'biedronka',
+    name: 'Biedronka',
     location: {
       lat: 54.446173,
       lng: 18.613532
@@ -162,7 +162,7 @@ export default [
   },
   {
     id: 8,
-    name: 'lidl',
+    name: 'Lidl',
     location: {
       lat: 54.390924,
       lng: 18.571811
@@ -181,7 +181,7 @@ export default [
   },
   {
     id: 9,
-    name: 'lidl',
+    name: 'Lidl',
     location: {
       lat: 54.390924,
       lng: 18.591711
@@ -200,7 +200,7 @@ export default [
   },
   {
     id: 10,
-    name: 'lidl',
+    name: 'Lidl',
     location: {
       lat: 54.390724,
       lng: 18.591811
@@ -219,7 +219,7 @@ export default [
   },
   {
     id: 11,
-    name: 'lidl',
+    name: 'Lidl',
     location: {
       lat: 54.370724,
       lng: 18.541811
@@ -238,7 +238,7 @@ export default [
   },
   {
     id: 12,
-    name: 'lidl',
+    name: 'Lidl',
     location: {
       lat: 54.398323,
       lng: 18.618748
@@ -257,7 +257,7 @@ export default [
   },
   {
     id: 13,
-    name: 'lidl',
+    name: 'Lidl',
     location: {
       lat: 54.289425,
       lng: 18.610323
@@ -276,7 +276,7 @@ export default [
   },
   {
     id: 14,
-    name: 'tesco',
+    name: 'Tesco',
     location: {
       lat: 54.4141477,
       lng: 18.5241926
@@ -304,7 +304,7 @@ export default [
 
   {
     id: 15,
-    name: 'tesco',
+    name: 'Tesco',
     location: {
       lat: 54.4101497,
       lng: 18.5302926
@@ -331,7 +331,7 @@ export default [
   },
   {
     id: 16,
-    name: 'tesco',
+    name: 'Tesco',
     location: {
       lat: 54.4131477,
       lng: 18.5321926
@@ -358,7 +358,7 @@ export default [
   },
   {
     id: 17,
-    name: 'tesco',
+    name: 'Tesco',
     location: {
       lat: 54.4101477,
       lng: 18.5301926
@@ -385,7 +385,7 @@ export default [
   },
   {
     id: 18,
-    name: 'tesco',
+    name: 'Tesco',
     location: {
       lat: 54.410157,
       lng: 18.5301956
@@ -412,7 +412,7 @@ export default [
   },
   {
     id: 19,
-    name: 'stokrotka',
+    name: 'Stokrotka',
     location: {
       lat: 54.302911,
       lng: 18.577875
@@ -447,7 +447,7 @@ export default [
   },
   {
     id: 20,
-    name: 'stokrotka',
+    name: 'Stokrotka',
     location: {
       lat: 54.306511,
       lng: 18.577765
@@ -482,7 +482,7 @@ export default [
   },
   {
     id: 21,
-    name: 'stokrotka',
+    name: 'Stokrotka',
     location: {
       lat: 54.601891,
       lng: 18.184671
@@ -517,7 +517,7 @@ export default [
   },
   {
     id: 22,
-    name: 'stokrotka',
+    name: 'Stokrotka',
     location: {
       lat: 54.307811,
       lng: 18.577565
@@ -552,7 +552,7 @@ export default [
   },
   {
     id: 23,
-    name: 'stokrotka',
+    name: 'Stokrotka',
     location: {
       lat: 54.355211,
       lng: 18.577765
@@ -587,7 +587,7 @@ export default [
   },
   {
     id: 24,
-    name: 'stokrotka',
+    name: 'Stokrotka',
     location: {
       lat: 54.308911,
       lng: 18.588975
@@ -622,7 +622,7 @@ export default [
   },
   {
     id: 25,
-    name: 'stokrotka',
+    name: 'Stokrotka',
     location: {
       lat: 54.366611,
       lng: 18.578875
@@ -657,7 +657,7 @@ export default [
   },
   {
     id: 26,
-    name: 'polo-market',
+    name: 'Polo-market',
     location: {
       lat: 54.467079,
       lng: 18.587668
@@ -680,7 +680,7 @@ export default [
   },
   {
     id: 27,
-    name: 'polo-market',
+    name: 'Polo-market',
     location: {
       lat: 54.601811,
       lng: 18.184721
@@ -703,7 +703,7 @@ export default [
   },
   {
     id: 28,
-    name: 'polo-market',
+    name: 'Polo-market',
     location: {
       lat: 54.403009,
       lng: 18.587078
@@ -726,7 +726,7 @@ export default [
   },
   {
     id: 29,
-    name: 'polo-market',
+    name: 'Polo-market',
     location: {
       lat: 54.402079,
       lng: 18.597018
@@ -749,7 +749,7 @@ export default [
   },
   {
     id: 30,
-    name: 'polo-market',
+    name: 'Polo-market',
     location: {
       lat: 54.403989,
       lng: 18.587888
@@ -772,7 +772,7 @@ export default [
   },
   {
     id: 31,
-    name: 'żabka',
+    name: 'Żabka',
     location: {
       lat: 54.411315,
       lng: 18.550564
@@ -842,7 +842,7 @@ export default [
     ]
   }, {
     id: 32,
-    name: 'żabka',
+    name: 'Żabka',
     location: {
       lat: 54.412713,
       lng: 18.601033
