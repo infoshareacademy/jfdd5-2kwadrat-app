@@ -8,43 +8,43 @@ import {default as ShopView} from './ShopView/ShopView'
 import './ShopLogoView.css'
 
 const mapStateToProps = state => ({
-    shops: state.shopsData.shops
+  shops: state.shopsData.shops
 })
 
 const ShopsLogoView = (props) => {
-    return (
-        <div>
-              <Col xs={6}>
-                <h1>Partnerskie sklepy:</h1>
-                {
-                    props.shops.reduce(
-                        (prev, next) =>
-                            prev.find(
-                                item =>
-                                item.name === next.name) ?
-                                prev :
-                                prev.concat(next),
-                        []
-                    ).map(
-                        shop => {
-                            return (
-                                <Col key={shop.id}
-                                     xs={6}
-                                     className='shop-container'>
-                                    <ShopView shop={shop}
-
-                                    />
-                                </Col>
-                            )
-                        }
-                    )
-                }
-              </Col>
-          <Col xs={6}>
-                {<ShopsMap />}
-            </Col>
-        </div>
-    )
+  return (
+    <div className="shop-logo-view">
+      <Col xs={6}>
+        <h1 className="span-blue">Partnerskie sklepy:</h1>
+        {
+          props.shops.reduce(
+            (prev, next) =>
+              prev.find(
+                item =>
+                item.name === next.name) ?
+                prev :
+                prev.concat(next),
+            []
+          ).map(
+            shop => {
+              return (
+                <Col key={shop.id}
+                     xs={6}
+                     className='shop-container'>
+                  <ShopView shop={shop}
+                            height={70 }
+                  />
+                </Col>
+              )
+            }
+          )
+        }
+      </Col>
+      <Col xs={6}>
+        {<ShopsMap />}
+      </Col>
+    </div>
+  )
 }
 
 export default connect(mapStateToProps)(ShopsLogoView)
