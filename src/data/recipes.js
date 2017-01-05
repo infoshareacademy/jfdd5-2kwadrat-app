@@ -306,7 +306,10 @@ export default [
     ],
     image: 'http://rafalkosik.com/wp-content/files/photos/091216_bigos_22.jpg',
     description: 'Sekret pysznego bigosu tkwi w "przegryzieniu" się wszystkich smaków. Dlatego im dłużej bigos się ' +
-    'gotuje lub odgrzewa, tym jest smaczniejszy! Najlepszy jest po kilku dniach.'
+    'gotuje lub odgrzewa, tym jest smaczniejszy! Najlepszy jest po kilku dniach. Wołowe gulaszowe też będzie dobre, ' +
+    'jedynie trzeba dodać wtedy ciut więcej boczku lub podgardla. Tak to już jest, że bigos z mięsem tłusty musi być ' +
+    'i już! Zawsze bigos zyskuje na smaku w miarę podgrzewania, może stać w lodówce przez kilka dni i czekać na ' +
+    'amatorów swojego bogatego smaku. Dotychczas pokazywałam już kilka bigosów czy kapust, jak ktoś woli.'
   },
   {
     id: 9,
