@@ -107,15 +107,16 @@ hr.cutIt {
 }
 
 .socialGplus {
-
+  color: #de7264;
+  /*color: #d34836*/
 }
 
 .socialFacebook {
-
+ color: #8b9dc3;
 }
 
 .socialTwitter {
-
+ color: #d4d8d4;
 }
 
 .bunchIngredients:hover {
