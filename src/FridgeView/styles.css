@@ -9,13 +9,13 @@
 }
 
 .filtered {
-  padding: 5px;
-  border: 3px solid #00aced;
+  /*padding: 5px;*/
+  border: 3px solid #2ca733;
 }
 
 .chosen {
-  padding: 10px;
-  border: 5px solid #00aced;
+  /*padding: 10px;*/
+  border: 3px solid #2ca733;
 }
 
 .ingredientFieldContent:hover {
@@ -25,11 +25,11 @@
 }
 
 .filteredIngredientImage {
-  height: 60px;
+  height: 100px;
 }
 
 .chosenIngredientImage {
-  height: 50px;
+  height: 100px;
 }
 
 .ingredientImage {
@@ -38,11 +38,11 @@
 
 .ingredientInput {
   text-align: center;
-  width: 73%;
-  margin: auto;
+  width: 75%;
+  margin: 0 auto 15px;
   border-radius: 20px;
-  font-size: 30px;
-  box-shadow: 0 0 10px 1px black;
+  font-size: 20px;
+  box-shadow: 0 0 5px 2px #2ca733;
 }
 
 .ingredientInputRow {
@@ -55,17 +55,36 @@
   align-items: center;
   margin: auto;
   font-size: 16px;
+  background-color: lightgrey;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
 }
 
 .titles {
-  margin-bottom: 20px;
+  width: 75%;
+  margin: 30px auto 20px;
   font-family: Lato, sans-serif;
+  background-color: #2ca733;
   color: white;
+  border-radius: 20px;
+  padding: 5px;
 }
 
-.background {
-  background-color: #00aced;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 2px black;
-  margin-bottom: 20px;
+hr.dividingLine {
+  height: 30px;
+  border-style: solid;
+  border-color: #2ca733;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+  margin-bottom: 0;
+}
+hr.dividingLine:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: #2ca733;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
 }

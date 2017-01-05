@@ -2,7 +2,7 @@ import React from 'react'
 import './styles.css'
 import {ingredients} from '../data'
 
-import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
+import {Image, Col, Row, FormControl} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
 
@@ -38,19 +38,19 @@ class FridgeView extends React.Component {
 
   render() {
     return (
-      <div className="background">
+      <div>
         <form onSubmit={this.handleSubmit}>
           <Row className="ingredientInputRow">
             <Col xs={12} sm={8} md={6}
                  xsOffset={0} smOffset={2} mdOffset={3}
             >
-              <h2 className="titles"><span className="span-blue">Wybierz posiadane produkty</span></h2>
+              <h2 className="titles">Wybierz posiadane produkty</h2>
 
               <FormControl
                 className="ingredientInput"
                 bsSize="sm"
                 type="text"
-                placeholder="W lodówce mam..."
+                placeholder="w lodówce mam..."
                 onChange={(event) => this.setState({search: event.target.value})}
               />
             </Col>
@@ -101,13 +101,24 @@ class FridgeView extends React.Component {
           </Row>
         </form>
 
+        <form>
         <Row>
-          {this.props.selectedIngredients.length === 0 ? null :
-          <h2 className="titles"><span className="span-blue">Wybrałaś/eś następujęce produkty</span></h2>}
+          <Col xs={12}>
+            {this.props.selectedIngredients.length === 0 ? null :
+              <hr className="dividingLine"></hr>}
+          </Col>
+          <Col xs={12} sm={8} md={6}
+               xsOffset={0} smOffset={2} mdOffset={3}
+          >
+            {this.props.selectedIngredients.length === 0 ? null :
+              <h2 className="titles">Wybrane produkty</h2>}
+          </Col>
+        </Row>
+          <Row>
           {
             this.props.selectedIngredients.map(
               ingredient =>
-                <Col key={ingredient.id} xs={12} sm={6} md={4} onClick={
+                <Col key={ingredient.id} xs={6} sm={4} md={3} onClick={
                   () => {
                     if (this.props.removeIngredient(ingredient.id)) {
                       this.setState(
@@ -124,20 +135,26 @@ class FridgeView extends React.Component {
                   <div className="ingredientFieldContent chosen">
                     <Image className="chosenIngredientImage" src={ingredient.img}/>
                     <div className="ingredientName">
-                      {ingredient.name + ingredient.id}
+                      {ingredient.name}
                     </div>
                   </div>
                 </Col>
             )
           }
         </Row>
+        </form>
 
         <Row>
-          {this.props.selectedIngredients.length === 0 ? null :
-            <h1><span className="span-button"><Link to={'/filtered-recipes'}>
-              Znajdź przepisy
-            </Link>
-        </span></h1>}
+          <Col xs={12} sm={8} md={6}
+               xsOffset={0} smOffset={2} mdOffset={3}
+          >
+            {this.props.selectedIngredients.length === 0 ? null :
+              <h2 className="titles">
+                <Link to={'/filtered-recipes'}>
+                  Znajdź przepisy
+                </Link>
+              </h2>}
+          </Col>
         </Row>
       </div>
     )
