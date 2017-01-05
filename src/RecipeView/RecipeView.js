@@ -5,6 +5,7 @@ import {recipes} from '../data'
 import {ingredients} from '../data'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
+import FaCartPlus from 'react-icons/lib/fa/cart-plus'
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients
 });
@@ -48,7 +49,7 @@ export default connect(mapStateToProps)((props) => {
                             <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
                               { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
                                 <span>Zlokalizuj wiecej {ingredient.name}</span> :
-                                <span className='bunchIngredients'> </span>
+                                <span><FaCartPlus  size="40px" color="#2da834" className="cart"/> </span>
                               }
                             </Link>
                           }
