@@ -38,7 +38,7 @@ class FridgeView extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="divKeepsAll">
         <form onSubmit={this.handleSubmit}>
           <Row className="ingredientInputRow">
             <Col xs={12} sm={8} md={6}
@@ -144,9 +144,11 @@ class FridgeView extends React.Component {
             }
           </Row>
 
-          <Row xs={12}>
-            {this.props.selectedIngredients.length === 0 ? null :
-              <hr className="bottomDividingLine"></hr>}
+          <Row>
+            <Col xs={12}>
+              {this.props.selectedIngredients.length === 0 ? null :
+                <hr className="bottomDividingLine"></hr>}
+            </Col>
           </Row>
         </form>
 

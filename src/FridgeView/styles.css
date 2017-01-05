@@ -9,13 +9,11 @@
 }
 
 .filtered {
-  /*padding: 5px;*/
-  border: 3px solid #2ca733;
+  border: 3px solid #2da834;
 }
 
 .chosen {
-  /*padding: 10px;*/
-  border: 3px solid #2ca733;
+  border: 3px solid #2da834;
 }
 
 .ingredientFieldContent:hover {
@@ -46,8 +44,7 @@
   margin: 0 auto 15px;
   border-radius: 20px;
   font-size: 20px;
-  /*box-shadow: 0 0 5px 2px #2ca733;*/
-  border: 2px solid #2ca733;
+  border: 2px solid #2da834;
 }
 
 .ingredientInputRow {
@@ -69,7 +66,7 @@
   width: 75%;
   margin: 30px auto 20px;
   font-family: Lato, sans-serif;
-  background-color: #2ca733;
+  background-color: #2da834;
   color: white;
   border-radius: 20px;
   padding: 5px;
@@ -78,7 +75,7 @@
 hr.middleDividingLine {
   height: 30px;
   border-style: solid;
-  border-color: #2ca733;
+  border-color: #2da834;
   border-width: 1px 0 0 0;
   border-radius: 20px;
   margin-bottom: 0;
@@ -89,7 +86,7 @@ hr.middleDividingLine:before {
   height: 30px;
   margin-top: -31px;
   border-style: solid;
-  border-color: #2ca733;
+  border-color: #2da834;
   border-width: 0 0 1px 0;
   border-radius: 20px;
 }
@@ -100,26 +97,30 @@ hr.bottomDividingLine:before {
   height: 30px;
   margin-top: -31px;
   border-style: solid;
-  border-color: #2ca733;
+  border-color: #2da834;
   border-width: 0 0 1px 0;
   border-radius: 20px;
 }
 
+hr.bottomDividingLine {
+  border-color: transparent;
+}
+
 .searchButton {
   position: fixed;
-  bottom: 5%;
+  bottom: 6%;
   right: 0;
 }
 
 .searchButtonText {
   margin: 30px auto 20px;
   font-family: Lato, sans-serif;
-  background-color: #2ca733;
+  background-color: #2da834;
   color: white;
   padding-top: 0;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  box-shadow: 0 0 10px 2px #2ca733;
+  box-shadow: 0 0 10px 2px #2da834;
 }
 
 .linkInsideButton {
@@ -131,15 +132,15 @@ hr.bottomDividingLine:before {
 
 .searchButtonText:hover {
   transform: scale(1.1, 1.1) translateX(-8px);
-  box-shadow: 0 0 12px 4px #2ca733;
+  box-shadow: 0 0 12px 4px #2da834;
   transition-duration: 1s;
 }
 
 .form-control:focus {
-  border-color: #2ca733;
-  box-shadow: 0 0 10px 2px #2ca733;
+  border-color: #2da834;
+  box-shadow: 0 0 10px 2px #2da834;
 }
 
 .formBottomHalf {
- padding-bottom: 10px;
+ margin-bottom: 10px;
 }
