@@ -75,14 +75,10 @@ hr.style-two {
 }
 .cart:hover {
     opacity:1;
-    -webkit-animation-name: pulse;
-    animation-name: pulse;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
+    -webkit-animation-name: shakeYourAss;
+    -webkit-animation-duration: 0.8s;
+    -webkit-transform-origin: 50% 50%;
     -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    cursor: pointer;
-    color: gold;
+    -webkit-animation-timing-function: linear;
 }
+
