@@ -26,10 +26,14 @@
 
 .filteredIngredientImage {
   height: 100px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .chosenIngredientImage {
   height: 100px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .ingredientImage {
@@ -42,7 +46,8 @@
   margin: 0 auto 15px;
   border-radius: 20px;
   font-size: 20px;
-  box-shadow: 0 0 5px 2px #2ca733;
+  /*box-shadow: 0 0 5px 2px #2ca733;*/
+  border: 2px solid #2ca733;
 }
 
 .ingredientInputRow {
@@ -54,7 +59,7 @@
   text-align: center;
   align-items: center;
   margin: auto;
-  font-size: 16px;
+  font-size: 20px;
   background-color: lightgrey;
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
@@ -70,7 +75,7 @@
   padding: 5px;
 }
 
-hr.dividingLine {
+hr.middleDividingLine {
   height: 30px;
   border-style: solid;
   border-color: #2ca733;
@@ -78,7 +83,7 @@ hr.dividingLine {
   border-radius: 20px;
   margin-bottom: 0;
 }
-hr.dividingLine:before {
+hr.middleDividingLine:before {
   display: block;
   content: "";
   height: 30px;
@@ -87,4 +92,54 @@ hr.dividingLine:before {
   border-color: #2ca733;
   border-width: 0 0 1px 0;
   border-radius: 20px;
+}
+
+hr.bottomDividingLine:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: #2ca733;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+.searchButton {
+  position: fixed;
+  bottom: 5%;
+  right: 0;
+}
+
+.searchButtonText {
+  margin: 30px auto 20px;
+  font-family: Lato, sans-serif;
+  background-color: #2ca733;
+  color: white;
+  padding-top: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 0 0 10px 2px #2ca733;
+}
+
+.linkInsideButton {
+  display: block;
+  padding: 10px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.searchButtonText:hover {
+  transform: scale(1.1, 1.1) translateX(-8px);
+  box-shadow: 0 0 12px 4px #2ca733;
+  transition-duration: 1s;
+}
+
+.form-control:focus {
+  border-color: #2ca733;
+  box-shadow: 0 0 10px 2px #2ca733;
+}
+
+.formBottomHalf {
+ padding-bottom: 10px;
 }

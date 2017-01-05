@@ -101,61 +101,63 @@ class FridgeView extends React.Component {
           </Row>
         </form>
 
-        <form>
-        <Row>
-          <Col xs={12}>
-            {this.props.selectedIngredients.length === 0 ? null :
-              <hr className="dividingLine"></hr>}
-          </Col>
-          <Col xs={12} sm={8} md={6}
-               xsOffset={0} smOffset={2} mdOffset={3}
-          >
-            {this.props.selectedIngredients.length === 0 ? null :
-              <h2 className="titles">Wybrane produkty</h2>}
-          </Col>
-        </Row>
+        <form className="formBottomHalf">
           <Row>
-          {
-            this.props.selectedIngredients.map(
-              ingredient =>
-                <Col key={ingredient.id} xs={6} sm={4} md={3} onClick={
-                  () => {
-                    if (this.props.removeIngredient(ingredient.id)) {
-                      this.setState(
-                        {
-                          ingredients: this.state.ingredients.filter(
-                            item => item.id !== ingredient.id
-                          )
-                        },
-                        () => this.props.removeIngredient(ingredient.id)
-                      )
+            <Col xs={12}>
+              {this.props.selectedIngredients.length === 0 ? null :
+                <hr className="middleDividingLine"></hr>}
+            </Col>
+            <Col xs={12} sm={8} md={6}
+                 xsOffset={0} smOffset={2} mdOffset={3}
+            >
+              {this.props.selectedIngredients.length === 0 ? null :
+                <h2 className="titles">Wybrane produkty</h2>}
+            </Col>
+          </Row>
+
+          <Row>
+            {
+              this.props.selectedIngredients.map(
+                ingredient =>
+                  <Col key={ingredient.id} xs={6} sm={4} md={3} onClick={
+                    () => {
+                      if (this.props.removeIngredient(ingredient.id)) {
+                        this.setState(
+                          {
+                            ingredients: this.state.ingredients.filter(
+                              item => item.id !== ingredient.id
+                            )
+                          },
+                          () => this.props.removeIngredient(ingredient.id)
+                        )
+                      }
                     }
-                  }
-                }>
-                  <div className="ingredientFieldContent chosen">
-                    <Image className="chosenIngredientImage" src={ingredient.img}/>
-                    <div className="ingredientName">
-                      {ingredient.name}
+                  }>
+                    <div className="ingredientFieldContent chosen">
+                      <Image className="chosenIngredientImage" src={ingredient.img}/>
+                      <div className="ingredientName">
+                        {ingredient.name}
+                      </div>
                     </div>
-                  </div>
-                </Col>
-            )
-          }
-        </Row>
+                  </Col>
+              )
+            }
+          </Row>
+
+          <Row xs={12}>
+            {this.props.selectedIngredients.length === 0 ? null :
+              <hr className="bottomDividingLine"></hr>}
+          </Row>
         </form>
 
-        <Row>
-          <Col xs={12} sm={8} md={6}
-               xsOffset={0} smOffset={2} mdOffset={3}
-          >
-            {this.props.selectedIngredients.length === 0 ? null :
-              <h2 className="titles">
-                <Link to={'/filtered-recipes'}>
-                  Znajdź przepisy
-                </Link>
-              </h2>}
-          </Col>
-        </Row>
+        <div className="searchButton">
+          {this.props.selectedIngredients.length === 0 ? null :
+            <h2 className="searchButtonText">
+              <Link className="linkInsideButton" to={'/filtered-recipes'}>
+                PRZEPISY<br/>DLA<br/>CIEBIE
+              </Link>
+            </h2>}
+        </div>
       </div>
     )
   }
