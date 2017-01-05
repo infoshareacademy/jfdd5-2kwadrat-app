@@ -11,7 +11,7 @@ export default [
         name: 'wędzony boczek',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://foldruk.media.pl/testy/moscibrody/public//file/Icon_543e7b9b60c51.jpg'
+        img: 'http://www.opinie.senior.pl/zdjecia/Wedliny-sredniotrwale/Boczek-wedzony-8830-big.jpg'
     },
     {
         id: 3,
