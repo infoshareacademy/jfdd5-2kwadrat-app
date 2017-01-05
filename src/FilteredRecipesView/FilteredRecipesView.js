@@ -48,7 +48,7 @@ const FilteredRecipes = (props) => {
       {
         arrayOfSelectedIngredientsID.length !== 0 ?
           <div className="button-back">
-            <h1><span className="span-button"><Link to={'/form'}>Wróć</Link></span></h1>
+            <Link to={'/form'}><span className="span-button btn">◄</span></Link>
           </div> : ''
       }
       {
