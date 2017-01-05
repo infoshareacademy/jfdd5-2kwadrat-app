@@ -112,7 +112,7 @@ const ShopView = React.createClass({
                         <span className="ingredient-name"> {item.ingredient.name.toUpperCase()}</span>
                       </td>
                       <td>
-                       Tylko <span className="red-price">{item.price}</span> zł
+                       Tylko <span className="red-price">{item.price}</span> zł / 1kg
                       </td>
                       <td>
                         <span title="Dodaj do listy zakupów">
