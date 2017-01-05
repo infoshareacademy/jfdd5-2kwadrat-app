@@ -109,7 +109,7 @@ export default [
         name: 'marchewka',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://info.ecomania.com.pl/wp-content/uploads/2013/03/marchewka.jpg'
+        img: 'http://advantage.edu.pl/wp-content/uploads/2013/10/carrot.jpg'
     },
     {
         id: 17,

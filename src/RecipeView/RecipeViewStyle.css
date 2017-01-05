@@ -1,3 +1,7 @@
+a:hover, a:focus {
+  text-decoration: none;
+}
+
 .pic {
   height: 400px;
   width: 500px;
@@ -62,7 +66,7 @@ hr.cutIt {
 .recipeName {
   background-color: #2CA733;
   letter-spacing: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   border-radius: 40px 40px 0 0;
   color: #FFF;
   padding: 7px;
@@ -148,7 +152,7 @@ hr.cutIt {
   padding: 20px;
 }
 
-p:first-letter {
+.description:first-letter {
   font-family: serif;
   font-weight: bold;
   color: #e61e2a;
