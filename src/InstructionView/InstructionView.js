@@ -11,8 +11,8 @@ export default () => (
            height={240}
       />
     </Col>
+
     <Col xs={6}>
-      <h1>Nie masz pomysłu na obiad?</h1>
       <h2 className="instruction-text">
         Wypełnij <span className="span-button"><Link to={'/form'}>formularz</Link></span>, a nasza wyszukiwarka znajdzie<br/>
         <span className="span-button"><Link to={'/filtered-recipes'}>Przepisy dla Ciebie</Link></span>.

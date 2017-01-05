@@ -10,14 +10,14 @@
 }
 
 .span-button, .span-blue {
-    background-color:#44C2FC;
-    border: #44C2FC 2px solid;
+    background-color:#2da834;
+    border: #2da834 2px solid;
     border-radius: 40px;
-    padding: 2px 15px;
+    padding: 4px 15px;
+    color:white;
 }
 .span-button:hover {
-   box-shadow:  0px 11px 38px -6px lightskyblue;
-
+   box-shadow:  0px 11px 38px -6px #2da834;
 }
 
 a{

@@ -484,8 +484,8 @@ export default [
     id: 21,
     name: 'stokrotka',
     location: {
-      lat: 54.601891,
-      lng: 18.184671
+      lat: 54.440366,
+      lng: 18.4888121
     },
     logo: 'https://s24.postimg.org/5ylap31xx/stokrotka.png',
     ingredients: [
@@ -682,8 +682,8 @@ export default [
     id: 27,
     name: 'polo-market',
     location: {
-      lat: 54.601811,
-      lng: 18.184721
+      lat: 54.4203578,
+      lng: 18.4981013
     },
     logo: 'https://s27.postimg.org/uh0ljdtcj/polomarket_logo.png',
     ingredients: [
