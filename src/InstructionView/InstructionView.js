@@ -2,6 +2,7 @@ import React from 'react'
 import {Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import './InstructionView.css'
+import FaShoppingBasket from 'react-icons/lib/fa/shopping-basket'
 
 export default () => (
   <div className="instruction-view">
@@ -10,13 +11,14 @@ export default () => (
            alt="lodowka"
            height={240}
       />
+
     </Col>
     <Col xs={6}>
-      <h1>Nie masz pomysłu na obiad?</h1>
       <h2 className="instruction-text">
         Wypełnij <span className="span-button"><Link to={'/form'}>formularz</Link></span>, a nasza wyszukiwarka znajdzie<br/>
         <span className="span-button"><Link to={'/filtered-recipes'}>Przepisy dla Ciebie</Link></span>.
       </h2>
+      <FaShoppingBasket size="60px" color="#2da834"/>
     </Col>
   </div>
 )
