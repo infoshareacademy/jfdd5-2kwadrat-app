@@ -5,6 +5,8 @@ import {Image, Col} from 'react-bootstrap'
 import GoogleMap from 'google-map-react'
 import './ingredientViewStyle.css'
 
+import FaShoppingBasket from 'react-icons/lib/fa/shopping-basket'
+
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
 
 
@@ -23,7 +25,7 @@ export default (props) => {
       <Col xs={12}>
         <div key={ingredientsWithId.id}>
           <Col lg={6} className="ingredientPictureContainer">
-            <h1>{ingredientsWithId.name}</h1>
+            <h1 className="ingredientWithIdName">{ingredientsWithId.name}</h1>
             <hr className="separator" />
             <div>
             <Image className="ingredientPicture" src={ingredientsWithId.img}/>
@@ -46,6 +48,7 @@ export default (props) => {
                 }
               </ul>
             </div>
+            <span title="Dodaj do listy zakupów"><FaShoppingBasket className="basket"/></span>
           </Col>
           <Col xs={6}>
             <div className="googleMap">

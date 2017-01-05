@@ -14,6 +14,10 @@
   max-width: 200px;
 }
 
+.ingredientWithIdName {
+  font-style: italic;
+}
+
 .ProductAvailability {
   text-align: left;
   margin-bottom: 30px;
@@ -43,4 +47,19 @@
   height: 30px;
   float: left;
   margin-right: 20px;
+}
+
+.basket {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  color: #53f442;
+  width: 100px;
+  height:auto;
+  transition: all .2s ease-in-out;
+}
+
+.basket:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
