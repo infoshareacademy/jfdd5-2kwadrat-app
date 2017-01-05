@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 const ShopsLogoView = (props) => {
     return (
-        <div>
+        <div className="shop-logo-view">
               <Col xs={6}>
                 <h1 className="span-blue">Partnerskie sklepy:</h1>
                 {
