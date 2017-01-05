@@ -1,21 +1,85 @@
-
+.modal-content {
+    border-radius: 40px;
+}
 .modal-body {
     text-align: center;
 }
+.modal-header {
+    background-color: #2da834;
+    border-radius: 40px 40px 0 0;
+}
 .modal-title {
     text-align: center;
-    font-size: 40px;
+    font-size: 20px;
+    color:white;
+    letter-spacing: 2px;
 }
 .modal-backdrop.in {
     opacity: 0.3;
 }
+.modal-footer {
+    border-top: none;
+    text-align: center;
+    padding-bottom: 30px;
+}
+.modal-footer a {
+    color: white;
+    font-size:20px;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
 .shop-container {
     padding:20px;
-    text-align: left;
+    text-align: center;
 }
 ul li {
     list-style-type: none;
 }
 .shop-logo:hover {
-    opacity:0.5;
+    opacity:0.7;
+    cursor: pointer;
+}
+hr.style-two {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.red-price {
+    color:red;
+}
+.shop-products-table {
+    width: 100%;
+}
+.shop-products-table th {
+    text-align: center;
+    color:green;
+    left: 5px;
+}
+.shop-products-table td {
+    width: 30%;
+    height: 70px;
+}
+.shop-products-table tr {
+    border-bottom: 1px solid green;
+}
+.ingredient-name {
+    font-weight: 800;
+}
+.cart {
+    opacity: 0.6;
+}
+.cart:hover {
+    opacity:1;
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+    color: gold;
 }
