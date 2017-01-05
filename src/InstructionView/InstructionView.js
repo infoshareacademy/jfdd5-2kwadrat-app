@@ -8,7 +8,7 @@ export default () => (
     <Col xs={4} className="instruction-image">
       <img src={process.env.PUBLIC_URL + '/images/fridge-512.gif'}
            alt="lodowka"
-           height={140}
+           height={240}
       />
     </Col>
     <Col xs={6}>
