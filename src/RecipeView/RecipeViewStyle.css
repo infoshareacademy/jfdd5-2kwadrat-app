@@ -108,15 +108,35 @@ hr.cutIt {
 
 .socialGplus {
   color: #de7264;
-  /*color: #d34836*/
+  transition: all .2s ease-in-out;
+}
+
+.socialGplus:hover {
+  cursor: pointer;
+  color: #d34836;
+  transform: scale(1.2);
 }
 
 .socialFacebook {
  color: #8b9dc3;
+  transition: all .2s ease-in-out;
+}
+
+.socialFacebook:hover {
+  cursor: pointer;
+  color: #3b5998;
+  transform: scale(1.2);
 }
 
 .socialTwitter {
  color: #d4d8d4;
+  transition: all .2s ease-in-out;
+}
+
+.socialTwitter:hover {
+  cursor: pointer;
+  color: #326ada;
+  transform: scale(1.2);
 }
 
 .bunchIngredients:hover {
