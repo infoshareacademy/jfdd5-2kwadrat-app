@@ -95,18 +95,47 @@ hr.cutIt {
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
-.bunchIngredients {
-  background: url('http://www.kadro.com/cache/images/products/sh/shop/t.shopping-cart-1376261199835.jpg');
-  background-size: cover;
-  display: block;
-  width: 30px;
-  content: "";
-  height: 30px;
-  float: left;
-  margin-right: -1px;
+.socialIcons {
   position: relative;
-  top: 10px;
-  left: -55px;
+  text-align: right;
+  margin-top: 111px;
+}
+
+.socialIcon {
+  margin-right: 15px;
+}
+
+.socialGplus {
+  color: #de7264;
+  transition: all .2s ease-in-out;
+}
+
+.socialGplus:hover {
+  cursor: pointer;
+  color: #d34836;
+  transform: scale(1.2);
+}
+
+.socialFacebook {
+ color: #8b9dc3;
+  transition: all .2s ease-in-out;
+}
+
+.socialFacebook:hover {
+  cursor: pointer;
+  color: #3b5998;
+  transform: scale(1.2);
+}
+
+.socialTwitter {
+ color: #d4d8d4;
+  transition: all .2s ease-in-out;
+}
+
+.socialTwitter:hover {
+  cursor: pointer;
+  color: #326ada;
+  transform: scale(1.2);
 }
 
 .bunchIngredients:hover {

@@ -1,17 +1,33 @@
+.mapContainer {
+  position: absolute;
+  right:0;
+}
+
+.listContainer {
+ position: absolute;
+  z-index: 5;
+}
+
 .googleMap {
   margin-top: 60px;
+
+  position: absolute;
+  right: 0;
 }
 
 .ingredientPictureContainer {
   margin-top: 30px;
-  position: relative;
+  position: absolute;
   height: 500px;
+  z-index: 5;
 }
 
 .ingredientPicture {
   position: absolute;
   bottom: 0;
-  max-width: 200px;
+  opacity: .5;
+  right: 60px;
+  max-width: 500px;
 }
 
 .ingredientWithIdName {
@@ -40,7 +56,7 @@
 }
 
 .shopName:before {
-  background-image: url("http://images.gofreedownload.net/tick-ok-sign-26707.jpg");
+  background-image: url("http://www.clker.com/cliparts/3/d/e/4/12428083851546739178Symbol_OK.svg.hi.png");
   content: "";
   background-size: cover;
   width: 30px;
@@ -49,17 +65,35 @@
   margin-right: 20px;
 }
 
-.basket {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  color: #53f442;
-  width: 100px;
+.addToList {
+  margin-left: 40px;
+  color: #148800;
+  width: 70px;
   height:auto;
   transition: all .2s ease-in-out;
 }
 
-.basket:hover {
+.addToList:hover {
   cursor: pointer;
   transform: scale(1.2);
+}
+
+@media (max-width: 1200px) {
+  .mapContainer {
+    position: relative;
+    width: 100%;
+  }
+
+  .googleMap {
+    position: relative;
+    width: 90%;
+  }
+
+  .listContainer {
+    position: relative;
+  }
+
+  .ingredientPictureContainer {
+    position: relative;
+  }
 }

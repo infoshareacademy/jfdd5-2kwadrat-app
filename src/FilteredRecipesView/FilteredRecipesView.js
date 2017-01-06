@@ -9,7 +9,7 @@ import {recipes} from '../data'
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients
-})
+});
 
 const FilteredRecipes = (props) => {
 
@@ -17,7 +17,7 @@ const FilteredRecipes = (props) => {
     props.selectedIngredients.map(
       selected =>
         selected.id
-    )
+    );
 
   const newRecipesArray = recipes.map(
     recipe => (
@@ -32,23 +32,23 @@ const FilteredRecipes = (props) => {
         )
       }
     )
-  )
+  );
   newRecipesArray.sort((a, b) =>
     a.ingredients.length - b.ingredients.length
-  )
+  );
   newRecipesArray.sort(
     (a, b) =>
     (a.ingredients.length - a.numberOfFittedIngredients.length) - ( b.ingredients.length - b.numberOfFittedIngredients.length)
-  )
+  );
 
-  console.log(newRecipesArray)
+  console.log(newRecipesArray);
 
   return (
     <div>
       {
         arrayOfSelectedIngredientsID.length !== 0 ?
           <div className="button-back">
-            <h1><span className="span-button"><Link to={'/form'}>Wróć</Link></span></h1>
+            <Link to={'/form'}><span className="span-button btn">◄</span></Link>
           </div> : ''
       }
       {
@@ -95,6 +95,6 @@ const FilteredRecipes = (props) => {
       }
     </div>
   )
-}
+};
 
 export default connect(mapStateToProps)(FilteredRecipes)

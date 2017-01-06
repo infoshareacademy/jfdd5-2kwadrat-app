@@ -5,6 +5,10 @@ import {recipes} from '../data'
 import {ingredients} from '../data'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
+import FaCartPlus from 'react-icons/lib/fa/cart-plus'
+import FaTwitterSquare from 'react-icons/lib/fa/twitter-square'
+import FaFacebookSquare from 'react-icons/lib/fa/facebook-square'
+import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients
 });
@@ -30,36 +34,49 @@ export default connect(mapStateToProps)((props) => {
           </div>
           <span title="Dodaj do ulubionych" className="favorite">&#9055;</span>
         </Col>
-          <Col lg={6}>
-            <hr className="cutIt"/>
-            <div className="manualView">
-              <span className="ingredient">Składniki:</span>
-                <ul className="ingredientsList">
-                  {
-                    recipeWithId.ingredients.map(
-                      ingredient =>
-                        <li key={ingredient.id}>
+        <Col lg={6}>
+          <hr className="cutIt"/>
+          <div className="manualView">
+            <span className="ingredient">Składniki:</span>
+            <ul className="ingredientsList">
+              {
+                recipeWithId.ingredients.map(
+                  ingredient =>
+                    <li key={ingredient.id}>
                         <span>
                           {ingredients.find(item => item.id === ingredient.id).name}
                         </span>
-                          {" "}<span className="amount">{ingredient.ingredientAmount}</span> {ingredient.unitMeasure}
-                          <span key={ingredient.id}>
+                      {" "}<span className="amount">{ingredient.ingredientAmount}</span> {ingredient.unitMeasure}
+                      <span key={ingredient.id}>
                           {
                             <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
                               { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
                                 <span>Zlokalizuj wiecej {ingredient.name}</span> :
-                                <span className='bunchIngredients'> </span>
+                                <span><FaCartPlus size="40px" color="#2da834" className="cart"/> </span>
                               }
                             </Link>
                           }
                         </span>
 
-                        </li>
-                    )
-                  }
-                </ul>
-            </div>
-          </Col>
+                    </li>
+                )
+              }
+            </ul>
+          </div>
+          <div title="udostępnij" className="socialIcons">
+            <a href="https://plus.google.com/">
+              <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
+            </a>
+
+            <a href="https://www.facebook.com/">
+              <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
+            </a>
+
+            <a href="https://twitter.com/">
+              <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
+            </a>
+          </div>
+        </Col>
         <Col xs={12}>
           <hr className="aboveDescription"/>
           <p className="description">{recipeWithId.description}</p>

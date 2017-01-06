@@ -4,11 +4,9 @@ import {shops} from '../data'
 import {Image, Col} from 'react-bootstrap'
 import GoogleMap from 'google-map-react'
 import './ingredientViewStyle.css'
-
-import FaShoppingBasket from 'react-icons/lib/fa/shopping-basket'
+import GoChecklist from 'react-icons/lib/go/checklist'
 
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
-
 
 
 export default (props) => {
@@ -25,12 +23,16 @@ export default (props) => {
       <Col xs={12}>
         <div key={ingredientsWithId.id}>
           <Col lg={6} className="ingredientPictureContainer">
-            <h1 className="ingredientWithIdName">{ingredientsWithId.name}</h1>
-            <hr className="separator" />
+            <h1 className="ingredientWithIdName">{ingredientsWithId.name}
+              <span title="Dodaj do listy zakupów">
+              <GoChecklist className="addToList"/>
+            </span>
+            </h1>
+            <hr className="separator"/>
             <div>
-            <Image className="ingredientPicture" src={ingredientsWithId.img}/>
+              <Image className="ingredientPicture" src={ingredientsWithId.img}/>
             </div>
-              <div>
+            <div className="listContainer">
               <h3 className="ProductAvailability">Ten produkt jest dostępny w sklepach: </h3>
               <ul className="shopList">
                 {
@@ -48,33 +50,32 @@ export default (props) => {
                 }
               </ul>
             </div>
-            <span title="Dodaj do listy zakupów"><FaShoppingBasket className="basket"/></span>
           </Col>
-          <Col xs={6}>
+          <Col xs={6} className="mapContainer">
             <div className="googleMap">
-            <div style={{height: 550, width: 600}}>
-              <GoogleMap
-                bootstrapURLKeys={{key: "AIzaSyDHlXcvJJKgck_i5M0uDbdZylQ2ERTDJHY"}}
-                defaultCenter={{
-                  lat: 54.403003,
-                  lng: 18.572261
-                }}
-                defaultZoom={10}>
+              <div style={{height: 550, width: 600}}>
+                <GoogleMap
+                  bootstrapURLKeys={{key: "AIzaSyDHlXcvJJKgck_i5M0uDbdZylQ2ERTDJHY"}}
+                  defaultCenter={{
+                    lat: 54.403003,
+                    lng: 18.572261
+                  }}
+                  defaultZoom={10}>
 
-                {myShops.map(
-                  shop =>
-                    <ShopMarker key={shop.id}
-                                img={shop.logo}
-                                name={shop.name}
-                                lat={shop.location.lat}
-                                lng={shop.location.lng}
-                                text={shop.name}
-                                shop={shop}/>
-                )}
+                  {myShops.map(
+                    shop =>
+                      <ShopMarker key={shop.id}
+                                  img={shop.logo}
+                                  name={shop.name}
+                                  lat={shop.location.lat}
+                                  lng={shop.location.lng}
+                                  text={shop.name}
+                                  shop={shop}/>
+                  )}
 
 
-              </GoogleMap>
-            </div>
+                </GoogleMap>
+              </div>
             </div>
           </Col>
 
