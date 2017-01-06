@@ -63,10 +63,18 @@ export default connect(mapStateToProps)((props) => {
               }
             </ul>
           </div>
-          <div className="socialIcons">
-            <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
-            <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
-            <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
+          <div title="udostępnij" className="socialIcons">
+            <a href="https://plus.google.com/">
+              <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
+            </a>
+
+            <a href="https://www.facebook.com/">
+              <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
+            </a>
+
+            <a href="https://twitter.com/">
+              <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
+            </a>
           </div>
         </Col>
         <Col xs={12}>
