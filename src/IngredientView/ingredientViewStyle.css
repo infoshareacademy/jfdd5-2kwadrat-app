@@ -1,18 +1,33 @@
+.mapContainer {
+  position: absolute;
+  right:0;
+}
+
+.listContainer {
+ position: absolute;
+  z-index: 5;
+}
+
 .googleMap {
   margin-top: 60px;
+
+  position: absolute;
+  right: 0;
 }
 
 .ingredientPictureContainer {
   margin-top: 30px;
-  position: relative;
+  position: absolute;
   height: 500px;
+  z-index: 5;
 }
 
 .ingredientPicture {
   position: absolute;
   bottom: 0;
+  opacity: .5;
   right: 60px;
-  max-width: 200px;
+  max-width: 500px;
 }
 
 .ingredientWithIdName {
@@ -41,7 +56,7 @@
 }
 
 .shopName:before {
-  background-image: url("http://images.gofreedownload.net/tick-ok-sign-26707.jpg");
+  background-image: url("http://www.freeiconspng.com/uploads/ok-icon-25.png");
   content: "";
   background-size: cover;
   width: 30px;
@@ -61,4 +76,24 @@
 .addToList:hover {
   cursor: pointer;
   transform: scale(1.2);
+}
+
+@media (max-width: 1200px) {
+  .mapContainer {
+    position: relative;
+    width: 100%;
+  }
+
+  .googleMap {
+    position: relative;
+    width: 90%;
+  }
+
+  .listContainer {
+    position: relative;
+  }
+
+  .ingredientPictureContainer {
+    position: relative;
+  }
 }

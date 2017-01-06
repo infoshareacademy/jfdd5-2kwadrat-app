@@ -32,7 +32,7 @@ export default (props) => {
             <div>
               <Image className="ingredientPicture" src={ingredientsWithId.img}/>
             </div>
-            <div>
+            <div className="listContainer">
               <h3 className="ProductAvailability">Ten produkt jest dostępny w sklepach: </h3>
               <ul className="shopList">
                 {
@@ -51,7 +51,7 @@ export default (props) => {
               </ul>
             </div>
           </Col>
-          <Col xs={6}>
+          <Col xs={6} className="mapContainer">
             <div className="googleMap">
               <div style={{height: 550, width: 600}}>
                 <GoogleMap
