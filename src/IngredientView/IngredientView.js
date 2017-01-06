@@ -6,10 +6,7 @@ import GoogleMap from 'google-map-react'
 import './ingredientViewStyle.css'
 import GoChecklist from 'react-icons/lib/go/checklist'
 
-import FaShoppingBasket from 'react-icons/lib/fa/shopping-basket'
-
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
-
 
 
 export default (props) => {
@@ -26,12 +23,16 @@ export default (props) => {
       <Col xs={12}>
         <div key={ingredientsWithId.id}>
           <Col lg={6} className="ingredientPictureContainer">
-            <h1 className="ingredientWithIdName">{ingredientsWithId.name}<span title="Dodaj do listy zakupów"><GoChecklist className="addToList"/></span></h1>
-            <hr className="separator" />
+            <h1 className="ingredientWithIdName">{ingredientsWithId.name}
+              <span title="Dodaj do listy zakupów">
+              <GoChecklist className="addToList"/>
+            </span>
+            </h1>
+            <hr className="separator"/>
             <div>
-            <Image className="ingredientPicture" src={ingredientsWithId.img}/>
+              <Image className="ingredientPicture" src={ingredientsWithId.img}/>
             </div>
-              <div>
+            <div>
               <h3 className="ProductAvailability">Ten produkt jest dostępny w sklepach: </h3>
               <ul className="shopList">
                 {
@@ -52,29 +53,29 @@ export default (props) => {
           </Col>
           <Col xs={6}>
             <div className="googleMap">
-            <div style={{height: 550, width: 600}}>
-              <GoogleMap
-                bootstrapURLKeys={{key: "AIzaSyDHlXcvJJKgck_i5M0uDbdZylQ2ERTDJHY"}}
-                defaultCenter={{
-                  lat: 54.403003,
-                  lng: 18.572261
-                }}
-                defaultZoom={10}>
+              <div style={{height: 550, width: 600}}>
+                <GoogleMap
+                  bootstrapURLKeys={{key: "AIzaSyDHlXcvJJKgck_i5M0uDbdZylQ2ERTDJHY"}}
+                  defaultCenter={{
+                    lat: 54.403003,
+                    lng: 18.572261
+                  }}
+                  defaultZoom={10}>
 
-                {myShops.map(
-                  shop =>
-                    <ShopMarker key={shop.id}
-                                img={shop.logo}
-                                name={shop.name}
-                                lat={shop.location.lat}
-                                lng={shop.location.lng}
-                                text={shop.name}
-                                shop={shop}/>
-                )}
+                  {myShops.map(
+                    shop =>
+                      <ShopMarker key={shop.id}
+                                  img={shop.logo}
+                                  name={shop.name}
+                                  lat={shop.location.lat}
+                                  lng={shop.location.lng}
+                                  text={shop.name}
+                                  shop={shop}/>
+                  )}
 
 
-              </GoogleMap>
-            </div>
+                </GoogleMap>
+              </div>
             </div>
           </Col>
 
