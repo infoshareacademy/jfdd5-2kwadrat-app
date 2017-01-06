@@ -32,14 +32,17 @@
 
 .ingredientWithIdName {
   font-style: italic;
+  color: #000;
 }
 
 .ProductAvailability {
+  color: #000;
   text-align: left;
   margin-bottom: 30px;
 }
 
 .shopList {
+  color: #000;
   text-align: left;
   padding: 0;
 }
