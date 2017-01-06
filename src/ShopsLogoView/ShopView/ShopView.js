@@ -126,7 +126,7 @@ const ShopView = React.createClass({
             </table>
           </Modal.Body>
           <Modal.Footer>
-            <span className="span-button">
+            <span className="span-button button-close">
               <Link onClick={this.close}>Zamknij</Link>
             </span>
           </Modal.Footer>

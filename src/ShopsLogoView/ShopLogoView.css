@@ -82,3 +82,7 @@ hr.style-two {
     -webkit-animation-timing-function: linear;
 }
 
+.button-close:hover {
+    cursor: pointer;
+}
+
