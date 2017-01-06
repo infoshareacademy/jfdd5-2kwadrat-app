@@ -32,7 +32,7 @@ export default [
         name: 'makaron',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://pastafoundations.files.wordpress.com/2014/02/penne-rigate.jpg'
+        img: 'https://www.colourbox.com/preview/1749227-yellow-spiral-pasta-over-the-white-background.jpg'
     },
     {
         id: 6,

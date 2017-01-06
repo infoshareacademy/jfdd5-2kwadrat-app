@@ -30,7 +30,8 @@
 
 h2 {
   color: #000;
-  padding-top: 70px;
+  padding-top: 60px;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 1);
 }
 
 a:-webkit-any-link {
