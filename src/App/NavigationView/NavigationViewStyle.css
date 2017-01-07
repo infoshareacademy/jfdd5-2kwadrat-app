@@ -49,13 +49,13 @@
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: #000;
    background-color: #FFF;
-  border-bottom: 3px solid #00aced;
+  border-bottom: 3px solid #2da834;
 }
 
 .logoIMF {
   color: black;
-  border-left: 3px solid #55acee;
-  border-right: 3px solid #55acee;
+  border-left: 3px solid #2da834;
+  border-right: 3px solid #2da834;
   font-family: 'Reem Kufi', sans-serif;
   font-size: 30px;
   letter-spacing: 4px;

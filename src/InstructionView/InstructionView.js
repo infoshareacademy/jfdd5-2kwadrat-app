@@ -6,7 +6,7 @@ import './InstructionView.css'
 export default () => (
   <div className="instruction-view">
     <Col xs={4} className="instruction-image">
-      <img src={process.env.PUBLIC_URL + '/images/fridge-512.gif'}
+      <img src={process.env.PUBLIC_URL + '/images/fridge-512.png'}
            alt="lodowka"
            height={240}
       />

@@ -1,7 +1,7 @@
 import React from 'react'
 import {ingredients} from '../../data'
 import {connect} from 'react-redux'
-import {Modal, Button, Col} from 'react-bootstrap'
+import {Modal} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {Image} from 'react-bootstrap'
 import FaCartPlus from 'react-icons/lib/fa/cart-plus'
@@ -60,7 +60,7 @@ const ShopView = React.createClass({
                  className="shop-logo"
           />
         </Link>
-        < Modal show={this.state.showModal}
+        <Modal show={this.state.showModal}
                 onHide={this.close}>
 
           <Modal.Header closeButton>

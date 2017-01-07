@@ -5,6 +5,7 @@ import {ingredients} from '../data'
 import {Image, Col, Row, FormControl} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
+import FaCutlery from 'react-icons/lib/fa/cutlery'
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients
@@ -44,7 +45,7 @@ class FridgeView extends React.Component {
             <Col xs={12} sm={8} md={6}
                  xsOffset={0} smOffset={2} mdOffset={3}
             >
-              <h2 className="titles">Wybierz posiadane produkty</h2>
+              <h2 className="titles">Wybierz co masz w lodówce</h2>
 
               <FormControl
                 className="ingredientInput"
@@ -89,10 +90,11 @@ class FridgeView extends React.Component {
                     }
                   }>
                     <div className="ingredientFieldContent filtered">
-                      <Image className="filteredIngredientImage" src={ingredient.img}/>
                       <div className="ingredientName">
                         {ingredient.name}
                       </div>
+                      <Image className="filteredIngredientImage" src={ingredient.img}/>
+
                     </div>
                   </Col>
                 )
@@ -111,7 +113,7 @@ class FridgeView extends React.Component {
                  xsOffset={0} smOffset={2} mdOffset={3}
             >
               {this.props.selectedIngredients.length === 0 ? null :
-                <h2 className="titles">Wybrane produkty</h2>}
+                <h2 className="titles">Wybrane produkty:</h2>}
             </Col>
           </Row>
 
@@ -134,10 +136,10 @@ class FridgeView extends React.Component {
                     }
                   }>
                     <div className="ingredientFieldContent chosen">
-                      <Image className="chosenIngredientImage" src={ingredient.img}/>
                       <div className="ingredientName">
                         {ingredient.name}
                       </div>
+                      <Image className="chosenIngredientImage" src={ingredient.img}/>
                     </div>
                   </Col>
               )
@@ -154,9 +156,10 @@ class FridgeView extends React.Component {
 
         <div className="searchButton">
           {this.props.selectedIngredients.length === 0 ? null :
+
             <h2 className="searchButtonText">
               <Link className="linkInsideButton" to={'/filtered-recipes'}>
-                PRZEPISY<br/>DLA<br/>CIEBIE
+                <FaCutlery /> PRZEPISY DLA CIEBIE
               </Link>
             </h2>}
         </div>
