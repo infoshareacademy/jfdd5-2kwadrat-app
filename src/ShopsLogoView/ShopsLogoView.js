@@ -16,6 +16,7 @@ const ShopsLogoView = (props) => {
     <div className="shop-logo-view">
       <Col xs={6}>
         <h1 className="cooworkingShops">Partnerskie sklepy:</h1>
+        <hr className="separator"/>
         {
           props.shops.reduce(
             (prev, next) =>
