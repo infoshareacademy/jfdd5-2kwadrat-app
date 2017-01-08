@@ -11,14 +11,21 @@
 }
 
 .span-button, .span-blue {
+    display: inline-block;
     background-color:#2da834;
-    border: #2da834 2px solid;
-    border-radius: 40px;
-    padding: 4px 15px;
-    color:white;
+    border-radius: 15px;
+    padding: 0 25px;
+    margin: 0 5px;
+    color: white;
+    box-shadow: 0 5px #999;
+    outline: none;
+    line-height: 45px;
 }
-.span-button:hover {
-   box-shadow:  0px 11px 38px -6px #2da834;
+
+.span-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
 }
 
 a{
