@@ -23,15 +23,15 @@ export default (props) => {
       <Col xs={12}>
         <div key={ingredientsWithId.id}>
           <Col lg={6} className="ingredientPictureContainer">
-            <h1 className="ingredientWithIdName">{ingredientsWithId.name}
-              <span title="Dodaj do listy zakupów">
-              <GoChecklist className="addToList"/>
-            </span>
-            </h1>
+
+            <h1 className="ingredientWithIdName">{ingredientsWithId.name}</h1>
+
             <hr className="separator"/>
+
             <div>
               <Image className="ingredientPicture" src={ingredientsWithId.img}/>
             </div>
+
             <div className="listContainer">
               <h3 className="ProductAvailability">Ten produkt jest dostępny w sklepach: </h3>
               <ul className="shopList">
@@ -48,6 +48,11 @@ export default (props) => {
                       </li>
                   )
                 }
+                <li>
+                  <span title="Dodaj do listy zakupów">
+              <GoChecklist className="addToList"/>
+            </span>
+                </li>
               </ul>
             </div>
           </Col>
