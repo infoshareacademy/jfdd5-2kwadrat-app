@@ -17,29 +17,31 @@
 .btn {
   position: absolute;
   left: 10px;
-
-  background: #13c225;
-  background-image: -webkit-linear-gradient(top, #13c225, #075c1b);
-  background-image: -moz-linear-gradient(top, #13c225, #075c1b);
-  background-image: -ms-linear-gradient(top, #13c225, #075c1b);
-  background-image: -o-linear-gradient(top, #13c225, #075c1b);
-  background-image: linear-gradient(to bottom, #13c225, #075c1b);
-  -webkit-border-radius: 38px;
-  -moz-border-radius: 38px;
-  border-radius: 38px;
-  color: #ffffff;
-  font-size: 35px;
-  padding: 0 13px 0 4px;
-  text-decoration: none;
+  color: #2CA733;
 }
 
 .btn:hover {
-  background: #21b811;
-  background-image: -webkit-linear-gradient(top, #21b811, #219110);
-  background-image: -moz-linear-gradient(top, #21b811, #219110);
-  background-image: -ms-linear-gradient(top, #21b811, #219110);
-  background-image: -o-linear-gradient(top, #21b811, #219110);
-  background-image: linear-gradient(to bottom, #21b811, #219110);
-  text-decoration: none;
-  box-shadow: none;
+  color: green;
+  animation: shake 1s infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
