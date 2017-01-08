@@ -42,11 +42,14 @@ class FridgeView extends React.Component {
       <div className="divKeepsAll">
         <form onSubmit={this.handleSubmit}>
           <Row className="ingredientInputRow">
+            <Col xs={12}
+            >
+              <h2 className="titles titleTop">Wybierz co masz w lodówce</h2>
+            </Col>
+
             <Col xs={12} sm={8} md={6}
                  xsOffset={0} smOffset={2} mdOffset={3}
             >
-              <h2 className="titles">Wybierz co masz w lodówce</h2>
-
               <FormControl
                 className="ingredientInput"
                 bsSize="sm"

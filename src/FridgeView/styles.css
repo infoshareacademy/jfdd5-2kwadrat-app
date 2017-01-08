@@ -2,21 +2,24 @@
 .filtered {
   width: 90%;
   margin: 10px auto;
-  border-radius: 40px;
+  border-radius: 35px;
   background-color: white;
   box-shadow: 0 0 0 1px white;
   display: block;
 }
+
 .ingredientFieldContent:checked {
   background-color: #2da834;
 }
 
 .filtered {
-  border: 1px solid #BBB;
+  border: 1px solid #8c8c8c;
+  border-top: #FFFF66;
 }
 
 .chosen {
-  border: 1px solid #BBB;
+  border: 1px solid #8c8c8c;
+  border-top: #FFFF66;
 }
 
 .ingredientFieldContent:hover {
@@ -60,24 +63,32 @@
   align-items: center;
   margin: auto;
   font-size: 20px;
-  background-color: #2da834;
-  color:white;
+  background-color: #FFFF66;
+  color: #2da834;
   border-radius: 40px 40px 0 0;
+  border-top: 1px solid #8c8c8c;
+  border-left: 1px solid #8c8c8c;
+  border-right: 1px solid #8c8c8c;
 }
 
 .titles {
   margin: 30px auto 20px;
   font-family: Lato, sans-serif;
   background-color: #2da834;
-  color: white;
+  color: #FFFF66;
   border-radius: 40px;
   padding: 5px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.titleTop {
+  padding: 5px 15px;
 }
 
 hr.middleDividingLine {
   height: 30px;
   border-style: solid;
-  border-color: #2da834;
+  border-color: #BBB;
   border-width: 1px 0 0 0;
   border-radius: 40px;
   margin-bottom: 0;
@@ -88,7 +99,7 @@ hr.middleDividingLine:before {
   height: 30px;
   margin-top: -31px;
   border-style: solid;
-  border-color: #2da834;
+  border-color: #BBB;
   border-width: 0 0 1px 0;
   border-radius: 20px;
 }
@@ -99,7 +110,7 @@ hr.bottomDividingLine:before {
   height: 30px;
   margin-top: -31px;
   border-style: solid;
-  border-color: #2da834;
+  border-color: #BBB;
   border-width: 0 0 1px 0;
   border-radius: 20px;
 }
@@ -108,18 +119,17 @@ hr.bottomDividingLine {
   border-color: transparent;
 }
 
-
 .searchButtonText {
+  position: fixed;
+  bottom: 10px;
+  right: 100px;
   display: inline-block;
   font-family: Lato, sans-serif;
   background-color: #2da834;
-  color: white;
   border-radius: 20px;
   padding: 8px 10px ;
-  float:right;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
-
 
 .searchButtonText:hover {
   transform: scale(1.1, 1.1) translateX(-8px);
@@ -127,11 +137,15 @@ hr.bottomDividingLine {
   transition-duration: 1s;
 }
 
+.linkInsideButton {
+  color: #FFFF66;
+}
+
 .form-control:focus {
   border-color: #2da834;
-  box-shadow: 0 0 10px 2px #2da834;
+  box-shadow: 0 0 10px 2px #FFFF66;
 }
 
 .formBottomHalf {
- margin-bottom: 10px;
+ margin-bottom: 65px;
 }
