@@ -1,5 +1,3 @@
-
-//dupa
 const initialState = {
     selectedIngredients:[]
 
