@@ -14,18 +14,19 @@
 
 .filtered {
   border: 1px solid #8c8c8c;
-  border-top: #FFFF66;
+  border-top: #E8B00C;
 }
 
 .chosen {
   border: 1px solid #8c8c8c;
-  border-top: #FFFF66;
+  border-top: #E8B00C;
 }
 
 .ingredientFieldContent:hover {
   transform: scale(1.05);
   transition: all .2s ease-in-out;
   cursor: pointer;
+  box-shadow: 0 0 2px 2px #2da834;
 }
 
 .filteredIngredientImage {
@@ -48,7 +49,7 @@
   text-align: center;
   width: 75%;
   margin: 0 auto 15px;
-  border-radius: 20px;
+  border-radius: 5px;
   font-size: 20px;
   border: 2px solid #2da834;
 }
@@ -63,7 +64,7 @@
   align-items: center;
   margin: auto;
   font-size: 20px;
-  background-color: #FFFF66;
+  background-color: #E8B00C;
   color: #2da834;
   border-radius: 40px 40px 0 0;
   border-top: 1px solid #8c8c8c;
@@ -75,7 +76,7 @@
   margin: 30px auto 20px;
   font-family: Lato, sans-serif;
   background-color: #2da834;
-  color: #FFFF66;
+  color: #E8B00C;
   border-radius: 40px;
   padding: 5px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -125,25 +126,33 @@ hr.bottomDividingLine {
   right: 100px;
   display: inline-block;
   font-family: Lato, sans-serif;
-  background-color: #2da834;
-  border-radius: 20px;
+  background-color: transparent;
+  border-radius: 5px;
   padding: 8px 10px ;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  border: 1px solid #E8B00C;
+  box-shadow: 0 0 4px 3px #E8B00C;
+  color: #2da834
 }
 
 .searchButtonText:hover {
-  transform: scale(1.1, 1.1) translateX(-8px);
-  box-shadow: 0 0 12px 4px #2da834;
+  transform: scale(1.05, 1.05);
+  box-shadow: 0 0 12px 4px #E8B00C;
   transition-duration: 1s;
 }
 
 .linkInsideButton {
-  color: #FFFF66;
+  color: #2da834;
+  font-size: 32px;
+}
+
+.linkInsideButton:hover {
+  color: #2da834;
 }
 
 .form-control:focus {
   border-color: #2da834;
-  box-shadow: 0 0 10px 2px #FFFF66;
+  box-shadow: 0 0 6px 5px #E8B00C;
 }
 
 .formBottomHalf {
