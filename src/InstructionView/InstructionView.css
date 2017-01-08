@@ -7,6 +7,7 @@
 .instruction-text {
     padding-top:0;
     line-height: 55px;
+    color:black;
 }
 
 .span-button, .span-blue {

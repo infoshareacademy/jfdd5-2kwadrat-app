@@ -45,12 +45,7 @@ const FilteredRecipes = (props) => {
 
   return (
     <div>
-      {
-        arrayOfSelectedIngredientsID.length !== 0 ?
-          <div className="button-back">
-            <Link to={'/form'}><span className="span-button btn">◄</span></Link>
-          </div> : ''
-      }
+      {/*po co button wstecz jak mamy formularz w nawigacji?*/}
       {
         arrayOfSelectedIngredientsID.length !== 0 ?
           newRecipesArray.map(
@@ -78,7 +73,10 @@ const FilteredRecipes = (props) => {
                     {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
                       '' :
                       <p className="missing-ingredients-info">
-                        Brakuje Ci {recipe.ingredients.length - recipe.numberOfFittedIngredients.length } skladników
+                        Brakuje Ci tylko {recipe.ingredients.length - recipe.numberOfFittedIngredients.length }
+                        {recipe.ingredients.length - recipe.numberOfFittedIngredients.length ===1 ?
+                        ' skladnika' : ' skladników'
+                        }
                       </p>
                     }
 
