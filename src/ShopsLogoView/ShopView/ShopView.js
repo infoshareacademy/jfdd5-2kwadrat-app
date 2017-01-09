@@ -37,17 +37,12 @@ const ShopView = React.createClass({
       },
     )
   },
-  onMouseEnterHandler () {
-    console.log(this)
-  },
+
 
   render(){
     return (
       <div>
         <Link key={this.props.shop.name}
-              onMouseEnter={
-                this.onMouseEnterHandler
-              }
               onClick={
                 () =>
                   this.open(this.props.shop)

@@ -14,8 +14,8 @@ export default () => (
 
     <Col xs={6}>
       <h2 className="instruction-text">
-        Wypełnij <span className="span-button"><Link to={'/form'}>formularz</Link></span>, a nasza wyszukiwarka znajdzie<br/>
-        <span className="span-button"><Link to={'/filtered-recipes'}>Przepisy dla Ciebie</Link></span>.
+        Wypełnij <Link to={'/form'}><span className="span-button">formularz</span></Link>, a nasza wyszukiwarka znajdzie<br/>
+        <Link to={'/filtered-recipes'}><span className="span-button">Przepisy dla Ciebie</span></Link>.
       </h2>
     </Col>
   </div>
