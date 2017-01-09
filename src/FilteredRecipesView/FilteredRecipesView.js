@@ -95,7 +95,7 @@ const FilteredRecipes = (props) => {
               </Link>
             )
           ) :
-          <h1><span className="span-button"><Link to={'/form'}>Co masz w lodówce?</Link></span></h1>
+          <h1><Link to={'/form'}><span className="span-button">Co masz w lodówce?</span></Link></h1>
       }
     </div>
   )
