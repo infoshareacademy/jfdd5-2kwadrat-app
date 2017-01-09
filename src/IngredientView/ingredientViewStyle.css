@@ -31,12 +31,13 @@
 }
 
 .ingredientWithIdName {
+  margin-left: 10px;
   font-style: italic;
   color: #FFF;
   background-color: #2da834;
   padding: 4px 15px;
   width: 90%;
-  border-radius: 40px;
+  border-radius: 20px/80%;
   font-size: 36px;
 }
 

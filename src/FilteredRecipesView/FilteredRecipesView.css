@@ -14,13 +14,14 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-.btn {
+.btn-back {
   position: absolute;
   left: 10px;
   color: #2CA733;
 }
 
-.btn:hover {
+.btn-back:hover {
+  cursor: pointer;
   color: green;
   animation: shake 1s infinite;
 }
