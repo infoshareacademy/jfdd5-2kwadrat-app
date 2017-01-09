@@ -8,7 +8,6 @@ import GoChecklist from 'react-icons/lib/go/checklist'
 
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
 
-
 export default (props) => {
   const ingredientsWithId = ingredients.find(
     ingredient => ingredient.id === parseInt(props.params.ingredientId, 10)
