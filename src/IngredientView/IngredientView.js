@@ -5,6 +5,9 @@ import {Image, Col} from 'react-bootstrap'
 import GoogleMap from 'google-map-react'
 import './ingredientViewStyle.css'
 import GoChecklist from 'react-icons/lib/go/checklist'
+import {Link} from 'react-router'
+import FaArrowLeft from 'react-icons/lib/fa/arrow-left'
+
 
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
 

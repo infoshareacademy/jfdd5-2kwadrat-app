@@ -162,7 +162,7 @@ class FridgeView extends React.Component {
 
             <h2 className="searchButtonText">
               <Link to={'/filtered-recipes'}>
-                <Button bsStyle="success"
+                <Button bsStyle="warning"
                         bsSize="large">
                 <FaCutlery /> PRZEPISY DLA CIEBIE
                   </Button>
