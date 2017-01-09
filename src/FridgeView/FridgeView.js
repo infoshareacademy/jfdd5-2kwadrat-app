@@ -2,7 +2,7 @@ import React from 'react'
 import './styles.css'
 import {ingredients} from '../data'
 
-import {Image, Col, Row, FormControl} from 'react-bootstrap'
+import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import FaCutlery from 'react-icons/lib/fa/cutlery'
@@ -161,8 +161,11 @@ class FridgeView extends React.Component {
           {this.props.selectedIngredients.length === 0 ? null :
 
             <h2 className="searchButtonText">
-              <Link className="linkInsideButton" to={'/filtered-recipes'}>
+              <Link to={'/filtered-recipes'}>
+                <Button bsStyle="success"
+                        bsSize="large">
                 <FaCutlery /> PRZEPISY DLA CIEBIE
+                  </Button>
               </Link>
             </h2>}
         </div>
