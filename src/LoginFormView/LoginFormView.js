@@ -1,6 +1,18 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {loggedIn} from './LoginFormReducer/actionCreators'
 
-export default class extends React.Component {
+const mapStateToProps = state => ({
+  loggedIn: state.loggedInData.loggedInStatus,
+  loggedUserId: state.loggedInData.loggedInUserId
+})
+
+const mapDispatchToProps = dispatch => ({
+  loggingIn: () => dispatch(loggedIn())
+
+})
+
+class LoginFormView extends React.Component {
 
   constructor() {
     super()
@@ -13,7 +25,7 @@ export default class extends React.Component {
 
     this.handleSubmit = (event) => {
       event.preventDefault()
-      console.log(event)
+      this.props.loggingIn()
 
     }
   }
@@ -59,3 +71,5 @@ export default class extends React.Component {
     )
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginFormView)

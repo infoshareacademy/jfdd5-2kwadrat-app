@@ -1,0 +1,1 @@
+export const LOGGED_IN = 'logInForm/LOGGED_IN'

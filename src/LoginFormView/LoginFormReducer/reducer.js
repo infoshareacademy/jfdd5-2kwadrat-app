@@ -1,10 +1,17 @@
+import {LOGGED_IN} from './actionTypes'
+
 const initialState = {
-  loggedIn: false,
+  loggedInStatus: false,
   loggedInUserId: ''
 }
 
-export default ( state = initialState, action = {}) => {
-  switch(action.type) {
+export default (state = initialState, action = {}) => {
+  switch (action.type) {
+    case LOGGED_IN:
+      return {
+        ...state,
+        loggedInStatus: true
+      }
     default:
       return state
   }
