@@ -40,31 +40,30 @@ class LoginFormView extends React.Component {
   }
 
   handleSubmit = (event) => {
-  event.preventDefault()
-  const loggedUser = this.state.data.find(
-    user =>
-    user.password === this.state.userPassword && user.login === this.state.userName
-  )
+    event.preventDefault()
+    const loggedUser = this.state.data.find(
+      user =>
+      user.password === this.state.userPassword && user.login === this.state.userName
+    )
 
     loggedUser ?
-  fetch(
-    process.env.PUBLIC_URL + '/data/user-'+ loggedUser.id + '.json'
-  ).then(
-    response => response.json()
-  ).then(
-    loggedUser =>
-      this.setState({
-        ...this.state,
-        loggedUser:loggedUser
-      })
-
-  ):
+      fetch(
+        process.env.PUBLIC_URL + '/data/user-' + loggedUser.id + '.json'
+      ).then(
+        response => response.json()
+      ).then(
+        loggedUser =>
+          this.setState({
+            ...this.state,
+            loggedUser: loggedUser
+          })
+      ) :
       console.error('złe hasło')
-}
+  }
 
- componentDidUpdate () {
-   console.log(this.state)
- }
+  componentDidUpdate() {
+    console.log(this.state)
+  }
 
   render() {
     return (
