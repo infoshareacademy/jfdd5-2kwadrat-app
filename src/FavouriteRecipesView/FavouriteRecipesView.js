@@ -14,9 +14,14 @@ const mapStateToProps = state => ({
   <h1>Ulubione przepisy:</h1>
     {
       typeof props.userId === 'number' ?
-        <p>Przepisy:
-
-        </p> :
+        <div>Przepisy:
+          {
+            props.user.favouritesRecipesIds.map(
+              recipe =>
+                <h1 key={recipe}>{recipe}</h1>
+            )
+          }
+        </div> :
         <h1>Zaloduj się by wyświetlić listę</h1>
     }
   </div>
