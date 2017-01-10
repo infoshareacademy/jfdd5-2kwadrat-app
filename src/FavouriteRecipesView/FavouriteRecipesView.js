@@ -9,22 +9,31 @@ const mapStateToProps = state => ({
 })
 
 
- const FavouriteRecipesView =(props) => (
-  <div>
-  <h1>Ulubione przepisy:</h1>
-    {
-      typeof props.userId === 'number' ?
-        <div>Przepisy:
-          {
-            props.user.favouritesRecipesIds.map(
-              recipe =>
-                <h1 key={recipe}>{recipe}</h1>
-            )
-          }
-        </div> :
-        <h1>Zaloduj się by wyświetlić listę</h1>
-    }
-  </div>
-)
+ const FavouriteRecipesView =(props) => {
+
+   return (
+     <div>
+       <h1>Ulubione przepisy:</h1>
+       {
+         typeof props.userId === 'number' ?
+           (
+             props.user.favouritesRecipesIds.map(
+               recipeId =>
+               recipes.find(
+                 recipe =>
+                 recipe.id === recipeId
+               )
+             ).map(
+               item =>
+               <h3 key={item.id}>{item.name}</h3>
+             )
+           )
+         :
+           <h1>Zaloduj się by wyświetlić listę</h1>
+       }
+     </div>
+   )
+ }
+
 
 export default connect(mapStateToProps)(FavouriteRecipesView)
