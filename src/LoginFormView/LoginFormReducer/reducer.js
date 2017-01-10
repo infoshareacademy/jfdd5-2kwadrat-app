@@ -1,8 +1,9 @@
-import {LOGGED_IN} from './actionTypes'
+import {LOGGED_IN,LOGIN_TRIES} from './actionTypes'
 
 const initialState = {
   loggedInStatus: false,
-  loggedInUserId: ''
+  loggedInUserId: '',
+  loggingTests: false
 }
 
 export default (state = initialState, action = {}) => {
@@ -10,7 +11,13 @@ export default (state = initialState, action = {}) => {
     case LOGGED_IN:
       return {
         ...state,
-        loggedInStatus: true
+        loggedInStatus: true,
+        loggingTests:false
+      }
+    case LOGIN_TRIES:
+      return{
+        ...state,
+        loggingTests: true
       }
     default:
       return state
