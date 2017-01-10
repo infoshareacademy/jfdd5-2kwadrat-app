@@ -1,0 +1,7 @@
+{
+  "name":"Czarek",
+  "surname":"Ogarek",
+  "id":1,
+  "favouritesRecipesIds":[2,4,7],
+  "shoppingListIngredientsIds":[1,3,8]
+}

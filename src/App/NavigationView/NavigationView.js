@@ -35,6 +35,10 @@ export default () => {
             <LinkContainer to="/needed-ingredient-view">
               <NavItem eventKey={4} href="#">Lista zakupów</NavItem>
             </LinkContainer>
+
+            <LinkContainer to="/login">
+              <NavItem eventKey={5} href="#">Zaloguj się</NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
