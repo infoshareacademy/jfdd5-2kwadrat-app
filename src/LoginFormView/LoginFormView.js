@@ -20,12 +20,8 @@ class LoginFormView extends React.Component {
     this.state = {
       userName: '',
       userPassword: '',
-      data: null
-    }
-
-    this.handleSubmit = (event) => {
-      event.preventDefault()
-      console.log(this.state)
+      data: null,
+      loggedUser: null
     }
   }
 
@@ -42,6 +38,33 @@ class LoginFormView extends React.Component {
         })
     )
   }
+
+  handleSubmit = (event) => {
+  event.preventDefault()
+  const loggedUser = this.state.data.find(
+    user =>
+    user.password === this.state.userPassword && user.login === this.state.userName
+  )
+
+    loggedUser ?
+  fetch(
+    process.env.PUBLIC_URL + '/data/user-'+ loggedUser.id + '.json'
+  ).then(
+    response => response.json()
+  ).then(
+    loggedUser =>
+      this.setState({
+        ...this.state,
+        loggedUser:loggedUser
+      })
+
+  ):
+      console.error('złe hasło')
+}
+
+ componentDidUpdate () {
+   console.log(this.state)
+ }
 
   render() {
     return (
@@ -77,7 +100,7 @@ class LoginFormView extends React.Component {
           <br/>
 
           <button type="submit">Zaloguj</button>
-          <p>{this.state.userName + ' ' + this.state.userPassword}</p>
+
 
         </form>
       </div>
