@@ -1,8 +1,8 @@
 import {LOGGED_IN, LOGIN_TRIES} from './actionTypes'
 
-export const loggedIn = (userId) => ({
+export const loggedIn = (user) => ({
   type: LOGGED_IN,
-  userId:userId
+  userData:user
 })
 
 export const loginTrying = () => ({
