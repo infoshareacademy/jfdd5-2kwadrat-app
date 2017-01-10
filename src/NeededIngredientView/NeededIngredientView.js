@@ -1,7 +1,6 @@
 import React from 'react'
 import {Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import ingredients from '../data/ingredients'
 
 
 import './NeededIngredientView.css'
@@ -21,11 +20,11 @@ const NeededIngredient = (props) => {
           typeof props.userId === 'number' ?
               <p>
                 {
-                props.user.ingredients.map(
-                    ingredient =>
-                        <h1 key={ingredient}>{ingredient}</h1>
-                )
-              }
+                  props.user.shoppingListIngredientsIds.map(
+                      ingredient =>
+                          <p key={ingredient.id}>{ingredient}</p>
+                  )
+                }
               </p> :
               <p>Zaloguj się</p>
         }
