@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.css'
 import {ingredients} from '../data'
+import select from './select'
 
 import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
 import {Link} from 'react-router'
@@ -8,10 +9,17 @@ import {connect} from 'react-redux'
 import FaCutlery from 'react-icons/lib/fa/cutlery'
 
 const mapStateToProps = state => ({
-  selectedIngredients: state.selectedIngredients.selectedIngredients
+  selectedIngredients: state.selectedIngredients.selectedIngredients,
+  people: state.dashboardData.people,
+  filterNames: state.dashboardData.filterNames
 })
 
 const mapDispatchToProps = dispatch => ({
+  setFilter: (filterName) => dispatch({
+    type: 'SET_FILTER',
+    filterName: filterName
+  }),
+
   addIngredient: (ingredient) => dispatch({
     type: 'ADD_SELECTED_INGREDIENT',
     ingredient: ingredient
@@ -20,7 +28,8 @@ const mapDispatchToProps = dispatch => ({
   removeIngredient: (ingredient) => dispatch({
     type: 'REMOVE_SELECTED_INGREDIENT',
     ingredientId: ingredient
-  })
+  }),
+  resetFilters: () => dispatch({ type: 'RESET_FILTERS' })
 })
 
 
@@ -169,6 +178,38 @@ class FridgeView extends React.Component {
               </Link>
             </h2>}
         </div>
+
+
+
+
+
+        const Dashboard = (props) => (
+        <div>
+          <button onClick={() => props.resetFilters()}>
+            All
+          </button>
+
+          <button onClick={() => props.setFilter('female')}>
+            Female
+          </button>
+
+          <button onClick={() => props.setFilter('male')}>
+            Male
+          </button>
+
+          <button onClick={() => props.setFilter('gmailUsers')}>
+            Gmail users
+          </button>
+
+          <ul>
+            {
+              select.selectPeople(props.people, props.filterNames).map(
+                person => <li key={person.id}>{person.first_name} {person.email} {person.gender}</li>
+              )
+            }
+          </ul>
+        </div>
+        )
       </div>
     )
   }
