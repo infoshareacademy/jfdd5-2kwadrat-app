@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux'
 import { reducer as shopsReducer } from './ShopsLogoView'
 import { reducer as ingredientsReducer } from './FridgeView'
-import { default as loginFormReducer } from './LoginFormView/LoginFormReducer/reducer'
+import  loginFormReducer  from './LoginFormView/LoginFormReducer/reducer'
 
 const reducer = combineReducers({
    shopsData: shopsReducer,
