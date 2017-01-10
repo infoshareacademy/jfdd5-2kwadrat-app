@@ -49,8 +49,8 @@ export default [
     id: 3,
     name: 'Biedronka',
     location: {
-      lat: 54.606173,
-      lng: 18.656232
+      lat: 54.406173,
+      lng: 18.626232
     },
     logo: 'https://s27.postimg.org/p75nbep37/Biedronka_Logo.png',
     ingredients: [
@@ -72,7 +72,7 @@ export default [
     id: 4,
     name: 'Biedronka',
     location: {
-      lat: 54.423173,
+      lat: 54.403173,
       lng: 18.622232
     },
     logo: 'https://s27.postimg.org/p75nbep37/Biedronka_Logo.png',
@@ -96,7 +96,7 @@ export default [
     name: 'Biedronka',
     location: {
       lat: 54.409173,
-      lng: 18.615232
+      lng: 18.610232
     },
     logo: 'https://s27.postimg.org/p75nbep37/Biedronka_Logo.png',
     ingredients: [
@@ -118,8 +118,8 @@ export default [
     id: 6,
     name: 'Biedronka',
     location: {
-      lat: 54.476173,
-      lng: 18.663232
+      lat: 54.406173,
+      lng: 18.613232
     },
     logo: 'https://s27.postimg.org/p75nbep37/Biedronka_Logo.png',
     ingredients: [
@@ -141,7 +141,7 @@ export default [
     id: 7,
     name: 'Biedronka',
     location: {
-      lat: 54.446173,
+      lat: 54.396173,
       lng: 18.613532
     },
     logo: 'https://s27.postimg.org/p75nbep37/Biedronka_Logo.png',
@@ -202,7 +202,7 @@ export default [
     id: 10,
     name: 'Lidl',
     location: {
-      lat: 54.390724,
+      lat: 54.410724,
       lng: 18.591811
     },
     logo: 'https://s30.postimg.org/95t479hsh/Logo_LIDL.png',
@@ -278,8 +278,8 @@ export default [
     id: 14,
     name: 'Tesco',
     location: {
-      lat: 54.4141477,
-      lng: 18.5241926
+      lat: 54.3941477,
+      lng: 18.5341926
     },
     logo: 'https://s30.postimg.org/rhdnjn8lt/Tesco_Logo.png',
     ingredients: [
@@ -306,8 +306,8 @@ export default [
     id: 15,
     name: 'Tesco',
     location: {
-      lat: 54.4101497,
-      lng: 18.5302926
+      lat: 54.4331497,
+      lng: 18.5392926
     },
     logo: 'https://s30.postimg.org/rhdnjn8lt/Tesco_Logo.png',
     ingredients: [
@@ -333,8 +333,8 @@ export default [
     id: 16,
     name: 'Tesco',
     location: {
-      lat: 54.4131477,
-      lng: 18.5321926
+      lat: 54.4081477,
+      lng: 18.5411926
     },
     logo: 'https://s30.postimg.org/rhdnjn8lt/Tesco_Logo.png',
     ingredients: [
@@ -360,8 +360,8 @@ export default [
     id: 17,
     name: 'Tesco',
     location: {
-      lat: 54.4101477,
-      lng: 18.5301926
+      lat: 54.4181477,
+      lng: 18.5651926
     },
     logo: 'https://s30.postimg.org/rhdnjn8lt/Tesco_Logo.png',
     ingredients: [
@@ -388,7 +388,7 @@ export default [
     name: 'Tesco',
     location: {
       lat: 54.410157,
-      lng: 18.5301956
+      lng: 18.5101956
     },
     logo: 'https://s30.postimg.org/rhdnjn8lt/Tesco_Logo.png',
     ingredients: [
@@ -624,8 +624,8 @@ export default [
     id: 25,
     name: 'Stokrotka',
     location: {
-      lat: 54.366611,
-      lng: 18.578875
+      lat: 54.436611,
+      lng: 18.571875
     },
     logo: 'https://s24.postimg.org/5ylap31xx/stokrotka.png',
     ingredients: [
@@ -659,8 +659,8 @@ export default [
     id: 26,
     name: 'Polo-market',
     location: {
-      lat: 54.467079,
-      lng: 18.587668
+      lat: 54.367079,
+      lng: 18.577668
     },
     logo: 'https://s27.postimg.org/uh0ljdtcj/polomarket_logo.png',
     ingredients: [
@@ -751,8 +751,8 @@ export default [
     id: 30,
     name: 'Polo-market',
     location: {
-      lat: 54.403989,
-      lng: 18.587888
+      lat: 54.413989,
+      lng: 18.547888
     },
     logo: 'https://s27.postimg.org/uh0ljdtcj/polomarket_logo.png',
     ingredients: [

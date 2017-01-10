@@ -1,3 +1,13 @@
+.cooworkingShops {
+    margin-left: 20px;
+    color: #FFF;
+    background-color: #2da834;
+    padding: 4px 15px;
+    width: 90%;
+    border-radius: 20px/80%;
+    font-size: 36px;
+}
+
 .shop-logo-view {
     margin-top: 60px;
 }
@@ -85,4 +95,3 @@ hr.style-two {
 .button-close:hover {
     cursor: pointer;
 }
-

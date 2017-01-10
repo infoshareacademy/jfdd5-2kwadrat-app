@@ -8,7 +8,6 @@ import GoChecklist from 'react-icons/lib/go/checklist'
 
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
 
-
 export default (props) => {
   const ingredientsWithId = ingredients.find(
     ingredient => ingredient.id === parseInt(props.params.ingredientId, 10)
@@ -58,14 +57,14 @@ export default (props) => {
           </Col>
           <Col xs={6} className="mapContainer">
             <div className="googleMap">
-              <div style={{height: 550, width: 600}}>
+              <div style={{height: 500, width: 600}}>
                 <GoogleMap
                   bootstrapURLKeys={{key: "AIzaSyDHlXcvJJKgck_i5M0uDbdZylQ2ERTDJHY"}}
                   defaultCenter={{
                     lat: 54.403003,
                     lng: 18.572261
                   }}
-                  defaultZoom={10}>
+                  defaultZoom={12}>
 
                   {myShops.map(
                     shop =>

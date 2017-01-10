@@ -51,6 +51,7 @@
   margin: 0 auto 15px;
   border-radius: 5px;
   font-size: 20px;
+  background-color: #FEF;
   border: 2px solid #2da834;
 }
 
@@ -64,8 +65,8 @@
   align-items: center;
   margin: auto;
   font-size: 20px;
-  background-color: #FFB03B;
-  color: #2da834;
+  background-color: #2da834;
+  color: #FFF;
   border-radius: 40px 40px 0 0;
   border-top: 1px solid #8c8c8c;
   border-left: 1px solid #8c8c8c;
@@ -76,10 +77,10 @@
   margin: 30px auto 20px;
   font-family: Lato, sans-serif;
   background-color: #2da834;
-  color: #E8B00C;
-  border-radius: 40px;
+  color: #FFF;
+  border-radius: 20px/80%;
   padding: 5px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
 }
 
 .titleTop {
@@ -129,15 +130,11 @@ hr.bottomDividingLine {
   background-color: transparent;
   border-radius: 5px;
   padding: 8px 10px ;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  border: 1px solid #E8B00C;
-  box-shadow: 0 0 4px 3px #E8B00C;
   color: #2da834
 }
 
 .searchButtonText:hover {
   transform: scale(1.05, 1.05);
-  box-shadow: 0 0 12px 4px #E8B00C;
   transition-duration: 1s;
 }
 
@@ -152,7 +149,7 @@ hr.bottomDividingLine {
 
 .form-control:focus {
   border-color: #2da834;
-  box-shadow: 0 0 6px 5px #E8B00C;
+  /*box-shadow: 0 0 6px 5px #E8B00C;*/
 }
 
 .formBottomHalf {

@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Image, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import './FilteredRecipesView.css'
+import FaArrowLeft from 'react-icons/lib/fa/arrow-left'
 
 
 import {recipes} from '../data'
@@ -45,7 +46,12 @@ const FilteredRecipes = (props) => {
 
   return (
     <div>
-      {/*po co button wstecz jak mamy formularz w nawigacji?*/}
+      {
+        arrayOfSelectedIngredientsID.length !== 0 ?
+            <div title="wstecz" className="button-back">
+              <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px" /></span></Link>
+            </div> : ''
+      }
       {
         arrayOfSelectedIngredientsID.length !== 0 ?
           newRecipesArray.map(
@@ -89,10 +95,11 @@ const FilteredRecipes = (props) => {
               </Link>
             )
           ) :
-          <h1><span className="span-button"><Link to={'/form'}>Co masz w lodówce?</Link></span></h1>
+          <h1><Link to={'/form'}><span className="span-button">Co masz w lodówce?</span></Link></h1>
       }
     </div>
   )
 };
+
 
 export default connect(mapStateToProps)(FilteredRecipes)

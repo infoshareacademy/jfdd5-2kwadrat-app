@@ -23,14 +23,14 @@ import {FilteredRecipesView} from './FilteredRecipesView'
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={browserHistory} >
       <Route path="/" component={App}>
         <IndexRoute component={InstructionView}/>
 
 
 
         <Route path="/recipes" component={AllRecipesView}/>
-        <Route path="/recipes/:recipeId" component={RecipeView}/>
+        <Route path="/recipes/:recipeId" component={RecipeView} />
         <Route path="/ingredient/:ingredientId" component={IngredientView}/>
         <Route path="/filtered-recipes" component={FilteredRecipesView}/>
         <Route path="/form" component={FridgeView}/>

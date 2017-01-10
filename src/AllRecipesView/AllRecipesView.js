@@ -6,6 +6,7 @@ import {Link} from 'react-router'
 
 export default (props) => (
   <div className="wrapper">
+    {props.children}
     {
       recipes.map(recipe => {
           return (
@@ -27,6 +28,6 @@ export default (props) => (
         }
       )
     }
-    {props.children}
+
   </div>
 )
