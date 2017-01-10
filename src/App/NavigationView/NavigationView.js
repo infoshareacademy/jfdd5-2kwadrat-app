@@ -35,6 +35,10 @@ export default () => {
             <LinkContainer to="/login">
               <NavItem eventKey={4} href="#">Zaloguj się</NavItem>
             </LinkContainer>
+
+            <LinkContainer to="/favourite-recipes">
+              <NavItem eventKey={6} href="#">Ulubione</NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

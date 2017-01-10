@@ -20,6 +20,7 @@ import {ShopsLogoView} from './ShopsLogoView'
 import {IngredientView} from './IngredientView'
 import {FilteredRecipesView} from './FilteredRecipesView'
 import {LoginFormView} from './LoginFormView'
+import {FavouriteRecipesView} from './FavouriteRecipesView'
 
 
 ReactDOM.render(
@@ -37,6 +38,7 @@ ReactDOM.render(
         <Route path="/form" component={FridgeView}/>
         <Route path="/login" component={LoginFormView}/>
         <Route path="/shops" component={ShopsLogoView}/>
+        <Route path="/favourite-recipes" component={FavouriteRecipesView}/>
 
 
       </Route>
