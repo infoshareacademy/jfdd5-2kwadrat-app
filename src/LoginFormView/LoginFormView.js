@@ -7,11 +7,14 @@ export default class extends React.Component {
 
     this.state = {
       userName: '',
-      userPassword: ''
+      userPassword: '',
+      data: null
     }
 
     this.handleSubmit = (event) => {
       event.preventDefault()
+      console.log(event)
+
     }
   }
 
@@ -26,9 +29,9 @@ export default class extends React.Component {
                  value={this.state.userName}
                  onChange={
                    event =>
-                   this.setState({
-                     userName: event.target.value
-                   })
+                     this.setState({
+                       userName: event.target.value
+                     })
                  }
           />
           <br/>
@@ -40,9 +43,9 @@ export default class extends React.Component {
                  value={this.state.userPassword}
                  onChange={
                    event =>
-                   this.setState({
-                     userPassword: event.target.value
-                   })
+                     this.setState({
+                       userPassword: event.target.value
+                     })
                  }
           />
           <br/>
