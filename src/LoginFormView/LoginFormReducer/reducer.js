@@ -2,8 +2,9 @@ import {LOGGED_IN,LOGIN_TRIES} from './actionTypes'
 
 const initialState = {
   loggedInStatus: false,
-  loggedInUserId: '',
-  loggingTests: false
+  loggedInUserId: null,
+  loggingTests: false,
+  userData:null
 }
 
 export default (state = initialState, action = {}) => {
@@ -13,7 +14,8 @@ export default (state = initialState, action = {}) => {
         ...state,
         loggedInStatus: true,
         loggingTests:false,
-        loggedInUserId: action.userId
+        loggedInUserId: action.userData.id,
+        loggedUserData: action.userData
       }
     case LOGIN_TRIES:
       return{

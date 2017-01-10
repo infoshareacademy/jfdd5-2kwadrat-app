@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  loggingIn: (userId) => dispatch(loggedIn(userId)),
+  loggingIn: (user) => dispatch(loggedIn(user)),
   loginTrying: () => dispatch(loginTrying())
 })
 
@@ -56,7 +56,7 @@ class LoginFormView extends React.Component {
         response => response.json()
       ).then(
         loggedUser => {
-          this.props.loggingIn(loggedUser.id)
+          this.props.loggingIn(loggedUser)
           return (this.setState({
             ...this.state,
             loggedUser: loggedUser
