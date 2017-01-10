@@ -25,9 +25,22 @@ class LoginFormView extends React.Component {
 
     this.handleSubmit = (event) => {
       event.preventDefault()
-      this.props.loggingIn()
-
+      console.log(this.state)
     }
+  }
+
+  componentWillMount() {
+    fetch(
+      process.env.PUBLIC_URL + '/data/users.json'
+    ).then(
+      response => response.json()
+    ).then(
+      users =>
+        this.setState({
+          ...this.state,
+          data: users
+        })
+    )
   }
 
   render() {
