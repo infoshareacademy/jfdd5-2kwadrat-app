@@ -32,8 +32,12 @@ export default () => {
               <NavItem eventKey={3} href="#">Przepisy dla Ciebie</NavItem>
             </LinkContainer>
 
+            <LinkContainer to="/needed-ingredient-view">
+              <NavItem eventKey={4} href="#">Lista zakupów</NavItem>
+            </LinkContainer>
+
             <LinkContainer to="/login">
-              <NavItem eventKey={4} href="#">Zaloguj się</NavItem>
+              <NavItem eventKey={5} href="#">Zaloguj się</NavItem>
             </LinkContainer>
 
             <LinkContainer to="/favourite-recipes">
