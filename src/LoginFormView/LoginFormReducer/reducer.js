@@ -12,7 +12,8 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         loggedInStatus: true,
-        loggingTests:false
+        loggingTests:false,
+        loggedInUserId: action.userId
       }
     case LOGIN_TRIES:
       return{
