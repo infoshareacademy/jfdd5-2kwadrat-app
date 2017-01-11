@@ -1,9 +1,14 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
+const mapStateToProps = state => ({
+  loggedIn: state.loggedInData.loggedInStatus
+})
 
 import {Nav, Navbar, NavItem} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import './NavigationViewStyle.css'
-export default () => {
+const NavigationView = () => {
 
   return (
     <div className="container">
@@ -49,3 +54,5 @@ export default () => {
     </div>
   )
 }
+
+export default connect(mapStateToProps)(NavigationView)
