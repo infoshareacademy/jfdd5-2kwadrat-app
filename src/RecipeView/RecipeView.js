@@ -10,7 +10,9 @@ import FaTwitterSquare from 'react-icons/lib/fa/twitter-square'
 import FaFacebookSquare from 'react-icons/lib/fa/facebook-square'
 import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
 const mapStateToProps = state => ({
-  selectedIngredients: state.selectedIngredients.selectedIngredients
+  selectedIngredients: state.selectedIngredients.selectedIngredients,
+  userId: state.loggedInData.loggedInUserId,
+  user: state.loggedInData.loggedUserData
 });
 
 
@@ -24,6 +26,7 @@ export default connect(mapStateToProps)((props) => {
         selected.id
     );
 
+
   return (
     <div key={recipeWithId.id}>
       <h1 className="recipeName">{recipeWithId.name}</h1>
@@ -32,7 +35,15 @@ export default connect(mapStateToProps)((props) => {
           <div className="grow pic">
             <Image className="photo recipeImage" src={recipeWithId.image}/>
           </div>
-          <span title="Dodaj do ulubionych" className="favorite">&#9055;</span>
+          {
+            typeof props.userId === 'number' ?
+              <p>
+                {
+                  <span title="Dodaj do ulubionych" className="favorite">&#9055;</span>
+                }
+              </p> :
+              null
+          }
         </Col>
         <Col lg={6}>
           <hr className="cutIt"/>
@@ -52,7 +63,8 @@ export default connect(mapStateToProps)((props) => {
                             <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
                               { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
                                 <span> </span> :
-                                <span title="Znajdź sklep"><FaCartPlus size="40px" color="#2da834" className="cart"/> </span>
+                                <span title="Znajdź sklep"><FaCartPlus size="40px" color="#2da834"
+                                                                       className="cart"/> </span>
                               }
                             </Link>
                           }

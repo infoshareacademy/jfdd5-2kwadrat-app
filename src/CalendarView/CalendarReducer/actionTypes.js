@@ -1,0 +1,1 @@
+export const ADD_EVENT_TO_CALENDAR = 'calendar/ADD_EVENT_TO_CALENDAR'
