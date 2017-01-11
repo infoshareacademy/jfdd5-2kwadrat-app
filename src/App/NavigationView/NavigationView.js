@@ -61,6 +61,10 @@ const NavigationView = (props) => {
                                 ''
                         }
 
+                        <LinkContainer to="/calendar">
+                            <NavItem eventKey={6} href="#">Kalendarz</NavItem>
+                        </LinkContainer>
+
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
