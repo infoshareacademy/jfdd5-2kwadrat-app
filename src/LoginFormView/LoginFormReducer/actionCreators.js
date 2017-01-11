@@ -1,4 +1,4 @@
-import {LOGGED_IN, LOGIN_TRIES} from './actionTypes'
+import {LOGGED_IN, LOGIN_TRIES,LOG_OUT} from './actionTypes'
 
 export const loggedIn = (user) => ({
   type: LOGGED_IN,
@@ -7,4 +7,8 @@ export const loggedIn = (user) => ({
 
 export const loginTrying = () => ({
   type: LOGIN_TRIES
+})
+
+export const logOut = () => ({
+  type:LOG_OUT
 })

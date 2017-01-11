@@ -1,16 +1,16 @@
-import { createStore, combineReducers } from 'redux'
-import { reducer as shopsReducer } from './ShopsLogoView'
-import { reducer as ingredientsReducer } from './FridgeView'
-import { reducer as filteredRecipesViewReducer } from './FilteredRecipesView'
+import {createStore, combineReducers} from 'redux'
+import {reducer as shopsReducer} from './ShopsLogoView'
+import {reducer as ingredientsReducer} from './FridgeView'
+import {reducer as filteredRecipesViewReducer} from './FilteredRecipesView'
 import  loginFormReducer  from './LoginFormView/LoginFormReducer/reducer'
+import calendarReducer from './CalendarView/CalendarReducer/reducer'
 
 const reducer = combineReducers({
-  shopsData : shopsReducer,
+  shopsData: shopsReducer,
+  filteredRecipesViewReducer: filteredRecipesViewReducer,
   selectedIngredients: ingredientsReducer,
-  filteredRecipesViewReducer: filteredRecipesViewReducer
-   shopsData: shopsReducer,
-   selectedIngredients: ingredientsReducer,
-   loggedInData: loginFormReducer
+  loggedInData: loginFormReducer,
+  calendarData: calendarReducer
 
 
 })
