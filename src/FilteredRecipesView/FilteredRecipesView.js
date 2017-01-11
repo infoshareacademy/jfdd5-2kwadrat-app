@@ -8,8 +8,11 @@ import FaArrowLeft from 'react-icons/lib/fa/arrow-left'
 
 import {recipes} from '../data'
 
+import { selectRecipes } from './select'
+
 const mapStateToProps = state => ({
-  selectedIngredients: state.selectedIngredients.selectedIngredients
+  selectedIngredients: state.selectedIngredients.selectedIngredients,
+  filterNames: ['all']
 });
 
 const FilteredRecipes = (props) => {
@@ -48,13 +51,16 @@ const FilteredRecipes = (props) => {
     <div>
       {
         arrayOfSelectedIngredientsID.length !== 0 ?
+          <div>
             <div title="wstecz" className="button-back">
               <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px" /></span></Link>
-            </div> : ''
+            </div>
+            <button>all</button>
+          </div>: ''
       }
       {
         arrayOfSelectedIngredientsID.length !== 0 ?
-          newRecipesArray.map(
+          selectRecipes(newRecipesArray, props.filterNames).map(
             recipe => (
               <Link key={recipe.id} to={'/recipes/' + recipe.id}>
                 <Col key={recipe.id} xs={12} sm={6} md={4}>
