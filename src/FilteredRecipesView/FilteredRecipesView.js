@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Image, Col} from 'react-bootstrap'
+import {Image, Col, ButtonGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap'
 import {Link} from 'react-router'
 import './FilteredRecipesView.css'
 import FaArrowLeft from 'react-icons/lib/fa/arrow-left'
@@ -62,17 +62,39 @@ const FilteredRecipes = (props) => {
               <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px" /></span></Link>
             </div>
 
-            <button onClick={() => props.resetFilters()}>
-              All
-            </button>
+            <ButtonGroup>
+              <DropdownButton title="Czasochłonność" id="bg-nested-dropdown">
+                <MenuItem eventKey="1" onClick={() => props.setFilter('timeShort')}>
+                  krótkie
+                </MenuItem>
 
-            <button onClick={() => props.setFilter('time')}>
-              Czas
-            </button>
+                <MenuItem eventKey="2" onClick={() => props.setFilter('timeMedium')}>
+                  średnie
+                </MenuItem>
 
-            <button onClick={() => props.setFilter('difficult')}>
-              Trudność
-            </button>
+                <MenuItem eventKey="3" onClick={() => props.setFilter('timeLong')}>
+                  długie
+                </MenuItem>
+              </DropdownButton>
+
+              <DropdownButton title="Trudność" id="bg-nested-dropdown">
+                <MenuItem eventKey="1" onClick={() => props.setFilter('difficultEase')}>
+                  łatwe
+                </MenuItem>
+
+                <MenuItem eventKey="2" onClick={() => props.setFilter('difficultMedium')}>
+                  średnie
+                </MenuItem>
+
+                <MenuItem eventKey="3" onClick={() => props.setFilter('difficultHard')}>
+                  trudne
+                </MenuItem>
+              </DropdownButton>
+
+              <Button onClick={() => props.resetFilters()}>
+                Usuń filtry
+              </Button>
+            </ButtonGroup>
           </div>: ''
       }
       {
@@ -112,7 +134,7 @@ const FilteredRecipes = (props) => {
                       }
 
                       <div className="icons">
-                        <div className="recipeTime">{recipe.time}</div>
+                        <div className="recipeTime">{recipe.time} min.</div>
                         <div className="recipeDifficult">{recipe.difficult}</div>
                       </div>
                     </div>
