@@ -11,6 +11,8 @@ const mapStateToProps = state => ({
   user: state.loggedInData.loggedUserData
 })
 
+/*Just a try - github issue*/
+
 
 const NeededIngredient = (props) => {
 
