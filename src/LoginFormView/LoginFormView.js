@@ -56,7 +56,7 @@ class LoginFormView extends React.Component {
                         loggedUser: loggedUser
                     }))
                 }
-            ))
+            )).catch(() => console.error('zupa')+ this.props.loginTrying())
     }
 
 
