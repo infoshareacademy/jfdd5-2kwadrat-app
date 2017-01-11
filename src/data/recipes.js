@@ -4,7 +4,7 @@ export default [
     name: 'Gulasz po węgiersku',
     category: 'obiad',
     difficult: 'średnie',
-    time: '30-60 min',
+    time: 50,
     person: 2,
     ingredients: [
       {
@@ -44,7 +44,7 @@ export default [
     name: 'Zupa pomidorowa',
     category: 'zupa',
     difficult: 'łatwe',
-    time: '20-30 min',
+    time: 20,
     person: 2,
     ingredients: [
       {
@@ -77,7 +77,7 @@ export default [
     name: 'Kociołek gulaszowy z kaszą',
     category: 'obiad',
     difficult: 'średnie',
-    time: '40-60 min',
+    time: 50,
     person: 2,
     ingredients: [
       {
@@ -116,7 +116,7 @@ export default [
     name: 'Zupa ogórkowa',
     category: 'zupa',
     difficult: 'łatwe',
-    time: '15-30 min',
+    time: 20,
     person: 2,
     ingredients: [
       {
@@ -146,7 +146,7 @@ export default [
     name: 'Ryż z warzywami i mięsem',
     category: 'obiad',
     difficult: 'łatwe',
-    time: '30-40 min',
+    time: 30,
     person: 2,
     ingredients: [
       {
@@ -193,7 +193,7 @@ export default [
     name: 'Bitki z karkówki z cebulą',
     category: 'obiad',
     difficult: 'średnie',
-    time: '30-50 min',
+    time: 40,
     person: 2,
     ingredients: [
       {
@@ -232,7 +232,7 @@ export default [
     name: 'Gulasz wołowy z papryką i pieczarkami',
     category: 'obiad',
     difficult: 'średnie',
-    time: '40-70 min',
+    time: 60,
     person: 2,
     ingredients: [
       {
@@ -285,7 +285,7 @@ export default [
     name: 'Bigos',
     category: 'obiad',
     difficult: 'łatwe',
-    time: '50-90 min',
+    time: 70,
     person: 2,
     ingredients: [
       {
@@ -316,7 +316,7 @@ export default [
     name: 'Kartoflanka',
     category: 'zupa',
     difficult: 'łatwe',
-    time: '20-30 min',
+    time: 20,
     person: 2,
     ingredients: [
       {
@@ -357,7 +357,7 @@ export default [
     name: 'Kuskus z wołowiną',
     category: 'obiad',
     difficult: 'łatwe',
-    time: '30-60 min',
+    time: 50,
     person: 2,
     ingredients: [
       {
@@ -388,7 +388,7 @@ export default [
     name: 'Potrawka w szwajcarskim stylu',
     category: 'obiad',
     difficult: 'średnie',
-    time: '30-45 min',
+    time: 40,
     person: 3,
     ingredients: [
       {
@@ -433,7 +433,7 @@ export default [
     name: 'Gulasz węgierski z ziemniakami',
     category: 'obiad',
     difficult: 'łatwe',
-    time: '30-70 min',
+    time: 50,
     person: 4,
     ingredients: [
       {
@@ -478,7 +478,7 @@ export default [
     name: 'Warzywne chilli z fetą',
     category: 'obiad',
     difficult: 'średnie',
-    time: '35-60 min',
+    time: 50,
     person: 2,
     ingredients: [
       {
@@ -528,7 +528,7 @@ export default [
     name: 'Gulasz z kiełbasek',
     category: 'obiad',
     difficult: 'średnie',
-    time: '35-65 min',
+    time: 50,
     person: 2,
     ingredients: [
       {
@@ -564,7 +564,7 @@ export default [
     name: 'Placek po zbójnicku',
     category: 'obiad',
     difficult: 'trudne',
-    time: '50-75 min',
+    time: 60,
     person: 4,
     ingredients: [
       {
@@ -622,7 +622,7 @@ export default [
     name: "Kapusta z grzybami",
     category: 'sałatka',
     difficult: 'łatwe',
-    time: '30-60 min',
+    time: 50,
     person: 2,
     ingredients: [
       {
@@ -658,7 +658,7 @@ export default [
     name: 'Gulasz drobiowy',
     category: 'obiad',
     difficult: 'średnie',
-    time: '25-60 min',
+    time: 50,
     person: 2,
     ingredients: [
       {
@@ -697,7 +697,7 @@ export default [
     name: 'Gulasz w sosie pomidorowo-śmietanowym',
     category: 'obiad',
     difficult: 'średnie',
-    time: '30-60 min',
+    time: 50,
     person: 3,
     ingredients: [
       {
@@ -737,7 +737,7 @@ export default [
     name: 'Wiosenny gulasz',
     category: 'obiad',
     difficult: 'łatwe',
-    time: '30-60 min',
+    time: 50,
     person: 4,
     ingredients: [
       {
@@ -790,7 +790,7 @@ export default [
     name: 'Polędwiczka faszerowana kaszą jaglaną z ziołami',
     category: 'obiad',
     difficult: 'średnie',
-    time: '40-60 min',
+    time: 50,
     person: 2,
     ingredients: [
       {
@@ -832,7 +832,7 @@ export default [
     name: 'Duszona wołowina z pieczarkami',
     category: 'obiad',
     difficult: 'trudne',
-    time: '35-65 min',
+    time: 50,
     person: 3,
     ingredients: [
       {
