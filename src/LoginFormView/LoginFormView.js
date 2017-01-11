@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {loggedIn, loginTrying} from './LoginFormReducer/actionCreators'
+import {loggedIn, loginTrying, logOut} from './LoginFormReducer/actionCreators'
 
 import './LoginFormView.css'
 
@@ -12,7 +12,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     loggingIn: (user) => dispatch(loggedIn(user)),
-    loginTrying: () => dispatch(loginTrying())
+    loginTrying: () => dispatch(loginTrying()),
+    logout: () => dispatch(logOut())
 })
 
 class LoginFormView extends React.Component {
@@ -40,23 +41,23 @@ class LoginFormView extends React.Component {
             users =>
                 users.find(
                     user =>
-                        user.password === this.state.userPassword && user.login === this.state.userName
-                        )
+                    user.password === this.state.userPassword && user.login === this.state.userName
+                )
         ).then(
             user =>
-            fetch(
-                process.env.PUBLIC_URL + '/data/user-' + user.id + '.json'
-            ).then(
-                response => response.json()
-            ).then(
-                loggedUser => {
-                    this.props.loggingIn(loggedUser)
-                    return (this.setState({
-                        ...this.state,
-                        loggedUser: loggedUser
-                    }))
-                }
-            )).catch(() => console.error('zupa')+ this.props.loginTrying())
+                fetch(
+                    process.env.PUBLIC_URL + '/data/user-' + user.id + '.json'
+                ).then(
+                    response => response.json()
+                ).then(
+                    loggedUser => {
+                        this.props.loggingIn(loggedUser)
+                        return (this.setState({
+                            ...this.state,
+                            loggedUser: loggedUser
+                        }))
+                    }
+                )).catch(() => console.error('zupa') + this.props.loginTrying())
     }
 
 
@@ -71,8 +72,14 @@ class LoginFormView extends React.Component {
                     <div>
                         <h1>Witaj Użytkowniku</h1>
                         <h3>W panelu Ulubione oglądaj swoje ulubione przepisy.<br/>
-                        W panelu Lista zakupów obejrzyj listę zakupów</h3>
-                        <button>Wyloguj</button>
+                            W panelu Lista zakupów obejrzyj listę zakupów</h3>
+                        <button onClick=
+                                    {
+                                        () =>
+                                            this.props.logout()
+                                    }
+                        >Wyloguj
+                        </button>
                     </div> :
                     <div>
                         <h1>Zaloguj się</h1>
