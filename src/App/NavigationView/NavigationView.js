@@ -45,13 +45,13 @@ const NavigationView = (props) => {
                                 'HEJ' : 'Zaloguj się'
                             }</NavItem>
                         </LinkContainer>
-
                         {
                             props.loggedIn ?
                                 <LinkContainer to="/favourite-recipes">
                                     <NavItem eventKey={6} href="#">Ulubione</NavItem>
                                 </LinkContainer> :
-                                ''}
+                                ''
+                        }
 
                         {
                             props.loggedIn ?
