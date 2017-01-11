@@ -31,6 +31,7 @@ class CalendarView extends React.Component {
     const durationTime = parseInt(prompt('podaj czas trwania:'),10)
 
     this.setState({
+      ...this.state,
         events: this.state.events.concat({
           start: new Date(dateInfo.start.getFullYear(), dateInfo.start.getMonth(), dateInfo.start.getDate(), dateInfo.start.getHours()),
           end: new Date(dateInfo.end.getFullYear(), dateInfo.end.getMonth(), dateInfo.end.getDate(), dateInfo.start.getHours() + durationTime),
