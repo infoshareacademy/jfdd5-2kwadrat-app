@@ -1,0 +1,1 @@
+export { default as NeededIngredientView } from './NeededIngredientView'
