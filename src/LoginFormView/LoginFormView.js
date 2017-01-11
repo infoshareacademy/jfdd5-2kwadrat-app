@@ -76,6 +76,8 @@ class LoginFormView extends React.Component {
                 {this.props.loggedIn ?
                     <div>
                         <h1>Witaj Użytkowniku</h1>
+                        <h3>W panelu Ulubione oglądaj swoje ulubione przepisy.<br/>
+                        W panelu Lista zakupów obejrzyj listę zakupów</h3>
                     </div> :
                     <div>
                         <h1>Zaloguj się</h1>
