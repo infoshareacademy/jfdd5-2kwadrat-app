@@ -28,30 +28,24 @@ class LoginFormView extends React.Component {
         }
     }
 
-    componentWillMount() {
+    handleSubmit = (event) => {
+
+        event.preventDefault()
+
         fetch(
             process.env.PUBLIC_URL + '/data/users.json'
         ).then(
             response => response.json()
         ).then(
             users =>
-                this.setState({
-                    ...this.state,
-                    data: users
-                })
-        )
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault()
-        const loggedUser = this.state.data.find(
+                users.find(
+                    user =>
+                        user.password === this.state.userPassword && user.login === this.state.userName
+                        )
+        ).then(
             user =>
-            user.password === this.state.userPassword && user.login === this.state.userName
-        )
-
-        loggedUser ?
             fetch(
-                process.env.PUBLIC_URL + '/data/user-' + loggedUser.id + '.json'
+                process.env.PUBLIC_URL + '/data/user-' + user.id + '.json'
             ).then(
                 response => response.json()
             ).then(
@@ -62,7 +56,7 @@ class LoginFormView extends React.Component {
                         loggedUser: loggedUser
                     }))
                 }
-            ) : console.error('złe hasło') + this.props.loginTrying()
+            ))
     }
 
 
@@ -78,6 +72,7 @@ class LoginFormView extends React.Component {
                         <h1>Witaj Użytkowniku</h1>
                         <h3>W panelu Ulubione oglądaj swoje ulubione przepisy.<br/>
                         W panelu Lista zakupów obejrzyj listę zakupów</h3>
+                        <button>Wyloguj</button>
                     </div> :
                     <div>
                         <h1>Zaloguj się</h1>
