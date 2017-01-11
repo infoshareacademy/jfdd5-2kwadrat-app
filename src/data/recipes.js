@@ -4,7 +4,7 @@ export default [
     name: 'Gulasz po węgiersku',
     category: 'obiad',
     difficult: 'średnie',
-    time: '30-60 min',
+    time: '45',
     person: 2,
     ingredients: [
       {

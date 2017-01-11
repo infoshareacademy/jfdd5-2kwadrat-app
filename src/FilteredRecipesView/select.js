@@ -1,14 +1,17 @@
 const filters = {
-  all: person => true,
-  female: person => person.gender === 'Female',
-  male: person => person.gender === 'Male',
-  gmailUsers: person => person.email.includes('@google.co.uk')
+  all: recipe => true,
+  difficult: recipe => recipe.difficult === 'łatwe',
+  time: recipe => recipe.time === '45'
+  // gmailUsers: person => person.email.includes('@google.co.uk')
 }
 
 export const selectRecipes = (recipes, filterNames) => recipes.filter(
   recipe => filterNames.map(
-    filterName =>
-      filters[filterName](recipe)
+    filterName => {
+      console.log(filterName)
+      return filters[filterName](recipe)
+    }
+
   ).every(
     filterResult =>
     filterResult === true

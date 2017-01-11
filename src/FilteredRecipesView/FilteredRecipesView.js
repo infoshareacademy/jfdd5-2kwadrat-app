@@ -5,15 +5,21 @@ import {Link} from 'react-router'
 import './FilteredRecipesView.css'
 import FaArrowLeft from 'react-icons/lib/fa/arrow-left'
 
-
 import {recipes} from '../data'
-
 import { selectRecipes } from './select'
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
-  filterNames: ['all']
+  filterNames: state.filteredRecipesViewReducer.filterNames
 });
+
+const mapDispatchToProps = dispatch => ({
+  setFilter: (filterName) => dispatch({
+    type: 'SET_FILTER',
+    filterName: filterName
+  }),
+  resetFilters: () => dispatch({ type: 'RESET_FILTERS' })
+})
 
 const FilteredRecipes = (props) => {
 
@@ -55,51 +61,65 @@ const FilteredRecipes = (props) => {
             <div title="wstecz" className="button-back">
               <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px" /></span></Link>
             </div>
-            <button>all</button>
+
+            <button onClick={() => props.resetFilters()}>
+              All
+            </button>
+
+            <button onClick={() => props.setFilter('time')}>
+              Czas
+            </button>
+
+            <button onClick={() => props.setFilter('difficult')}>
+              Trudność
+            </button>
           </div>: ''
       }
       {
         arrayOfSelectedIngredientsID.length !== 0 ?
           selectRecipes(newRecipesArray, props.filterNames).map(
-            recipe => (
-              <Link key={recipe.id} to={'/recipes/' + recipe.id}>
-                <Col key={recipe.id} xs={12} sm={6} md={4}>
-                  <div className="recipeCard recipeCardHeight">
-                    <Image className="photo image" src={recipe.image}/>
-                    <h2>{recipe.name}</h2>
-                    { recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
-                      <p className="missing-ingredients-info">
-                        Masz wszystkie składniki! Do dzieła
-                      </p> :
+            recipe => {
+              console.log(recipe)
+              return (
+                <Link key={recipe.id} to={'/recipes/' + recipe.id}>
+                  <Col key={recipe.id} xs={12} sm={6} md={4}>
+                    <div className="recipeCard recipeCardHeight">
+                      <Image className="photo image" src={recipe.image}/>
+                      <h2>{recipe.name}</h2>
+                      { recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
+                        <p className="missing-ingredients-info">
+                          Masz wszystkie składniki! Do dzieła
+                        </p> :
 
-                      <p className="missing-ingredients-info">
-                        Masz {recipe.numberOfFittedIngredients.length}
-                        {recipe.numberOfFittedIngredients.length === 1 ?
-                          ' składnik' :
-                          recipe.numberOfFittedIngredients.length === 0 || recipe.numberOfFittedIngredients.length > 4 ?
-                            ' składników' :
-                            ' składniki'
-                        }
-                      </p>
-                    }
-                    {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
-                      '' :
-                      <p className="missing-ingredients-info">
-                        Brakuje Ci tylko {recipe.ingredients.length - recipe.numberOfFittedIngredients.length }
-                        {recipe.ingredients.length - recipe.numberOfFittedIngredients.length ===1 ?
-                        ' skladnika' : ' skladników'
-                        }
-                      </p>
-                    }
+                        <p className="missing-ingredients-info">
+                          Masz {recipe.numberOfFittedIngredients.length}
+                          {recipe.numberOfFittedIngredients.length === 1 ?
+                            ' składnik' :
+                            recipe.numberOfFittedIngredients.length === 0 || recipe.numberOfFittedIngredients.length > 4 ?
+                              ' składników' :
+                              ' składniki'
+                          }
+                        </p>
+                      }
+                      {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
+                        '' :
+                        <p className="missing-ingredients-info">
+                          Brakuje Ci tylko {recipe.ingredients.length - recipe.numberOfFittedIngredients.length }
+                          {recipe.ingredients.length - recipe.numberOfFittedIngredients.length ===1 ?
+                            ' skladnika' : ' skladników'
+                          }
+                        </p>
+                      }
 
-                    <div className="icons">
-                      <div className="recipeTime">{recipe.time}</div>
-                      <div className="recipeDifficult">{recipe.difficult}</div>
+                      <div className="icons">
+                        <div className="recipeTime">{recipe.time}</div>
+                        <div className="recipeDifficult">{recipe.difficult}</div>
+                      </div>
                     </div>
-                  </div>
-                </Col>
-              </Link>
-            )
+                  </Col>
+                </Link>
+              )
+            }
           ) :
           <h1><Link to={'/form'}><span className="span-button">Co masz w lodówce?</span></Link></h1>
       }
@@ -108,4 +128,4 @@ const FilteredRecipes = (props) => {
 };
 
 
-export default connect(mapStateToProps)(FilteredRecipes)
+export default connect(mapStateToProps, mapDispatchToProps)(FilteredRecipes)
