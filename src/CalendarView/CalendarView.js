@@ -2,11 +2,16 @@ import React from 'react'
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import {connect} from 'react-redux'
+import {addEventToCalendar} from './CalendarReducer/actionCreator'
 
 BigCalendar.momentLocalizer(moment)
 
 const mapStateToProps = state => ({
   userEvents: state.calendarData.calendarEvents
+})
+
+const mapDispatchToProps = dispatch => ({
+  addEvent: (event) => dispatch(addEventToCalendar(event))
 })
 
 
@@ -24,7 +29,7 @@ class CalendarView extends React.Component {
     const eventTitle = prompt('Podaj nazwę wydarzenia:',
       'nazwa wydarzenia')
     const durationTime = parseInt(prompt('podaj czas trwania:'),10)
-    console.log(typeof dateInfo.start.getHours())
+
     this.setState({
         events: this.state.events.concat({
           start: new Date(dateInfo.start.getFullYear(), dateInfo.start.getMonth(), dateInfo.start.getDate(), dateInfo.start.getHours()),
@@ -33,6 +38,13 @@ class CalendarView extends React.Component {
         })
       }
     )
+    console.log(this.state.events)
+    this.props.addEvent(this.state.events)
+  }
+
+  componentDidUpdate(){
+   console.log('updated')
+
   }
 
   render() {
@@ -67,4 +79,4 @@ class CalendarView extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(CalendarView)
+export default connect(mapStateToProps,mapDispatchToProps)(CalendarView)
