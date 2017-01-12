@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
     user: state.loggedInData.userData
 })
 
-import {Nav, Navbar, NavItem} from 'react-bootstrap'
+import {Nav, Navbar, NavItem, NavDropdown} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import './NavigationViewStyle.css'
 
@@ -40,31 +40,38 @@ const NavigationView = (props) => {
                             <NavItem eventKey={3} href="#">Przepisy dla Ciebie</NavItem>
                         </LinkContainer>
 
-                        <LinkContainer to="/login">
-                            <NavItem eventKey={4} href="#">{props.loggedIn ?
-                                'HEJ' : 'Zaloguj się'
-                            }</NavItem>
-                        </LinkContainer>
-                        {
-                            props.loggedIn ?
-                                <LinkContainer to="/favourite-recipes">
-                                    <NavItem eventKey={6} href="#">Ulubione</NavItem>
-                                </LinkContainer> :
-                                ''
-                        }
+                        <NavDropdown eventKey={4} title="Moje Konto">
+                            <LinkContainer to="/login">
+                                <NavItem eventKey={4.1} href="#">{props.loggedIn ?
+                                    'HEJ' : 'Zaloguj się'
+                                }</NavItem>
+                            </LinkContainer>
+                            {
+                                props.loggedIn ?
+                                    <LinkContainer to="/favourite-recipes">
+                                        <NavItem eventKey={4.2} href="#">Ulubione</NavItem>
+                                    </LinkContainer> :
+                                    ''
+                            }
 
-                        {
-                            props.loggedIn ?
-                                <LinkContainer to="/needed-ingredient-view">
-                                    <NavItem eventKey={5} href="#">Lista zakupów</NavItem>
-                                </LinkContainer> :
-                                ''
-                        }
+                            {
+                                props.loggedIn ?
+                                    <LinkContainer to="/needed-ingredient-view">
+                                        <NavItem eventKey={4.3} href="#">Lista zakupów</NavItem>
+                                    </LinkContainer> :
+                                    ''
+                            }
 
-                        <LinkContainer to="/calendar">
-                            <NavItem eventKey={6} href="#">Kalendarz</NavItem>
-                        </LinkContainer>
+                            {
+                                props.loggedIn ?
 
+                                <LinkContainer to="/calendar">
+                                    <NavItem eventKey={4.4} href="#">Kalendarz</NavItem>
+                                </LinkContainer>
+                              :
+                                    ''
+                            }
+                        </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
