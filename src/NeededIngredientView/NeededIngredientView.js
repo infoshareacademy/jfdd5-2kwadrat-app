@@ -2,6 +2,7 @@ import React from 'react'
 import {Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import ingredients from '../data/ingredients'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import {removeSelectedIngredient} from '../LoginFormView/UsersReducer/actionCreators'
 
@@ -22,30 +23,36 @@ const mapDispatchToProps = dispatch => ({
 const NeededIngredient = (props) => {
 
   return (
-    <Col xs={12} md={6} mdOffset={3} className="neededIngredientContainer">
-      <div className="cos">Lista zakupów</div>
-      {
-        typeof props.userId === 'number' ?
-          <p>
-            {
-              props.user.shoppingListIngredientsIds.map(
-                ingredientId =>
-                  ingredients.find(
-                    ingredient =>
-                    ingredient.id === ingredientId
+      <Col xs={12} md={6} mdOffset={3} className="neededIngredientContainer">
+        <div className="cos">Lista zakupów</div>
+        {
+          typeof props.userId === 'number' ?
+              <div>
+                <ReactCSSTransitionGroup
+                    transitionName="slide"
+                    transitionLeaveTimeout={400}>
+                {
+                  props.user.shoppingListIngredientsIds.map(
+                      ingredientId =>
+                          ingredients.find(
+                              ingredient =>
+                              ingredient.id === ingredientId
+                          )
+                  ).map(
+                      item =>
+
+                          <h3 className="cos" key={item.id}
+                              onClick={
+                                () => {
+                                  props.removeSelectedIngredient(item.id)
+                                }
+                              }
+                          >{item.name}</h3>
                   )
-              ).map(
-                item =>
-                  <h3 key={item.id}
-                      onClick={
-                        () => {
-                          props.removeSelectedIngredient(item.id)
-                        }
-                      }
-                  >{item.name}</h3>
-              )
-            }
-          </p> :
+                }
+                </ReactCSSTransitionGroup>
+
+              </div> :
 
           <p>Zaloguj się</p>
       }
