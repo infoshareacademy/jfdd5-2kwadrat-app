@@ -46,3 +46,7 @@
     transform: translateX(0px);
   }
 }
+
+.btn-group {
+  margin-bottom: 30px;
+}
