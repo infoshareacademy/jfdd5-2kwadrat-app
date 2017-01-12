@@ -2,21 +2,27 @@ import {
   REMOVE_FAVOURITE_RECIPE,
   ADD_FAVOURITE_RECIPE,
   REMOVE_SELECTED_INGREDIENT,
-  ADD_SELECTED_INGREDIENT
+  ADD_SELECTED_INGREDIENT,
+  LOGGED_IN
 } from './actionTypes'
 
-export const removeSelectedIngredient = () => ({
-  type:REMOVE_SELECTED_INGREDIENT
-})
-
 export const addSelectedIngredient = () => ({
-  type:ADD_SELECTED_INGREDIENT
+  type: ADD_SELECTED_INGREDIENT
 })
 
-export const addFavouriteRecipe= () => ({
-  type:ADD_FAVOURITE_RECIPE
+export const addFavouriteRecipe = () => ({
+  type: ADD_FAVOURITE_RECIPE
 })
 
 export const removeFavouriteRecipe = () => ({
-  type:REMOVE_FAVOURITE_RECIPE
+  type: REMOVE_FAVOURITE_RECIPE
+})
+
+export const loggedIn = (user) => ({
+  type: LOGGED_IN,
+  userData: user
+})
+export const removeSelectedIngredient = (ingredient) => ({
+  type: REMOVE_SELECTED_INGREDIENT,
+  ingredientId: ingredient
 })

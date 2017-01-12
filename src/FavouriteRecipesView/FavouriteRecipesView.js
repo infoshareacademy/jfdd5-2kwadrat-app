@@ -7,7 +7,7 @@ import recipes from '../data/recipes'
 
 const mapStateToProps = state => ({
     userId: state.loggedInData.loggedInUserId,
-    user: state.loggedInData.loggedUserData
+    user: state.loggedUser.userData
 })
 
 

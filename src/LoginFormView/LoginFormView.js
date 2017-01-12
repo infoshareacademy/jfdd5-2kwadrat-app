@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {loggedIn, loginTrying, logOut} from './LoginFormReducer/actionCreators'
+import {loginTrying, logOut, logged} from './LoginFormReducer/actionCreators'
+import {loggedIn} from './UsersReducer/actionCreators'
 
 import './LoginFormView.css'
 
@@ -13,7 +14,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loggingIn: (user) => dispatch(loggedIn(user)),
   loginTrying: () => dispatch(loginTrying()),
-  logout: () => dispatch(logOut())
+  logout: () => dispatch(logOut()),
+  logged: (user) => dispatch(logged(user))
 })
 
 class LoginFormView extends React.Component {
@@ -52,17 +54,13 @@ class LoginFormView extends React.Component {
         ).then(
           loggedUser => {
             this.props.loggingIn(loggedUser)
+            this.props.logged(loggedUser)
             return (this.setState({
               ...this.state,
               loggedUser: loggedUser
             }))
           }
         )).catch(() => console.error('zupa') + this.props.loginTrying())
-  }
-
-
-  componentDidUpdate() {
-    console.log(this.state)
   }
 
   render() {
