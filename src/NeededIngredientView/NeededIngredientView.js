@@ -3,6 +3,8 @@ import {Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import ingredients from '../data/ingredients'
 
+import {RemoveSelectedIngredient} from '../LoginFormView/LoginFormReducer/actionCreators'
+
 
 import './NeededIngredientView.css'
 
@@ -11,8 +13,11 @@ const mapStateToProps = state => ({
   user: state.loggedInData.loggedUserData
 })
 
-/*Just a try - github issue*/
+const mapDispatchToProps = dispatch => ({
 
+  RemoveSelectedIngredient: (ingredient) => dispatch(
+      RemoveSelectedIngredient(ingredient))
+})
 
 const NeededIngredient = (props) => {
 
@@ -31,15 +36,21 @@ const NeededIngredient = (props) => {
                           )
                   ).map(
                       item =>
-                          <h3 key={item.id}>{item.name}</h3>
+                          <h3 key={item.id}
+                              onClick={
+                                () => {
+                                  props.RemoveSelectedIngredient(item.id)
+                                }
+                              }
+                          >{item.name}</h3>
                   )
                 }
               </p> :
+
               <p>Zaloguj się</p>
         }
       </Col>
   )
 };
 
-
-export default connect(mapStateToProps)(NeededIngredient)
+export default connect(mapStateToProps, mapDispatchToProps)(NeededIngredient)
