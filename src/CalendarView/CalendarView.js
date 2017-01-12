@@ -3,6 +3,7 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import {connect} from 'react-redux'
 import {addEventToCalendar} from './CalendarReducer/actionCreator'
+import Prompt from'react-bootstrap-prompt'
 
 BigCalendar.momentLocalizer(moment)
 
@@ -26,9 +27,8 @@ class CalendarView extends React.Component {
   }
 
   addEvent = (dateInfo) => {
-    const eventTitle = prompt('Podaj nazwę wydarzenia:',
-      'nazwa wydarzenia')
-    const durationTime = parseInt(prompt('podaj czas trwania:'),10)
+    const eventTitle = prompt('Co będziesz gotować?')
+    const durationTime = parseInt(prompt('Jak długo będziesz gotowac?'),10)
 
     this.setState({
       ...this.state,

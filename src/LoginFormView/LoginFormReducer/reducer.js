@@ -4,8 +4,7 @@ const initialState = {
   loggedInStatus: false,
   loggedInUserId: null,
   loggingTests: false,
-  userData:null,
-  selectedIngredients: []
+  loggedUserData:null,
 }
 
 export default (state = initialState, action = {}) => {
