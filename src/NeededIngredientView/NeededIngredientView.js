@@ -16,40 +16,40 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 
   RemoveSelectedIngredient: (ingredient) => dispatch(
-    RemoveSelectedIngredient(ingredient))
+      RemoveSelectedIngredient(ingredient))
 })
 
 const NeededIngredient = (props) => {
 
   return (
-    <Col xs={12} md={6} mdOffset={3} className="neededIngredientContainer">
-      <div className="cos">Lista zakupów</div>
-      {
-        typeof props.userId === 'number' ?
-          <p>
-            {
-              props.user.shoppingListIngredientsIds.map(
-                ingredientId =>
-                  ingredients.find(
-                    ingredient =>
-                    ingredient.id === ingredientId
+      <Col xs={12} md={6} mdOffset={3} className="neededIngredientContainer">
+        <div className="cos">Lista zakupów</div>
+        {
+          typeof props.userId === 'number' ?
+              <p>
+                {
+                  props.user.shoppingListIngredientsIds.map(
+                      ingredientId =>
+                          ingredients.find(
+                              ingredient =>
+                              ingredient.id === ingredientId
+                          )
+                  ).map(
+                      item =>
+                          <h3 key={item.id}
+                              onClick={
+                                () => {
+                                  props.RemoveSelectedIngredient(item.id)
+                                }
+                              }
+                          >{item.name}</h3>
                   )
-              ).map(
-                item =>
-                  <h3 key={item.id}
-                      onClick={
-                        () => {
-                          props.RemoveSelectedIngredient(item.id)
-                        }
-                      }
-                  >{item.name}</h3>
-              )
-            }
-          </p> :
+                }
+              </p> :
 
-          <p>Zaloguj się</p>
-      }
-    </Col>
+              <p>Zaloguj się</p>
+        }
+      </Col>
   )
 };
 
