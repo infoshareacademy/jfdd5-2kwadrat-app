@@ -15,7 +15,6 @@ export const selectRecipes = (recipes, filterNames) => recipes.filter(
       console.log(filterName)
       return filters[filterName](recipe)
     }
-
   ).every(
     filterResult =>
     filterResult === true
