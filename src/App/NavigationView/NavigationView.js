@@ -40,7 +40,7 @@ const NavigationView = (props) => {
                             <NavItem eventKey={3} href="#">Przepisy dla Ciebie</NavItem>
                         </LinkContainer>
 
-                        <NavDropdown eventKey={4} title="Moje Konto">
+                        <NavDropdown eventKey={4} title="Moje Konto" id="1">
                             <LinkContainer to="/login">
                                 <NavItem eventKey={4.1} href="#">{props.loggedIn ?
                                     'HEJ' : 'Zaloguj się'
