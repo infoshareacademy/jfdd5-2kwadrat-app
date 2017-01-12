@@ -2,6 +2,7 @@ import React from 'react'
 import {Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import ingredients from '../data/ingredients'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import {RemoveSelectedIngredient} from '../LoginFormView/LoginFormReducer/actionCreators'
 
@@ -26,7 +27,10 @@ const NeededIngredient = (props) => {
         <div className="cos">Lista zakupów</div>
         {
           typeof props.userId === 'number' ?
-              <p>
+              <div>
+                <ReactCSSTransitionGroup
+                    transitionName="slide"
+                    transitionLeaveTimeout={400}>
                 {
                   props.user.shoppingListIngredientsIds.map(
                       ingredientId =>
@@ -36,7 +40,8 @@ const NeededIngredient = (props) => {
                           )
                   ).map(
                       item =>
-                          <h3 key={item.id}
+
+                          <h3 className="cos" key={item.id}
                               onClick={
                                 () => {
                                   props.RemoveSelectedIngredient(item.id)
@@ -45,7 +50,9 @@ const NeededIngredient = (props) => {
                           >{item.name}</h3>
                   )
                 }
-              </p> :
+                </ReactCSSTransitionGroup>
+
+              </div> :
 
               <p>Zaloguj się</p>
         }

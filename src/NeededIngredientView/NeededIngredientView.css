@@ -1,3 +1,21 @@
 .neededIngredientContainer {
-  background-color: red;
+  background-color: #EFF;
+}
+
+.slide-leave {
+  transform: translateX(0%);
+}
+
+.slide-leave-active {
+  opacity: 0.6;
+  animation: slide-out 400ms ease-out forwards;
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(130%);
+  }
 }
