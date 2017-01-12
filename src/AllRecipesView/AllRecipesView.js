@@ -5,7 +5,7 @@ import {Image, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 
 export default (props) => (
-  <div className="wrapper">
+  <div className="wrapper" >
     {props.children}
     {
       recipes.map(recipe => {
