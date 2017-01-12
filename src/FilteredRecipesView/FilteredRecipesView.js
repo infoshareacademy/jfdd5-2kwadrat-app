@@ -6,7 +6,7 @@ import './FilteredRecipesView.css'
 import FaArrowLeft from 'react-icons/lib/fa/arrow-left'
 
 import {recipes} from '../data'
-import { selectRecipes } from './select'
+import {selectRecipes} from './select'
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
@@ -18,7 +18,11 @@ const mapDispatchToProps = dispatch => ({
     type: 'SET_FILTER',
     filterName: filterName
   }),
-  resetFilters: () => dispatch({ type: 'RESET_FILTERS' })
+  removeFilter: (filterName) => dispatch({
+    type: 'REMOVE_FILTER',
+    filterName: filterName
+  }),
+  resetFilters: () => dispatch({type: 'RESET_FILTERS'})
 })
 
 const FilteredRecipes = (props) => {
@@ -31,16 +35,16 @@ const FilteredRecipes = (props) => {
 
   const newRecipesArray = recipes.map(
     recipe => (
-      {
-        ...recipe,
-        numberOfFittedIngredients: recipe.ingredients.map(
-          ingredient =>
-            arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ? 1 : 0
-        ).filter(
-          item =>
-          item === 1
-        )
-      }
+    {
+      ...recipe,
+      numberOfFittedIngredients: recipe.ingredients.map(
+        ingredient =>
+          arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ? 1 : 0
+      ).filter(
+        item =>
+        item === 1
+      )
+    }
     )
   );
   newRecipesArray.sort((a, b) =>
@@ -59,34 +63,96 @@ const FilteredRecipes = (props) => {
         arrayOfSelectedIngredientsID.length !== 0 ?
           <div>
             <div title="wstecz" className="button-back">
-              <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px" /></span></Link>
+              <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px"/></span></Link>
             </div>
 
             <ButtonGroup>
-              <DropdownButton title="Czasochłonność" id="bg-nested-dropdown">
-                <MenuItem eventKey="1" onClick={() => props.setFilter('timeShort')}>
+              <DropdownButton
+                title={props.filterNames.indexOf('timeShort')
+                  === -1 ? 'Czasochłonność' : 'Czasochłonność: krótkie'
+                }
+                bsStyle={props.filterNames.indexOf('timeShort')
+                === -1 ? "default" : "success"
+                }
+                id="bg-nested-dropdown"
+              >
+                <MenuItem eventKey="1" onClick={() => {
+                  props.removeFilter('timeShort')
+                  props.removeFilter('timeMedium')
+                  props.removeFilter('timeLong')
+                  return (
+                    props.filterNames.indexOf('timeShort')
+                    === -1 ? props.setFilter('timeShort') : props.removeFilter('timeShort')
+                  )
+                }}
+                >
                   krótkie
                 </MenuItem>
 
-                <MenuItem eventKey="2" onClick={() => props.setFilter('timeMedium')}>
+                <MenuItem eventKey="2" onClick={() => {
+                  props.removeFilter('timeShort')
+                  props.removeFilter('timeMedium')
+                  props.removeFilter('timeLong')
+                  return (
+                    props.filterNames.indexOf('timeMedium')
+                    === -1 ? props.setFilter('timeMedium') : props.removeFilter('timeMedium')
+                  )
+                }}
+                >
                   średnie
                 </MenuItem>
 
-                <MenuItem eventKey="3" onClick={() => props.setFilter('timeLong')}>
+                <MenuItem eventKey="3" onClick={() => {
+                  props.removeFilter('timeShort')
+                  props.removeFilter('timeMedium')
+                  props.removeFilter('timeLong')
+                  return (
+                    props.filterNames.indexOf('timeLong')
+                    === -1 ? props.setFilter('timeLong') : props.removeFilter('timeLong')
+                  )
+                }}
+                >
                   długie
                 </MenuItem>
               </DropdownButton>
 
               <DropdownButton title="Trudność" id="bg-nested-dropdown">
-                <MenuItem eventKey="1" onClick={() => props.setFilter('difficultEase')}>
+                <MenuItem eventKey="1" onClick={() => {
+                  props.removeFilter('difficultEase')
+                  props.removeFilter('difficultMedium')
+                  props.removeFilter('difficultHard')
+                  return (
+                    props.filterNames.indexOf('difficultEase')
+                    === -1 ? props.setFilter('difficultEase') : props.removeFilter('difficultEase')
+                  )
+                }}
+                >
                   łatwe
                 </MenuItem>
 
-                <MenuItem eventKey="2" onClick={() => props.setFilter('difficultMedium')}>
+                <MenuItem eventKey="2" onClick={() => {
+                  props.removeFilter('difficultEase')
+                  props.removeFilter('difficultMedium')
+                  props.removeFilter('difficultHard')
+                  return (
+                    props.filterNames.indexOf('difficultMedium')
+                    === -1 ? props.setFilter('difficultMedium') : props.removeFilter('difficultMedium')
+                  )
+                }}
+                >
                   średnie
                 </MenuItem>
 
-                <MenuItem eventKey="3" onClick={() => props.setFilter('difficultHard')}>
+                <MenuItem eventKey="3" onClick={() => {
+                  props.removeFilter('difficultEase')
+                  props.removeFilter('difficultMedium')
+                  props.removeFilter('difficultHard')
+                  return (
+                    props.filterNames.indexOf('difficultHard')
+                    === -1 ? props.setFilter('difficultHard') : props.removeFilter('difficultHard')
+                  )
+                }}
+                >
                   trudne
                 </MenuItem>
               </DropdownButton>
@@ -95,7 +161,7 @@ const FilteredRecipes = (props) => {
                 Usuń filtry
               </Button>
             </ButtonGroup>
-          </div>: ''
+          </div> : ''
       }
       {
         arrayOfSelectedIngredientsID.length !== 0 ?
@@ -127,7 +193,7 @@ const FilteredRecipes = (props) => {
                         '' :
                         <p className="missing-ingredients-info">
                           Brakuje Ci tylko {recipe.ingredients.length - recipe.numberOfFittedIngredients.length }
-                          {recipe.ingredients.length - recipe.numberOfFittedIngredients.length ===1 ?
+                          {recipe.ingredients.length - recipe.numberOfFittedIngredients.length === 1 ?
                             ' skladnika' : ' skladników'
                           }
                         </p>
