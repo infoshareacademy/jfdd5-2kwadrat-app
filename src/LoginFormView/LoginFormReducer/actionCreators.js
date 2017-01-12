@@ -1,4 +1,4 @@
-import {LOGGED_IN, LOGIN_TRIES, LOG_OUT, REMOVE_SELECTED_INGREDIENT} from './actionTypes'
+import {LOGGED_IN, LOGIN_TRIES, LOG_OUT} from './actionTypes'
 
 
 export const loginTrying = () => ({
