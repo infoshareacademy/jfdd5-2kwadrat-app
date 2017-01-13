@@ -24,7 +24,6 @@ export default (state = initialState, action = {}) => {
             ingredient !== action.ingredientId
           )
         }
-
       }
     default:
       return state
