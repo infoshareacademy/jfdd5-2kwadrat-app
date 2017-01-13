@@ -3,7 +3,6 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import {connect} from 'react-redux'
 import {addEventToCalendar} from './CalendarReducer/actionCreator'
-import Prompt from'react-bootstrap-prompt'
 
 BigCalendar.momentLocalizer(moment)
 
