@@ -68,8 +68,11 @@ const FilteredRecipes = (props) => {
 
             <ButtonGroup>
               <DropdownButton
-                title={props.filterNames.indexOf('timeShort')
-                  === -1 ? 'Czasochłonność' : 'Czasochłonność: krótkie'
+                //title={props.filterNames.length
+                //  === 1 ? 'Czasochłonność' : 'Czasochłonność: krótkie'
+                //}
+                title={props.filterNames[1] ===
+                "timeShort" ? 'Czasochłonność: krótkie': ("timeMedium" ? 'Czasochłonność: średnie' : ("timeLong" ? 'Czasochłonność: długie' : 'Czasochłonność'))
                 }
                 bsStyle={props.filterNames.indexOf('timeShort')
                 === -1 ? "default" : "success"
