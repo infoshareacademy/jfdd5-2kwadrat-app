@@ -4,21 +4,21 @@ export default [
         name: 'wołowina',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://upload.wikimedia.org/wikipedia/commons/6/60/Standing-rib-roast.jpg'
+        img: 'http://ejocurionline.net/data/wallpapers/2/DDW_797384.gif'
     },
     {
         id: 2,
         name: 'wędzony boczek',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://www.opinie.senior.pl/zdjecia/Wedliny-sredniotrwale/Boczek-wedzony-8830-big.jpg'
+        img: 'http://baconguroux.com/images/1.png'
     },
     {
         id: 3,
         name: 'ziemniaki',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://www.niam.pl/rimages/crop/600/450/files/images/PRODUCT/BACKUP/31334212547_njnmftduspherdspibtc.jpg'
+        img: 'http://freepngimages.com/wp-content/uploads/2014/11/potatoes.png'
     },
     {
         id: 4,
@@ -32,14 +32,14 @@ export default [
         name: 'makaron',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://www.colourbox.com/preview/1749227-yellow-spiral-pasta-over-the-white-background.jpg'
+        img: 'http://okruszek.pl/wp-content/uploads/2014/10/penne.png'
     },
     {
         id: 6,
         name: 'pomidor',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://domowa-uroda.pl/wp-content/uploads/2012/05/pomidor.jpg'
+        img: 'http://nobacks.com/wp-content/uploads/2014/11/Tomato-76.png'
     },
     {
         id: 7,
@@ -53,14 +53,14 @@ export default [
         name: 'wieprzowina',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://www.niam.pl/rimages/crop/600/450/files/images/PRODUCT/BACKUP/PRODUCT_3164_51726808751211082816808484929258.jpg'
+        img: 'http://www.pngall.com/wp-content/uploads/2016/03/Meat-Free-PNG-Image.png'
     },
     {
         id: 9,
         name: 'kasza gryczana',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://www.niam.pl/rimages/crop/600/450/files/images/PRODUCT/BACKUP/23438917452_qxxsfognmwsvenhclseu.jpg'
+        img: 'http://www.carlowbrewing.com/wp-content/uploads/2013/10/Barley-Malt-3.png'
     },
     {
         id: 10,
@@ -88,77 +88,77 @@ export default [
         name: 'pieczarka',
         unitOfMeasure: 'szt.',
         amount: 0,
-        img: 'http://bucket-panoramafirm.s3.amazonaws.com/images/6/5/116869465.jpg'
+        img: 'http://www.prairiemushrooms.com/files/styles/product_image_modal_fullscreen/public/product/image/white.png?itok=_FwzM4uu'
     },
     {
         id: 14,
         name: 'biała kapusta',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://www.gieldakaliska.com.pl/files/kapusta_biala.jpg'
+        img: 'http://cdn.ritely.com/wp-content/uploads/2016/11/Cabbage.png'
     },
     {
         id: 15,
         name: 'kiełbasa',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://vignette2.wikia.nocookie.net/kielbasa/images/4/49/Kielbasa-Podwawelska.jpg/revision/latest?cb=20130322180720&path-prefix=pl'
+        img: 'http://www.pngmart.com/files/1/Cooked-Sausage-PNG-Clipart.png'
     },
     {
         id: 16,
         name: 'marchewka',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://advantage.edu.pl/wp-content/uploads/2013/10/carrot.jpg'
+        img: 'http://www.pngmart.com/files/1/Carrot-Cutting-Pieces-PNG.png'
     },
     {
         id: 17,
         name: 'pietruszka',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://budujesz.info//pliki/image/artykuly/warzywa/duze/pietruszka-korzen-i-nac1543.jpg'
+        img: 'http://www.pngpix.com/wp-content/uploads/2016/03/Parsley-Leaf-PNG-Image.png'
     },
     {
         id: 18,
         name: 'seler',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://sposobynapotencje.pl/wp-content/uploads/2015/09/seler-potencja.jpg'
+        img: 'http://pkufamily.com/wp-content/uploads/2016/04/seler-300x200.png'
     },
     {
         id: 19,
         name: 'kuskus',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://zielonaesencja.pl/pol_pl_Kasza-kuskus-500-g-GREEN-ESSENCE-491_2.jpg'
+        img: 'http://www.goymen.com.tr/resimler/urun/couscous-16-kuskus-en.png'
     },
     {
         id: 20,
         name: 'filet z kurczaka',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://www.alleceny.pl/static/images/Aleceny_Model_Product_Table/big/filet-z-kurczaka_42982290a04af54baa0492b7de56a60f.jpg'
+        img: 'https://static.promoceny.pl/foto/vyrobky/084250/84147.jpg'
     },
     {
         id: 21,
         name: 'czerwona fasola',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://michiganbean.org/wp-content/uploads/2013/09/SRB.jpg'
+        img: 'http://michiganbean.org/wp-content/uploads/2013/09/MichiganBean_RedKidney.png'
     },
     {
         id: 22,
         name: 'ser typu feta',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://annakobieta.blog.onet.pl/files/2015/07/ser-feta.jpg'
+        img: 'http://www.fooduniversity.com/foodu/dairy_c/images/Cheese/feta.gif'
     },
     {
         id: 23,
         name: 'kasza jaglana',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'https://www.colourbox.com/preview/3460316-some-barley-grains-isolated-on-the-white-background.jpg '
+        img: 'http://kustoagro.com/wp-content/uploads/2016/04/Barley_9422470_m.png'
     }
 
 
