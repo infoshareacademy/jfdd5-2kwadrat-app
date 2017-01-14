@@ -1,8 +1,5 @@
 import {
-  REMOVE_FAVOURITE_RECIPE,
-  ADD_FAVOURITE_RECIPE,
   REMOVE_SELECTED_INGREDIENT,
-  ADD_SELECTED_INGREDIENT,
   LOGGED_IN
 } from './actionTypes'
 
@@ -27,7 +24,6 @@ export default (state = initialState, action = {}) => {
             ingredient !== action.ingredientId
           )
         }
-
       }
     default:
       return state
