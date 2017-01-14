@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {loginTrying, logOut, logged} from './LoginFormReducer/actionCreators'
 import {loggedIn} from './UsersReducer/actionCreators'
+import {Col} from 'react-bootstrap'
 
 import './LoginFormView.css'
 
@@ -79,46 +80,75 @@ class LoginFormView extends React.Component {
             </button>
           </div> :
           <div>
-            <h1>Zaloguj się</h1>
-            <form onSubmit={this.handleSubmit}>
-              <inputLabel>Login:</inputLabel>
+            <Col xs={6}>
+              <h1>Zaloguj się</h1>
+              <form onSubmit={this.handleSubmit}
+                    className="registration">
+                <inputLabel className="formLabel">Login:</inputLabel>
 
-              <input type="text"
-                     value={this.state.userName}
-                     onChange={
-                       event =>
-                         this.setState({
-                           userName: event.target.value
-                         })
-                     }
-              />
-              <br/>
-              <br/>
+                <input type="text"
+                       className="formInput"
+                       value={this.state.userName}
+                       onChange={
+                         event =>
+                           this.setState({
+                             userName: event.target.value
+                           })
+                       }
+                />
+                <br/>
+                <br/>
 
-              <inputLabel>Hasło:</inputLabel>
+                <inputLabel className="formLabel">Hasło:</inputLabel>
 
-              <input type="password"
-                     value={this.state.userPassword}
-                     onChange={
-                       event =>
-                         this.setState({
-                           userPassword: event.target.value
-                         })
-                     }
-              />
-              <br/>
-              <br/>
+                <input type="password"
+                       className="formInput"
+                       value={this.state.userPassword}
+                       onChange={
+                         event =>
+                           this.setState({
+                             userPassword: event.target.value
+                           })
+                       }
+                />
+                <br/>
+                <br/>
 
-              <button type="submit">Zaloguj</button>
-              {
-                this.props.loginTriesStatus ?
-                  <h4 className="login-alert">
-                    Podałeś zły login lub hasło.<br/>
-                    Spróbuj ponownie
-                  </h4> :
-                  ''
-              }
-            </form>
+                <button type="submit">Zaloguj</button>
+                {
+                  this.props.loginTriesStatus ?
+                    <h4 className="login-alert">
+                      Podałeś zły login lub hasło.<br/>
+                      Spróbuj ponownie
+                    </h4> :
+                    ''
+                }
+              </form>
+            </Col>
+
+            <Col sx={6} >
+              <div >
+              <h1>Nie masz konta?</h1>
+              <h3>Dołącz do nas</h3>
+              <p>Zarejestruj się!</p>
+
+              <form className="registration">
+                <inputLabel className="formLabel">Login :</inputLabel>
+                <input type="text" value='' className="formInput"/>
+                <br/>
+                <br/>
+                <inputLabel className="formLabel">Podaj hasło:</inputLabel>
+                <input type="password" value='' className="formInput"/>
+                <br/>
+                <br/>
+                <inputLabel className="formLabel">Powtórz hasło:</inputLabel>
+                <input type="password" value='' className="formInput"/>
+                <br/>
+                <br/>
+                <button type="submit">Zapisz się</button>
+              </form>
+              </div>
+            </Col>
           </div>
         }
 
