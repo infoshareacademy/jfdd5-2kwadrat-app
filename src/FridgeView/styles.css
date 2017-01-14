@@ -96,6 +96,7 @@ hr.middleDividingLine {
   border-radius: 40px;
   margin-bottom: 0;
 }
+
 hr.middleDividingLine:before {
   display: block;
   content: "";
