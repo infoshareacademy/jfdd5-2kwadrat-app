@@ -40,41 +40,41 @@ const NavigationView = (props) => {
               <NavItem eventKey={3} href="#">Przepisy dla Ciebie</NavItem>
             </LinkContainer>
 
-            <NavDropdown eventKey={4} title="Moje Konto" id="1">
+            { props.loggedIn ?
+            '':
               <LinkContainer to="/login">
-                <NavItem eventKey={4.1} href="#">
-                  {
-                  props.loggedIn ?
-                  'HEJ' : 'Zaloguj się'
-                }
+                <NavItem eventKey={4} href="#">
+                  Zaloguj się
                 </NavItem>
               </LinkContainer>
-              {
-                props.loggedIn ?
+            }
+
+            {
+              props.loggedIn ?
+                  <NavDropdown eventKey={4.01} title="Moje konto" id="1">
                   <LinkContainer to="/favourite-recipes">
                     <NavItem eventKey={4.2} href="#">Ulubione</NavItem>
-                  </LinkContainer> :
-                  ''
-              }
+                  </LinkContainer>
 
-              {
-                props.loggedIn ?
+
                   <LinkContainer to="/needed-ingredient-view">
                     <NavItem eventKey={4.3} href="#">Lista zakupów</NavItem>
-                  </LinkContainer> :
-                  ''
-              }
+                  </LinkContainer>
 
-              {
-                props.loggedIn ?
 
                   <LinkContainer to="/calendar">
                     <NavItem eventKey={4.4} href="#">Kalendarz</NavItem>
                   </LinkContainer>
+
+                    <LinkContainer to="/login">
+                      <NavItem eventKey={4} href="#">
+                        Wyloguj
+                      </NavItem>
+                    </LinkContainer>
+                  </NavDropdown>
                   :
                   ''
               }
-            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
