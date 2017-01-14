@@ -68,11 +68,13 @@ const FilteredRecipes = (props) => {
 
             <ButtonGroup>
               <DropdownButton
-                title={props.filterNames.indexOf('timeShort')
-                  === -1 ? 'Czasochłonność' : 'Czasochłonność: krótkie'
+                title={props.filterNames[1] === undefined
+                  ? 'Czasochłonność'
+                  : 'Czasochłonność: wybrano'
                 }
-                bsStyle={props.filterNames.indexOf('timeShort')
-                === -1 ? "default" : "success"
+                bsStyle={props.filterNames[1] === undefined
+                  ? "default"
+                  : "success"
                 }
                 id="bg-nested-dropdown"
               >
