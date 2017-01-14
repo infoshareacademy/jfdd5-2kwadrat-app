@@ -27,16 +27,16 @@ class CalendarView extends React.Component {
 
   addEvent = (dateInfo) => {
     const eventTitle = prompt('Co będziesz gotować?')
-
-    this.setState({
-      ...this.state,
+    eventTitle ? ( this.setState({
+        ...this.state,
         events: this.state.events.concat({
           start: dateInfo.start,
           end:  dateInfo.end,
           title: eventTitle
         })
       }
-    )
+    )) : ''
+
     console.log(this.state.events)
     this.props.addEvent(this.state.events)
   }
