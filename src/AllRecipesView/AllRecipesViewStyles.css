@@ -84,3 +84,8 @@ a:-webkit-any-link {
   bottom: 5px;
   width: 100%;
 }
+
+.route-enter, .route-appear {
+  opacity: 0;
+  animation: slideIn 0.1s cubic-bezier(0.165, 0.84, 0.44, 1)
+}
