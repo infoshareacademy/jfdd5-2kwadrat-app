@@ -1,3 +1,17 @@
 .login-alert {
     color:red;
 }
+
+.registration{
+    display: inline-block;
+}
+
+.formLabel {
+    float: left;
+    color:black;
+}
+
+.formInput {
+    float:right;
+    border:deepskyblue solid 2px;
+}
