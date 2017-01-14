@@ -190,6 +190,31 @@ hr.cutIt {
   padding-right: 20px;
 }
 
+.favorite:hover {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+  color: gold;
+}
+
+.commentTitle {
+  display: inline-block;
+}
+
+.commentBody {
+  display: inline-block;
+}
+
+.bodyField {
+  vertical-align: top;
+}
+
 @-webkit-keyframes shakeYourAss {
   0% {
     -webkit-transform: translate(2px, 1px) rotate(0deg);
@@ -248,19 +273,6 @@ hr.cutIt {
     -ms-transform: scale(0.8);
     transform: scale(0.8);
   }
-}
-
-.favorite:hover {
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  cursor: pointer;
-  color: gold;
 }
 
 @media (max-width: 1200px) {

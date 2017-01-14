@@ -94,7 +94,38 @@ export default connect(mapStateToProps)((props) => {
           <p className="description">{recipeWithId.description}</p>
         </Col>
       </Col>
+      <Col xs={12}>
+        <p>Dodane komentarze innych uzytkownikow</p>
+      </Col>
+      {
+        typeof props.userId === 'number' ?
+
+              <Col xs={12} md={6} mdOffset={3}>
+                <div className="commentsContainer">
+                  <div className="userInformation">
+                  </div>
+                  <form>
+                    <label>
+                      <p className="commentTitle">tytuł:</p> <input name="title" className="titleField"/>
+                    </label>
+
+                    <br/>
+
+                    <label>
+                      <p className="commentBody">treść:</p> <textarea name="body" className="bodyField"></textarea>
+                    </label>
+
+                    <br/>
+
+                    <input type="submit" value="Dodaj komentarz" className="addBtn"/>
+                  </form>
+                </div>
+              </Col>
+             :
+            <p>Zaloguj się aby dodać komentarz</p>
+      }
       {props.children}
     </div>
   )
 })
+
