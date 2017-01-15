@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {loginTrying, logOut, logged} from './LoginFormReducer/actionCreators'
 import {loggedIn} from './UsersReducer/actionCreators'
 import {Col} from 'react-bootstrap'
+import {default as signUp} from './SignUp/SignUp'
 
 import './LoginFormView.css'
 
@@ -126,27 +127,32 @@ class LoginFormView extends React.Component {
               </form>
             </Col>
 
-            <Col sx={6} >
+            <Col xs={6}>
               <div >
-              <h1>Nie masz konta?</h1>
-              <h3>Dołącz do nas</h3>
-              <p>Zarejestruj się!</p>
+                <h1>Nie masz konta?</h1>
+                <h3>Dołącz do nas</h3>
+                <p>Zarejestruj się!</p>
 
-              <form className="registration">
-                <inputLabel className="formLabel">Login :</inputLabel>
-                <input type="text" value='' className="formInput"/>
-                <br/>
-                <br/>
-                <inputLabel className="formLabel">Podaj hasło:</inputLabel>
-                <input type="password" value='' className="formInput"/>
-                <br/>
-                <br/>
-                <inputLabel className="formLabel">Powtórz hasło:</inputLabel>
-                <input type="password" value='' className="formInput"/>
-                <br/>
-                <br/>
-                <button type="submit">Zapisz się</button>
-              </form>
+                <form onSubmit={event=> {
+                  event.preventDefault()
+                  return (signUp(event))
+                }
+                }
+                      className="registration">
+                  <inputLabel className="formLabel">Login :</inputLabel>
+                  <input type="text"  className="formInput" id="loginField"/>
+                  <br/>
+                  <br/>
+                  <inputLabel className="formLabel">Podaj hasło:</inputLabel>
+                  <input type="password"  className="formInput" id="passwordField"/>
+                  <br/>
+                  <br/>
+                  <inputLabel className="formLabel">Powtórz hasło:</inputLabel>
+                  <input type="password"  className="formInput" id="passwordCheck"/>
+                  <br/>
+                  <br/>
+                  <button type="submit">Zapisz się</button>
+                </form>
               </div>
             </Col>
           </div>
