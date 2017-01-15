@@ -76,15 +76,15 @@ export default connect(mapStateToProps)((props) => {
             </ul>
           </div>
           <div title="udostępnij" className="socialIcons">
-            <a href="https://plus.google.com/">
+            <a href="https://plus.google.com/" target="_blank">
               <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
             </a>
 
-            <a href="https://www.facebook.com/">
+            <a href="https://www.facebook.com/" target="_blank">
               <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
             </a>
 
-            <a href="https://twitter.com/">
+            <a href="https://twitter.com/" target="_blank">
               <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
             </a>
           </div>
