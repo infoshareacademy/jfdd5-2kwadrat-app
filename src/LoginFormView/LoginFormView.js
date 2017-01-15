@@ -143,11 +143,11 @@ class LoginFormView extends React.Component {
                   <input type="text"  className="formInput" id="loginField"/>
                   <br/>
                   <br/>
-                  <inputLabel className="formLabel">Podaj hasło:</inputLabel>
+                  <inputLabel className="formLabel" id="wrongPassword">Podaj hasło:</inputLabel>
                   <input type="password"  className="formInput" id="passwordField"/>
                   <br/>
                   <br/>
-                  <inputLabel className="formLabel">Powtórz hasło:</inputLabel>
+                  <inputLabel className="formLabel" id="wrongPassword">Powtórz hasło:</inputLabel>
                   <input type="password"  className="formInput" id="passwordCheck"/>
                   <br/>
                   <br/>
