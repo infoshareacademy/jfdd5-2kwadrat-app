@@ -1,23 +1,22 @@
-.login-alert, #signUpInfo{
-    color:red;
+.login-alert, #signUpInfo {
+    color: red;
 }
 
-.registration{
+.registration {
     display: inline-block;
 }
 
 .formLabel {
     float: left;
-    color:black;
+    color: black;
 }
 
 .formInput {
-    float:right;
-    border:deepskyblue solid 2px;
+    float: right;
+    border: deepskyblue solid 2px;
 }
-#wrongPassword {
 
-}
- #passwordCheck  {
-
+.formTitle {
+    color: deepskyblue;
+    margin-bottom:30px;
 }

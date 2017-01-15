@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {loginTrying, logOut, logged} from './LoginFormReducer/actionCreators'
 import {loggedIn} from './UsersReducer/actionCreators'
 import {default as signUp} from './SignUp/SignUp'
-import {Col,Button} from 'react-bootstrap'
+import {Col, Button} from 'react-bootstrap'
 import {Link} from 'react-router'
 
 import './LoginFormView.css'
@@ -73,19 +73,28 @@ class LoginFormView extends React.Component {
         {this.props.loggedIn ?
           <div>
             <h1>Witaj {this.props.user.name}</h1>
-            <h2 className="instruction-text">W panelu <Link to={"/favourite-recipes"}><span className="span-button">Ulubione</span></Link>, oglądaj swoje ulubione przepisy.<br/>
-              W panelu <Link to={"/needed-ingredient-view"}><span className="span-button">Lista zakupów</span></Link> obejrzyj listę zakupów</h2>
+            <h2 className="instruction-text">W panelu <Link to={"/favourite-recipes"}><span className="span-button">Ulubione</span></Link>,
+              oglądaj swoje ulubione przepisy.<br/>
+              W panelu <Link to={"/needed-ingredient-view"}><span className="span-button">Lista zakupów</span></Link>
+              obejrzyj listę zakupów</h2>
             <Button onClick={() =>
-                this.props.logout()}
+              this.props.logout()}
                     bsStyle="info"
                     bsSize="large"
 
             >Wyloguj
             </Button>
           </div> :
-          <div>
+          <div >
             <Col xs={6}>
-              <h1>Zaloguj się</h1>
+              <h2 className="formTitle">Zaloguj się</h2>
+            </Col>
+
+            <Col xs={6}>
+              <h2 className="formTitle">Zarejestruj się!</h2>
+            </Col>
+
+            <Col xs={6} className="loginContainer">
               <form onSubmit={this.handleSubmit}
                     className="registration">
                 <inputLabel className="formLabel">Login:</inputLabel>
@@ -130,28 +139,23 @@ class LoginFormView extends React.Component {
               </form>
             </Col>
 
-            <Col xs={6}>
+            <Col xs={6} className="loginContainer">
               <div >
-                <h1>Nie masz konta?</h1>
-                <h3>Dołącz do nas</h3>
-                <p>Zarejestruj się!</p>
-
-                <form onSubmit={event=> {
+                <form onSubmit={event => {
                   event.preventDefault()
                   return (signUp(event))
-                }
-                }
+                }}
                       className="registration">
                   <inputLabel className="formLabel">Login :</inputLabel>
-                  <input type="text"  className="formInput" id="loginField"/>
+                  <input type="text" className="formInput" id="loginField"/>
                   <br/>
                   <br/>
                   <inputLabel className="formLabel" id="wrongPassword">Podaj hasło:</inputLabel>
-                  <input type="password"  className="formInput" id="passwordField"/>
+                  <input type="password" className="formInput" id="passwordField"/>
                   <br/>
                   <br/>
                   <inputLabel className="formLabel" id="wrongPassword">Powtórz hasło:</inputLabel>
-                  <input type="password"  className="formInput" id="passwordCheck"/>
+                  <input type="password" className="formInput" id="passwordCheck"/>
                   <br/>
                   <br/>
                   <Button type="submit" bsStyle="info">Zapisz się</Button>
