@@ -84,3 +84,8 @@ a:-webkit-any-link {
   bottom: 5px;
   width: 100%;
 }
+
+.fade-appear {
+  opacity: 0;
+  animation: slideIn 0.1s
+}

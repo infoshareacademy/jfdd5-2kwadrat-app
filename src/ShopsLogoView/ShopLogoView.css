@@ -95,3 +95,8 @@ hr.style-two {
 .button-close:hover {
     cursor: pointer;
 }
+
+.route-appear {
+    opacity: 0;
+    animation: slideIn 0.2s
+}
