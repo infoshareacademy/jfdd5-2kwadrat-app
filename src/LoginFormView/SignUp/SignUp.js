@@ -9,7 +9,8 @@ export default (props) =>{
     <div>
       {
         password === password2 ?
-      console.log('zgodne hasła') : console.error('hasła róznia się')
+      console.log('zgodne hasła') :
+          document.getElementsByClassName('signUpInfo').innerHTML+=<p>dupa</p>
       }
       {console.log('zupa',login + password + password2)}
     </div>
