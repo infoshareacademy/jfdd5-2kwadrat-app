@@ -17,7 +17,6 @@ const mapDispatchToProps = dispatch => ({
   removeRecipe: () => dispatch(removeRecipeTitle())
 })
 
-
 class CalendarView extends React.Component {
 
   constructor() {
@@ -29,39 +28,44 @@ class CalendarView extends React.Component {
   }
 
   addEventFromRecipeView = (dateInfo) => {
+
     console.log(this.props.recipeTitle)
     this.setState({
         events: {
           start: dateInfo.start,
-          end:  dateInfo.end,
+          end: dateInfo.end,
           title: this.props.recipeTitle
         }
       },
-
     )
     this.props.removeRecipe()
     this.props.addEvent(this.state.events)
-
+    this.setState({
+      events:[]
+    })
   }
 
   addEvent = (dateInfo) => {
     const eventTitle = prompt('Co będziesz gotować?')
     eventTitle ? ( this.setState({
-      events: {
-        start: dateInfo.start,
-        end:  dateInfo.end,
-        title: eventTitle
-      }
-    })
+        events: {
+          start: dateInfo.start,
+          end: dateInfo.end,
+          title: eventTitle
+        }
+      })
     ) : ''
-
-    console.log(this.state.events)
     this.props.addEvent(this.state.events)
+    this.setState({
+      events:[]
+    })
   }
 
-  componentDidUpdate(){
-   console.log('updated')
-
+  componentWillMount() {
+    return (
+      this.props.recipeTitle === null ?
+        '' : alert('Zaznacz na kalendarzu kiedy chcesz ugotować danie.')
+    )
   }
 
   render() {
@@ -69,14 +73,15 @@ class CalendarView extends React.Component {
       <div>
         <h1>Kalendarz</h1>
         <div style={{height: 500}}>
+
           <BigCalendar
             selectable
             popup
             onSelectEvent={event => alert('Termin już zajęty!   ' + event.title)}
             onSelectSlot={(slotInfo) =>
               this.props.recipeTitle === null ?
-              this.addEvent(slotInfo):
-              this.addEventFromRecipeView(slotInfo)
+                this.addEvent(slotInfo) :
+                this.addEventFromRecipeView(slotInfo)
             }
             events={this.props.userEvents}
             step={15}
@@ -92,12 +97,12 @@ class CalendarView extends React.Component {
               back: 'wstecz',
               today: 'dziś'
             }}
-
           />
+          {}
         </div>
       </div>
     )
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(CalendarView)
+export default connect(mapStateToProps, mapDispatchToProps)(CalendarView)
