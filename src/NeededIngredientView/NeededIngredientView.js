@@ -5,7 +5,7 @@ import ingredients from '../data/ingredients'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import {removeSelectedIngredient} from '../LoginFormView/UsersReducer/actionCreators'
-
+import {Counter} from './Counter'
 
 import './NeededIngredientView.css'
 
@@ -47,15 +47,19 @@ const NeededIngredient = (props) => {
                                   props.removeSelectedIngredient(item.id)
                                 }
                               }
-                          >{item.name}</h3>
+                          >{item.name}
+                            <div>
+                              <Counter />
+                            </div>
+                          </h3>
                   )
                 }
                 </ReactCSSTransitionGroup>
-
               </div> :
-
-          <p>Zaloguj się</p>
-      }
+            <div>
+              <p>Zaloguj się</p>
+            </div>
+        }
     </Col>
   )
 };
