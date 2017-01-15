@@ -2,15 +2,17 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {loginTrying, logOut, logged} from './LoginFormReducer/actionCreators'
 import {loggedIn} from './UsersReducer/actionCreators'
-import {Col} from 'react-bootstrap'
 import {default as signUp} from './SignUp/SignUp'
+import {Col,Button} from 'react-bootstrap'
+import {Link} from 'react-router'
 
 import './LoginFormView.css'
 
 const mapStateToProps = state => ({
   loggedIn: state.loggedInData.loggedInStatus,
   loggedUserId: state.loggedInData.loggedInUserId,
-  loginTriesStatus: state.loggedInData.loggingTests
+  loginTriesStatus: state.loggedInData.loggingTests,
+  user: state.loggedUser.userData
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -70,15 +72,16 @@ class LoginFormView extends React.Component {
       <div>
         {this.props.loggedIn ?
           <div>
-            <h1>Witaj Użytkowniku</h1>
-            <h3>W panelu Ulubione oglądaj swoje ulubione przepisy.<br/>
-              W panelu Lista zakupów obejrzyj listę zakupów</h3>
-            <button onClick={
-              () =>
-                this.props.logout()
-            }
+            <h1>Witaj {this.props.user.name}</h1>
+            <h2 className="instruction-text">W panelu <Link to={"/favourite-recipes"}><span className="span-button">Ulubione</span></Link>, oglądaj swoje ulubione przepisy.<br/>
+              W panelu <Link to={"/needed-ingredient-view"}><span className="span-button">Lista zakupów</span></Link> obejrzyj listę zakupów</h2>
+            <Button onClick={() =>
+                this.props.logout()}
+                    bsStyle="info"
+                    bsSize="large"
+
             >Wyloguj
-            </button>
+            </Button>
           </div> :
           <div>
             <Col xs={6}>
@@ -115,7 +118,7 @@ class LoginFormView extends React.Component {
                 <br/>
                 <br/>
 
-                <button type="submit">Zaloguj</button>
+                <Button type="submit" bsStyle="info">Zaloguj się</Button>
                 {
                   this.props.loginTriesStatus ?
                     <h4 className="login-alert">
@@ -151,7 +154,7 @@ class LoginFormView extends React.Component {
                   <input type="password"  className="formInput" id="passwordCheck"/>
                   <br/>
                   <br/>
-                  <button type="submit">Zapisz się</button>
+                  <Button type="submit" bsStyle="info">Zapisz się</Button>
                 </form>
                 <h3 id="signUpInfo"></h3>
               </div>
