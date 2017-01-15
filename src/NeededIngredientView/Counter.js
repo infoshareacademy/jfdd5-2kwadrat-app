@@ -27,7 +27,6 @@ export default class Counter extends React.Component {
   render() {
     return (
       <div>
-        <p>{this.props.params.initialValue}</p>
         <h2 id="test">{this.state.value}</h2>
         <Button bsStyle="success" onClick={this.handleIncreaseClick}>+1</Button>
         <Button bsStyle="danger" onClick={this.handleDecreaseClick}>-1</Button>
