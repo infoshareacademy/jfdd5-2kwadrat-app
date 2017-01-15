@@ -153,6 +153,7 @@ class LoginFormView extends React.Component {
                   <br/>
                   <button type="submit">Zapisz się</button>
                 </form>
+                <h3 id="signUpInfo"></h3>
               </div>
             </Col>
           </div>
