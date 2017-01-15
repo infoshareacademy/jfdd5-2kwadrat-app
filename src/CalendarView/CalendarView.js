@@ -4,6 +4,8 @@ import moment from 'moment'
 import {connect} from 'react-redux'
 import {addEventToCalendar} from './CalendarReducer/actionCreator'
 import {removeRecipeTitle} from '../CalendarView/CalendarReducer/actionCreator'
+import MyModal from '../MyModal/MyModal'
+import {Modal, Button} from 'react-bootstrap'
 
 BigCalendar.momentLocalizer(moment)
 
@@ -23,9 +25,27 @@ class CalendarView extends React.Component {
     super()
 
     this.state = {
-      events: []
+      events: [],
+      showModal: false
     }
+    this.open = () => {
+      this.setState({
+        ...this.state,
+        showModal: true
+      })
+    }
+    this.close = () => {
+      const eventTitle = document.getElementById('modalNameInput').value
+      this.setState({
+        ...this.state,
+        showModal: false,
+      })
+      console.log(eventTitle)
+    }
+
+
   }
+
 
   addEventFromRecipeView = (dateInfo) => {
 
@@ -46,7 +66,9 @@ class CalendarView extends React.Component {
   }
 
   addEvent = (dateInfo) => {
-    const eventTitle = prompt('Co będziesz gotować?')
+    this.open()
+    const eventTitle = document.getElementById('modalNameInput').value
+    console.log('moja zupa' , eventTitle)
     eventTitle ? ( this.setState({
         events: {
           start: dateInfo.start,
@@ -63,14 +85,26 @@ class CalendarView extends React.Component {
 
   componentWillMount() {
     return (
-      this.props.recipeTitle === null ?
-        '' : alert('Zaznacz na kalendarzu kiedy chcesz ugotować danie.')
+      <MyModal/>
     )
   }
 
   render() {
     return (
       <div>
+        <Modal show={this.state.showModal} onHide={this.close}>
+          <Modal.Header>
+            <Modal.Title>
+              <h3>Co będziesz gotowac?</h3>
+            </Modal.Title>
+            <Modal.Body>
+              <input type="text" id="modalNameInput"/>
+            </Modal.Body>
+          </Modal.Header>
+          <Modal.Footer>
+            <Button onClick={this.close}>Potwierdż</Button>
+          </Modal.Footer>
+        </Modal>
         <h1>Kalendarz</h1>
         <div style={{height: 500}}>
 
@@ -82,6 +116,7 @@ class CalendarView extends React.Component {
               this.props.recipeTitle === null ?
                 this.addEvent(slotInfo) :
                 this.addEventFromRecipeView(slotInfo)
+
             }
             events={this.props.userEvents}
             step={15}
