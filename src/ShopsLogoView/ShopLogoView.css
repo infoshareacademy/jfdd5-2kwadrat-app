@@ -81,7 +81,7 @@ hr.style-two {
     font-weight: 800;
 }
 .cart {
-    opacity: 0.6;
+    opacity: 0.5;
 }
 .cart:hover {
     opacity:1;

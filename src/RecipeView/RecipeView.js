@@ -10,6 +10,7 @@ import FaTwitterSquare from 'react-icons/lib/fa/twitter-square'
 import FaFacebookSquare from 'react-icons/lib/fa/facebook-square'
 import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
 import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actionCreator'
+import FaCalendar from 'react-icons/lib/fa/calendar'
 
 
 const mapStateToProps = state => ({
@@ -84,9 +85,15 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
               }
             </ul>
             <Link to={"/calendar"}>
-            <Button bsStyle="info"
+              <div className="calendarButton">
+              <FaCalendar size="40px" color="#2da834"
+                          className="cart"/>
+            <Button className="addToCalendar"
+                    bsStyle="success"
             onClick={() => props.addToCalendar(recipeWithId)}
-            >Dodaj do kalendarza</Button>
+            >Dodaj do kalendarza
+            </Button>
+            </div>
             </Link>
           </div>
           <div title="udostępnij" className="socialIcons">
