@@ -11,7 +11,7 @@ export default [
         name: 'wędzony boczek',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://baconguroux.com/images/1.png'
+        img: 'http://www.cruset1920.com/images/bacon_cuit.gif'
     },
     {
         id: 3,

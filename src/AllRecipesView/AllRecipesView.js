@@ -22,7 +22,7 @@ export default (props) => (
                   <h2>{recipe.name}</h2>
                 </Link>
                 <div className="icons">
-                  <div className="recipeTime">{recipe.time}</div>
+                  <div className="recipeTime">{recipe.time + " min"}</div>
                   <div className="recipeDifficult">{recipe.difficult}</div>
                 </div>
               </div>
