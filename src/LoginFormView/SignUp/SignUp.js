@@ -20,7 +20,8 @@ export default (props) => {
                 login: login,
                 password: password
               })
-            })
+            }).then(document.getElementById('signUpInfo').innerHTML =
+          'Logowanie przebiegło pomyślnie. Mżesz się zalogować')
         }
         </div>)
 
