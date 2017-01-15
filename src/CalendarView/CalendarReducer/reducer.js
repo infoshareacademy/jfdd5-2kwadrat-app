@@ -10,7 +10,7 @@ export default (state = initialState, action = {}) => {
     case ADD_EVENT_TO_CALENDAR:
       return {
         ...state,
-        calendarEvents : action.event
+        calendarEvents : state.calendarEvents.concat(action.event)
       }
     case ADD_RECIPE_TITLE:
       return {

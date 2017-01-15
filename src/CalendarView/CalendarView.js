@@ -31,12 +31,11 @@ class CalendarView extends React.Component {
   addEventFromRecipeView = (dateInfo) => {
     console.log(this.props.recipeTitle)
     this.setState({
-        ...this.state,
-        events: this.state.events.concat({
+        events: {
           start: dateInfo.start,
           end:  dateInfo.end,
           title: this.props.recipeTitle
-        })
+        }
       },
 
     )
@@ -47,16 +46,14 @@ class CalendarView extends React.Component {
 
   addEvent = (dateInfo) => {
     const eventTitle = prompt('Co będziesz gotować?')
-
     eventTitle ? ( this.setState({
-        ...this.state,
-        events: this.state.events.concat({
-          start: dateInfo.start,
-          end:  dateInfo.end,
-          title: eventTitle
-        })
+      events: {
+        start: dateInfo.start,
+        end:  dateInfo.end,
+        title: eventTitle
       }
-    )) : ''
+    })
+    ) : ''
 
     console.log(this.state.events)
     this.props.addEvent(this.state.events)
@@ -81,7 +78,7 @@ class CalendarView extends React.Component {
               this.addEvent(slotInfo):
               this.addEventFromRecipeView(slotInfo)
             }
-            events={this.state.events}
+            events={this.props.userEvents}
             step={15}
             timeslots={6}
             defaultView='week'

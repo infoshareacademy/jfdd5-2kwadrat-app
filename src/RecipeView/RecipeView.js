@@ -15,7 +15,7 @@ import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actio
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
   userId: state.loggedInData.loggedInUserId,
-  user: state.loggedInData.loggedUserData
+  user: state.loggedUser.userData
 })
 
 const mapDispatchToProps = dispatch => ({
