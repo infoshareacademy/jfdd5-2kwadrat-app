@@ -1,4 +1,4 @@
-import {ADD_EVENT_TO_CALENDAR,ADD_EVENT_FROM_RECIPE_VIEW} from './actionTypes'
+import {ADD_EVENT_TO_CALENDAR,ADD_RECIPE_TITLE,REMOVE_RECIPE_TITLE} from './actionTypes'
 
 export const addEventToCalendar = (event) => ({
   type: ADD_EVENT_TO_CALENDAR,
@@ -6,6 +6,10 @@ export const addEventToCalendar = (event) => ({
 })
 
 export const addToCalendarFromRecipeView = (recipe) => ({
-  type:ADD_EVENT_FROM_RECIPE_VIEW,
+  type:ADD_RECIPE_TITLE,
   recipe:recipe
+})
+
+export const removeRecipeTitle = () => ({
+  type:REMOVE_RECIPE_TITLE
 })

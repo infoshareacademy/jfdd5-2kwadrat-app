@@ -1,4 +1,4 @@
-import {ADD_EVENT_TO_CALENDAR,ADD_EVENT_FROM_RECIPE_VIEW} from './actionTypes'
+import {ADD_EVENT_TO_CALENDAR,ADD_RECIPE_TITLE,REMOVE_RECIPE_TITLE} from './actionTypes'
 
 const initialState = ({
   calendarEvents:[],
@@ -12,10 +12,15 @@ export default (state = initialState, action = {}) => {
         ...state,
         calendarEvents : action.event
       }
-    case ADD_EVENT_FROM_RECIPE_VIEW:
+    case ADD_RECIPE_TITLE:
       return {
         ...state,
         presentEventTitle: action.recipe.name
+      }
+    case REMOVE_RECIPE_TITLE:
+      return {
+        ...state,
+        presentEventTitle: null
       }
     default:
       return state

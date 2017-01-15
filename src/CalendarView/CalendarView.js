@@ -3,16 +3,18 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import {connect} from 'react-redux'
 import {addEventToCalendar} from './CalendarReducer/actionCreator'
+import {removeRecipeTitle} from '../CalendarView/CalendarReducer/actionCreator'
 
 BigCalendar.momentLocalizer(moment)
 
 const mapStateToProps = state => ({
   userEvents: state.calendarData.calendarEvents,
-  recipeTitle: state.calendarData.presentEventTitle
+  recipeTitle: state.calendarData.presentEventTitle,
 })
 
 const mapDispatchToProps = dispatch => ({
-  addEvent: (event) => dispatch(addEventToCalendar(event))
+  addEvent: (event) => dispatch(addEventToCalendar(event)),
+  removeRecipe: () => dispatch(removeRecipeTitle())
 })
 
 
@@ -35,8 +37,11 @@ class CalendarView extends React.Component {
           end:  dateInfo.end,
           title: this.props.recipeTitle
         })
-      }
+      },
+
     )
+    this.props.removeRecipe()
+    this.props.addEvent(this.state.events)
 
   }
 
