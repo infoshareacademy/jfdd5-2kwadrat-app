@@ -1,7 +1,8 @@
-import {ADD_EVENT_TO_CALENDAR} from './actionTypes'
+import {ADD_EVENT_TO_CALENDAR,ADD_EVENT_FROM_RECIPE_VIEW} from './actionTypes'
 
 const initialState = ({
-  calendarEvents:[]
+  calendarEvents:[],
+  presentEventTitle:null
 })
 
 export default (state = initialState, action = {}) => {
@@ -10,6 +11,11 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         calendarEvents : action.event
+      }
+    case ADD_EVENT_FROM_RECIPE_VIEW:
+      return {
+        ...state,
+        presentEventTitle: action.recipe.name
       }
     default:
       return state

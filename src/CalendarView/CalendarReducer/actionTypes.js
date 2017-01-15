@@ -1,1 +1,2 @@
 export const ADD_EVENT_TO_CALENDAR = 'calendar/ADD_EVENT_TO_CALENDAR'
+export const ADD_EVENT_FROM_RECIPE_VIEW = 'calendar/ADD_EVENT_FROM_RECIPE_VIEW'

@@ -7,7 +7,8 @@ import {addEventToCalendar} from './CalendarReducer/actionCreator'
 BigCalendar.momentLocalizer(moment)
 
 const mapStateToProps = state => ({
-  userEvents: state.calendarData.calendarEvents
+  userEvents: state.calendarData.calendarEvents,
+  recipeTitle: state.calendarData.presentEventTitle
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -25,8 +26,23 @@ class CalendarView extends React.Component {
     }
   }
 
+  addEventFromRecipeView = (dateInfo) => {
+    console.log(this.props.recipeTitle)
+    this.setState({
+        ...this.state,
+        events: this.state.events.concat({
+          start: dateInfo.start,
+          end:  dateInfo.end,
+          title: this.props.recipeTitle
+        })
+      }
+    )
+
+  }
+
   addEvent = (dateInfo) => {
     const eventTitle = prompt('Co będziesz gotować?')
+
     eventTitle ? ( this.setState({
         ...this.state,
         events: this.state.events.concat({
@@ -55,7 +71,11 @@ class CalendarView extends React.Component {
             selectable
             popup
             onSelectEvent={event => alert('Termin już zajęty!   ' + event.title)}
-            onSelectSlot={(slotInfo) => this.addEvent(slotInfo)}
+            onSelectSlot={(slotInfo) =>
+              this.props.recipeTitle === null ?
+              this.addEvent(slotInfo):
+              this.addEventFromRecipeView(slotInfo)
+            }
             events={this.state.events}
             step={15}
             timeslots={6}
