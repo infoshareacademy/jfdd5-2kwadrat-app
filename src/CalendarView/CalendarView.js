@@ -4,8 +4,11 @@ import moment from 'moment'
 import {connect} from 'react-redux'
 import {addEventToCalendar} from './CalendarReducer/actionCreator'
 import {removeRecipeTitle} from '../CalendarView/CalendarReducer/actionCreator'
+import {default as CalendarForm} from './CalendarForm/CalendarForm'
 
 BigCalendar.momentLocalizer(moment)
+
+moment.locale("pl")
 
 const mapStateToProps = state => ({
   userEvents: state.calendarData.calendarEvents,
@@ -98,7 +101,8 @@ class CalendarView extends React.Component {
               today: 'dziś'
             }}
           />
-          {}
+          <CalendarForm/>
+          {this.props.children}
         </div>
       </div>
     )
