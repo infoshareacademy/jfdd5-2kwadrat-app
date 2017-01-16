@@ -19,3 +19,13 @@
     transform: translateX(130%);
   }
 }
+
+h2#counterValue {
+  color: black;
+  padding-top: 0;
+  margin: 0;
+}
+
+.counterArea {
+  margin: 10px 0 40px 0;
+}
