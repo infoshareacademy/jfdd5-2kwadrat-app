@@ -214,6 +214,18 @@ hr.cutIt {
 .bodyField {
   vertical-align: top;
 }
+.calendarIcon {
+  opacity: 0.6;
+}
+.calendarButton:hover, .calendarButton:hover  .cart {
+  opacity:1;
+  -webkit-animation-name: shakeYourAss;
+  -webkit-animation-duration: 0.8s;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  display:inline-block;
+}
 
 @-webkit-keyframes shakeYourAss {
   0% {

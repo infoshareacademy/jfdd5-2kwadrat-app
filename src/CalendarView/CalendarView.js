@@ -3,17 +3,19 @@ import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import {connect} from 'react-redux'
 import {addEventToCalendar} from './CalendarReducer/actionCreator'
+import {removeRecipeTitle} from '../CalendarView/CalendarReducer/actionCreator'
 
 BigCalendar.momentLocalizer(moment)
 
 const mapStateToProps = state => ({
-  userEvents: state.calendarData.calendarEvents
+  userEvents: state.calendarData.calendarEvents,
+  recipeTitle: state.calendarData.presentEventTitle,
 })
 
 const mapDispatchToProps = dispatch => ({
-  addEvent: (event) => dispatch(addEventToCalendar(event))
+  addEvent: (event) => dispatch(addEventToCalendar(event)),
+  removeRecipe: () => dispatch(removeRecipeTitle())
 })
-
 
 class CalendarView extends React.Component {
 
@@ -25,25 +27,45 @@ class CalendarView extends React.Component {
     }
   }
 
+  addEventFromRecipeView = (dateInfo) => {
+
+    console.log(this.props.recipeTitle)
+    this.setState({
+        events: {
+          start: dateInfo.start,
+          end: dateInfo.end,
+          title: this.props.recipeTitle
+        }
+      },
+    )
+    this.props.removeRecipe()
+    this.props.addEvent(this.state.events)
+    this.setState({
+      events:[]
+    })
+  }
+
   addEvent = (dateInfo) => {
     const eventTitle = prompt('Co będziesz gotować?')
     eventTitle ? ( this.setState({
-        ...this.state,
-        events: this.state.events.concat({
+        events: {
           start: dateInfo.start,
-          end:  dateInfo.end,
+          end: dateInfo.end,
           title: eventTitle
-        })
-      }
-    )) : ''
-
-    console.log(this.state.events)
+        }
+      })
+    ) : ''
     this.props.addEvent(this.state.events)
+    this.setState({
+      events:[]
+    })
   }
 
-  componentDidUpdate(){
-   console.log('updated')
-
+  componentWillMount() {
+    return (
+      this.props.recipeTitle === null ?
+        '' : alert('Zaznacz na kalendarzu kiedy chcesz ugotować danie.')
+    )
   }
 
   render() {
@@ -51,12 +73,17 @@ class CalendarView extends React.Component {
       <div>
         <h1>Kalendarz</h1>
         <div style={{height: 500}}>
+
           <BigCalendar
             selectable
             popup
             onSelectEvent={event => alert('Termin już zajęty!   ' + event.title)}
-            onSelectSlot={(slotInfo) => this.addEvent(slotInfo)}
-            events={this.state.events}
+            onSelectSlot={(slotInfo) =>
+              this.props.recipeTitle === null ?
+                this.addEvent(slotInfo) :
+                this.addEventFromRecipeView(slotInfo)
+            }
+            events={this.props.userEvents}
             step={15}
             timeslots={6}
             defaultView='week'
@@ -70,12 +97,12 @@ class CalendarView extends React.Component {
               back: 'wstecz',
               today: 'dziś'
             }}
-
           />
+          {}
         </div>
       </div>
     )
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(CalendarView)
+export default connect(mapStateToProps, mapDispatchToProps)(CalendarView)
