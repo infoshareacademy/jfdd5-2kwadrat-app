@@ -8,6 +8,8 @@ import {default as CalendarForm} from './CalendarForm/CalendarForm'
 
 BigCalendar.momentLocalizer(moment)
 
+moment.locale("pl")
+
 const mapStateToProps = state => ({
   userEvents: state.calendarData.calendarEvents,
   recipeTitle: state.calendarData.presentEventTitle,
