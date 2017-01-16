@@ -20,35 +20,43 @@ const mapDispatchToProps = dispatch => ({
 })
 
 class CalendarView extends React.Component {
-
   constructor() {
     super()
 
     this.state = {
-      events: [],
+      events: null,
       showModal: false
     }
-    this.open = () => {
+
+    this.open = (info) => {
       this.setState({
         ...this.state,
-        showModal: true
+        showModal: true,
+        events: {
+          start: info.start,
+          end: info.end,
+          title: null
+        }
       })
     }
+
     this.close = () => {
       const eventTitle = document.getElementById('modalNameInput').value
+      const event = {
+        start: this.state.events.start,
+        end: this.state.events.end,
+        title: eventTitle
+      }
       this.setState({
-        ...this.state,
-        showModal: false,
+        events: null,
+        showModal: false
       })
-      console.log(eventTitle)
+      this.props.addEvent(event)
     }
-
-
   }
 
 
   addEventFromRecipeView = (dateInfo) => {
-
     console.log(this.props.recipeTitle)
     this.setState({
         events: {
@@ -61,32 +69,8 @@ class CalendarView extends React.Component {
     this.props.removeRecipe()
     this.props.addEvent(this.state.events)
     this.setState({
-      events:[]
+      events: []
     })
-  }
-
-  addEvent = (dateInfo) => {
-    this.open()
-    const eventTitle = document.getElementById('modalNameInput').value
-    console.log('moja zupa' , eventTitle)
-    eventTitle ? ( this.setState({
-        events: {
-          start: dateInfo.start,
-          end: dateInfo.end,
-          title: eventTitle
-        }
-      })
-    ) : ''
-    this.props.addEvent(this.state.events)
-    this.setState({
-      events:[]
-    })
-  }
-
-  componentWillMount() {
-    return (
-      <MyModal/>
-    )
   }
 
   render() {
@@ -106,6 +90,7 @@ class CalendarView extends React.Component {
           </Modal.Footer>
         </Modal>
         <h1>Kalendarz</h1>
+
         <div style={{height: 500}}>
 
           <BigCalendar
@@ -114,7 +99,7 @@ class CalendarView extends React.Component {
             onSelectEvent={event => alert('Termin już zajęty!   ' + event.title)}
             onSelectSlot={(slotInfo) =>
               this.props.recipeTitle === null ?
-                this.addEvent(slotInfo) :
+                this.open(slotInfo) :
                 this.addEventFromRecipeView(slotInfo)
 
             }
