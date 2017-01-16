@@ -16,14 +16,11 @@ export default (state = initialState, action = {}) => {
       }
     case REMOVE_SELECTED_INGREDIENT:
       return {
-        ...state,
-        userData: {
-          ...state,
-          shoppingListIngredientsIds: state.userData.shoppingListIngredientsIds.filter(
-            ingredient =>
-            ingredient !== action.ingredientId
-          )
-        }
+        ...state.userData,
+        shoppingListIngredientsIds: state.userData.shoppingListIngredientsIds.filter(
+          ingredient =>
+          ingredient !== action.ingredientId
+        )
       }
     default:
       return state
