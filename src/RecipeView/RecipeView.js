@@ -11,6 +11,7 @@ import FaFacebookSquare from 'react-icons/lib/fa/facebook-square'
 import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
 import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actionCreator'
 import FaCalendar from 'react-icons/lib/fa/calendar'
+import GoChecklist from 'react-icons/lib/go/checklist'
 
 
 const mapStateToProps = state => ({
@@ -73,19 +74,25 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
                             <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
                               { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
                                 <span> </span> :
-                                <span title="Znajdź sklep"><FaCartPlus size="40px" color="#2da834"
-                                                                       className="cart"/> </span>
+                                  <div>
+                                    <span title="Dodaj do listy zakupów" >
+                                      <GoChecklist className=" addToListRecipeView"/>
+                                     </span>
+                                     <span title="Znajdź sklep">
+                                        <FaCartPlus size="40px" color="#2da834"
+                                          className="cart"/>
+                                     </span>
+                                  </div>
                               }
                             </Link>
                           }
                         </span>
-
                     </li>
                 )
               }
             </ul>
             <Link to={"/calendar"}>
-              <div className="calendarButton">
+              <div title="Dodaj przepis do swojego kalendarza" className="calendarButton">
               <FaCalendar size="40px" color="#2da834"
                           className="cart"/>
             <Button className="addToCalendar"

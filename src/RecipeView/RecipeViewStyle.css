@@ -217,6 +217,12 @@ hr.cutIt {
 .calendarIcon {
   opacity: 0.6;
 }
+
+.calendarButton {
+  float: left;
+  margin: 25px;
+}
+
 .calendarButton:hover, .calendarButton:hover  .cart {
   opacity:1;
   -webkit-animation-name: shakeYourAss;
@@ -225,6 +231,21 @@ hr.cutIt {
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
   display:inline-block;
+}
+
+.addToListRecipeView {
+  margin-top: 3px;
+  color: #79a0e0;
+  width: 45px;
+  height: auto;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.addToListRecipeView:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  color: #1744d8;
 }
 
 @-webkit-keyframes shakeYourAss {
