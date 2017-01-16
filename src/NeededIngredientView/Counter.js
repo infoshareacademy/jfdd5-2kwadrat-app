@@ -10,7 +10,7 @@ export default class Counter extends React.Component {
     }
 
     this.handleIncreaseClick = () => this.setState({
-      value: Math.min(this.state.value + 1, 100)
+      value: Math.min(this.state.value + 1, 20)
     })
 
     this.handleDecreaseClick = () => this.setState({
@@ -20,16 +20,16 @@ export default class Counter extends React.Component {
 
   componentWillMount() {
     this.setState({
-      value: parseInt(this.props.params.initialValue, 10) || 0
+      value: 0
     })
   }
 
   render() {
     return (
-      <div>
-        <h2 id="test">{this.state.value}</h2>
-        <Button bsStyle="success" onClick={this.handleIncreaseClick}>+1</Button>
-        <Button bsStyle="danger" onClick={this.handleDecreaseClick}>-1</Button>
+      <div className="counterArea">
+        <h2 id="counterValue">{this.state.value}</h2>
+        <Button className='counterButton' bsStyle="success" onClick={this.handleIncreaseClick}>+1</Button>
+        <Button className='counterButton' bsStyle="danger" onClick={this.handleDecreaseClick}>-1</Button>
       </div>
     )
   }

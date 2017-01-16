@@ -5,7 +5,7 @@ import ingredients from '../data/ingredients'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import {removeSelectedIngredient} from '../LoginFormView/UsersReducer/actionCreators'
-//import {Counter} from './Counter'
+import Counter from './Counter'
 
 import './NeededIngredientView.css'
 
@@ -40,15 +40,17 @@ const NeededIngredient = (props) => {
                     )
                 ).map(
                   item =>
-
-                    <h3 className="cos" key={item.id}
-                        onClick={
-                          () => {
-                            props.removeSelectedIngredient(item.id)
+                    <div>
+                      <h3 className="cos" key={item.id}
+                          onClick={
+                            () => {
+                              props.removeSelectedIngredient(item.id)
+                            }
                           }
-                        }
-                    >{item.name}
-                    </h3>
+                      >{item.name}
+                      </h3>
+                      <Counter/>
+                    </div>
                 )
               }
             </ReactCSSTransitionGroup>
