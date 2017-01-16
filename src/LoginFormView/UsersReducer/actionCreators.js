@@ -6,8 +6,9 @@ import {
   LOGGED_IN
 } from './actionTypes'
 
-export const addSelectedIngredient = () => ({
-  type: ADD_SELECTED_INGREDIENT
+export const addSelectedIngredient = (ingredientId) => ({
+  type: ADD_SELECTED_INGREDIENT,
+  id: ingredientId
 })
 
 export const addFavouriteRecipe = () => ({
