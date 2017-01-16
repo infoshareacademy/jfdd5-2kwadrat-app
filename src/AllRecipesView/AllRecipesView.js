@@ -12,12 +12,14 @@ export default (props) => (
     {
       recipes.map(recipe => {
           return (
+              <ReactCSSTransitionGroup
+              transitionName="fade"
+              transitionAppearTimeout={400}
+              transitionAppear={true}>
             <Col key={recipe.id} xs={12} sm={6} md={4}>
               <ReactCSSTransitionGroup
-                  transitionName="fade"
-                  transitionEnterTimeout={400}
-                  transitionAppearTimeout={400}
-                  transitionLeaveTimeout={400}
+                  transitionName="rotate"
+                  transitionAppearTimeout={500}
                   transitionAppear={true}>
               <div key='recipes' className="recipeCard">
                 <Link to={'/recipes/' + recipe.id}>
@@ -31,6 +33,7 @@ export default (props) => (
               </div>
               </ReactCSSTransitionGroup>
             </Col>
+              </ReactCSSTransitionGroup>
           )
         }
       )
