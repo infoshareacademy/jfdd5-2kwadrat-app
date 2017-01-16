@@ -4,20 +4,20 @@ import {connect} from 'react-redux'
 import ingredients from '../data/ingredients'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import {RemoveSelectedIngredient} from '../LoginFormView/LoginFormReducer/actionCreators'
+import {removeSelectedIngredient} from '../LoginFormView/UsersReducer/actionCreators'
 
 
 import './NeededIngredientView.css'
 
 const mapStateToProps = state => ({
   userId: state.loggedInData.loggedInUserId,
-  user: state.loggedInData.loggedUserData
+  user: state.loggedUser.userData
 })
 
 const mapDispatchToProps = dispatch => ({
 
-  RemoveSelectedIngredient: (ingredient) => dispatch(
-      RemoveSelectedIngredient(ingredient))
+  removeSelectedIngredient: (ingredient) => dispatch(
+    removeSelectedIngredient(ingredient))
 })
 
 const NeededIngredient = (props) => {
@@ -44,7 +44,7 @@ const NeededIngredient = (props) => {
                           <h3 className="cos" key={item.id}
                               onClick={
                                 () => {
-                                  props.RemoveSelectedIngredient(item.id)
+                                  props.removeSelectedIngredient(item.id)
                                 }
                               }
                           >{item.name}</h3>
@@ -54,9 +54,9 @@ const NeededIngredient = (props) => {
 
               </div> :
 
-              <p>Zaloguj się</p>
-        }
-      </Col>
+          <p>Zaloguj się</p>
+      }
+    </Col>
   )
 };
 

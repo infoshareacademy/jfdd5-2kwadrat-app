@@ -1,19 +1,25 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {loggedIn, loginTrying, logOut} from './LoginFormReducer/actionCreators'
+import {loginTrying, logOut, logged} from './LoginFormReducer/actionCreators'
+import {loggedIn} from './UsersReducer/actionCreators'
+import {default as signUp} from './SignUp/SignUp'
+import {Col, Button} from 'react-bootstrap'
+import {Link} from 'react-router'
 
 import './LoginFormView.css'
 
 const mapStateToProps = state => ({
   loggedIn: state.loggedInData.loggedInStatus,
   loggedUserId: state.loggedInData.loggedInUserId,
-  loginTriesStatus: state.loggedInData.loggingTests
+  loginTriesStatus: state.loggedInData.loggingTests,
+  user: state.loggedUser.userData
 })
 
 const mapDispatchToProps = dispatch => ({
   loggingIn: (user) => dispatch(loggedIn(user)),
   loginTrying: () => dispatch(loginTrying()),
-  logout: () => dispatch(logOut())
+  logout: () => dispatch(logOut()),
+  logged: (user) => dispatch(logged(user))
 })
 
 class LoginFormView extends React.Component {
@@ -52,6 +58,7 @@ class LoginFormView extends React.Component {
         ).then(
           loggedUser => {
             this.props.loggingIn(loggedUser)
+            this.props.logged(loggedUser)
             return (this.setState({
               ...this.state,
               loggedUser: loggedUser
@@ -60,67 +67,102 @@ class LoginFormView extends React.Component {
         )).catch(() => console.error('zupa') + this.props.loginTrying())
   }
 
-
-  componentDidUpdate() {
-    console.log(this.state)
-  }
-
   render() {
     return (
       <div>
         {this.props.loggedIn ?
           <div>
-            <h1>Witaj Użytkowniku</h1>
-            <h3>W panelu Ulubione oglądaj swoje ulubione przepisy.<br/>
-              W panelu Lista zakupów obejrzyj listę zakupów</h3>
-            <button onClick={
-              () =>
-                this.props.logout()
-            }
+            <h1>Witaj {this.props.user.name}</h1>
+            <h2 className="instruction-text">W panelu <Link to={"/favourite-recipes"}><span className="span-button">Ulubione</span></Link>,
+              oglądaj swoje ulubione przepisy.<br/>
+              W panelu <Link to={"/needed-ingredient-view"}><span className="span-button">Lista zakupów</span></Link>
+              obejrzyj listę zakupów</h2>
+            <Button onClick={() =>
+              this.props.logout()}
+                    bsStyle="info"
+                    bsSize="large"
+
             >Wyloguj
-            </button>
+            </Button>
           </div> :
-          <div>
-            <h1>Zaloguj się</h1>
-            <form onSubmit={this.handleSubmit}>
-              <inputLabel>Login:</inputLabel>
+          <div >
+            <Col xs={6}>
+              <h2 className="formTitle">Zaloguj się</h2>
+            </Col>
 
-              <input type="text"
-                     value={this.state.userName}
-                     onChange={
-                       event =>
-                         this.setState({
-                           userName: event.target.value
-                         })
-                     }
-              />
-              <br/>
-              <br/>
+            <Col xs={6}>
+              <h2 className="formTitle">Zarejestruj się!</h2>
+            </Col>
 
-              <inputLabel>Hasło:</inputLabel>
+            <Col xs={6} className="loginContainer">
+              <form onSubmit={this.handleSubmit}
+                    className="registration">
+                <inputLabel className="formLabel">Login:</inputLabel>
 
-              <input type="password"
-                     value={this.state.userPassword}
-                     onChange={
-                       event =>
-                         this.setState({
-                           userPassword: event.target.value
-                         })
-                     }
-              />
-              <br/>
-              <br/>
+                <input type="text"
+                       className="formInput"
+                       value={this.state.userName}
+                       onChange={
+                         event =>
+                           this.setState({
+                             userName: event.target.value
+                           })
+                       }
+                />
+                <br/>
+                <br/>
 
-              <button type="submit">Zaloguj</button>
-              {
-                this.props.loginTriesStatus ?
-                  <h4 className="login-alert">
-                    Podałeś zły login lub hasło.<br/>
-                    Spróbuj ponownie
-                  </h4> :
-                  ''
-              }
-            </form>
+                <inputLabel className="formLabel">Hasło:</inputLabel>
+
+                <input type="password"
+                       className="formInput"
+                       value={this.state.userPassword}
+                       onChange={
+                         event =>
+                           this.setState({
+                             userPassword: event.target.value
+                           })
+                       }
+                />
+                <br/>
+                <br/>
+
+                <Button type="submit" bsStyle="info">Zaloguj się</Button>
+                {
+                  this.props.loginTriesStatus ?
+                    <h4 className="login-alert">
+                      Podałeś zły login lub hasło.<br/>
+                      Spróbuj ponownie
+                    </h4> :
+                    ''
+                }
+              </form>
+            </Col>
+
+            <Col xs={6} className="loginContainer">
+              <div >
+                <form onSubmit={event => {
+                  event.preventDefault()
+                  return (signUp(event))
+                }}
+                      className="registration">
+                  <inputLabel className="formLabel">Login :</inputLabel>
+                  <input type="text" className="formInput" id="loginField"/>
+                  <br/>
+                  <br/>
+                  <inputLabel className="formLabel" id="wrongPassword">Podaj hasło:</inputLabel>
+                  <input type="password" className="formInput" id="passwordField"/>
+                  <br/>
+                  <br/>
+                  <inputLabel className="formLabel" id="wrongPassword">Powtórz hasło:</inputLabel>
+                  <input type="password" className="formInput" id="passwordCheck"/>
+                  <br/>
+                  <br/>
+                  <Button type="submit" bsStyle="info">Zapisz się</Button>
+                </form>
+                <h3 id="signUpInfo"></h3>
+              </div>
+            </Col>
           </div>
         }
 

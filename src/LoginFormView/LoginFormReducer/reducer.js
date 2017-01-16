@@ -1,10 +1,9 @@
-import {LOGGED_IN,LOGIN_TRIES,LOG_OUT, REMOVE_SELECTED_INGREDIENT} from './actionTypes'
+import {LOGGED_IN, LOGIN_TRIES, LOG_OUT} from './actionTypes'
 
 const initialState = {
   loggedInStatus: false,
   loggedInUserId: null,
-  loggingTests: false,
-  loggedUserData:null,
+  loggingTests: false
 }
 
 export default (state = initialState, action = {}) => {
@@ -13,31 +12,19 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         loggedInStatus: true,
-        loggingTests:false,
+        loggingTests: false,
         loggedInUserId: action.userData.id,
-        loggedUserData: action.userData
       }
     case LOGIN_TRIES:
-      return{
+      return {
         ...state,
         loggingTests: true
       }
     case LOG_OUT:
-      return{
-          ...state,
-        loggedInStatus:false
-      }
-    case REMOVE_SELECTED_INGREDIENT:
       return {
         ...state,
-        loggedUserData: {
-          ...state.loggedUserData,
-          shoppingListIngredientsIds: state.loggedUserData.shoppingListIngredientsIds.filter(ingredient =>
-            ingredient !== action.ingredientId
-          )
-        }
+        loggedInStatus: false
       }
-
     default:
       return state
   }

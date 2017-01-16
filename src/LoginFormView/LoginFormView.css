@@ -1,3 +1,22 @@
-.login-alert {
-    color:red;
+.login-alert, #signUpInfo {
+    color: red;
+}
+
+.registration {
+    display: inline-block;
+}
+
+.formLabel {
+    float: left;
+    color: black;
+}
+
+.formInput {
+    float: right;
+    border: deepskyblue solid 2px;
+}
+
+.formTitle {
+    color: deepskyblue;
+    margin-bottom:30px;
 }

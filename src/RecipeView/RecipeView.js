@@ -1,6 +1,6 @@
 import React from 'react'
 import './RecipeViewStyle.css'
-import {Image, Col} from 'react-bootstrap'
+import {Image, Col,Button} from 'react-bootstrap'
 import {recipes} from '../data'
 import {ingredients} from '../data'
 import {Link} from 'react-router'
@@ -9,14 +9,24 @@ import FaCartPlus from 'react-icons/lib/fa/cart-plus'
 import FaTwitterSquare from 'react-icons/lib/fa/twitter-square'
 import FaFacebookSquare from 'react-icons/lib/fa/facebook-square'
 import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
+import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actionCreator'
+import FaCalendar from 'react-icons/lib/fa/calendar'
+
+
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
   userId: state.loggedInData.loggedInUserId,
-  user: state.loggedInData.loggedUserData
-});
+  user: state.loggedUser.userData
+})
+
+const mapDispatchToProps = dispatch => ({
+  addToCalendar: (recipe) => dispatch(addToCalendarFromRecipeView(recipe))
+})
 
 
-export default connect(mapStateToProps)((props) => {
+export default connect(mapStateToProps,mapDispatchToProps)((props) => {
+
+
   const recipeWithId = recipes.find(
     recipe => recipe.id === parseInt(props.params.recipeId, 10)
   );
@@ -74,17 +84,28 @@ export default connect(mapStateToProps)((props) => {
                 )
               }
             </ul>
+            <Link to={"/calendar"}>
+              <div className="calendarButton">
+              <FaCalendar size="40px" color="#2da834"
+                          className="cart"/>
+            <Button className="addToCalendar"
+                    bsStyle="success"
+            onClick={() => props.addToCalendar(recipeWithId)}
+            >Dodaj do kalendarza
+            </Button>
+            </div>
+            </Link>
           </div>
           <div title="udostępnij" className="socialIcons">
-            <a href="https://plus.google.com/">
+            <a href="https://plus.google.com/" target="_blank">
               <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
             </a>
 
-            <a href="https://www.facebook.com/">
+            <a href="https://www.facebook.com/" target="_blank">
               <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
             </a>
 
-            <a href="https://twitter.com/">
+            <a href="https://twitter.com/" target="_blank">
               <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
             </a>
           </div>
@@ -94,7 +115,38 @@ export default connect(mapStateToProps)((props) => {
           <p className="description">{recipeWithId.description}</p>
         </Col>
       </Col>
+      <Col xs={12}>
+        <p>Dodane komentarze innych uzytkownikow</p>
+      </Col>
+      {
+        typeof props.userId === 'number' ?
+
+              <Col xs={12} md={6} mdOffset={3}>
+                <div className="commentsContainer">
+                  <div className="userInformation">
+                  </div>
+                  <form>
+                    <label>
+                      <p className="commentTitle">tytuł:</p> <input name="title" className="titleField"/>
+                    </label>
+
+                    <br/>
+
+                    <label>
+                      <p className="commentBody">treść:</p> <textarea name="body" className="bodyField"></textarea>
+                    </label>
+
+                    <br/>
+
+                    <input type="submit" value="Dodaj komentarz" className="addBtn"/>
+                  </form>
+                </div>
+              </Col>
+             :
+            <p>Zaloguj się aby dodać komentarz</p>
+      }
       {props.children}
     </div>
   )
 })
+

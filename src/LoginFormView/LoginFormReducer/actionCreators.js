@@ -1,19 +1,15 @@
-import {LOGGED_IN, LOGIN_TRIES, LOG_OUT, REMOVE_SELECTED_INGREDIENT} from './actionTypes'
+import {LOGGED_IN, LOGIN_TRIES, LOG_OUT} from './actionTypes'
 
-export const loggedIn = (user) => ({
-  type: LOGGED_IN,
-  userData:user
-})
 
 export const loginTrying = () => ({
   type: LOGIN_TRIES
 })
 
 export const logOut = () => ({
-  type:LOG_OUT
+  type: LOG_OUT
 })
 
-export const RemoveSelectedIngredient = (ingredient) => ({
-  type: REMOVE_SELECTED_INGREDIENT,
-  ingredientId: ingredient
+export const logged = (user) => ({
+  type: LOGGED_IN,
+  userData: user
 })
