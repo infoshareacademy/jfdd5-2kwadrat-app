@@ -4,6 +4,7 @@ import {recipes} from '../data'
 import {Image, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import '../animations.css'
 
 export default (props) => (
   <div className="wrapper" >
@@ -14,7 +15,9 @@ export default (props) => (
             <Col key={recipe.id} xs={12} sm={6} md={4}>
               <ReactCSSTransitionGroup
                   transitionName="fade"
-                  transitionAppearTimeout={100}
+                  transitionEnterTimeout={400}
+                  transitionAppearTimeout={400}
+                  transitionLeaveTimeout={400}
                   transitionAppear={true}>
               <div key='recipes' className="recipeCard">
                 <Link to={'/recipes/' + recipe.id}>

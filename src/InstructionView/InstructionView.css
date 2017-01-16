@@ -35,3 +35,8 @@ a{
 a:hover {
     color:white;
 }
+
+.fade-appear {
+    opacity: 0;
+    animation: fadeIn 0.5s
+}

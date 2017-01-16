@@ -96,7 +96,54 @@ hr.style-two {
     cursor: pointer;
 }
 
-.route-appear {
+/*.fade-enter {*/
+    /*opacity: 0;*/
+    /*animation: slideInUp 1s;*/
+/*}*/
+
+.fade-appear {
     opacity: 0;
-    animation: slideIn 0.2s
+    animation: fadeIn 0.5s
 }
+
+/*.fade-leave {*/
+    /*opacity: 1;*/
+    /*animation: slideOutDown 1s;*/
+/*}*/
+
+
+/*@keyframes fadeIn {*/
+    /*from {*/
+        /*opacity: 0;*/
+    /*}*/
+
+    /*to {*/
+        /*opacity: 1;*/
+    /*}*/
+/*}*/
+
+/*@keyframes slideInUp {*/
+    /*from {*/
+        /*-webkit-transform: translate3d(0, 100%, 0);*/
+        /*transform: translate3d(0, 100%, 0);*/
+        /*visibility: visible;*/
+    /*}*/
+
+    /*to {*/
+        /*-webkit-transform: translate3d(0, 0, 0);*/
+        /*transform: translate3d(0, 0, 0);*/
+    /*}*/
+/*}*/
+
+/*@keyframes slideOutDown {*/
+    /*from {*/
+        /*-webkit-transform: translate3d(0, 0, 0);*/
+        /*transform: translate3d(0, 0, 0);*/
+    /*}*/
+
+    /*to {*/
+        /*visibility: hidden;*/
+        /*-webkit-transform: translate3d(0, 100%, 0);*/
+        /*transform: translate3d(0, 100%, 0);*/
+    /*}*/
+/*}*/
