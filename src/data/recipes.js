@@ -36,7 +36,7 @@ export default [
     'kawałek wędzonego boczku. Resztę, a więc cebulę, czosnek i podstawowe przyprawy, tj. słodka papryka, pieprz czy ' +
     'kminek zapewne znajdziesz w swojej kuchni. Teraz gotowanie. Zacznij od podsmażenia boczku oraz cebuli, a następnie ' +
     'dodaj kawałki mięsa wołowego. Gdy aromatyczna mieszanka zacznie skwierczeć, dodaj wszystkie przyprawy, a następnie ' +
-    'zalej wodą. Do gotującego się gulaszu wrzuć pokrojone ziemniaki i duś razem do momentu, aż mięso będzie miękkie. Po ' +
+    'zalej wodą. Do gotującego się gulaszu wrzuć pokrojone ziemniaki i duś razem do momentu, aż mięso będzie miękkie. Po\n' +
     'upływie ok. 40 minut w garnku wytworzy się niezwykle aromatyczny sos, a wołowina będzie pyszna i soczysta.'
   },
   {
