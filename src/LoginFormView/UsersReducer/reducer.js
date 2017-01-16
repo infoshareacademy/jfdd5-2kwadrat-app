@@ -1,6 +1,6 @@
 import {
   REMOVE_SELECTED_INGREDIENT,
-  LOGGED_IN
+  LOGGED_IN, ADD_SELECTED_INGREDIENT
 } from './actionTypes'
 
 const initialState = {
@@ -18,11 +18,19 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         userData: {
-          ...state,
+          ...state.userData,
           shoppingListIngredientsIds: state.userData.shoppingListIngredientsIds.filter(
             ingredient =>
             ingredient !== action.ingredientId
           )
+        }
+      }
+    case ADD_SELECTED_INGREDIENT:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          shoppingListIngredientsIds: state.userData.shoppingListIngredientsIds.concat(action.id)
         }
       }
     default:
