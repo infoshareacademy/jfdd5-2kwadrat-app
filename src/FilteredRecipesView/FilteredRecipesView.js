@@ -4,6 +4,7 @@ import {Image, Col, ButtonGroup, Button, DropdownButton, MenuItem} from 'react-b
 import {Link} from 'react-router'
 import './FilteredRecipesView.css'
 import FaArrowLeft from 'react-icons/lib/fa/arrow-left'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import {recipes} from '../data'
 import {selectRecipes} from './select'
