@@ -1,11 +1,15 @@
 import React from 'react'
 import './styles.css'
 import {ingredients} from '../data'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 
 import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import FaCutlery from 'react-icons/lib/fa/cutlery'
+import '../animations.css'
+
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients
@@ -39,6 +43,10 @@ class FridgeView extends React.Component {
 
   render() {
     return (
+        <ReactCSSTransitionGroup
+            transitionName="fade"
+            transitionAppearTimeout={400}
+            transitionAppear={true}>
       <div className="divKeepsAll">
         <form onSubmit={this.handleSubmit}>
           <Row className="ingredientInputRow">
@@ -170,7 +178,9 @@ class FridgeView extends React.Component {
             </h2>}
         </div>
       </div>
+        </ReactCSSTransitionGroup>
     )
+
   }
 }
 

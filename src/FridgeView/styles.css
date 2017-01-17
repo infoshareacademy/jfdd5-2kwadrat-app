@@ -157,3 +157,8 @@ hr.bottomDividingLine {
 .formBottomHalf {
  margin-bottom: 65px;
 }
+
+.fade-appear {
+  opacity: 0;
+  animation: fadeIn 0.5s
+}

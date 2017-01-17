@@ -96,7 +96,7 @@ hr.style-two {
     cursor: pointer;
 }
 
-.route-appear {
+.fade-appear {
     opacity: 0;
-    animation: slideIn 0.2s
+    animation: fadeIn 0.5s
 }
