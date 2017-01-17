@@ -37,7 +37,6 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
         selected.id
     );
 
-
   return (
     <div key={recipeWithId.id}>
       <h1 className="recipeName">{recipeWithId.name}</h1>
