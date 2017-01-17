@@ -72,19 +72,27 @@ export default connect(mapStateToProps, mapDispatchToProps)((props) => {
                       <span key={ingredient.id}>
                           {
                             <span>
-                              { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
-                                null :
-                                <span className="ingredientOptions">
-                                    <span title="Dodaj do listy zakupów">
-                                      <GoChecklist className=" addToListRecipeView"/>
-                                     </span>
-                                    <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
-                                     <span title="Znajdź sklep">
-                                        <FaCartPlus size="40px" color="#2da834"
-                                                    className="cart"/>
-                                     </span>
-                                    </Link>
-                                  </span>
+
+                              {
+                                arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
+                                  null :
+                                  <span className="ingredientOptions">
+                                  {
+                                    props.user !== null ?
+                                      <span>
+                                        <span title="Dodaj do listy zakupów">
+                                          <GoChecklist className=" addToListRecipeView"/>
+                                         </span>
+                                        <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
+                                         <span title="Znajdź sklep">
+                                            <FaCartPlus size="40px" color="#2da834"
+                                                        className="cart"/>
+                                         </span>
+                                      </Link>
+                                    </span> :
+                                    null
+                                  }
+                                </span>
                               }
                             </span>
                           }

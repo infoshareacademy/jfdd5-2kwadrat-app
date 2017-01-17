@@ -63,7 +63,8 @@ const IngredientView = (props) => {
                   {
                     props.user !== null ?
                     <button onClick={() => props.addIngredient(ingredientsWithId.id)}>ADd</button>:
-                    null}
+                    null
+                  }
                 </li>
               </ul>
             </div>
