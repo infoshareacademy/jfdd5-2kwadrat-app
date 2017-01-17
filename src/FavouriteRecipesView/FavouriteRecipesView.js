@@ -13,7 +13,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchProps = dispatch => ({
-  fetchFavRecipes: (userId, accessToken) => dispatch(fetchFavouriteRecipes(userId, accessToken))
+  fetchFavRecipes: (userId, accessToken) =>
+    dispatch(fetchFavouriteRecipes(userId, accessToken))
 })
 
 

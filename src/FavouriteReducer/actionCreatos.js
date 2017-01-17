@@ -1,4 +1,9 @@
-import {FETCH_FAV_RECIPES__SUCCES, FETCH_FAV_RECIPES__BEGIN} from './actionTypes'
+import {
+  FETCH_FAV_RECIPES__SUCCES,
+  FETCH_FAV_RECIPES__BEGIN,
+  FETCH_SHOPPING_LIST__BEGIN,
+  FETCH_SHOPPING_LIST__SUCCES
+} from './actionTypes'
 
 export const fetchFavouriteRecipes = (userId, accessToken) => {
   return dispatch => {
@@ -13,6 +18,28 @@ export const fetchFavouriteRecipes = (userId, accessToken) => {
         favoriteRecipesId: favoriteItems.filter(
           item =>
           item.itemType === 'recipe'
+        ).map(
+          item => item.itemId
+        )
+      })
+    )
+  }
+}
+
+
+export const fetchShoppingList = (userId, accessToken) => {
+  return dispatch => {
+    dispatch({type:FETCH_SHOPPING_LIST__BEGIN})
+    fetch(
+      'http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
+    ).then(
+      response => response.json()
+    ).then(
+      favoriteItems => dispatch({
+        type:FETCH_SHOPPING_LIST__SUCCES,
+        shoppingListIds: favoriteItems.filter(
+          item =>
+          item.itemType === 'ingredient'
         ).map(
           item => item.itemId
         )
