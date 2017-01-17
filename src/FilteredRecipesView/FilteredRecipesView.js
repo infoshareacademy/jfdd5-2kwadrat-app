@@ -73,11 +73,11 @@ const FilteredRecipes = (props) => {
                 <DropdownButton
                   title={
                     props.filterNames.includes("timeShort") ?
-                      'Czasochłonność: krótkie' :
+                      'Czasochłonność: 0-30 min.' :
                       (props.filterNames.includes("timeMedium") ?
-                        'Czasochłonność: średnie' :
+                        'Czasochłonność: 31-50 min.' :
                         (props.filterNames.includes("timeLong") ?
-                          'Czasochłonność: długie' :
+                          'Czasochłonność: 51-70 min.' :
                           'Czasochłonność'))
                   }
                   bsStyle={
@@ -101,7 +101,7 @@ const FilteredRecipes = (props) => {
                     )
                   }}
                   >
-                    krótkie
+                    0-30 min.
                   </MenuItem>
 
                   <MenuItem eventKey="2" onClick={() => {
@@ -114,7 +114,7 @@ const FilteredRecipes = (props) => {
                     )
                   }}
                   >
-                    średnie
+                    31-50 min.
                   </MenuItem>
 
                   <MenuItem eventKey="3" onClick={() => {
@@ -127,7 +127,7 @@ const FilteredRecipes = (props) => {
                     )
                   }}
                   >
-                    długie
+                    51-70 min.
                   </MenuItem>
                 </DropdownButton>
 
