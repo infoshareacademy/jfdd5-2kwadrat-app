@@ -83,7 +83,7 @@ export default connect(mapStateToProps, mapDispatchToProps)((props) => {
                                         <span>
                                         {
                                           props.user !== null ?
-                                              <GoChecklist onClick={() => props.addIngredient(ingredient.id)} />
+                                              <GoChecklist className=" addToListRecipeView" onClick={() => props.addIngredient(ingredient.id)} />
                                              :
                                             null
                                         }
