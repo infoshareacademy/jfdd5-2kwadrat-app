@@ -61,15 +61,9 @@ const FilteredRecipes = (props) => {
   return (
 
     <div>
-
         {
           arrayOfSelectedIngredientsID.length !== 0 ?
-
             <div>
-              <div title="wstecz" className="button-back">
-                <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px"/></span></Link>
-              </div>
-
               <ButtonGroup>
                 <DropdownButton
                   title={
@@ -198,6 +192,9 @@ const FilteredRecipes = (props) => {
                   Usuń filtry
                 </Button>
               </ButtonGroup>
+              <div title="wstecz" className="button-back">
+                <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px"/></span></Link>
+              </div>
             </div> : ''
         }
         {
@@ -240,7 +237,6 @@ const FilteredRecipes = (props) => {
                             }
                           </p>
                         }
-
                         <div className="icons">
                           <div className="recipeTime">{recipe.time} min.</div>
                           <div className="recipeDifficult">{recipe.difficult}</div>
@@ -255,7 +251,6 @@ const FilteredRecipes = (props) => {
             ) :
             <h1><Link to={'/form'}><span className="span-button">Co masz w lodówce?</span></Link></h1>
         }
-
     </div>
   )
 };

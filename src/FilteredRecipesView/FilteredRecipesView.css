@@ -47,9 +47,9 @@
   }
 }
 
-.btn-group {
-  margin-bottom: 30px;
-}
+/*.btn-group {*/
+  /*margin-bottom: 30px;*/
+/*}*/
 
 .fadeA-appear {
   animation: zoomIn 0.3s;
