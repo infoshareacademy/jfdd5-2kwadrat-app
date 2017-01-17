@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Button} from 'react-bootstrap'
+import {Button, Col} from 'react-bootstrap'
+import {default as signUp} from '../signUp/signUp'
 
-import { logIn } from '../CurrentUserReducer/actions/login'
+import {logIn} from '../CurrentUserReducer/actions/login'
 
 const mapStateToProps = state => ({
   session: state.currentUserData.session
@@ -30,39 +31,73 @@ class LogIn extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}
-              className="registration">
-          <inputLabel className="formLabel">Login:</inputLabel>
+        <Col xs={6}>
+          <h2 className="formTitle">Zaloguj się</h2>
+        </Col>
 
-          <input type="text"
-                 className="formInput"
-                 value={this.state.userName}
-                 onChange={(event) => this.setState({userName: event.target.value})}
-          />
-          <br/>
-          <br/>
+        <Col xs={6}>
+          <h2 className="formTitle">Zarejestruj się!</h2>
+        </Col>
 
-          <inputLabel className="formLabel">Hasło:</inputLabel>
+        <Col xs={6}>
+          <form onSubmit={this.handleSubmit}
+                className="registration">
+            <inputLabel className="formLabel">Login:</inputLabel>
 
-          <input type="password"
-                 className="formInput"
-                 value={this.state.userPassword}
-                 onChange={(event) => this.setState({userPassword: event.target.value})}
+            <input type="text"
+                   className="formInput"
+                   value={this.state.userName}
+                   onChange={(event) => this.setState({userName: event.target.value})}
+            />
+            <br/>
+            <br/>
 
-          />
-          <br/>
-          <br/>
+            <inputLabel className="formLabel">Hasło:</inputLabel>
 
-          <Button type="submit" bsStyle="info">Zaloguj się</Button>
-          {
-            this.props.loginTriesStatus ?
-              <h4 className="login-alert">
-                Podałeś zły login lub hasło.<br/>
-                Spróbuj ponownie
-              </h4> :
-              ''
-          }
-        </form>
+            <input type="password"
+                   className="formInput"
+                   value={this.state.userPassword}
+                   onChange={(event) => this.setState({userPassword: event.target.value})}
+
+            />
+            <br/>
+            <br/>
+
+            <Button type="submit" bsStyle="info">Zaloguj się</Button>
+            {
+              this.props.loginTriesStatus ?
+                <h4 className="login-alert">
+                  Podałeś zły login lub hasło.<br/>
+                  Spróbuj ponownie
+                </h4> :
+                ''
+            }
+          </form>
+        </Col>
+        <Col xs={6} className="loginContainer">
+          <div >
+            <form onSubmit={event => {
+              event.preventDefault()
+              return (signUp(event))
+            }}
+                  className="registration">
+              <inputLabel className="formLabel">Login :</inputLabel>
+              <input type="text" className="formInput" id="loginField"/>
+              <br/>
+              <br/>
+              <inputLabel className="formLabel" id="wrongPassword">Podaj hasło:</inputLabel>
+              <input type="password" className="formInput" id="passwordField"/>
+              <br/>
+              <br/>
+              <inputLabel className="formLabel" id="wrongPassword">Powtórz hasło:</inputLabel>
+              <input type="password" className="formInput" id="passwordCheck"/>
+              <br/>
+              <br/>
+              <Button type="submit" bsStyle="info">Zapisz się</Button>
+            </form>
+            <h3 id="signUpInfo"></h3>
+          </div>
+        </Col>
       </div>
     )
   }

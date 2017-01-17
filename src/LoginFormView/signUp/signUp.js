@@ -12,15 +12,17 @@ export default (props) => {
           (
             <div>
               {
-                fetch('http://0.0.0.0:3001/api/users',
+                fetch('http://localhost:3001/api/users',
                   {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                      login: login,
-                      password: password
+                      username: login,
+                      password: password,
+                      emailVerified: true,
+                      email: login+ '@.pl'
                     })
                   }).then(
                   document.getElementById('passwordCheck').value = '',
