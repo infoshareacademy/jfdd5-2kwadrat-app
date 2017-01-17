@@ -57,13 +57,9 @@ const IngredientView = (props) => {
                   )
                 }
                 <li>
-
                     <span title="Dodaj do listy zakupów" >
               <GoChecklist className="addToList"/>
                     </span>
-
-
-
                   {
                     props.user !== null ?
                     <button onClick={() => props.addIngredient(ingredientsWithId.id)}>ADd</button>:
@@ -93,13 +89,10 @@ const IngredientView = (props) => {
                                   text={shop.name}
                                   shop={shop}/>
                   )}
-
-
                 </GoogleMap>
               </div>
             </div>
           </Col>
-
           {props.children}
         </div>
       </Col>

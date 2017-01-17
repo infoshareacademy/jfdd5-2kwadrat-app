@@ -1,5 +1,6 @@
 .instruction-view {
     margin-top:130px;
+    overflow: hidden;
 }
 .instruction-image {
     text-align: right;
@@ -35,3 +36,31 @@ a{
 a:hover {
     color:white;
 }
+
+.fade-appear {
+    opacity: 0;
+    animation: fadeIn 0.5s
+}
+
+.slideInLeft-appear {
+    animation: slideInLeft 0.5s;
+}
+
+.slideInRight-appear {
+    animation: slideInRight 0.5s;
+}
+
+/*.example-appear-active {*/
+    /*right:0;*/
+/*}*/
+
+/*.example-leave {*/
+    /*opacity: 1;*/
+/*}*/
+
+/*.example-leave.example-leave-active {*/
+    /*opacity: 0.01;*/
+    /*transition: opacity 300ms ease-in;*/
+/*}*/
+
+

@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {default as ShopsMap} from './ShopsMap/ShopsMap'
 import {default as ShopView} from './ShopView/ShopView'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-
+import '../animations.css'
 
 import './ShopLogoView.css'
 
@@ -16,8 +16,8 @@ const mapStateToProps = state => ({
 const ShopsLogoView = (props) => {
   return (
       <ReactCSSTransitionGroup
-          transitionName="route"
-          transitionAppearTimeout={200}
+          transitionName="fade"
+          transitionAppearTimeout={500}
           transitionAppear={true}>
     <div className="shop-logo-view">
       <Col xs={12} md={6}>
@@ -47,7 +47,6 @@ const ShopsLogoView = (props) => {
             }
           )
         }
-
       </Col>
       <Col xs={6}>
         {<ShopsMap />}

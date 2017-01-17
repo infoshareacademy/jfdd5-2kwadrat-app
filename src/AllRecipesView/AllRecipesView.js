@@ -4,33 +4,39 @@ import {recipes} from '../data'
 import {Image, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import '../animations.css'
 
 export default (props) => (
-  <div className="wrapper" >
-    {props.children}
-    {
-      recipes.map(recipe => {
-          return (
-            <Col key={recipe.id} xs={12} sm={6} md={4}>
+    <div className="wrapper">
+      {props.children}
+      {
+        recipes.map(recipe => {
+              return (
               <ReactCSSTransitionGroup
                   transitionName="fade"
-                  transitionAppearTimeout={100}
+                  transitionAppearTimeout={400}
                   transitionAppear={true}>
-              <div key='recipes' className="recipeCard">
-                <Link to={'/recipes/' + recipe.id}>
-                  <Image className="photo image" src={recipe.image}/>
-                  <h2>{recipe.name}</h2>
-                </Link>
-                <div className="icons">
-                  <div className="recipeTime">{recipe.time + " min"}</div>
-                  <div className="recipeDifficult">{recipe.difficult}</div>
-                </div>
-              </div>
+                <Col key={recipe.id} xs={12} sm={6} md={4}>
+                  <ReactCSSTransitionGroup
+                      transitionName="rotate"
+                      transitionAppearTimeout={500}
+                      transitionAppear={true}>
+                    <div key='recipes' className="recipeCard">
+                      <Link to={'/recipes/' + recipe.id}>
+                        <Image className="photo image" src={recipe.image}/>
+                        <h2>{recipe.name}</h2>
+                      </Link>
+                      <div className="icons">
+                        <div className="recipeTime">{recipe.time + " min"}</div>
+                        <div className="recipeDifficult">{recipe.difficult}</div>
+                      </div>
+                    </div>
+                  </ReactCSSTransitionGroup>
+                </Col>
               </ReactCSSTransitionGroup>
-            </Col>
-          )
-        }
-      )
-    }
-  </div>
+              )
+            }
+        )
+      }
+    </div>
 )

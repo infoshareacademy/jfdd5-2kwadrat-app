@@ -4,8 +4,13 @@ import moment from 'moment'
 import {connect} from 'react-redux'
 import {addEventToCalendar} from './CalendarReducer/actionCreator'
 import {removeRecipeTitle} from '../CalendarView/CalendarReducer/actionCreator'
+import {default as CalendarForm} from './CalendarForm/CalendarForm'
+import MyModal from '../MyModal/MyModal'
+import {Modal, Button} from 'react-bootstrap'
 
 BigCalendar.momentLocalizer(moment)
+
+moment.locale("pl")
 
 const mapStateToProps = state => ({
   userEvents: state.calendarData.calendarEvents,
@@ -18,17 +23,43 @@ const mapDispatchToProps = dispatch => ({
 })
 
 class CalendarView extends React.Component {
-
   constructor() {
     super()
 
     this.state = {
-      events: []
+      events: null,
+      showModal: false
+    }
+
+    this.open = (info) => {
+      this.setState({
+        ...this.state,
+        showModal: true,
+        events: {
+          start: info.start,
+          end: info.end,
+          title: null
+        }
+      })
+    }
+
+    this.close = () => {
+      const eventTitle = document.getElementById('modalNameInput').value
+      const event = {
+        start: this.state.events.start,
+        end: this.state.events.end,
+        title: eventTitle
+      }
+      this.setState({
+        events: null,
+        showModal: false
+      })
+      this.props.addEvent(event)
     }
   }
 
-  addEventFromRecipeView = (dateInfo) => {
 
+  addEventFromRecipeView = (dateInfo) => {
     console.log(this.props.recipeTitle)
     this.setState({
         events: {
@@ -41,37 +72,28 @@ class CalendarView extends React.Component {
     this.props.removeRecipe()
     this.props.addEvent(this.state.events)
     this.setState({
-      events:[]
+      events: []
     })
-  }
-
-  addEvent = (dateInfo) => {
-    const eventTitle = prompt('Co będziesz gotować?')
-    eventTitle ? ( this.setState({
-        events: {
-          start: dateInfo.start,
-          end: dateInfo.end,
-          title: eventTitle
-        }
-      })
-    ) : ''
-    this.props.addEvent(this.state.events)
-    this.setState({
-      events:[]
-    })
-  }
-
-  componentWillMount() {
-    return (
-      this.props.recipeTitle === null ?
-        '' : alert('Zaznacz na kalendarzu kiedy chcesz ugotować danie.')
-    )
   }
 
   render() {
     return (
       <div>
+        <Modal show={this.state.showModal} onHide={this.close}>
+          <Modal.Header>
+            <Modal.Title>
+              <h3>Co będziesz gotowac?</h3>
+            </Modal.Title>
+            <Modal.Body>
+              <input type="text" id="modalNameInput"/>
+            </Modal.Body>
+          </Modal.Header>
+          <Modal.Footer>
+            <Button onClick={this.close}>Potwierdż</Button>
+          </Modal.Footer>
+        </Modal>
         <h1>Kalendarz</h1>
+
         <div style={{height: 500}}>
 
           <BigCalendar
@@ -80,8 +102,9 @@ class CalendarView extends React.Component {
             onSelectEvent={event => alert('Termin już zajęty!   ' + event.title)}
             onSelectSlot={(slotInfo) =>
               this.props.recipeTitle === null ?
-                this.addEvent(slotInfo) :
+                this.open(slotInfo) :
                 this.addEventFromRecipeView(slotInfo)
+
             }
             events={this.props.userEvents}
             step={15}
@@ -98,7 +121,8 @@ class CalendarView extends React.Component {
               today: 'dziś'
             }}
           />
-          {}
+          <CalendarForm/>
+          {this.props.children}
         </div>
       </div>
     )
