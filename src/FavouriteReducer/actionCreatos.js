@@ -7,9 +7,25 @@ import {
   ADD_TO_SHOPPING_LIST
 } from './actionTypes'
 
-export const addRecipeToFav = () => ({
-  type: ADD_RECIPE_TO_FAV
-})
+export const addRecipeToFav = (userId, accessToken, ingredientId) => {
+  return dispatch => {
+    dispatch({type: ADD_TO_SHOPPING_LIST})
+    fetch(
+      'http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + accessToken,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "itemId":ingredientId,
+          "itemType": "recipe",
+          "ownerId": 7
+        })
+      }
+    )
+  }
+}
 
 export const addToShoppingList = (userId, accessToken, ingredientId) => {
   return dispatch => {

@@ -23,7 +23,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addToCalendar: (recipe) => dispatch(addToCalendarFromRecipeView(recipe)),
   addToShoppingList: (userId,accessToken,id) => dispatch(addToShoppingList(userId,accessToken,id)),
-  addRecipe: () => dispatch(addRecipeToFav())
+  addRecipe: (userId,accessToken,id) => dispatch(addRecipeToFav(userId,accessToken,id))
 })
 
 
@@ -54,7 +54,7 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
                 {
                   <span title="Dodaj do ulubionych"
                         className="favorite"
-                    onClick={() => props.addRecipe()}
+                    onClick={() => props.addRecipe(props.session.userId,props.session.id,recipeWithId.id)}
                   >&#9055;</span>
                 }
               </p> :
