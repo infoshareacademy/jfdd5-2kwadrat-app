@@ -16,7 +16,7 @@ export default (props) => (
         recipes.map(recipe => {
               return (
               <ReactCSSTransitionGroup
-                  transitionName="fade"
+                  transitionName="fadeAllRecipes"
                   transitionAppearTimeout={400}
                   transitionAppear={true}>
                 <Col key={recipe.id} xs={12} sm={6} md={4}>

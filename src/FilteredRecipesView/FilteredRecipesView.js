@@ -206,7 +206,7 @@ const FilteredRecipes = (props) => {
                   <Link key={recipe.id} to={'/recipes/' + recipe.id}>
                     <Col key={recipe.id} xs={12} sm={6} md={4}>
                       <ReactCSSTransitionGroup
-                      transitionName="fadeA"
+                      transitionName="fadeFilteredRecipes"
                       transitionAppearTimeout={300}
                       transitionAppear={true}>
 

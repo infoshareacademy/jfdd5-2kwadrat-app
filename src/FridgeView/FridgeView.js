@@ -44,7 +44,7 @@ class FridgeView extends React.Component {
   render() {
     return (
         <ReactCSSTransitionGroup
-            transitionName="fade"
+            transitionName="fadeFridgeView"
             transitionAppearTimeout={400}
             transitionAppear={true}>
       <div className="divKeepsAll">
