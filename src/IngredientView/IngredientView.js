@@ -6,15 +6,14 @@ import GoogleMap from 'google-map-react'
 import './ingredientViewStyle.css'
 import GoChecklist from 'react-icons/lib/go/checklist'
 import {connect} from 'react-redux'
-import {addSelectedIngredient} from '../LoginFormView/UsersReducer/actionCreators'
 
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
 const mapStateToProps = state => ({
-  user:state.loggedUser.userData
+
 })
 
 const mapDispatchToProps = dispatch =>({
-  addIngredient: (ingredientId) => dispatch (addSelectedIngredient(ingredientId))
+
 })
 
 const IngredientView = (props) => {

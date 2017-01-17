@@ -12,7 +12,7 @@ export default (props) => {
           (
             <div>
               {
-                fetch('https://stormy-beyond-32730.herokuapp.com/api/ourPeople',
+                fetch('http://0.0.0.0:3001/api/users',
                   {
                     method: 'POST',
                     headers: {

@@ -1,14 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
-const mapStateToProps = state => ({
-  loggedIn: state.loggedInData.loggedInStatus,
-  user: state.loggedUser.userData
-})
-
 import {Nav, Navbar, NavItem, NavDropdown} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import './NavigationViewStyle.css'
+
+const mapStateToProps = state => ({
+  session: state.currentUserData.session,
+})
+
 
 
 const NavigationView = (props) => {
@@ -40,41 +39,38 @@ const NavigationView = (props) => {
               <NavItem eventKey={3} href="#">Przepisy dla Ciebie</NavItem>
             </LinkContainer>
 
-            { props.loggedIn ?
-            '':
+            {props.session === null ? (
               <LinkContainer to="/login">
                 <NavItem eventKey={4} href="#">
                   Zaloguj się
                 </NavItem>
               </LinkContainer>
+            ):
+              null }
+            {props.session !== null ? (
+              <NavDropdown eventKey={4.01} title="Moje konto" id="1">
+                <LinkContainer to="/favourite-recipes">
+                  <NavItem eventKey={4.2} href="#">Ulubione</NavItem>
+                </LinkContainer>
+
+
+                <LinkContainer to="/needed-ingredient-view">
+                  <NavItem eventKey={4.3} href="#">Lista zakupów</NavItem>
+                </LinkContainer>
+
+
+                <LinkContainer to="/calendar">
+                  <NavItem eventKey={4.4} href="#">Kalendarz</NavItem>
+                </LinkContainer>
+
+                <LinkContainer to="/login">
+                  <NavItem eventKey={4} href="#">
+                    Wyloguj
+                  </NavItem>
+                </LinkContainer>
+              </NavDropdown>
+            ) : null
             }
-
-            {
-              props.loggedIn ?
-                  <NavDropdown eventKey={4.01} title="Moje konto" id="1">
-                  <LinkContainer to="/favourite-recipes">
-                    <NavItem eventKey={4.2} href="#">Ulubione</NavItem>
-                  </LinkContainer>
-
-
-                  <LinkContainer to="/needed-ingredient-view">
-                    <NavItem eventKey={4.3} href="#">Lista zakupów</NavItem>
-                  </LinkContainer>
-
-
-                  <LinkContainer to="/calendar">
-                    <NavItem eventKey={4.4} href="#">Kalendarz</NavItem>
-                  </LinkContainer>
-
-                    <LinkContainer to="/login">
-                      <NavItem eventKey={4} href="#">
-                        Wyloguj
-                      </NavItem>
-                    </LinkContainer>
-                  </NavDropdown>
-                  :
-                  ''
-              }
           </Nav>
         </Navbar.Collapse>
       </Navbar>

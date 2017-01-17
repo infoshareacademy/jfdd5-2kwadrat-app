@@ -13,15 +13,17 @@ import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actio
 import FaCalendar from 'react-icons/lib/fa/calendar'
 import GoChecklist from 'react-icons/lib/go/checklist'
 
+import {addRecipeToFav, addToShoppingList}from '../FavouriteReducer/actionCreatos'
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
-  userId: state.loggedInData.loggedInUserId,
-  user: state.loggedUser.userData
+  session: state.currentUserData.session,
 })
 
 const mapDispatchToProps = dispatch => ({
-  addToCalendar: (recipe) => dispatch(addToCalendarFromRecipeView(recipe))
+  addToCalendar: (recipe) => dispatch(addToCalendarFromRecipeView(recipe)),
+  addToShoppingList: (userId,accessToken,id) => dispatch(addToShoppingList(userId,accessToken,id)),
+  addRecipe: (userId,accessToken,id) => dispatch(addRecipeToFav(userId,accessToken,id))
 })
 
 
@@ -47,10 +49,13 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
             <Image className="photo recipeImage" src={recipeWithId.image}/>
           </div>
           {
-            typeof props.userId === 'number' ?
+            props.session !== null ?
               <p>
                 {
-                  <span title="Dodaj do ulubionych" className="favorite">&#9055;</span>
+                  <span title="Dodaj do ulubionych"
+                        className="favorite"
+                    onClick={() => props.addRecipe(props.session.userId,props.session.id,recipeWithId.id)}
+                  >&#9055;</span>
                 }
               </p> :
               null
@@ -70,22 +75,28 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
                         </span>
                       {" "}<span className="amount">{ingredient.ingredientAmount}</span> {ingredient.unitMeasure}
                       <span key={ingredient.id}>
-                          {
-                            <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
+
                               { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
                                 <span> </span> :
                                   <div>
+                                    {props.session !== null ?
                                     <span title="Dodaj do listy zakupów" >
-                                      <GoChecklist className=" addToListRecipeView"/>
-                                     </span>
+                                      <GoChecklist className=" addToListRecipeView"
+                                      onClick={
+                                        ()=> props.addToShoppingList(props.session.userId,props.session.id,ingredient.id)
+                                      }/>
+                                     </span>: null
+                                    }
+                                    <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
                                      <span title="Znajdź sklep">
                                         <FaCartPlus size="40px" color="#2da834"
                                           className="cart"/>
                                      </span>
+                                      </Link>
                                   </div>
                               }
-                            </Link>
-                          }
+
+
                         </span>
                     </li>
                 )
