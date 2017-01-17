@@ -1,0 +1,2 @@
+export const FETCH_FAV_RECIPES__BEGIN = 'favourite/FETCH_FAV_RECIPES__BEGIN'
+export const FETCH_FAV_RECIPES__SUCCES = 'favourite/FETCH_FAV_RECIPES__SUCCESs'

@@ -16,8 +16,7 @@ import GoChecklist from 'react-icons/lib/go/checklist'
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
-  userId: state.loggedInData.loggedInUserId,
-  user: state.loggedUser.userData
+  session: state.currentUserData.session,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -47,7 +46,7 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
             <Image className="photo recipeImage" src={recipeWithId.image}/>
           </div>
           {
-            typeof props.userId === 'number' ?
+            props.session !== null ?
               <p>
                 {
                   <span title="Dodaj do ulubionych" className="favorite">&#9055;</span>
@@ -75,9 +74,10 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
                               { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
                                 <span> </span> :
                                   <div>
+                                    {props.session !== null ?
                                     <span title="Dodaj do listy zakupów" >
                                       <GoChecklist className=" addToListRecipeView"/>
-                                     </span>
+                                     </span>: null }
                                      <span title="Znajdź sklep">
                                         <FaCartPlus size="40px" color="#2da834"
                                           className="cart"/>

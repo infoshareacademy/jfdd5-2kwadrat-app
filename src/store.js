@@ -7,13 +7,15 @@ import {reducer as ingredientsReducer} from './FridgeView'
 import {reducer as filteredRecipesViewReducer} from './FilteredRecipesView'
 import calendarReducer from './CalendarView/CalendarReducer/reducer'
 import userReducer from './LoginFormView/CurrentUserReducer/reducer'
+import favouriteReducer from './FavouriteReducer/reducer'
 
 const reducer = combineReducers({
   shopsData: shopsReducer,
   filteredRecipesViewReducer: filteredRecipesViewReducer,
   selectedIngredients: ingredientsReducer,
   calendarData: calendarReducer,
-  currentUserData: userReducer
+  currentUserData: userReducer,
+  favourite : favouriteReducer
 
 
 })
