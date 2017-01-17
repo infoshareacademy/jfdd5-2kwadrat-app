@@ -4,20 +4,16 @@ import {connect} from 'react-redux'
 import ingredients from '../data/ingredients'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import {removeSelectedIngredient} from '../LoginFormView/UsersReducer/actionCreators'
 import Counter from './Counter'
 
 import './NeededIngredientView.css'
 
 const mapStateToProps = state => ({
-  userId: state.loggedInData.loggedInUserId,
-  user: state.loggedUser.userData
+
 })
 
 const mapDispatchToProps = dispatch => ({
 
-  removeSelectedIngredient: (ingredient) => dispatch(
-    removeSelectedIngredient(ingredient))
 })
 
 const NeededIngredient = (props) => {
