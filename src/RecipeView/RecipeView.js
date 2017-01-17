@@ -31,143 +31,147 @@ export default connect(mapStateToProps, mapDispatchToProps)((props) => {
 
 
   const recipeWithId = recipes.find(
-    recipe => recipe.id === parseInt(props.params.recipeId, 10)
+      recipe => recipe.id === parseInt(props.params.recipeId, 10)
   );
   const arrayOfSelectedIngredientsID =
-    props.selectedIngredients.map(
-      selected =>
-        selected.id
-    );
+      props.selectedIngredients.map(
+          selected =>
+              selected.id
+      );
 
 
   return (
-    <div key={recipeWithId.id}>
-      <h1 className="recipeName">{recipeWithId.name}</h1>
-      <Col xs={12} className="recipeViewWrapper">
-        <Col lg={6}>
-          <div className="grow pic">
-            <Image className="photo recipeImage" src={recipeWithId.image}/>
-          </div>
-          {
-            typeof props.userId === 'number' ?
-              <p>
+      <div key={recipeWithId.id}>
+        <h1 className="recipeName">{recipeWithId.name}</h1>
+        <Col xs={12} className="recipeViewWrapper">
+          <Col lg={6}>
+            <div className="grow pic">
+              <Image className="photo recipeImage" src={recipeWithId.image}/>
+            </div>
+            {
+              typeof props.userId === 'number' ?
+                  <p>
+                    {
+                      <span title="Dodaj do ulubionych" className="favorite">&#9055;</span>
+                    }
+                  </p> :
+                  null
+            }
+          </Col>
+          <Col lg={6}>
+            <hr className="cutIt"/>
+            <div className="manualView">
+              <span className="ingredient">Składniki:</span>
+              <ul className="ingredientsList">
                 {
-                  <span title="Dodaj do ulubionych" className="favorite">&#9055;</span>
-                }
-              </p> :
-              null
-          }
-        </Col>
-        <Col lg={6}>
-          <hr className="cutIt"/>
-          <div className="manualView">
-            <span className="ingredient">Składniki:</span>
-            <ul className="ingredientsList">
-              {
-                recipeWithId.ingredients.map(
-                  ingredient =>
-                    <li key={ingredient.id}>
-                        <span>
-                          {ingredients.find(item => item.id === ingredient.id).name}
-                        </span>
-                      {" "}<span className="amount">{ingredient.ingredientAmount}</span> {ingredient.unitMeasure}
-                      <span key={ingredient.id}>
+                  recipeWithId.ingredients.map(
+                    ingredient =>
+                        <li key={ingredient.id}>
+                      <span>
+                        {ingredients.find(item => item.id === ingredient.id).name}
+                      </span>
+                        {" "}<span className="amount">{ingredient.ingredientAmount}</span> {ingredient.unitMeasure}
+                        <span key={ingredient.id}>
                           {
                             <span>
                               {
                                 arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
                                   null :
                                   <span className="ingredientOptions">
-                                  {
-                                    props.user !== null ?
-                                      <span>
-
-                  {
-                    props.user !== null ?
-                      <button onClick={() => props.addIngredient(ingredient.id)}>ADd</button> :
-                      null
-                  }
+                                    {
+                                      props.user !== null ?
+                                        <span>
+                                        {
+                                          props.user !== null ?
+                                              <GoChecklist onClick={() => props.addIngredient(ingredient.id)} />
+                                             :
+                                            null
+                                        }
                                         <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
-                    <span title="Znajdź sklep">
-                      <FaCartPlus size="40px" color="#2da834"
-                                  className="cart"/>
-                    </span>
-                  </Link>
-                    </span> :
-                                      null
-                                  }
-                        </span>
+                                          <span title="Znajdź sklep">
+                                            <FaCartPlus size="40px" color="#2da834"
+                                                        className="cart"/>
+                                          </span>
+                                        </Link>
+                                      </span>:
+                                        null
+                                    }
+                                  </span>
                               }
-                      </span>
+                            </span>
                           }
-                    </span>
-                    </li>
-                )
+                        </span>
+                        </li>
+                  )
+                }
+              </ul>
+              {
+                props.user !== null ?
+              <Link to={"/calendar"}>
+                <div title="Dodaj przepis do swojego kalendarza" className="calendarButton">
+                  <FaCalendar size="40px" color="#2da834"
+                              className="cart"/>
+                  <Button className="addToCalendar"
+                          bsStyle="success"
+                          onClick={() => props.addToCalendar(recipeWithId)}
+                  >Dodaj do kalendarza
+                  </Button>
+                </div>
+              </Link>:
+                    null
               }
-            </ul>
-            <Link to={"/calendar"}>
-              <div title="Dodaj przepis do swojego kalendarza" className="calendarButton">
-                <FaCalendar size="40px" color="#2da834"
-                            className="cart"/>
-                <Button className="addToCalendar"
-                        bsStyle="success"
-                        onClick={() => props.addToCalendar(recipeWithId)}
-                >Dodaj do kalendarza
-                </Button>
-              </div>
-            </Link>
-          </div>
-          <div title="udostępnij" className="socialIcons">
-            <a href="https://plus.google.com/" target="_blank">
-              <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
-            </a>
+            </div>
+            <div title="udostępnij" className="socialIcons">
+              <a href="https://plus.google.com/" target="_blank">
+                <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
+              </a>
 
-            <a href="https://www.facebook.com/" target="_blank">
-              <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
-            </a>
+              <a href="https://www.facebook.com/" target="_blank">
+                <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
+              </a>
 
-            <a href="https://twitter.com/" target="_blank">
-              <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
-            </a>
-          </div>
-        </Col>
-        <Col xs={12}>
-          <hr className="aboveDescription"/>
-          <p className="description">{recipeWithId.description}</p>
-        </Col>
-      </Col>
-      <Col xs={12}>
-        <p>Dodane komentarze innych uzytkownikow</p>
-      </Col>
-      {
-        typeof props.userId === 'number' ?
-
-          <Col xs={12} md={6} mdOffset={3}>
-            <div className="commentsContainer">
-              <div className="userInformation">
-              </div>
-              <form>
-                <label>
-                  <p className="commentTitle">tytuł:</p> <input name="title" className="titleField"/>
-                </label>
-
-                <br/>
-
-                <label>
-                  <p className="commentBody">treść:</p> <textarea name="body" className="bodyField"></textarea>
-                </label>
-
-                <br/>
-
-                <input type="submit" value="Dodaj komentarz" className="addBtn"/>
-              </form>
+              <a href="https://twitter.com/" target="_blank">
+                <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
+              </a>
             </div>
           </Col>
-          :
-          <p>Zaloguj się aby dodać komentarz</p>
-      }
-      {props.children}
-    </div>
+          <Col xs={12}>
+            <hr className="aboveDescription"/>
+            <p className="description">{recipeWithId.description}</p>
+          </Col>
+        </Col>
+        <Col xs={12}>
+          <p>Dodane komentarze innych uzytkownikow</p>
+        </Col>
+        {
+          typeof props.userId === 'number' ?
+
+              <Col xs={12} md={6} mdOffset={3}>
+                <div className="commentsContainer">
+                  <div className="userInformation">
+                  </div>
+                  <form>
+                    <label>
+                      <p className="commentTitle">tytuł:</p> <input name="title" className="titleField"/>
+                    </label>
+
+                    <br/>
+
+                    <label>
+                      <p className="commentBody">treść:</p> <textarea name="body" className="bodyField"></textarea>
+                    </label>
+
+                    <br/>
+
+                    <input type="submit" value="Dodaj komentarz" className="addBtn"/>
+                  </form>
+                </div>
+              </Col>
+              :
+              <p>Zaloguj się aby dodać komentarz</p>
+        }
+        {props.children}
+      </div>
   )
 })
 
