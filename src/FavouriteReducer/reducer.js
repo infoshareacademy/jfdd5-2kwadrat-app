@@ -25,11 +25,6 @@ export default (state = initialState, action) => {
         ...state,
         shoppingList: action.shoppingListIds
       }
-    case ADD_TO_SHOPPING_LIST:
-      return {
-        ...state,
-        shoppingList: state.shoppingList.concat(action.id)
-      }
     default:
       return state
   }
