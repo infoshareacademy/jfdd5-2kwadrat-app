@@ -81,7 +81,6 @@
   color: #FFF;
   border-radius: 20px/80%;
   padding: 5px;
-  /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
 }
 
 .titleTop {
@@ -124,14 +123,14 @@ hr.bottomDividingLine {
 }
 
 .searchButtonText {
-  position: fixed;
-  bottom: 10px;
-  right: 100px;
-  display: inline-block;
+  /*position: fixed;*/
+  /*bottom: 10px;*/
+  /*right: 100px;*/
+  display: block;
   font-family: Lato, sans-serif;
   background-color: transparent;
   border-radius: 5px;
-  padding: 8px 10px ;
+  padding: 0 10px 30px ;
   color: #2da834
 }
 
@@ -151,11 +150,10 @@ hr.bottomDividingLine {
 
 .form-control:focus {
   border-color: #2da834;
-  /*box-shadow: 0 0 6px 5px #E8B00C;*/
 }
 
 .formBottomHalf {
- margin-bottom: 65px;
+ margin-bottom: 10px;
 }
 
 .fadeFridgeView-appear {

@@ -8,6 +8,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import {recipes} from '../data'
 import {selectRecipes} from './select'
+import {default as FridgeView} from '../FridgeView/FridgeView.js'
+
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
@@ -59,8 +61,11 @@ const FilteredRecipes = (props) => {
   console.log(newRecipesArray);
 
   return (
-
     <div>
+      <div>
+        <FridgeView/>
+      </div>
+      <div>
         {
           arrayOfSelectedIngredientsID.length !== 0 ?
             <div>
@@ -206,51 +211,51 @@ const FilteredRecipes = (props) => {
                   <Link key={recipe.id} to={'/recipes/' + recipe.id}>
                     <Col key={recipe.id} xs={12} sm={6} md={4}>
                       <ReactCSSTransitionGroup
-                      transitionName="fadeFilteredRecipes"
-                      transitionAppearTimeout={300}
-                      transitionAppear={true}>
+                        transitionName="fadeFilteredRecipes"
+                        transitionAppearTimeout={300}
+                        transitionAppear={true}>
 
-                      <div className="recipeCard recipeCardHeight">
-                        <Image className="photo image" src={recipe.image}/>
-                        <h2>{recipe.name}</h2>
-                        {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
-                          <p className="missing-ingredients-info">
-                            Masz wszystkie składniki! Do dzieła
-                          </p> :
+                        <div className="recipeCard recipeCardHeight">
+                          <Image className="photo image" src={recipe.image}/>
+                          <h2>{recipe.name}</h2>
+                          {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
+                            <p className="missing-ingredients-info">
+                              Masz wszystkie składniki! Do dzieła
+                            </p> :
 
-                          <p className="missing-ingredients-info">
-                            Masz {recipe.numberOfFittedIngredients.length}
-                            {recipe.numberOfFittedIngredients.length === 1 ?
-                              ' składnik' :
-                              recipe.numberOfFittedIngredients.length === 0 || recipe.numberOfFittedIngredients.length > 4 ?
-                                ' składników' :
-                                ' składniki'
-                            }
-                          </p>
-                        }
-                        {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
-                          '' :
-                          <p className="missing-ingredients-info">
-                            Brakuje Ci tylko {recipe.ingredients.length - recipe.numberOfFittedIngredients.length }
-                            {recipe.ingredients.length - recipe.numberOfFittedIngredients.length === 1 ?
-                              ' skladnika' : ' skladników'
-                            }
-                          </p>
-                        }
-                        <div className="icons">
-                          <div className="recipeTime">{recipe.time} min.</div>
-                          <div className="recipeDifficult">{recipe.difficult}</div>
+                            <p className="missing-ingredients-info">
+                              Masz {recipe.numberOfFittedIngredients.length}
+                              {recipe.numberOfFittedIngredients.length === 1 ?
+                                ' składnik' :
+                                recipe.numberOfFittedIngredients.length === 0 || recipe.numberOfFittedIngredients.length > 4 ?
+                                  ' składników' :
+                                  ' składniki'
+                              }
+                            </p>
+                          }
+                          {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
+                            '' :
+                            <p className="missing-ingredients-info">
+                              Brakuje Ci tylko {recipe.ingredients.length - recipe.numberOfFittedIngredients.length }
+                              {recipe.ingredients.length - recipe.numberOfFittedIngredients.length === 1 ?
+                                ' skladnika' : ' skladników'
+                              }
+                            </p>
+                          }
+                          <div className="icons">
+                            <div className="recipeTime">{recipe.time} min.</div>
+                            <div className="recipeDifficult">{recipe.difficult}</div>
+                          </div>
                         </div>
-                      </div>
-                    </ReactCSSTransitionGroup>
+                      </ReactCSSTransitionGroup>
 
                     </Col>
                   </Link>
                 )
               }
-            ) :
-            <h1><Link to={'/form'}><span className="span-button">Co masz w lodówce?</span></Link></h1>
+            ) : ''
         }
+      </div>
     </div>
   )
 };

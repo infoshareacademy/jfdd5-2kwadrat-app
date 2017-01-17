@@ -168,14 +168,18 @@ class FridgeView extends React.Component {
         <div className="searchButton">
           {this.props.selectedIngredients.length === 0 ? null :
 
-            <h2 className="searchButtonText">
+
+            //na onClick wysyłam informację do stora że lista jest gotowa;
+            // w reducerze wpisuję nowy stan;
+            // w FilteredRecipesView zamieniam ternary operator na to czy lista jest w sorze czy nie
+            <div className="searchButtonText">
               <Link to={'/filtered-recipes'}>
                 <Button bsStyle="warning"
                         bsSize="large">
                 <FaCutlery /> PRZEPISY DLA CIEBIE
                   </Button>
               </Link>
-            </h2>}
+            </div>}
         </div>
       </div>
         </ReactCSSTransitionGroup>
