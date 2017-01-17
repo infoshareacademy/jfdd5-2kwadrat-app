@@ -59,13 +59,12 @@ const FilteredRecipes = (props) => {
   console.log(newRecipesArray);
 
   return (
+
     <div>
-      <ReactCSSTransitionGroup
-        transitionName="route"
-        transitionAppearTimeout={100}
-        transitionAppear={true}>
+
         {
           arrayOfSelectedIngredientsID.length !== 0 ?
+
             <div>
               <div title="wstecz" className="button-back">
                 <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px"/></span></Link>
@@ -209,6 +208,11 @@ const FilteredRecipes = (props) => {
                 return (
                   <Link key={recipe.id} to={'/recipes/' + recipe.id}>
                     <Col key={recipe.id} xs={12} sm={6} md={4}>
+                      <ReactCSSTransitionGroup
+                      transitionName="fadeA"
+                      transitionAppearTimeout={300}
+                      transitionAppear={true}>
+
                       <div className="recipeCard recipeCardHeight">
                         <Image className="photo image" src={recipe.image}/>
                         <h2>{recipe.name}</h2>
@@ -242,6 +246,8 @@ const FilteredRecipes = (props) => {
                           <div className="recipeDifficult">{recipe.difficult}</div>
                         </div>
                       </div>
+                    </ReactCSSTransitionGroup>
+
                     </Col>
                   </Link>
                 )
@@ -249,7 +255,7 @@ const FilteredRecipes = (props) => {
             ) :
             <h1><Link to={'/form'}><span className="span-button">Co masz w lodówce?</span></Link></h1>
         }
-      </ReactCSSTransitionGroup>
+
     </div>
   )
 };

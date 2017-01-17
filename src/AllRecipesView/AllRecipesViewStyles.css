@@ -90,6 +90,6 @@ a:-webkit-any-link {
   animation: fadeIn 0.4s
 }
 
-.rotate-appear {
-  animation: zoomIn 0.5s ;
+.zoomIn-appear {
+  animation: zoomIn 0.3s ;
 }
