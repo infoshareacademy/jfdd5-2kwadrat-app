@@ -1,6 +1,6 @@
 import React from 'react'
 import './RecipeViewStyle.css'
-import {Image, Col,Button} from 'react-bootstrap'
+import {Image, Col, Button} from 'react-bootstrap'
 import {recipes} from '../data'
 import {ingredients} from '../data'
 import {Link} from 'react-router'
@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(mapStateToProps,mapDispatchToProps)((props) => {
+export default connect(mapStateToProps, mapDispatchToProps)((props) => {
 
 
   const recipeWithId = recipes.find(
@@ -36,6 +36,7 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
       selected =>
         selected.id
     );
+
 
   return (
     <div key={recipeWithId.id}>
@@ -70,20 +71,22 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
                       {" "}<span className="amount">{ingredient.ingredientAmount}</span> {ingredient.unitMeasure}
                       <span key={ingredient.id}>
                           {
-                            <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
+                            <span>
                               { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
-                                <span> </span> :
-                                  <div>
-                                    <span title="Dodaj do listy zakupów" >
+                                null :
+                                <span className="ingredientOptions">
+                                    <span title="Dodaj do listy zakupów">
                                       <GoChecklist className=" addToListRecipeView"/>
                                      </span>
+                                    <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
                                      <span title="Znajdź sklep">
                                         <FaCartPlus size="40px" color="#2da834"
-                                          className="cart"/>
+                                                    className="cart"/>
                                      </span>
-                                  </div>
+                                    </Link>
+                                  </span>
                               }
-                            </Link>
+                            </span>
                           }
                         </span>
                     </li>
@@ -92,14 +95,14 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
             </ul>
             <Link to={"/calendar"}>
               <div title="Dodaj przepis do swojego kalendarza" className="calendarButton">
-              <FaCalendar size="40px" color="#2da834"
-                          className="cart"/>
-            <Button className="addToCalendar"
-                    bsStyle="success"
-            onClick={() => props.addToCalendar(recipeWithId)}
-            >Dodaj do kalendarza
-            </Button>
-            </div>
+                <FaCalendar size="40px" color="#2da834"
+                            className="cart"/>
+                <Button className="addToCalendar"
+                        bsStyle="success"
+                        onClick={() => props.addToCalendar(recipeWithId)}
+                >Dodaj do kalendarza
+                </Button>
+              </div>
             </Link>
           </div>
           <div title="udostępnij" className="socialIcons">
@@ -127,29 +130,29 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
       {
         typeof props.userId === 'number' ?
 
-              <Col xs={12} md={6} mdOffset={3}>
-                <div className="commentsContainer">
-                  <div className="userInformation">
-                  </div>
-                  <form>
-                    <label>
-                      <p className="commentTitle">tytuł:</p> <input name="title" className="titleField"/>
-                    </label>
+          <Col xs={12} md={6} mdOffset={3}>
+            <div className="commentsContainer">
+              <div className="userInformation">
+              </div>
+              <form>
+                <label>
+                  <p className="commentTitle">tytuł:</p> <input name="title" className="titleField"/>
+                </label>
 
-                    <br/>
+                <br/>
 
-                    <label>
-                      <p className="commentBody">treść:</p> <textarea name="body" className="bodyField"></textarea>
-                    </label>
+                <label>
+                  <p className="commentBody">treść:</p> <textarea name="body" className="bodyField"></textarea>
+                </label>
 
-                    <br/>
+                <br/>
 
-                    <input type="submit" value="Dodaj komentarz" className="addBtn"/>
-                  </form>
-                </div>
-              </Col>
-             :
-            <p>Zaloguj się aby dodać komentarz</p>
+                <input type="submit" value="Dodaj komentarz" className="addBtn"/>
+              </form>
+            </div>
+          </Col>
+          :
+          <p>Zaloguj się aby dodać komentarz</p>
       }
       {props.children}
     </div>
