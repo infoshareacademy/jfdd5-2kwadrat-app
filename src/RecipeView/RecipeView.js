@@ -12,6 +12,7 @@ import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
 import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actionCreator'
 import FaCalendar from 'react-icons/lib/fa/calendar'
 import GoChecklist from 'react-icons/lib/go/checklist'
+import {addSelectedIngredient} from '../LoginFormView/UsersReducer/actionCreators'
 
 
 const mapStateToProps = state => ({
@@ -21,7 +22,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  addToCalendar: (recipe) => dispatch(addToCalendarFromRecipeView(recipe))
+  addToCalendar: (recipe) => dispatch(addToCalendarFromRecipeView(recipe)),
+  addIngredient: (ingredientId) => dispatch(addSelectedIngredient(ingredientId))
 })
 
 
@@ -72,7 +74,6 @@ export default connect(mapStateToProps, mapDispatchToProps)((props) => {
                       <span key={ingredient.id}>
                           {
                             <span>
-
                               {
                                 arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
                                   null :
@@ -80,23 +81,26 @@ export default connect(mapStateToProps, mapDispatchToProps)((props) => {
                                   {
                                     props.user !== null ?
                                       <span>
-                                        <span title="Dodaj do listy zakupów">
-                                          <GoChecklist className=" addToListRecipeView"/>
-                                         </span>
+
+                  {
+                    props.user !== null ?
+                      <button onClick={() => props.addIngredient(ingredient.id)}>ADd</button> :
+                      null
+                  }
                                         <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
-                                         <span title="Znajdź sklep">
-                                            <FaCartPlus size="40px" color="#2da834"
-                                                        className="cart"/>
-                                         </span>
-                                      </Link>
-                                    </span> :
-                                    null
+                    <span title="Znajdź sklep">
+                      <FaCartPlus size="40px" color="#2da834"
+                                  className="cart"/>
+                    </span>
+                  </Link>
+                    </span> :
+                                      null
                                   }
-                                </span>
-                              }
-                            </span>
-                          }
                         </span>
+                              }
+                      </span>
+                          }
+                    </span>
                     </li>
                 )
               }
