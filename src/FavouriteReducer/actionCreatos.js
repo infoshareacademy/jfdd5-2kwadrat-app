@@ -2,19 +2,45 @@ import {
   FETCH_FAV_RECIPES__SUCCES,
   FETCH_FAV_RECIPES__BEGIN,
   FETCH_SHOPPING_LIST__BEGIN,
-  FETCH_SHOPPING_LIST__SUCCES
+  FETCH_SHOPPING_LIST__SUCCES,
+  ADD_RECIPE_TO_FAV,
+  ADD_TO_SHOPPING_LIST
 } from './actionTypes'
+
+export const addRecipeToFav = () => ({
+  type: ADD_RECIPE_TO_FAV
+})
+
+export const addToShoppingList = (userId, accessToken, ingredientId) => {
+  return dispatch => {
+    dispatch({type: ADD_TO_SHOPPING_LIST})
+    fetch(
+      'http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + accessToken,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "itemId":ingredientId,
+          "itemType": "ingredient",
+          "ownerId": 7
+        })
+      }
+    )
+  }
+}
 
 export const fetchFavouriteRecipes = (userId, accessToken) => {
   return dispatch => {
-    dispatch({type:FETCH_FAV_RECIPES__BEGIN})
+    dispatch({type: FETCH_FAV_RECIPES__BEGIN})
     fetch(
       'http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
     ).then(
       response => response.json()
     ).then(
       favoriteItems => dispatch({
-        type:FETCH_FAV_RECIPES__SUCCES,
+        type: FETCH_FAV_RECIPES__SUCCES,
         favoriteRecipesId: favoriteItems.filter(
           item =>
           item.itemType === 'recipe'
@@ -29,14 +55,14 @@ export const fetchFavouriteRecipes = (userId, accessToken) => {
 
 export const fetchShoppingList = (userId, accessToken) => {
   return dispatch => {
-    dispatch({type:FETCH_SHOPPING_LIST__BEGIN})
+    dispatch({type: FETCH_SHOPPING_LIST__BEGIN})
     fetch(
       'http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
     ).then(
       response => response.json()
     ).then(
       favoriteItems => dispatch({
-        type:FETCH_SHOPPING_LIST__SUCCES,
+        type: FETCH_SHOPPING_LIST__SUCCES,
         shoppingListIds: favoriteItems.filter(
           item =>
           item.itemType === 'ingredient'
