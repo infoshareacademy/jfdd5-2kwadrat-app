@@ -85,7 +85,11 @@ a:-webkit-any-link {
   width: 100%;
 }
 
-.fade-appear {
+.fadeAllRecipes-appear {
   opacity: 0;
-  animation: fadeIn 0.5s
+  animation: fadeIn 0.4s
+}
+
+.zoomIn-appear {
+  animation: zoomIn 0.3s ;
 }

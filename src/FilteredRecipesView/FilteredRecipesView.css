@@ -47,11 +47,10 @@
   }
 }
 
-.btn-group {
-  margin-bottom: 30px;
-}
+/*.btn-group {*/
+  /*margin-bottom: 30px;*/
+/*}*/
 
-.route-appear {
-  opacity: 0;
-  animation: slideIn 0.1s
+.fadeFilteredRecipes-appear {
+  animation: zoomIn 0.3s;
 }

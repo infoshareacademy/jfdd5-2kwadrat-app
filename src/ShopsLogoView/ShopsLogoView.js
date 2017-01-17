@@ -7,7 +7,6 @@ import {default as ShopView} from './ShopView/ShopView'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import '../animations.css'
 
-
 import './ShopLogoView.css'
 
 const mapStateToProps = state => ({
@@ -17,7 +16,7 @@ const mapStateToProps = state => ({
 const ShopsLogoView = (props) => {
   return (
       <ReactCSSTransitionGroup
-          transitionName="fade"
+          transitionName="fadeShopLogo"
           transitionEnterTimeout={500}
           transitionAppearTimeout={500}
           transitionLeaveTimeout={500}
@@ -50,7 +49,6 @@ const ShopsLogoView = (props) => {
             }
           )
         }
-
       </Col>
       <Col xs={6}>
         {<ShopsMap />}
