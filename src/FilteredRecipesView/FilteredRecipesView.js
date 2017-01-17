@@ -4,7 +4,6 @@ import {Image, Col, ButtonGroup, Button, DropdownButton, MenuItem} from 'react-b
 import {Link} from 'react-router'
 import './FilteredRecipesView.css'
 import FaArrowLeft from 'react-icons/lib/fa/arrow-left'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import {recipes} from '../data'
 import {selectRecipes} from './select'
@@ -60,10 +59,6 @@ const FilteredRecipes = (props) => {
 
   return (
     <div>
-      <ReactCSSTransitionGroup
-        transitionName="route"
-        transitionAppearTimeout={100}
-        transitionAppear={true}>
         {
           arrayOfSelectedIngredientsID.length !== 0 ?
             <div>
@@ -212,7 +207,7 @@ const FilteredRecipes = (props) => {
                       <div className="recipeCard recipeCardHeight">
                         <Image className="photo image" src={recipe.image}/>
                         <h2>{recipe.name}</h2>
-                        { recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
+                        {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
                           <p className="missing-ingredients-info">
                             Masz wszystkie składniki! Do dzieła
                           </p> :
@@ -249,7 +244,6 @@ const FilteredRecipes = (props) => {
             ) :
             <h1><Link to={'/form'}><span className="span-button">Co masz w lodówce?</span></Link></h1>
         }
-      </ReactCSSTransitionGroup>
     </div>
   )
 };
