@@ -43,21 +43,15 @@ class FridgeView extends React.Component {
 
   render() {
     return (
-        <ReactCSSTransitionGroup
-            transitionName="fadeFridgeView"
-            transitionAppearTimeout={400}
-            transitionAppear={true}>
-      <div className="divKeepsAll">
-        <form onSubmit={this.handleSubmit}>
-          <Row className="ingredientInputRow">
-            <Col xs={12}
-            >
+      <ReactCSSTransitionGroup
+        transitionName="fadeFridgeView"
+        transitionAppearTimeout={400}
+        transitionAppear={true}>
+        <div className="divKeepsAll">
+          <form onSubmit={this.handleSubmit}>
+            <Col className="ingredientInputRow" xs={12}>
               <h2 className="titles titleTop">Wybierz co masz w lodówce</h2>
-            </Col>
 
-            <Col xs={12} sm={8} md={6}
-                 xsOffset={0} smOffset={2} mdOffset={3}
-            >
               <FormControl
                 className="ingredientInput"
                 bsSize="sm"
@@ -65,124 +59,122 @@ class FridgeView extends React.Component {
                 placeholder="w lodówce mam..."
                 onChange={(event) => this.setState({search: event.target.value})}
               />
-            </Col>
-          </Row>
 
-          <Row>
-            {ingredients.filter(
-              ingredient => this.state.search === '' ? false : ingredient.name.includes(this.state.search)
-            ).slice(0, 4).map(
-              ingredient => {
-                return (
-                  <Col key={ingredient.id} xs={6} sm={4} md={3} onClick={
-                    () => {
-                      if (this.props.selectedIngredients.find(item => item.id === ingredient.id) === undefined) {
-                        this.setState(
-                          {
-                            ingredients: this.state.ingredients.concat(
-                              {
-                                name: ingredient.name,
-                                id: ingredient.id,
-                                img: ingredient.img
-                              })
-                          },
-                          () => this.props.addIngredient(ingredient)
-                        )
-                      } else {
-                        this.setState(
-                          {
-                            ingredients: this.state.ingredients.filter(
-                              item => item.id !== ingredient.id
-                            )
-                          },
-                          () => this.props.removeIngredient(ingredient.id)
-                        )
+              {ingredients.filter(
+                ingredient => this.state.search === '' ? false : ingredient.name.includes(this.state.search)
+              ).slice(0, 4).map(
+                ingredient => {
+                  return (
+                    <div onClick={
+                      () => {
+                        if (this.props.selectedIngredients.find(item => item.id === ingredient.id) === undefined) {
+                          this.setState(
+                            {
+                              ingredients: this.state.ingredients.concat(
+                                {
+                                  name: ingredient.name,
+                                  id: ingredient.id,
+                                  img: ingredient.img
+                                })
+                            },
+                            () => this.props.addIngredient(ingredient)
+                          )
+                        } else {
+                          this.setState(
+                            {
+                              ingredients: this.state.ingredients.filter(
+                                item => item.id !== ingredient.id
+                              )
+                            },
+                            () => this.props.removeIngredient(ingredient.id)
+                          )
+                        }
                       }
-                    }
-                  }>
-                    <div className="ingredientFieldContent filtered">
-                      <div className="ingredientName">
-                        {ingredient.name}
+                    }>
+                      <div className="ingredientFieldContent filtered">
+                        <Col xs={4}>
+                          <Image className="filteredIngredientImage" src={ingredient.img}/>
+                        </Col>
+
+                        <Col xs={8}>
+                          <div className="ingredientName">{ingredient.name}</div>
+                        </Col>
                       </div>
-                      <Image className="filteredIngredientImage" src={ingredient.img}/>
-
                     </div>
-                  </Col>
-                )
-              }
-            )}
-          </Row>
-        </form>
+                  )
+                }
+              )}
+            </Col>
+          </form>
 
-        <form className="formBottomHalf">
-          <Row>
+          <form className="formBottomHalf">
             <Col xs={12}>
               {this.props.selectedIngredients.length === 0 ? null :
                 <hr className="middleDividingLine"></hr>}
-            </Col>
-            <Col xs={12} sm={8} md={6}
-                 xsOffset={0} smOffset={2} mdOffset={3}
-            >
+              {/*</Col>*/}
+              {/*<Col xs={12}>*/}
               {this.props.selectedIngredients.length === 0 ? null :
                 <h2 className="titles">Wybrane produkty:</h2>}
-            </Col>
-          </Row>
+              {/*</Col>*/}
 
-          <Row>
-            {
-              this.props.selectedIngredients.map(
-                ingredient =>
-                  <Col key={ingredient.id} xs={6} sm={4} md={3} onClick={
-                    () => {
-                      if (this.props.removeIngredient(ingredient.id)) {
-                        this.setState(
-                          {
-                            ingredients: this.state.ingredients.filter(
-                              item => item.id !== ingredient.id
-                            )
-                          },
-                          () => this.props.removeIngredient(ingredient.id)
-                        )
+              {/*<Row>*/}
+              {
+                this.props.selectedIngredients.map(
+                  ingredient =>
+                    <div key={ingredient.id} onClick={
+                      () => {
+                        if (this.props.removeIngredient(ingredient.id)) {
+                          this.setState(
+                            {
+                              ingredients: this.state.ingredients.filter(
+                                item => item.id !== ingredient.id
+                              )
+                            },
+                            () => this.props.removeIngredient(ingredient.id)
+                          )
+                        }
                       }
-                    }
-                  }>
-                    <div className="ingredientFieldContent chosen">
-                      <div className="ingredientName">
-                        {ingredient.name}
+                    }>
+                      <div className="ingredientFieldContent chosen">
+                        <Col xs={4}>
+                          <Image className="chosenIngredientImage" src={ingredient.img}/>
+                        </Col>
+                        <Col xs={8}>
+                          <div className="ingredientName">{ingredient.name}</div>
+                        </Col>
                       </div>
-                      <Image className="chosenIngredientImage" src={ingredient.img}/>
                     </div>
-                  </Col>
-              )
-            }
-          </Row>
+                )
+              }
+              {/*</Row>*/}
+            </Col>
 
-          <Row>
+            {/*<Row>*/}
             <Col xs={12}>
               {this.props.selectedIngredients.length === 0 ? null :
                 <hr className="bottomDividingLine"></hr>}
             </Col>
-          </Row>
-        </form>
+            {/*</Row>*/}
+          </form>
 
-        <div className="searchButton">
-          {this.props.selectedIngredients.length === 0 ? null :
+          <div className="searchButton">
+            {this.props.selectedIngredients.length === 0 ? null :
 
 
-            //na onClick wysyłam informację do stora że lista jest gotowa;
-            // w reducerze wpisuję nowy stan;
-            // w FilteredRecipesView zamieniam ternary operator na to czy lista jest w sorze czy nie
-            <div className="searchButtonText">
-              <Link to={'/filtered-recipes'}>
-                <Button bsStyle="warning"
-                        bsSize="large">
-                <FaCutlery /> PRZEPISY DLA CIEBIE
+              //na onClick wysyłam informację do stora że lista jest gotowa;
+              // w reducerze wpisuję nowy stan;
+              // w FilteredRecipesView zamieniam ternary operator na to czy lista jest w sorze czy nie
+              <div className="searchButtonText">
+                <Link to={'/filtered-recipes'}>
+                  <Button bsStyle="warning"
+                          bsSize="large">
+                    <FaCutlery /> PRZEPISY DLA CIEBIE
                   </Button>
-              </Link>
-            </div>}
+                </Link>
+              </div>}
+          </div>
         </div>
-      </div>
-        </ReactCSSTransitionGroup>
+      </ReactCSSTransitionGroup>
     )
 
   }

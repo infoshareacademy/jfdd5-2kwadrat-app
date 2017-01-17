@@ -1,25 +1,23 @@
 .ingredientFieldContent,
-.filtered {
-  width: 90%;
-  margin: 10px auto;
-  border-radius: 35px;
+.filtered,
+.chosen {
+  width: 100%;
+  margin: 2px auto;
   background-color: #EEE;
   box-shadow: 0 0 0 1px white;
-  display: block;
+  display: inline-flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .ingredientFieldContent:checked {
   background-color: #2da834;
 }
 
-.filtered {
-  border: 1px solid #8c8c8c;
-  border-top: #E8B00C;
-}
-
+.filtered,
 .chosen {
   border: 1px solid #8c8c8c;
-  border-top: #E8B00C;
 }
 
 .ingredientFieldContent:hover {
@@ -30,61 +28,54 @@
 }
 
 .filteredIngredientImage {
-  height: 100px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  max-width: 180px;
+  height: 25px;
+  max-width: 40px;
 }
 
 .chosenIngredientImage {
-  height: 100px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.ingredientImage {
-  height: 50px;
+  height: 25px;
 }
 
 .ingredientInput {
   text-align: center;
-  width: 75%;
-  margin: 0 auto 15px;
+  width: 100%;
+  margin: 0 0 10px;
+  padding: 0;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 16px;
   background-color: #FEF;
   border: 2px solid #2da834;
 }
 
+.form-control {
+  width: 100%;
+}
+
 .ingredientInputRow {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 0;
 }
 
 .ingredientName  {
-  text-align: center;
-  align-items: center;
-  margin: auto;
-  font-size: 20px;
-  background-color: #2da834;
-  color: #FFF;
-  border-radius: 40px 40px 0 0;
-  border-top: 1px solid #8c8c8c;
-  border-left: 1px solid #8c8c8c;
-  border-right: 1px solid #8c8c8c;
+  font-size: 16px;
+  color: black;
 }
 
 .titles {
-  margin: 30px auto 20px;
+  margin: 0 0 10px;
+  font-size: 16px;
   font-family: Lato, sans-serif;
   background-color: #2da834;
   color: #FFF;
-  border-radius: 20px/80%;
+  border-radius: 10px/90%;
   padding: 5px;
+  width: 100%;
 }
 
 .titleTop {
-  padding: 5px 15px;
+  padding: 5px;
 }
 
 hr.middleDividingLine {
@@ -123,9 +114,6 @@ hr.bottomDividingLine {
 }
 
 .searchButtonText {
-  /*position: fixed;*/
-  /*bottom: 10px;*/
-  /*right: 100px;*/
   display: block;
   font-family: Lato, sans-serif;
   background-color: transparent;
@@ -154,6 +142,7 @@ hr.bottomDividingLine {
 
 .formBottomHalf {
  margin-bottom: 10px;
+  padidng: 0;
 }
 
 .fadeFridgeView-appear {

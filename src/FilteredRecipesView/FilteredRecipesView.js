@@ -38,16 +38,16 @@ const FilteredRecipes = (props) => {
 
   const newRecipesArray = recipes.map(
     recipe => (
-    {
-      ...recipe,
-      numberOfFittedIngredients: recipe.ingredients.map(
-        ingredient =>
-          arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ? 1 : 0
-      ).filter(
-        item =>
-        item === 1
-      )
-    }
+      {
+        ...recipe,
+        numberOfFittedIngredients: recipe.ingredients.map(
+          ingredient =>
+            arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ? 1 : 0
+        ).filter(
+          item =>
+          item === 1
+        )
+      }
     )
   );
   newRecipesArray.sort((a, b) =>
@@ -62,200 +62,203 @@ const FilteredRecipes = (props) => {
 
   return (
     <div>
-      <div>
+      <Col xs={12} sm={4} md={3}>
         <FridgeView/>
-      </div>
-      <div>
-        {
-          arrayOfSelectedIngredientsID.length !== 0 ?
-            <div>
-              <ButtonGroup>
-                <DropdownButton
-                  title={
-                    props.filterNames.includes("timeShort") ?
-                      'Czasochłonność: 0-30 min.' :
-                      (props.filterNames.includes("timeMedium") ?
-                        'Czasochłonność: 31-50 min.' :
-                        (props.filterNames.includes("timeLong") ?
-                          'Czasochłonność: 51-70 min.' :
-                          'Czasochłonność'))
-                  }
-                  bsStyle={
-                    props.filterNames.includes("timeShort") ?
-                      'success' :
-                      (props.filterNames.includes("timeMedium") ?
+      </Col>
+
+      <Col xs={12} sm={8} md={9}>
+        <div>
+          {
+            arrayOfSelectedIngredientsID.length !== 0 ?
+              <div>
+                <ButtonGroup>
+                  <DropdownButton
+                    title={
+                      props.filterNames.includes("timeShort") ?
+                        'Czasochłonność: 0-30 min.' :
+                        (props.filterNames.includes("timeMedium") ?
+                          'Czasochłonność: 31-50 min.' :
+                          (props.filterNames.includes("timeLong") ?
+                            'Czasochłonność: 51-70 min.' :
+                            'Czasochłonność'))
+                    }
+                    bsStyle={
+                      props.filterNames.includes("timeShort") ?
                         'success' :
-                        (props.filterNames.includes("timeLong") ?
+                        (props.filterNames.includes("timeMedium") ?
                           'success' :
-                          'default'))
-                  }
-                  id="bg-nested-dropdown"
-                >
-                  <MenuItem eventKey="1" onClick={() => {
-                    props.removeFilter('timeShort')
-                    props.removeFilter('timeMedium')
-                    props.removeFilter('timeLong')
-                    return (
-                      props.filterNames.indexOf('timeShort')
-                      === -1 ? props.setFilter('timeShort') : props.removeFilter('timeShort')
-                    )
-                  }}
+                          (props.filterNames.includes("timeLong") ?
+                            'success' :
+                            'default'))
+                    }
+                    id="bg-nested-dropdown"
                   >
-                    0-30 min.
-                  </MenuItem>
+                    <MenuItem eventKey="1" onClick={() => {
+                      props.removeFilter('timeShort')
+                      props.removeFilter('timeMedium')
+                      props.removeFilter('timeLong')
+                      return (
+                        props.filterNames.indexOf('timeShort')
+                        === -1 ? props.setFilter('timeShort') : props.removeFilter('timeShort')
+                      )
+                    }}
+                    >
+                      0-30 min.
+                    </MenuItem>
 
-                  <MenuItem eventKey="2" onClick={() => {
-                    props.removeFilter('timeShort')
-                    props.removeFilter('timeMedium')
-                    props.removeFilter('timeLong')
-                    return (
-                      props.filterNames.indexOf('timeMedium')
-                      === -1 ? props.setFilter('timeMedium') : props.removeFilter('timeMedium')
-                    )
-                  }}
-                  >
-                    31-50 min.
-                  </MenuItem>
+                    <MenuItem eventKey="2" onClick={() => {
+                      props.removeFilter('timeShort')
+                      props.removeFilter('timeMedium')
+                      props.removeFilter('timeLong')
+                      return (
+                        props.filterNames.indexOf('timeMedium')
+                        === -1 ? props.setFilter('timeMedium') : props.removeFilter('timeMedium')
+                      )
+                    }}
+                    >
+                      31-50 min.
+                    </MenuItem>
 
-                  <MenuItem eventKey="3" onClick={() => {
-                    props.removeFilter('timeShort')
-                    props.removeFilter('timeMedium')
-                    props.removeFilter('timeLong')
-                    return (
-                      props.filterNames.indexOf('timeLong')
-                      === -1 ? props.setFilter('timeLong') : props.removeFilter('timeLong')
-                    )
-                  }}
-                  >
-                    51-70 min.
-                  </MenuItem>
-                </DropdownButton>
+                    <MenuItem eventKey="3" onClick={() => {
+                      props.removeFilter('timeShort')
+                      props.removeFilter('timeMedium')
+                      props.removeFilter('timeLong')
+                      return (
+                        props.filterNames.indexOf('timeLong')
+                        === -1 ? props.setFilter('timeLong') : props.removeFilter('timeLong')
+                      )
+                    }}
+                    >
+                      51-70 min.
+                    </MenuItem>
+                  </DropdownButton>
 
-                <DropdownButton
-                  title={
-                    props.filterNames.includes("difficultEase") ?
-                      'Trudność: łatwe' :
-                      (props.filterNames.includes("difficultMedium") ?
-                        'Trudność: średnie' :
-                        (props.filterNames.includes("difficultHard") ?
-                          'Trudność: trudne' :
-                          'Trudność'))
-                  }
-                  bsStyle={
-                    props.filterNames.includes("difficultEase") ?
-                      'success' :
-                      (props.filterNames.includes("difficultMedium") ?
+                  <DropdownButton
+                    title={
+                      props.filterNames.includes("difficultEase") ?
+                        'Trudność: łatwe' :
+                        (props.filterNames.includes("difficultMedium") ?
+                          'Trudność: średnie' :
+                          (props.filterNames.includes("difficultHard") ?
+                            'Trudność: trudne' :
+                            'Trudność'))
+                    }
+                    bsStyle={
+                      props.filterNames.includes("difficultEase") ?
                         'success' :
-                        (props.filterNames.includes("difficultHard") ?
+                        (props.filterNames.includes("difficultMedium") ?
                           'success' :
-                          'default'))
-                  }
-                  id="bg-nested-dropdown"
-                >
-
-                  <MenuItem eventKey="1" onClick={() => {
-                    props.removeFilter('difficultEase')
-                    props.removeFilter('difficultMedium')
-                    props.removeFilter('difficultHard')
-                    return (
-                      props.filterNames.indexOf('difficultEase')
-                      === -1 ? props.setFilter('difficultEase') : props.removeFilter('difficultEase')
-                    )
-                  }}
+                          (props.filterNames.includes("difficultHard") ?
+                            'success' :
+                            'default'))
+                    }
+                    id="bg-nested-dropdown"
                   >
-                    łatwe
-                  </MenuItem>
 
-                  <MenuItem eventKey="2" onClick={() => {
-                    props.removeFilter('difficultEase')
-                    props.removeFilter('difficultMedium')
-                    props.removeFilter('difficultHard')
-                    return (
-                      props.filterNames.indexOf('difficultMedium')
-                      === -1 ? props.setFilter('difficultMedium') : props.removeFilter('difficultMedium')
-                    )
-                  }}
-                  >
-                    średnie
-                  </MenuItem>
+                    <MenuItem eventKey="1" onClick={() => {
+                      props.removeFilter('difficultEase')
+                      props.removeFilter('difficultMedium')
+                      props.removeFilter('difficultHard')
+                      return (
+                        props.filterNames.indexOf('difficultEase')
+                        === -1 ? props.setFilter('difficultEase') : props.removeFilter('difficultEase')
+                      )
+                    }}
+                    >
+                      łatwe
+                    </MenuItem>
 
-                  <MenuItem eventKey="3" onClick={() => {
-                    props.removeFilter('difficultEase')
-                    props.removeFilter('difficultMedium')
-                    props.removeFilter('difficultHard')
-                    return (
-                      props.filterNames.indexOf('difficultHard')
-                      === -1 ? props.setFilter('difficultHard') : props.removeFilter('difficultHard')
-                    )
-                  }}
-                  >
-                    trudne
-                  </MenuItem>
-                </DropdownButton>
+                    <MenuItem eventKey="2" onClick={() => {
+                      props.removeFilter('difficultEase')
+                      props.removeFilter('difficultMedium')
+                      props.removeFilter('difficultHard')
+                      return (
+                        props.filterNames.indexOf('difficultMedium')
+                        === -1 ? props.setFilter('difficultMedium') : props.removeFilter('difficultMedium')
+                      )
+                    }}
+                    >
+                      średnie
+                    </MenuItem>
 
-                <Button onClick={() => props.resetFilters()}>
-                  Usuń filtry
-                </Button>
-              </ButtonGroup>
-              <div title="wstecz" className="button-back">
-                <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px"/></span></Link>
-              </div>
-            </div> : ''
-        }
-        {
-          arrayOfSelectedIngredientsID.length !== 0 ?
-            selectRecipes(newRecipesArray, props.filterNames).map(
-              recipe => {
-                console.log(recipe)
-                return (
-                  <Link key={recipe.id} to={'/recipes/' + recipe.id}>
-                    <Col key={recipe.id} xs={12} sm={6} md={4}>
-                      <ReactCSSTransitionGroup
-                        transitionName="fadeFilteredRecipes"
-                        transitionAppearTimeout={300}
-                        transitionAppear={true}>
+                    <MenuItem eventKey="3" onClick={() => {
+                      props.removeFilter('difficultEase')
+                      props.removeFilter('difficultMedium')
+                      props.removeFilter('difficultHard')
+                      return (
+                        props.filterNames.indexOf('difficultHard')
+                        === -1 ? props.setFilter('difficultHard') : props.removeFilter('difficultHard')
+                      )
+                    }}
+                    >
+                      trudne
+                    </MenuItem>
+                  </DropdownButton>
 
-                        <div className="recipeCard recipeCardHeight">
-                          <Image className="photo image" src={recipe.image}/>
-                          <h2>{recipe.name}</h2>
-                          {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
-                            <p className="missing-ingredients-info">
-                              Masz wszystkie składniki! Do dzieła
-                            </p> :
+                  <Button onClick={() => props.resetFilters()}>
+                    Usuń filtry
+                  </Button>
+                </ButtonGroup>
+                <div title="wstecz" className="button-back">
+                  <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px"/></span></Link>
+                </div>
+              </div> : ''
+          }
+          {
+            arrayOfSelectedIngredientsID.length !== 0 ?
+              selectRecipes(newRecipesArray, props.filterNames).map(
+                recipe => {
+                  console.log(recipe)
+                  return (
+                    <Link key={recipe.id} to={'/recipes/' + recipe.id}>
+                      <Col key={recipe.id} xs={12} sm={6} md={4}>
+                        <ReactCSSTransitionGroup
+                          transitionName="fadeFilteredRecipes"
+                          transitionAppearTimeout={300}
+                          transitionAppear={true}>
 
-                            <p className="missing-ingredients-info">
-                              Masz {recipe.numberOfFittedIngredients.length}
-                              {recipe.numberOfFittedIngredients.length === 1 ?
-                                ' składnik' :
-                                recipe.numberOfFittedIngredients.length === 0 || recipe.numberOfFittedIngredients.length > 4 ?
-                                  ' składników' :
-                                  ' składniki'
-                              }
-                            </p>
-                          }
-                          {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
-                            '' :
-                            <p className="missing-ingredients-info">
-                              Brakuje Ci tylko {recipe.ingredients.length - recipe.numberOfFittedIngredients.length }
-                              {recipe.ingredients.length - recipe.numberOfFittedIngredients.length === 1 ?
-                                ' skladnika' : ' skladników'
-                              }
-                            </p>
-                          }
-                          <div className="icons">
-                            <div className="recipeTime">{recipe.time} min.</div>
-                            <div className="recipeDifficult">{recipe.difficult}</div>
+                          <div className="recipeCard recipeCardHeight">
+                            <Image className="photo image" src={recipe.image}/>
+                            <h2>{recipe.name}</h2>
+                            {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
+                              <p className="missing-ingredients-info">
+                                Masz wszystkie składniki! Do dzieła
+                              </p> :
+
+                              <p className="missing-ingredients-info">
+                                Masz {recipe.numberOfFittedIngredients.length}
+                                {recipe.numberOfFittedIngredients.length === 1 ?
+                                  ' składnik' :
+                                  recipe.numberOfFittedIngredients.length === 0 || recipe.numberOfFittedIngredients.length > 4 ?
+                                    ' składników' :
+                                    ' składniki'
+                                }
+                              </p>
+                            }
+                            {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
+                              '' :
+                              <p className="missing-ingredients-info">
+                                Brakuje Ci tylko {recipe.ingredients.length - recipe.numberOfFittedIngredients.length }
+                                {recipe.ingredients.length - recipe.numberOfFittedIngredients.length === 1 ?
+                                  ' skladnika' : ' skladników'
+                                }
+                              </p>
+                            }
+                            <div className="icons">
+                              <div className="recipeTime">{recipe.time} min.</div>
+                              <div className="recipeDifficult">{recipe.difficult}</div>
+                            </div>
                           </div>
-                        </div>
-                      </ReactCSSTransitionGroup>
+                        </ReactCSSTransitionGroup>
 
-                    </Col>
-                  </Link>
-                )
-              }
-            ) : ''
-        }
-      </div>
+                      </Col>
+                    </Link>
+                  )
+                }
+              ) : ''
+          }
+        </div>
+      </Col>
     </div>
   )
 };
