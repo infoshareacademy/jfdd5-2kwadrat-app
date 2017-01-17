@@ -8,7 +8,7 @@ import '../animations.css'
 
 export default () => (
     <ReactCSSTransitionGroup
-        transitionName="fade"
+        transitionName="fadeInstruction"
         transitionAppearTimeout={500}
         transitionAppear={true}>
   <div className="instruction-view">

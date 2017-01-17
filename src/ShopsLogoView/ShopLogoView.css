@@ -96,7 +96,7 @@ hr.style-two {
     cursor: pointer;
 }
 
-.fade-appear {
-    opacity: 0;
+.fadeShopLogo-appear {
+    /*opacity: 0;*/
     animation: fadeIn 0.5s
 }
