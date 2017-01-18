@@ -27,19 +27,26 @@ export default (props) => {
                   }).then(
                         response => {
                           if (response.status == '422') {
+                            document.getElementById('passwordCheck').value = '',
+                                document.getElementById('passwordCheck').style.border = "red solid 2px",
+                                document.getElementById('passwordField').value = '',
+                                document.getElementById('passwordField').style.border = "red solid 2px",
+                                document.getElementById('signUpFail').innerHTML =
+                                    ('<p>Dupa error.</p>')
                             console.log("nie udalo sie zarejestrowac uzytkownika")
                           }
                           else {
+                            console.log('udalo sie')
+                            document.getElementById('passwordCheck').value = '',
+                                document.getElementById('passwordField').value = '',
+                                document.getElementById('loginField').value = '',
+                                document.getElementById('signUpFail').innerHTML = '',
+                                document.getElementById('signUpOk').innerHTML =
+                                    '<p>Logowanie przebiegło pomyślnie.<br/> Mżesz się zalogować</p>'
                             return response.json()
                           }
                         }
-                    ).then(
-                    document.getElementById('passwordCheck').value = '',
-                    document.getElementById('passwordField').value = '',
-                    document.getElementById('loginField').value = '',
-                    document.getElementById('signUpInfo').innerHTML =
-                        '<p>Logowanie przebiegło pomyślnie.<br/> Mżesz się zalogować</p>'
-                ).catch(
+                    ).catch(
                     error => console.log(error)
                 )
               }
@@ -50,7 +57,7 @@ export default (props) => {
             document.getElementById('passwordCheck').style.border = "red solid 2px",
             document.getElementById('passwordField').value = '',
             document.getElementById('passwordField').style.border = "red solid 2px",
-            document.getElementById('signUpInfo').innerHTML =
+            document.getElementById('signUpFail').innerHTML =
               ('<p>Hasła są niezgodne<br/>Spróbuj jeszcze raz UWAŻNIE.</p>')
         )
       }
