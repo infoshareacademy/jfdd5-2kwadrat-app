@@ -77,21 +77,12 @@ const FilteredRecipes = (props) => {
                     className="dropdownButton"
                     title={
                       props.filterNames.includes("timeShort") ?
-                        'Czasochłonność: 0-30 min.' :
+                        'czasochłonność: 0-30 min.' :
                         (props.filterNames.includes("timeMedium") ?
-                          'Czasochłonność: 31-50 min.' :
+                          'czasochłonność: 31-50 min.' :
                           (props.filterNames.includes("timeLong") ?
-                            'Czasochłonność: 51-70 min.' :
-                            'Czasochłonność'))
-                    }
-                    bsStyle={
-                      props.filterNames.includes("timeShort") ?
-                        'success' :
-                        (props.filterNames.includes("timeMedium") ?
-                          'success' :
-                          (props.filterNames.includes("timeLong") ?
-                            'success' :
-                            'default'))
+                            'czasochłonność: 51-70 min.' :
+                            'czasochłonność'))
                     }
                     id="bg-nested-dropdown"
                   >
@@ -139,21 +130,12 @@ const FilteredRecipes = (props) => {
                     className="dropdownButton"
                     title={
                       props.filterNames.includes("difficultEase") ?
-                        'Trudność: łatwe' :
+                        'trudność: łatwe' :
                         (props.filterNames.includes("difficultMedium") ?
-                          'Trudność: średnie' :
+                          'trudność: średnie' :
                           (props.filterNames.includes("difficultHard") ?
-                            'Trudność: trudne' :
-                            'Trudność'))
-                    }
-                    bsStyle={
-                      props.filterNames.includes("difficultEase") ?
-                        'success' :
-                        (props.filterNames.includes("difficultMedium") ?
-                          'success' :
-                          (props.filterNames.includes("difficultHard") ?
-                            'success' :
-                            'default'))
+                            'trudność: trudne' :
+                            'trudność'))
                     }
                     id="bg-nested-dropdown"
                   >
@@ -201,12 +183,9 @@ const FilteredRecipes = (props) => {
                   <Button
                     className="dropdownButton"
                     onClick={() => props.resetFilters()}>
-                    Usuń filtry
+                    usuń filtry
                   </Button>
                 </ButtonGroup>
-                {/*<div title="wstecz" className="button-back">*/}
-                {/*<Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px"/></span></Link>*/}
-                {/*</div>*/}
               </div> : ''
           }
           {
@@ -222,9 +201,9 @@ const FilteredRecipes = (props) => {
                           transitionAppearTimeout={300}
                           transitionAppear={true}>
 
-                          <div className="recipeCard recipeCardHeight">
-                            <Image className="photo image" src={recipe.image}/>
-                            <h2>{recipe.name}</h2>
+                          <div className="recipeCardHeight filteredRecipeCard">
+                            <Image className="photo image filteredImage" src={recipe.image}/>
+                            <h2 className="recipeTitle">{recipe.name}</h2>
                             {recipe.numberOfFittedIngredients.length === recipe.ingredients.length ?
                               <p className="missing-ingredients-info">
                                 Masz wszystkie składniki! Do dzieła
@@ -262,9 +241,9 @@ const FilteredRecipes = (props) => {
                 }
               ) : <p className="instruction">
                     <p className="arrow">&#8598;</p>
-                    Wpisz nazwę składnika, który masz w lodówce;
+                    Wpisz nazwę składnika, który masz w lodówce.
                     <br/>
-                    Kliknij na składnik, gdy się wyświetli;
+                    Kliknij na składnik, gdy się wyświetli.
                     <br/>
                     Kliknj na składnik ponownie, aby go usunąć.
                   </p>

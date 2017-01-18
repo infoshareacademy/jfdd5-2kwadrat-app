@@ -23,10 +23,6 @@ const NavigationView = (props) => {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight className="navigation">
-            <LinkContainer className="navItem" to="/form">
-              <NavItem eventKey={0} href="#">Formularz</NavItem>
-            </LinkContainer>
-
             <LinkContainer className="navItem" to="/recipes">
               <NavItem eventKey={1} href="#">Przepisy</NavItem>
             </LinkContainer>
