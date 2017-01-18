@@ -9,15 +9,12 @@
   justify-content: space-around;
   flex-wrap: nowrap;
   align-items: center;
+  border: 1px solid #8c8c8c;
+  border-radius: 5px;
 }
 
 .ingredientFieldContent:checked {
   background-color: #2da834;
-}
-
-.filtered,
-.chosen {
-  border: 1px solid #8c8c8c;
 }
 
 .ingredientFieldContent:hover {
@@ -39,16 +36,12 @@
 .ingredientInput {
   text-align: center;
   width: 100%;
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   padding: 0;
   border-radius: 5px;
   font-size: 16px;
   background-color: #FEF;
   border: 2px solid #2da834;
-}
-
-.form-control {
-  width: 100%;
 }
 
 .ingredientInputRow {
@@ -72,10 +65,6 @@
   border-radius: 10px/90%;
   padding: 5px;
   width: 100%;
-}
-
-.titleTop {
-  padding: 5px;
 }
 
 hr.middleDividingLine {
@@ -111,20 +100,23 @@ hr.bottomDividingLine:before {
 
 hr.bottomDividingLine {
   border-color: transparent;
+  padding: 0;
 }
 
-.searchButtonText {
+.searchButton {
   display: block;
   font-family: Lato, sans-serif;
-  background-color: transparent;
+  font-size: 16px;
   border-radius: 5px;
-  padding: 0 10px 30px ;
-  color: #2da834
+  padding: 5px 0;
+  color: #2da834;
+  width: 100%;
 }
 
-.searchButtonText:hover {
+.searchButton :hover {
   transform: scale(1.05, 1.05);
   transition-duration: 1s;
+  color: #2da834;
 }
 
 .linkInsideButton {
@@ -141,11 +133,12 @@ hr.bottomDividingLine {
 }
 
 .formBottomHalf {
- margin-bottom: 10px;
-  padidng: 0;
+  margin-bottom: 10px;
+  padding: 0;
 }
 
 .fadeFridgeView-appear {
   opacity: 0;
   animation: fadeIn 0.5s
 }
+
