@@ -64,14 +64,7 @@ class LogIn extends React.Component {
             <br/>
 
             <Button type="submit" bsStyle="info">Zaloguj się</Button>
-            {
-              this.props.loginTriesStatus ?
-                <h4 className="login-alert">
-                  Podałeś zły login lub hasło.<br/>
-                  Spróbuj ponownie
-                </h4> :
-                ''
-            }
+                <h4 id="login-alert"></h4>
           </form>
         </Col>
         <Col xs={6} className="loginContainer">
@@ -95,7 +88,9 @@ class LogIn extends React.Component {
               <br/>
               <Button type="submit" bsStyle="info">Zapisz się</Button>
             </form>
-            <h3 id="signUpInfo"></h3>
+
+            <h3 id="signUpFail"></h3>
+            <h3 id="signUpOk"></h3>
           </div>
         </Col>
       </div>

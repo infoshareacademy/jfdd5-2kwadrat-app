@@ -1,4 +1,4 @@
-.login-alert, #signUpFail {
+#login-alert, #signUpFail {
     color: red;
 }
 
@@ -20,6 +20,6 @@
     color: deepskyblue;
     margin-bottom:30px;
 }
-p #signUpOk {
+ #signUpOk p{
     color:green;
 }

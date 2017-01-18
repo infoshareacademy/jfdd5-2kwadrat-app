@@ -21,9 +21,16 @@ export const logIn = (username, password) => {
           response.json().then(
             session => dispatch({type: LOG_IN__SUCCESS, session: session})
           )
-        } else {
+        }
+        else {
           response.json().then(
-            error => dispatch({type: LOG_IN__FAIL, error: error})
+            error => {
+              console.log('zupaaaaa')
+              document.getElementById('login-alert').innerHTML = 'Zły login lub hasło'
+              return(
+                dispatch({type: LOG_IN__FAIL, error: error})
+            )
+            }
           )
         }
       }
