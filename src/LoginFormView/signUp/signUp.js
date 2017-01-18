@@ -19,17 +19,28 @@ export default (props) => {
                       'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                      username: login,
-                      password: password,
-                      emailVerified: true,
-                      email: login+ '@.pl'
+                      username:login,
+                      email: "'" + login + '@wp.pl',
+                      password: password
+
                     })
                   }).then(
-                  document.getElementById('passwordCheck').value = '',
-                  document.getElementById('passwordField').value = '',
-                  document.getElementById('loginField').value = '',
-                  document.getElementById('signUpInfo').innerHTML =
-                    '<p>Logowanie przebiegło pomyślnie.<br/> Mżesz się zalogować</p>'
+                        response => {
+                          if (response.status == '422') {
+                            console.log("nie udalo sie zarejestrowac uzytkownika")
+                          }
+                          else {
+                            return response.json()
+                          }
+                        }
+                    ).then(
+                    document.getElementById('passwordCheck').value = '',
+                    document.getElementById('passwordField').value = '',
+                    document.getElementById('loginField').value = '',
+                    document.getElementById('signUpInfo').innerHTML =
+                        '<p>Logowanie przebiegło pomyślnie.<br/> Mżesz się zalogować</p>'
+                ).catch(
+                    error => console.log(error)
                 )
               }
             </div>
