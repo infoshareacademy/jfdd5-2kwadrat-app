@@ -53,14 +53,16 @@ export default connect(mapStateToProps, mapDispatchToProps)((props) => {
           {
             props.session !== null ?
               <p >
-                {
+                {$('.favourite').on(function(){
+                  $(this).hide()
+                })}
                   <span title="Dodaj do ulubionych"
                         className="favorite"
                     onClick={() =>
                       props.addRecipe(props.session.userId,props.session.id,recipeWithId.id)
                     }
                   >&#9055;</span>
-                }
+
               </p> :
               null
           }
