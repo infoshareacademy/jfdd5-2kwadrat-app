@@ -35,10 +35,10 @@ export default () => (
         transitionEnterTimeout={0}
         transitionAppear={true}>
     <Col xs={6}>
-      <h2 className="instruction-text">
-        Wypełnij <Link to={'/filtered-recipes'}><span className="span-button">formularz</span></Link>, a nasza wyszukiwarka znajdzie<br/>
-        <Link to={'/filtered-recipes'}><span className="span-button">Przepisy dla Ciebie</span></Link>.
-      </h2>
+      <h2 className="instruction-text">Wypełnij formularz, a nasza wyszukiwarka znajdzie</h2>
+
+      <br/>
+        <Link to={'/filtered-recipes'}><button className="simpleButton">Przepisy dla Ciebie  </button></Link>
     </Col>
     </ReactCSSTransitionGroup>
   </div>
