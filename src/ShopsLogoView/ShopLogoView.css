@@ -97,6 +97,9 @@ hr.style-two {
 }
 
 .fadeShopLogo-appear {
-    /*opacity: 0;*/
-    animation: fadeIn 0.5s
+    animation: fadeIn 0.9s
+}
+
+.rollInShopLogo-appear {
+    animation: rollIn 0.5s
 }

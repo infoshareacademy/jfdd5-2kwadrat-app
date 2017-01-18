@@ -18,7 +18,7 @@ const ShopsLogoView = (props) => {
       <ReactCSSTransitionGroup
           transitionName="fadeShopLogo"
           transitionEnterTimeout={0}
-          transitionAppearTimeout={500}
+          transitionAppearTimeout={900}
           transitionLeaveTimeout={0}
           transitionAppear={true}>
     <div className="shop-logo-view">
@@ -50,9 +50,17 @@ const ShopsLogoView = (props) => {
           )
         }
       </Col>
+      <ReactCSSTransitionGroup
+          transitionName="rollInShopLogo"
+          transitionEnterTimeout={0}
+          transitionAppearTimeout={500}
+          transitionLeaveTimeout={0}
+          transitionAppear={true}>
       <Col xs={6}>
         {<ShopsMap />}
       </Col>
+      </ReactCSSTransitionGroup>
+
     </div>
       </ReactCSSTransitionGroup>
   )
