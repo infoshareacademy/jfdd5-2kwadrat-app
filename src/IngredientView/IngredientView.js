@@ -28,7 +28,7 @@ const IngredientView = (props) => {
   return (
     <div>
       <Col xs={12}>
-        <div key={ingredientsWithId.id}>
+        <div key={ingredientsWithId.id} className="ingredientViewContainer">
           <Col lg={6} className="ingredientPictureContainer">
 
             <h1 className="ingredientWithIdName">{ingredientsWithId.name}</h1>

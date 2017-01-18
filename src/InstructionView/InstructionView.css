@@ -1,51 +1,53 @@
 .instruction-view {
-    margin-top:130px;
-    overflow: hidden;
+  margin-top: 130px;
+  overflow: hidden;
 }
+
 .instruction-image {
-    text-align: right;
+  text-align: right;
 }
+
 .instruction-text {
-    padding-top:0;
-    line-height: 55px;
-    color:black;
+  padding-top: 0;
+  line-height: 55px;
+  color: black;
 }
 
 .span-button, .span-blue {
-    display: inline-block;
-    background-color:#2da834;
-    border-radius: 15px;
-    padding: 0 25px;
-    margin: 0 5px;
-    color: white;
-    box-shadow: 0 5px #999;
-    outline: none;
-    line-height: 45px;
+  display: inline-block;
+  background-color: #2da834;
+  border-radius: 15px;
+  padding: 0 25px;
+  margin: 0 5px;
+  color: white;
+  box-shadow: 0 5px #999;
+  outline: none;
+  line-height: 45px;
 }
 
 .span-button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 2px #666;
-    transform: translateY(4px);
+  background-color: #3e8e41;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
 }
 
-a{
-    color:white;
+a {
+  color: white;
 }
 
 a:hover {
-    color:white;
+  color: white;
 }
 
 .fadeInstruction-appear {
-    opacity: 0;
-    animation: fadeIn 0.5s
+  opacity: 0;
+  animation: fadeIn 0.5s
 }
 
 .slideInLeft-appear {
-    animation: slideInLeft 0.5s;
+  animation: slideInLeft 0.5s;
 }
 
 .slideInRight-appear {
-    animation: slideInRight 0.5s;
+  animation: slideInRight 0.5s;
 }

@@ -129,7 +129,7 @@ class FridgeView extends React.Component {
                   }
                 }>
                   <div className="ingredientFieldContent chosen">
-                    <Col xs={4}>
+                    <Col xs={4} className="ingredientBarImage">
                       <Image className="chosenIngredientImage" src={ingredient.img}/>
                     </Col>
                     <Col className="ingredientName" xs={8}>

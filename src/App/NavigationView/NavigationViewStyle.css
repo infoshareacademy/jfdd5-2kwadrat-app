@@ -1,10 +1,10 @@
 .container {
-  background-color: #FFF;
+  background-color: #fafafa;
   border: none;
 }
 
 .navigation {
-  background-color: white;
+  background-color: #fafafa;
   font-family: 'Reem Kufi', sans-serif;
   padding: 10px;
   font-size: 21px;
@@ -26,13 +26,13 @@
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a {
-  background-color: white;
+  background-color: #fafafa;
   box-shadow: none;
 }
 
 .navbar-default .navbar-nav > li > a {
   color: #000;
-  border-bottom: 3px solid #FFF;
+  border-bottom: 3px solid #fafafa;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
