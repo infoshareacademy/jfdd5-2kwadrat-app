@@ -112,6 +112,11 @@
   font-size: 20px;
 }
 
+.allIngredients {
+  color: yellow;
+  font-size: 20px;
+}
+
 @media screen and (max-width: 767px) {
   .arrow,
   .filtersTitle {
@@ -133,4 +138,8 @@
 
 .slideFilteredRecipes-appear {
   animation: slideInLeft 0.9s;
+}
+
+.bounceFilteredRecipes-appear {
+  animation: jello 0.9s;
 }
