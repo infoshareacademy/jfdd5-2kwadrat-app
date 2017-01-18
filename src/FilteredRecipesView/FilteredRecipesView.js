@@ -9,7 +9,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {recipes} from '../data'
 import {selectRecipes} from './select'
 import {default as FridgeView} from '../FridgeView/FridgeView.js'
-
+import '../animations.css'
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
@@ -62,14 +62,28 @@ const FilteredRecipes = (props) => {
 
   return (
     <div>
+      <ReactCSSTransitionGroup
+          transitionName="slideFilteredRecipes"
+          transitionEnterTimeout={0}
+          transitionAppearTimeout={900}
+          transitionLeaveTimeout={0}
+          transitionAppear={true}>
       <Col xs={12} sm={4} md={3}>
         <FridgeView/>
       </Col>
+      </ReactCSSTransitionGroup>
 
       <Col xs={12} sm={8} md={9}>
         <div>
+          <ReactCSSTransitionGroup
+              transitionName="slideInUpFiltered"
+              transitionEnterTimeout={0}
+              transitionAppearTimeout={900}
+              transitionLeaveTimeout={0}
+              transitionAppear={true}>
           <h2 className="filtersTitle">Przepisy dla Ciebie</h2>
-          {
+          </ReactCSSTransitionGroup>
+            {
             arrayOfSelectedIngredientsID.length !== 0 ?
               <div className="dropdownFilteringButtons">
                 <ButtonGroup>
@@ -198,9 +212,10 @@ const FilteredRecipes = (props) => {
                       <Col key={recipe.id} xs={12} sm={6} md={4}>
                         <ReactCSSTransitionGroup
                           transitionName="fadeFilteredRecipes"
-                          transitionAppearTimeout={300}
+                          transitionEnterTimeout={0}
+                          transitionAppearTimeout={900}
+                          transitionLeaveTimeout={0}
                           transitionAppear={true}>
-
                           <div className="recipeCardHeight filteredRecipeCard">
                             <Image className="photo image filteredImage" src={recipe.image}/>
                             <h2 className="recipeTitle">{recipe.name}</h2>
@@ -239,7 +254,14 @@ const FilteredRecipes = (props) => {
                     </Link>
                   )
                 }
-              ) : <p className="instruction">
+              ) :
+                <ReactCSSTransitionGroup
+                    transitionName="fadeFilteredRecipes"
+                    transitionEnterTimeout={0}
+                    transitionAppearTimeout={900}
+                    transitionLeaveTimeout={0}
+                    transitionAppear={true}>
+                <p className="instruction">
                     <p className="arrow">&#8598;</p>
                     Wpisz nazwę składnika, który masz w lodówce.
                     <br/>
@@ -247,6 +269,7 @@ const FilteredRecipes = (props) => {
                     <br/>
                     Kliknj na składnik ponownie, aby go usunąć.
                   </p>
+                </ReactCSSTransitionGroup>
           }
         </div>
       </Col>

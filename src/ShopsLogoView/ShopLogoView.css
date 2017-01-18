@@ -49,8 +49,12 @@
 ul li {
     list-style-type: none;
 }
+
+.shop-logo{
+    transition: all .2s ease-in-out;
+}
 .shop-logo:hover {
-    opacity:0.7;
+    transform: scale(1.25);
     cursor: pointer;
 }
 hr.style-two {
@@ -85,21 +89,13 @@ hr.style-two {
 }
 .cart:hover {
     opacity:1;
-    -webkit-animation-name: shakeYourAss;
-    -webkit-animation-duration: 0.8s;
-    -webkit-transform-origin: 50% 50%;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
+    animation-name: shakeYourAss;
+    animation-duration: 0.8s;
+    transform-origin: 50% 50%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .button-close:hover {
     cursor: pointer;
-}
-
-.fadeShopLogo-appear {
-    animation: fadeIn 0.9s
-}
-
-.rollInShopLogo-appear {
-    animation: rollIn 0.5s
 }

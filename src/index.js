@@ -13,7 +13,6 @@ import {App} from './App'
 
 import store from './store'
 
-import './App/NavigationView/NavigationViewStyle.css'
 import {InstructionView} from './InstructionView'
 import {AllRecipesView} from './AllRecipesView'
 import {RecipeView} from './RecipeView'

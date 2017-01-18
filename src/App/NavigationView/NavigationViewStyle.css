@@ -12,7 +12,7 @@
 }
 
 .navbar-default {
-  color: black;
+  color: #000;
   box-shadow: none;
   border: none;
 }
@@ -20,14 +20,17 @@
 .navbar-default .navbar-brand {
   color: #000;
 }
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #000;
+}
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: #000;
   background-color: #fafafa;
+  border-bottom: 3px solid #2da834;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a {
-  background-color: #fafafa;
   box-shadow: none;
 }
 
@@ -38,25 +41,16 @@
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #000;
-  background-color: #fafafa;
-}
-
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  color: #000;
-  background-color: #fafafa;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a {
-  background-color: #fafafa;
+  background-image: none;
   box-shadow: none;
-  border-bottom: 3px solid #2da834;
-
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus  {
   color: #000;
   border-bottom: 3px solid #2da834;
-  background-color: #fafafa;
 }
 
 .logoIMF {
