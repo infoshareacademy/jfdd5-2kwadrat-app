@@ -4,7 +4,7 @@ import {ingredients} from '../data'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
-import {Image, Col, Row, FormControl, Button} from 'react-bootstrap'
+import {Image, Col, FormControl, Button} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import FaCutlery from 'react-icons/lib/fa/cutlery'
@@ -43,40 +43,27 @@ class FridgeView extends React.Component {
 
   render() {
     return (
-        <ReactCSSTransitionGroup
-            transitionName="fadeFridgeView"
-            transitionEnterTimeout={0}
-            transitionAppearTimeout={400}
-            transitionLeaveTimeout={0}
-            transitionAppear={true}>
-      <div className="divKeepsAll">
+      <ReactCSSTransitionGroup
+        transitionName="fadeFridgeView"
+        transitionAppearTimeout={400}
+        transitionAppear={true}>
         <form onSubmit={this.handleSubmit}>
-          <Row className="ingredientInputRow">
-            <Col xs={12}
-            >
-              <h2 className="titles titleTop">Wybierz co masz w lodówce</h2>
-            </Col>
+          <Col className="ingredientInputRow" xs={12}>
+            <h2 className="titles">Wybierz co masz w lodówce</h2>
 
-            <Col xs={12} sm={8} md={6}
-                 xsOffset={0} smOffset={2} mdOffset={3}
-            >
-              <FormControl
-                className="ingredientInput"
-                bsSize="sm"
-                type="text"
-                placeholder="w lodówce mam..."
-                onChange={(event) => this.setState({search: event.target.value})}
-              />
-            </Col>
-          </Row>
-
-          <Row>
+            <FormControl
+              className="ingredientInput"
+              bsSize="sm"
+              type="text"
+              placeholder="w lodówce mam..."
+              onChange={(event) => this.setState({search: event.target.value})}
+            />
             {ingredients.filter(
               ingredient => this.state.search === '' ? false : ingredient.name.includes(this.state.search)
             ).slice(0, 4).map(
               ingredient => {
                 return (
-                  <Col key={ingredient.id} xs={6} sm={4} md={3} onClick={
+                  <div onClick={
                     () => {
                       if (this.props.selectedIngredients.find(item => item.id === ingredient.id) === undefined) {
                         this.setState(
@@ -103,86 +90,64 @@ class FridgeView extends React.Component {
                     }
                   }>
                     <div className="ingredientFieldContent filtered">
-                      <div className="ingredientName">
-                        {ingredient.name}
-                      </div>
-                      <Image className="filteredIngredientImage" src={ingredient.img}/>
+                      <Col xs={4}>
+                        <Image className="filteredIngredientImage" src={ingredient.img}/>
+                      </Col>
 
+                      <Col className='ingredientName' xs={8}>
+                        <div>{ingredient.name}</div>
+                      </Col>
                     </div>
-                  </Col>
+                  </div>
                 )
               }
             )}
-          </Row>
+          </Col>
         </form>
 
-        <form className="formBottomHalf">
-          <Row>
-            <Col xs={12}>
-              {this.props.selectedIngredients.length === 0 ? null :
-                <hr className="middleDividingLine"></hr>}
-            </Col>
-            <Col xs={12} sm={8} md={6}
-                 xsOffset={0} smOffset={2} mdOffset={3}
-            >
-              {this.props.selectedIngredients.length === 0 ? null :
-                <h2 className="titles">Wybrane produkty:</h2>}
-            </Col>
-          </Row>
-
-          <Row>
-            {
-              this.props.selectedIngredients.map(
-                ingredient =>
-                  <Col key={ingredient.id} xs={6} sm={4} md={3} onClick={
-                    () => {
-                      if (this.props.removeIngredient(ingredient.id)) {
-                        this.setState(
-                          {
-                            ingredients: this.state.ingredients.filter(
-                              item => item.id !== ingredient.id
-                            )
-                          },
-                          () => this.props.removeIngredient(ingredient.id)
-                        )
-                      }
-                    }
-                  }>
-                    <div className="ingredientFieldContent chosen">
-                      <div className="ingredientName">
-                        {ingredient.name}
-                      </div>
-                      <Image className="chosenIngredientImage" src={ingredient.img}/>
-                    </div>
-                  </Col>
-              )
-            }
-          </Row>
-
-          <Row>
-            <Col xs={12}>
-              {this.props.selectedIngredients.length === 0 ? null :
-                <hr className="bottomDividingLine"></hr>}
-            </Col>
-          </Row>
-        </form>
-
-        <div className="searchButton">
+        <Col className="formBottomHalf" xs={12}>
           {this.props.selectedIngredients.length === 0 ? null :
+            <hr className="middleDividingLine"></hr>}
+          {this.props.selectedIngredients.length === 0 ? null :
+            <h2 className="titles">Wybrane produkty:</h2>}
 
-            <h2 className="searchButtonText">
-              <Link to={'/filtered-recipes'}>
-                <Button bsStyle="warning"
-                        bsSize="large">
-                <FaCutlery /> PRZEPISY DLA CIEBIE
-                  </Button>
-              </Link>
-            </h2>}
-        </div>
-      </div>
-        </ReactCSSTransitionGroup>
+          {
+            this.props.selectedIngredients.map(
+              ingredient =>
+                <div key={ingredient.id} onClick={
+                  () => {
+                    if (this.props.removeIngredient(ingredient.id)) {
+                      this.setState(
+                        {
+                          ingredients: this.state.ingredients.filter(
+                            item => item.id !== ingredient.id
+                          )
+                        },
+                        () => this.props.removeIngredient(ingredient.id)
+                      )
+                    }
+                  }
+                }>
+                  <div className="ingredientFieldContent chosen">
+                    <Col xs={4}>
+                      <Image className="chosenIngredientImage" src={ingredient.img}/>
+                    </Col>
+                    <Col className="ingredientName" xs={8}>
+                      <div>{ingredient.name}</div>
+                    </Col>
+                  </div>
+                </div>
+            )
+          }
+          {this.props.selectedIngredients.length === 0 ? null :
+            <hr className="bottomDividingLine"></hr>}
+        </Col>
+
+        {/*//na onClick wysyłam informację do stora że lista jest gotowa;*/}
+        {/*// w reducerze wpisuję nowy stan;*/}
+        {/*// w FilteredRecipesView zamieniam ternary operator na to czy lista jest w sotrze czy nie*/}
+      </ReactCSSTransitionGroup>
     )
-
   }
 }
 

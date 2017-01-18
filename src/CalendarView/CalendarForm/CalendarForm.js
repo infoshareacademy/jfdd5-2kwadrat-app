@@ -22,7 +22,9 @@ class CalendarForm extends React.Component {
 
                 <FormGroup controlId="formControlsSelect">
                     <ControlLabel>Wybierz danie:</ControlLabel>
-                    <FormControl componentClass="select" placeholder="select"
+                    <FormControl componentClass="select"
+                                 className="zupa"
+                                 placeholder="select"
                                  onChange={(data) => console.log(data.target.value)}>
                         {
                             recipes.map(

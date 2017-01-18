@@ -54,3 +54,46 @@
 .fadeFilteredRecipes-appear {
   animation: zoomIn 0.3s;
 }
+
+.dropdownFilteringButtons {
+  margin-bottom: 10px;
+}
+
+.filtersTitle {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-family: Lato, sans-serif;
+  background-color: #2da834;
+  color: #FFF;
+  border-radius: 10px/90%;
+  padding: 5px;
+  width: 100%;
+  text-shadow: none;
+  font-weight: bold;
+}
+
+.dropdownButton {
+  font-family: Lato, sans-serif;
+  font-weight: bold;
+  border: 1px solid #8c8c8c;
+}
+
+.instruction {
+  font-size: 32px;
+}
+
+.arrow {
+  font-size: 100px;
+  text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  .arrow,
+  .filtersTitle {
+    display: none;
+  }
+
+  .instruction {
+    font-size: 16px;
+  }
+}
