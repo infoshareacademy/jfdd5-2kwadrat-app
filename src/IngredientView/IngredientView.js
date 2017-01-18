@@ -57,12 +57,13 @@ const IngredientView = (props) => {
                 }
                 <li>
                     <span title="Dodaj do listy zakupów" >
-              <GoChecklist className="addToList"/>
+              {
+                props.user !== null ?
+                    <GoChecklist className="addToList" onClick={() => props.addIngredient(ingredientsWithId.id)}/>:
+                    null
+              }
                     </span>
-                  {
-                    props.user !== null ?
-                    <button onClick={() => props.addIngredient(ingredientsWithId.id)}>ADd</button>:
-                    null}
+
                 </li>
               </ul>
             </div>

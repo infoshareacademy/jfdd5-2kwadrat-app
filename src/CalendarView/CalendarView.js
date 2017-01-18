@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 import {addEventToCalendar} from './CalendarReducer/actionCreator'
 import {removeRecipeTitle} from '../CalendarView/CalendarReducer/actionCreator'
 import {default as CalendarForm} from './CalendarForm/CalendarForm'
-import MyModal from '../MyModal/MyModal'
 import {Modal, Button} from 'react-bootstrap'
 
 BigCalendar.momentLocalizer(moment)

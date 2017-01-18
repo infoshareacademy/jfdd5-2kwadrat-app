@@ -17,9 +17,9 @@ const ShopsLogoView = (props) => {
   return (
       <ReactCSSTransitionGroup
           transitionName="fadeShopLogo"
-          transitionEnterTimeout={500}
+          transitionEnterTimeout={0}
           transitionAppearTimeout={500}
-          transitionLeaveTimeout={500}
+          transitionLeaveTimeout={0}
           transitionAppear={true}>
     <div className="shop-logo-view">
       <Col xs={12} md={6}>

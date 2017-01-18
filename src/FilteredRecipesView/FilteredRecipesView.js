@@ -207,7 +207,9 @@ const FilteredRecipes = (props) => {
                     <Col key={recipe.id} xs={12} sm={6} md={4}>
                       <ReactCSSTransitionGroup
                       transitionName="fadeFilteredRecipes"
+                      transitionEnterTimeout={0}
                       transitionAppearTimeout={300}
+                      transitionLeaveTimeout={0}
                       transitionAppear={true}>
 
                       <div className="recipeCard recipeCardHeight">
