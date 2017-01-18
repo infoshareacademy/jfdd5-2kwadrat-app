@@ -45,7 +45,9 @@ class FridgeView extends React.Component {
     return (
         <ReactCSSTransitionGroup
             transitionName="fadeFridgeView"
+            transitionEnterTimeout={0}
             transitionAppearTimeout={400}
+            transitionLeaveTimeout={0}
             transitionAppear={true}>
       <div className="divKeepsAll">
         <form onSubmit={this.handleSubmit}>

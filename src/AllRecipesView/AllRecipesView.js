@@ -17,12 +17,16 @@ export default (props) => (
               return (
               <ReactCSSTransitionGroup
                   transitionName="fadeAllRecipes"
+                  transitionEnterTimeout={0}
                   transitionAppearTimeout={400}
+                  transitionLeaveTimeout={0}
                   transitionAppear={true}>
                 <Col key={recipe.id} xs={12} sm={6} md={4}>
                   <ReactCSSTransitionGroup
                       transitionName="zoomIn"
+                      transitionEnterTimeout={0}
                       transitionAppearTimeout={300}
+                      transitionLeaveTimeout={0}
                       transitionAppear={true}>
                     <div key='recipes' className="recipeCard">
                       <Link to={'/recipes/' + recipe.id}>
