@@ -260,17 +260,14 @@ const FilteredRecipes = (props) => {
                     </Link>
                   )
                 }
-              ) : <div className="instruction">
-                    <br/>
-                    <span className="arrow">&#8656;</span>
-                    <br/>
-                    <br/>
+              ) : <p className="instruction">
+                    <p className="arrow">&#8598;</p>
                     Wpisz nazwę składnika, który masz w lodówce;
                     <br/>
                     Kliknij na składnik, gdy się wyświetli;
                     <br/>
                     Kliknj na składnik ponownie, aby go usunąć.
-                  </div>
+                  </p>
           }
         </div>
       </Col>
