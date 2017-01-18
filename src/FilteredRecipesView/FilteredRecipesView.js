@@ -38,16 +38,16 @@ const FilteredRecipes = (props) => {
 
   const newRecipesArray = recipes.map(
     recipe => (
-      {
-        ...recipe,
-        numberOfFittedIngredients: recipe.ingredients.map(
-          ingredient =>
-            arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ? 1 : 0
-        ).filter(
-          item =>
-          item === 1
-        )
-      }
+    {
+      ...recipe,
+      numberOfFittedIngredients: recipe.ingredients.map(
+        ingredient =>
+          arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ? 1 : 0
+      ).filter(
+        item =>
+        item === 1
+      )
+    }
     )
   );
   newRecipesArray.sort((a, b) =>
@@ -68,11 +68,13 @@ const FilteredRecipes = (props) => {
 
       <Col xs={12} sm={8} md={9}>
         <div>
+          <h2 className="filtersTitle">Przepisy dla Ciebie</h2>
           {
             arrayOfSelectedIngredientsID.length !== 0 ?
-              <div>
+              <div className="dropdownFilteringButtons">
                 <ButtonGroup>
                   <DropdownButton
+                    className="dropdownButton"
                     title={
                       props.filterNames.includes("timeShort") ?
                         'Czasochłonność: 0-30 min.' :
@@ -134,6 +136,7 @@ const FilteredRecipes = (props) => {
                   </DropdownButton>
 
                   <DropdownButton
+                    className="dropdownButton"
                     title={
                       props.filterNames.includes("difficultEase") ?
                         'Trudność: łatwe' :
@@ -195,13 +198,15 @@ const FilteredRecipes = (props) => {
                     </MenuItem>
                   </DropdownButton>
 
-                  <Button onClick={() => props.resetFilters()}>
+                  <Button
+                    className="dropdownButton"
+                    onClick={() => props.resetFilters()}>
                     Usuń filtry
                   </Button>
                 </ButtonGroup>
-                <div title="wstecz" className="button-back">
-                  <Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px"/></span></Link>
-                </div>
+                {/*<div title="wstecz" className="button-back">*/}
+                {/*<Link to={'/form'}><span className="btn-back"><FaArrowLeft size="40px"/></span></Link>*/}
+                {/*</div>*/}
               </div> : ''
           }
           {
@@ -255,7 +260,17 @@ const FilteredRecipes = (props) => {
                     </Link>
                   )
                 }
-              ) : ''
+              ) : <div className="instruction">
+                    <br/>
+                    <span className="arrow">&#8656;</span>
+                    <br/>
+                    <br/>
+                    Wpisz nazwę składnika, który masz w lodówce;
+                    <br/>
+                    Kliknij na składnik, gdy się wyświetli;
+                    <br/>
+                    Kliknj na składnik ponownie, aby go usunąć.
+                  </div>
           }
         </div>
       </Col>

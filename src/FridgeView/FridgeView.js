@@ -94,8 +94,8 @@ class FridgeView extends React.Component {
                         <Image className="filteredIngredientImage" src={ingredient.img}/>
                       </Col>
 
-                      <Col xs={8}>
-                        <div className="ingredientName">{ingredient.name}</div>
+                      <Col className='ingredientName' xs={8}>
+                        <div>{ingredient.name}</div>
                       </Col>
                     </div>
                   </div>
@@ -132,8 +132,8 @@ class FridgeView extends React.Component {
                     <Col xs={4}>
                       <Image className="chosenIngredientImage" src={ingredient.img}/>
                     </Col>
-                    <Col xs={8}>
-                      <div className="ingredientName">{ingredient.name}</div>
+                    <Col className="ingredientName" xs={8}>
+                      <div>{ingredient.name}</div>
                     </Col>
                   </div>
                 </div>
@@ -143,21 +143,9 @@ class FridgeView extends React.Component {
             <hr className="bottomDividingLine"></hr>}
         </Col>
 
-
         {/*//na onClick wysyłam informację do stora że lista jest gotowa;*/}
         {/*// w reducerze wpisuję nowy stan;*/}
-        {/*// w FilteredRecipesView zamieniam ternary operator na to czy lista jest w sorze czy nie*/}
-        <div>
-          {this.props.selectedIngredients.length === 0 ? null :
-            <Link to={'/filtered-recipes'}>
-              <Button
-                className="searchButton"
-                bsStyle="warning"
-                bsSize="large">
-                <FaCutlery /> PRZEPISY DLA CIEBIE
-              </Button>
-            </Link>}
-        </div>
+        {/*// w FilteredRecipesView zamieniam ternary operator na to czy lista jest w sotrze czy nie*/}
       </ReactCSSTransitionGroup>
     )
   }
