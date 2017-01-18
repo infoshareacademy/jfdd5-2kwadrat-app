@@ -12,7 +12,8 @@ import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
 import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actionCreator'
 import FaCalendar from 'react-icons/lib/fa/calendar'
 import GoChecklist from 'react-icons/lib/go/checklist'
-import {addSelectedIngredient} from '../LoginFormView/UsersReducer/actionCreators'
+import $ from "jquery";
+
 
 import {addRecipeToFav, addToShoppingList}from '../FavouriteReducer/actionCreatos'
 
@@ -51,11 +52,18 @@ export default connect(mapStateToProps, mapDispatchToProps)((props) => {
           </div>
           {
             props.session !== null ?
-              <p>
+              <p className="ktorakolwiek"   onClick={ $(".ktorakolwiek").on("click", function(){
+                $(this).hide()
+              })
+
+              }>
                 {
                   <span title="Dodaj do ulubionych"
                         className="favorite"
-                    onClick={() => props.addRecipe(props.session.userId,props.session.id,recipeWithId.id)}
+                    onClick={() =>
+                      props.addRecipe(props.session.userId,props.session.id,recipeWithId.id) &&
+                      $('.favorite').hide()
+                    }
                   >&#9055;</span>
                 }
               </p> :
@@ -78,8 +86,8 @@ export default connect(mapStateToProps, mapDispatchToProps)((props) => {
                       <span key={ingredient.id}>
 
                               { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
-                                <span> </span> :
-                                  <div>
+                                null :
+                                  <span className="iconOptions">
                                     {props.session !== null ?
                                     <span title="Dodaj do listy zakupów" >
                                       <GoChecklist className=" addToListRecipeView"
@@ -94,7 +102,7 @@ export default connect(mapStateToProps, mapDispatchToProps)((props) => {
                                           className="cart"/>
                                      </span>
                                       </Link>
-                                  </div>
+                                  </span>
                               }
 
 

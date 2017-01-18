@@ -96,8 +96,6 @@ hr.cutIt {
 }
 
 .ingredientOptions {
-  /*display: flex;*/
-  /*justify-content: flex-end;*/
   float: right;
 }
 
@@ -105,6 +103,10 @@ hr.cutIt {
   position: relative;
   text-align: right;
   margin-top: 111px;
+}
+
+.iconOptions {
+  float: right;
 }
 
 .socialIcon {
