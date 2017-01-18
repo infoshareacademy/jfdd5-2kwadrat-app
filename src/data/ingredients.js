@@ -39,7 +39,7 @@ export default [
         name: 'pomidor',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://nobacks.com/wp-content/uploads/2014/11/Tomato-76.png'
+        img: 'http://www.pngpix.com/wp-content/uploads/2016/03/Tomato-PNG-Image-500x475.png'
     },
     {
         id: 7,

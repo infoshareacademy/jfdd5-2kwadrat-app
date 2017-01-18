@@ -6,15 +6,14 @@ import GoogleMap from 'google-map-react'
 import './ingredientViewStyle.css'
 import GoChecklist from 'react-icons/lib/go/checklist'
 import {connect} from 'react-redux'
-import {addSelectedIngredient} from '../LoginFormView/UsersReducer/actionCreators'
 
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
 const mapStateToProps = state => ({
-  user:state.loggedUser.userData
+
 })
 
 const mapDispatchToProps = dispatch =>({
-  addIngredient: (ingredientId) => dispatch (addSelectedIngredient(ingredientId))
+
 })
 
 const IngredientView = (props) => {
@@ -58,12 +57,13 @@ const IngredientView = (props) => {
                 }
                 <li>
                     <span title="Dodaj do listy zakupów" >
-              <GoChecklist className="addToList"/>
+              {
+                props.user !== null ?
+                    <GoChecklist className="addToList" onClick={() => props.addIngredient(ingredientsWithId.id)}/>:
+                    null
+              }
                     </span>
-                  {
-                    props.user !== null ?
-                    <button onClick={() => props.addIngredient(ingredientsWithId.id)}>ADd</button>:
-                    null}
+
                 </li>
               </ul>
             </div>

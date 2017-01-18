@@ -1,6 +1,6 @@
 import React from 'react'
 import './RecipeViewStyle.css'
-import {Image, Col,Button} from 'react-bootstrap'
+import {Image, Col, Button} from 'react-bootstrap'
 import {recipes} from '../data'
 import {ingredients} from '../data'
 import {Link} from 'react-router'
@@ -12,30 +12,34 @@ import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
 import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actionCreator'
 import FaCalendar from 'react-icons/lib/fa/calendar'
 import GoChecklist from 'react-icons/lib/go/checklist'
+import $ from "jquery";
 
+
+import {addRecipeToFav, addToShoppingList}from '../FavouriteReducer/actionCreatos'
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
-  userId: state.loggedInData.loggedInUserId,
-  user: state.loggedUser.userData
+  session: state.currentUserData.session,
 })
 
 const mapDispatchToProps = dispatch => ({
-  addToCalendar: (recipe) => dispatch(addToCalendarFromRecipeView(recipe))
+  addToCalendar: (recipe) => dispatch(addToCalendarFromRecipeView(recipe)),
+  addToShoppingList: (userId,accessToken,id) => dispatch(addToShoppingList(userId,accessToken,id)),
+  addRecipe: (userId,accessToken,id) => dispatch(addRecipeToFav(userId,accessToken,id))
 })
 
 
-export default connect(mapStateToProps,mapDispatchToProps)((props) => {
+export default connect(mapStateToProps, mapDispatchToProps)((props) => {
 
 
   const recipeWithId = recipes.find(
-    recipe => recipe.id === parseInt(props.params.recipeId, 10)
+      recipe => recipe.id === parseInt(props.params.recipeId, 10)
   );
   const arrayOfSelectedIngredientsID =
-    props.selectedIngredients.map(
-      selected =>
-        selected.id
-    );
+      props.selectedIngredients.map(
+          selected =>
+              selected.id
+      );
 
 
   return (
@@ -47,11 +51,18 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
             <Image className="photo recipeImage" src={recipeWithId.image}/>
           </div>
           {
-            typeof props.userId === 'number' ?
-              <p>
-                {
-                  <span title="Dodaj do ulubionych" className="favorite">&#9055;</span>
-                }
+            props.session !== null ?
+              <p >
+                {$('.favourite').on(function(){
+                  $(this).hide()
+                })}
+                  <span title="Dodaj do ulubionych"
+                        className="favorite"
+                    onClick={() =>
+                      props.addRecipe(props.session.userId,props.session.id,recipeWithId.id)
+                    }
+                  >&#9055;</span>
+
               </p> :
               null
           }
@@ -70,63 +81,73 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
                         </span>
                       {" "}<span className="amount">{ingredient.ingredientAmount}</span> {ingredient.unitMeasure}
                       <span key={ingredient.id}>
-                          {
-                            <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
+
                               { arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 ?
-                                <span> </span> :
-                                  <div>
+                                null :
+                                  <span className="iconOptions">
+                                    {props.session !== null ?
                                     <span title="Dodaj do listy zakupów" >
-                                      <GoChecklist className=" addToListRecipeView"/>
-                                     </span>
+                                      <GoChecklist className=" addToListRecipeView"
+                                      onClick={
+                                        ()=> props.addToShoppingList(props.session.userId,props.session.id,ingredient.id)
+                                      }/>
+                                     </span>: null
+                                    }
+                                    <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
                                      <span title="Znajdź sklep">
                                         <FaCartPlus size="40px" color="#2da834"
                                           className="cart"/>
                                      </span>
-                                  </div>
+                                      </Link>
+                                  </span>
                               }
-                            </Link>
-                          }
+
+
                         </span>
-                    </li>
-                )
+                        </li>
+                  )
+                }
+              </ul>
+              {
+                props.user !== null ?
+              <Link to={"/calendar"}>
+                <div title="Dodaj przepis do swojego kalendarza" className="calendarButton">
+                  <FaCalendar size="40px" color="#2da834"
+                              className="cart"/>
+                  <Button className="addToCalendar"
+                          bsStyle="success"
+                          onClick={() => props.addToCalendar(recipeWithId)}
+                  >Dodaj do kalendarza
+                  </Button>
+                </div>
+              </Link>:
+                    null
               }
-            </ul>
-            <Link to={"/calendar"}>
-              <div title="Dodaj przepis do swojego kalendarza" className="calendarButton">
-              <FaCalendar size="40px" color="#2da834"
-                          className="cart"/>
-            <Button className="addToCalendar"
-                    bsStyle="success"
-            onClick={() => props.addToCalendar(recipeWithId)}
-            >Dodaj do kalendarza
-            </Button>
             </div>
-            </Link>
-          </div>
-          <div title="udostępnij" className="socialIcons">
-            <a href="https://plus.google.com/" target="_blank">
-              <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
-            </a>
+            <div title="udostępnij" className="socialIcons">
+              <a href="https://plus.google.com/" target="_blank">
+                <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
+              </a>
 
-            <a href="https://www.facebook.com/" target="_blank">
-              <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
-            </a>
+              <a href="https://www.facebook.com/" target="_blank">
+                <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
+              </a>
 
-            <a href="https://twitter.com/" target="_blank">
-              <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
-            </a>
-          </div>
+              <a href="https://twitter.com/" target="_blank">
+                <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
+              </a>
+            </div>
+          </Col>
+          <Col xs={12}>
+            <hr className="aboveDescription"/>
+            <p className="description">{recipeWithId.description}</p>
+          </Col>
         </Col>
         <Col xs={12}>
-          <hr className="aboveDescription"/>
-          <p className="description">{recipeWithId.description}</p>
+          <p>Dodane komentarze innych uzytkownikow</p>
         </Col>
-      </Col>
-      <Col xs={12}>
-        <p>Dodane komentarze innych uzytkownikow</p>
-      </Col>
-      {
-        typeof props.userId === 'number' ?
+        {
+          typeof props.userId === 'number' ?
 
               <Col xs={12} md={6} mdOffset={3}>
                 <div className="commentsContainer">
@@ -149,11 +170,11 @@ export default connect(mapStateToProps,mapDispatchToProps)((props) => {
                   </form>
                 </div>
               </Col>
-             :
-            <p>Zaloguj się aby dodać komentarz</p>
-      }
-      {props.children}
-    </div>
+              :
+              <p>Zaloguj się aby dodać komentarz</p>
+        }
+        {props.children}
+      </div>
   )
 })
 
