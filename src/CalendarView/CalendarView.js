@@ -6,6 +6,8 @@ import {addEventToCalendar} from './CalendarReducer/actionCreator'
 import {removeRecipeTitle} from '../CalendarView/CalendarReducer/actionCreator'
 import {default as CalendarForm} from './CalendarForm/CalendarForm'
 import {Modal, Button} from 'react-bootstrap'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import '../animations.css'
 
 BigCalendar.momentLocalizer(moment)
 
@@ -85,6 +87,12 @@ class CalendarView extends React.Component {
 
     render() {
         return (
+            <ReactCSSTransitionGroup
+                transitionName="fadeAllRecipes"
+                transitionEnterTimeout={0}
+                transitionAppearTimeout={400}
+                transitionLeaveTimeout={0}
+                transitionAppear={true}>
             <div>
                 {}
                 <Modal show={this.state.showModal} onHide={this.close}>
@@ -135,6 +143,7 @@ class CalendarView extends React.Component {
                     {this.props.children}
                 </div>
             </div>
+            </ReactCSSTransitionGroup>
         )
     }
 }

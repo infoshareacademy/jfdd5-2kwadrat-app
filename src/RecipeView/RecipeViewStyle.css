@@ -250,6 +250,18 @@ hr.cutIt {
   transition: all .2s ease-in-out;
 }
 
+.checkedIngredient {
+  float: right;
+  font-size: 40px;
+  color: #2CA733;
+  margin-top: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.checkedIngredient:hover {
+  transform: scale(1.4);
+}
+
 .addToListRecipeView:hover {
   cursor: pointer;
   transform: scale(1.2);

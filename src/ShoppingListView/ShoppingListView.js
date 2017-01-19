@@ -6,6 +6,8 @@ import {fetchShoppingList} from '../FavouriteReducer/actionCreatos'
 
 import ingredients from '../data/ingredients'
 import './ShoppingList.css'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import '../animations.css'
 
 const mapStateToProps = state => ({
   session: state.currentUserData.session,
@@ -25,6 +27,12 @@ class NeededIngredient extends React.Component {
 
   render() {
     return (
+        <ReactCSSTransitionGroup
+            transitionName="fadeAllRecipes"
+            transitionEnterTimeout={0}
+            transitionAppearTimeout={400}
+            transitionLeaveTimeout={0}
+            transitionAppear={true}>
       <Col className="shoppingList" xs={12} md={6} mdOffset={3}>
         <h3 className="shoppingListTitle">Lista zakupów:</h3>
         {
@@ -57,6 +65,7 @@ class NeededIngredient extends React.Component {
         }
         <img className="printer" title="wydrukuj listę" src="http://pl.seaicons.com/wp-content/uploads/2016/09/printer-1-icon.png" alt="printer" />
       </Col>
+        </ReactCSSTransitionGroup>
 
     )
   }
