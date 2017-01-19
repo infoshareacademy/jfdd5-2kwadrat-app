@@ -56,16 +56,6 @@ class CalendarView extends React.Component {
             this.props.addEvent(event)
         }
     }
-
-    // componentWillMount() {
-    //     if (this.props.recipeTitle !== null) {
-    //         this.setState({
-    //             showModal: true
-    //         })
-    //     }
-    // }
-
-
     addEventFromRecipeView = (dateInfo) => {
 
         this.setState({
@@ -93,14 +83,14 @@ class CalendarView extends React.Component {
                             <h3>Co będziesz gotowac?</h3>
                         </Modal.Title>
                         <Modal.Body>
-                            <input type="text" id="modalNameInput" defaultValue={this.props.recipeTitle}/>
+                            <CalendarForm/>
                         </Modal.Body>
                     </Modal.Header>
                     <Modal.Footer>
                         <Button onClick={this.close}>Potwierdż</Button>
                     </Modal.Footer>
                 </Modal>
-                {this.props.recipeTitle ? 'Wybierz datę w kalendarzu, żeby ugotować: ' + this.props.recipeTitle : null}
+                {this.props.recipeTitle ? 'Zaznacz w kalendarzu kiedy chcesz zacząc ugotować ' + this.props.recipeTitle : null}
                 <h1>Kalendarz</h1>
 
 
@@ -131,7 +121,7 @@ class CalendarView extends React.Component {
                             today: 'dziś'
                         }}
                     />
-                    <CalendarForm/>
+
                     {this.props.children}
                 </div>
             </div>
