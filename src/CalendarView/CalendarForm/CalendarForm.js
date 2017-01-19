@@ -1,5 +1,5 @@
 import React from 'react'
-import {DropdownButton, MenuItem, FormControl, FormGroup, ControlLabel} from 'react-bootstrap'
+import { FormControl, FormGroup, ControlLabel} from 'react-bootstrap'
 
 import '../CalendarView.css'
 import recipes from '../../data/recipes'
@@ -12,7 +12,6 @@ class CalendarForm extends React.Component {
 
 
                 <FormGroup controlId="formControlsSelect">
-                    <ControlLabel>Wybierz danie:</ControlLabel>
                     <FormControl componentClass="select"
                                  className="zupa"
                                  id="modalNameInput"
