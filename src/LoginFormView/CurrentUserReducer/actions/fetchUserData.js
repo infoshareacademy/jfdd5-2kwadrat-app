@@ -6,7 +6,7 @@ export const fetchUserData = (userId, accessToken) => {
   return dispatch => {
     dispatch({ type: FETCH_USER_DATA__BEGIN })
     fetch(
-      'http://localhost:3001/api/users/' + userId + '?access_token=' + accessToken
+      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '?access_token=' + accessToken
     ).then(
       response => {
         if (response.status === 200) {

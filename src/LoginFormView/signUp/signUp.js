@@ -12,7 +12,7 @@ export default (props) => {
                     (
                         <div>
                             {
-                                fetch('http://localhost:3001/api/users',
+                                fetch('https://salty-plateau-32425.herokuapp.com/api/users',
                                     {
                                         method: 'POST',
                                         headers: {
