@@ -26,10 +26,10 @@ export default (props) => {
                                         })
                                     }).then(
                                     response => {
-                                        if (response.status == '422') {
-                                            document.getElementById('passwordCheck').value = '',
+                                        if (response.status === '422') {
+                                            document.getElementById('passwordCheck').value = ''
                                                 document.getElementById('passwordCheck').style.border = "red solid 2px"
-                                            document.getElementById('passwordField').value = '',
+                                            document.getElementById('passwordField').value = ''
                                                 document.getElementById('passwordField').style.border = "red solid 2px"
                                             document.getElementById('signUpFail').innerHTML =
                                                 ('<p>Login jest już zajęty. Może coś bardziej kreatywnego?</p>')

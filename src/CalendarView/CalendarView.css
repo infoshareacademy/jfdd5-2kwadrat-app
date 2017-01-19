@@ -2,3 +2,33 @@
   display:inline-block;
   width: auto;
 }
+
+.rbc-event {
+  background-color: forestgreen;
+
+}
+
+.rbc-time-view {
+  color: darkgreen;
+}
+.rbc-time-header {
+  color:darkgreen;
+  font-weight: 800;
+}
+.rbc-today{
+  background-color: #F0FFF0;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  border: red solid 0px;
+}
+.rbc-toolbar {
+  color:darkgreen;
+}
+
+.close {
+  color:white;
+  opacity:1;
+  font-size: 26px;
+  font-weight: 100;
+}

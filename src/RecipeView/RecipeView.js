@@ -12,7 +12,6 @@ import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
 import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actionCreator'
 import FaCalendar from 'react-icons/lib/fa/calendar'
 import GoChecklist from 'react-icons/lib/go/checklist'
-import $ from "jquery";
 
 
 import {addRecipeToFav, addToShoppingList}from '../FavouriteReducer/actionCreatos'

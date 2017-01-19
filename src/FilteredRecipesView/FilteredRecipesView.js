@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {Image, Col, ButtonGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap'
 import {Link} from 'react-router'
 import './FilteredRecipesView.css'
-import FaArrowLeft from 'react-icons/lib/fa/arrow-left'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import {recipes} from '../data'
@@ -57,8 +56,6 @@ const FilteredRecipes = (props) => {
       (a, b) =>
       (a.ingredients.length - a.numberOfFittedIngredients.length) - ( b.ingredients.length - b.numberOfFittedIngredients.length)
   );
-
-  console.log(newRecipesArray);
 
   return (
       <div>
@@ -206,7 +203,6 @@ const FilteredRecipes = (props) => {
               arrayOfSelectedIngredientsID.length !== 0 ?
                   selectRecipes(newRecipesArray, props.filterNames).map(
                       recipe => {
-                        console.log(recipe)
                         return (
                             <Link key={recipe.id} to={'/recipes/' + recipe.id}>
                               <Col key={recipe.id} xs={12} sm={6} md={4}>
