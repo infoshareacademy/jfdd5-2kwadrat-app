@@ -52,6 +52,20 @@
   color: #000;
   border-bottom: 3px solid #2da834;
 }
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+  background-image: none;
+  background-color: inherit;
+  color: #000;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: #fafafa;
+  color: #000;
+}
+
+.logout {
+  background-color: #d9534f;
+}
 
 .logoIMF {
   color: black;
