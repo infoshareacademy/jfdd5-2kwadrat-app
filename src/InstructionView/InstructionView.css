@@ -1,6 +1,6 @@
 .instruction-view {
   margin-top: 130px;
-  overflow: hidden;
+  margin-left: 130px;
 }
 
 .instruction-image {
@@ -9,7 +9,7 @@
 
 .instruction-text {
   padding-top: 0;
-  line-height: 55px;
+  line-height: 46px;
   color: black;
 }
 
@@ -50,4 +50,23 @@ a:hover {
 
 .slideInRight-appear {
   animation: slideInRight 0.5s;
+}
+
+.simpleButton {
+  padding: 9px;
+  margin: 0 auto;
+  max-width: 320px;
+  position: relative;
+  font-size: 21px;
+  text-decoration: none;
+  color: #fff;
+  border: solid 1px #1c8325;
+  background-image: linear-gradient(bottom, rgb(15, 90, 21) 0%, rgb(86, 212, 78) 100%);
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.simpleButton:active {
+  top:1px;
+  background-image: linear-gradient(bottom, rgb(69, 138, 47) 100%, rgb(124, 212, 110) 0%);
 }
