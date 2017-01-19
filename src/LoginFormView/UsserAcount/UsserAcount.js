@@ -25,7 +25,6 @@ class UsserAcount extends React.Component {
     return this.props.user !== null ? (
       <div>
         <h1>Witaj {this.props.user.username}!</h1>
-        <button onClick={() => this.props.logout(this.props.session.id)}>Wyloguj się</button>
       </div>
     ):<p>'Fetching user data...'</p>
   }
