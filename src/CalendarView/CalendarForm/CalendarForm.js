@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormControl, FormGroup, ControlLabel} from 'react-bootstrap'
+import { FormControl, FormGroup} from 'react-bootstrap'
 
 import '../CalendarView.css'
 import recipes from '../../data/recipes'
