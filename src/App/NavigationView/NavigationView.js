@@ -3,11 +3,15 @@ import {connect} from 'react-redux'
 import {Nav, Navbar, NavItem, NavDropdown} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import './NavigationViewStyle.css'
+import {logOut} from '../../LoginFormView/CurrentUserReducer/actions/logOut'
 
 const mapStateToProps = state => ({
   session: state.currentUserData.session,
 })
 
+const mapDispatchToProps = (dispatch) => ({
+  logout: (accessToken) => dispatch(logOut(accessToken))
+})
 
 
 const NavigationView = (props) => {
@@ -59,11 +63,12 @@ const NavigationView = (props) => {
                   <NavItem eventKey={4.4} href="#">Kalendarz</NavItem>
                 </LinkContainer>
 
-                <LinkContainer to="/login">
-                  <NavItem eventKey={4} href="#">
+                <LinkContainer className="navItem" to="/">
+                  <NavItem eventKey={4} href="#"
+                           onClick={() => props.logout(props.session.id)}>
                     Wyloguj
                   </NavItem>
-                </LinkContainer>
+                  </LinkContainer>
               </NavDropdown>
             ) : null
             }
@@ -74,4 +79,4 @@ const NavigationView = (props) => {
   )
 }
 
-export default connect(mapStateToProps)(NavigationView)
+export default connect(mapStateToProps,mapDispatchToProps)(NavigationView)
