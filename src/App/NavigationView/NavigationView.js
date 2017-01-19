@@ -63,7 +63,7 @@ const NavigationView = (props) => {
                   <NavItem eventKey={4.4} href="#">Kalendarz</NavItem>
                 </LinkContainer>
 
-                <LinkContainer className="navItem" to="/">
+                <LinkContainer className="navItem logout" to="/">
                   <NavItem eventKey={5} href="#"
                            onClick={() => props.logout(props.session.id)}>
                     Wyloguj
