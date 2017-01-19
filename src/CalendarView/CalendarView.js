@@ -84,6 +84,12 @@ class CalendarView extends React.Component {
 
   render() {
     return (
+        <ReactCSSTransitionGroup
+            transitionName="fadeAllRecipes"
+            transitionEnterTimeout={0}
+            transitionAppearTimeout={400}
+            transitionLeaveTimeout={0}
+            transitionAppear={true}>
       <div>
         <Modal show={this.state.showModal2} onHide={this.close2}>
           <Modal.Header closeButton>
@@ -149,6 +155,7 @@ class CalendarView extends React.Component {
           {this.props.children}
         </div>
       </div>
+        </ReactCSSTransitionGroup>
     )
   }
 }
