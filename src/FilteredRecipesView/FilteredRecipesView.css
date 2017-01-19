@@ -51,10 +51,6 @@
   /*margin-bottom: 30px;*/
 /*}*/
 
-.fadeFilteredRecipes-appear {
-  animation: zoomIn 0.3s;
-}
-
 .dropdownFilteringButtons {
   margin-bottom: 10px;
 }
@@ -90,7 +86,7 @@
 }
 
 .row {
-  background-color: lightgray;
+  background-color: #fafafa;
 }
 
 .filteredRecipeCard {
@@ -116,6 +112,11 @@
   font-size: 20px;
 }
 
+.allIngredients {
+  color: yellow;
+  font-size: 20px;
+}
+
 @media screen and (max-width: 767px) {
   .arrow,
   .filtersTitle {
@@ -125,4 +126,20 @@
   .instruction {
     font-size: 16px;
   }
+}
+
+.fadeFilteredRecipes-appear {
+  animation: zoomIn 0.9s;
+}
+
+.slideInUpFiltered-appear {
+  animation: slideInDown 0.9s;
+}
+
+.slideFilteredRecipes-appear {
+  animation: slideInLeft 0.9s;
+}
+
+.bounceFilteredRecipes-appear {
+  animation: jello 0.9s;
 }

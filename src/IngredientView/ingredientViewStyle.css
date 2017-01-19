@@ -16,7 +16,7 @@
 }
 
 .ingredientPictureContainer {
-  margin-top: 60px;
+  margin-top: 40px;
   position: absolute;
   height: 500px;
   z-index: 5;
@@ -28,6 +28,10 @@
   opacity: .5;
   right: 60px;
   max-width: 400px;
+}
+
+.ingredientViewContainer {
+  margin-top: -40px;
 }
 
 .ingredientWithIdName {
@@ -106,5 +110,6 @@
 
   .ingredientPictureContainer {
     position: relative;
+
   }
 }

@@ -8,11 +8,11 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import './index.css'
+import './App/NavigationView/NavigationViewStyle.css'
 import {App} from './App'
 
 import store from './store'
 
-import './App/NavigationView/NavigationViewStyle.css'
 import {InstructionView} from './InstructionView'
 import {AllRecipesView} from './AllRecipesView'
 import {RecipeView} from './RecipeView'
