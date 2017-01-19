@@ -5,7 +5,7 @@ export const LOG_OUT__FAIL = 'current-user/LOG_OUT__FAIL'
 export const logOut = (accessToken) => {
   return (dispatch) => {
     dispatch({type: LOG_OUT__BEGIN})
-    fetch('http://localhost:3001/api/users/logout?access_token=' + accessToken , {
+    fetch('https://salty-plateau-32425.herokuapp.com/api/users/logout?access_token=' + accessToken , {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

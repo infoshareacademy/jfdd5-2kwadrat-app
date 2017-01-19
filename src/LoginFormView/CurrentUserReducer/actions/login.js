@@ -6,7 +6,7 @@ export const LOG_IN__FAIL = 'current-user/LOG_IN__FAIL'
 export const logIn = (username, password) => {
   return (dispatch) => {
     dispatch({type: LOG_IN__BEGIN})
-    fetch('http://localhost:3001/api/users/login', {
+    fetch('https://salty-plateau-32425.herokuapp.com/api/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

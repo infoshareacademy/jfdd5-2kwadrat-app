@@ -11,7 +11,7 @@ export const addRecipeToFav = (userId, accessToken, ingredientId) => {
   return dispatch => {
     dispatch({type: ADD_TO_SHOPPING_LIST})
     fetch(
-      'http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + accessToken,
+      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken,
       {
         method: 'POST',
         headers: {
@@ -31,7 +31,7 @@ export const addToShoppingList = (userId, accessToken, ingredientId) => {
   return dispatch => {
     dispatch({type: ADD_TO_SHOPPING_LIST})
     fetch(
-      'http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + accessToken,
+      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken,
       {
         method: 'POST',
         headers: {
@@ -51,7 +51,7 @@ export const fetchFavouriteRecipes = (userId, accessToken) => {
   return dispatch => {
     dispatch({type: FETCH_FAV_RECIPES__BEGIN})
     fetch(
-      'http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
+      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
     ).then(
       response => response.json()
     ).then(
@@ -73,7 +73,7 @@ export const fetchShoppingList = (userId, accessToken) => {
   return dispatch => {
     dispatch({type: FETCH_SHOPPING_LIST__BEGIN})
     fetch(
-      'http://localhost:3001/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
+      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
     ).then(
       response => response.json()
     ).then(
