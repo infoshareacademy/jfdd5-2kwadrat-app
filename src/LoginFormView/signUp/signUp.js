@@ -32,17 +32,17 @@ export default (props) => {
                                             document.getElementById('passwordField').value = '',
                                                 document.getElementById('passwordField').style.border = "red solid 2px"
                                             document.getElementById('signUpFail').innerHTML =
-                                                ('<p>Spróbuj Ponownie. Coś poszło nie tak</p>')
-                                            console.log("nie udalo sie zarejestrowac uzytkownika")
+                                                ('<p>Login jest już zajęty. Może coś bardziej kreatywnego?</p>')
                                         }
                                         else {
-                                            console.log('udalo sie')
+                                            document.getElementById('passwordField').style.border = ""
+                                            document.getElementById('passwordCheck').style.border = ""
                                             document.getElementById('passwordCheck').value = ''
                                             document.getElementById('passwordField').value = ''
                                             document.getElementById('loginField').value = ''
                                             document.getElementById('signUpFail').innerHTML = ''
                                             document.getElementById('signUpOk').innerHTML =
-                                                '<p>Logowanie przebiegło pomyślnie. Mżesz się zalogować</p>'
+                                                '<p>Super! Wszystko poszło okay! Teraz możesz się zalogować i cieszyć się funkcjonalnością!</p>'
                                             return response.json()
                                         }
                                     }
