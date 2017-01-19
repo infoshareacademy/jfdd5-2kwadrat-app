@@ -50,17 +50,16 @@ class FavouriteRecipesView extends React.Component {
                     <div key={recipe.id}>
                       {
                         <Col key={recipe.id} xs={12} sm={6} md={4}>
-
+                          <Link to={'/recipes/' + recipe.id}>
                           <div className="recipeCard">
-                            <Link to={'/recipes/' + recipe.id}>
                               <Image className="photo image" src={recipe.image}/>
                               <h2>{recipe.name}</h2>
-                            </Link>
                             <div className="icons">
                               <div className="recipeTime">{recipe.time} <span>min</span></div>
                               <div className="recipeDifficult">{recipe.difficult}</div>
                             </div>
                           </div>
+                          </Link>
                         </Col>
                       }
                     </div>
