@@ -4,10 +4,8 @@ import {ingredients} from '../data'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
-import {Image, Col, FormControl, Button} from 'react-bootstrap'
-import {Link} from 'react-router'
+import {Image, Col, FormControl} from 'react-bootstrap'
 import {connect} from 'react-redux'
-import FaCutlery from 'react-icons/lib/fa/cutlery'
 import '../animations.css'
 
 

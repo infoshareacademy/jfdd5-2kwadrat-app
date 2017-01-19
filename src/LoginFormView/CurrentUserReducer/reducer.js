@@ -1,5 +1,4 @@
 import {
-  FETCH_USER_DATA__BEGIN,
   FETCH_USER_DATA__SUCCESS,
   FETCH_USER_DATA__FAIL
 } from './actions/fetchUserData'
@@ -7,11 +6,9 @@ import {
 import {
   LOG_IN__BEGIN,
   LOG_IN__SUCCESS,
-  LOG_IN__FAIL
 } from './actions/login'
 
 import {
-  LOG_OUT__BEGIN,
   LOG_OUT__SUCCESS,
   LOG_OUT__FAIL
 } from './actions/logOut'
