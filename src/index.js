@@ -8,13 +8,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import './index.css'
+import './App/NavigationView/NavigationViewStyle.css'
 import {App} from './App'
 
 import store from './store'
 
-import './App/NavigationView/NavigationViewStyle.css'
 import {InstructionView} from './InstructionView'
-import {FridgeView} from './FridgeView'
 import {AllRecipesView} from './AllRecipesView'
 import {RecipeView} from './RecipeView'
 import {ShopsLogoView} from './ShopsLogoView'
@@ -36,7 +35,6 @@ ReactDOM.render(
         <Route path="/recipes/:recipeId" component={RecipeView} />
         <Route path="/ingredient/:ingredientId" component={IngredientView}/>
         <Route path="/filtered-recipes" component={FilteredRecipesView}/>
-        <Route path="/form" component={FridgeView}/>
         <Route path="/needed-ingredient-view" component={ShoppingListView}/>
 
         <Route path="/login" component={LoginFormView}/>

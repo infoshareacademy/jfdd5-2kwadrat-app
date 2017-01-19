@@ -51,6 +51,95 @@
   /*margin-bottom: 30px;*/
 /*}*/
 
+.dropdownFilteringButtons {
+  margin-bottom: 10px;
+}
+
+.filtersTitle {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-family: Lato, sans-serif;
+  background-color: #2da834;
+  color: #FFF;
+  border-radius: 10px/90%;
+  padding: 5px;
+  width: 100%;
+  text-shadow: none;
+  font-weight: bold;
+}
+
+.dropdownButton {
+  font-family: Lato, sans-serif;
+  font-weight: bold;
+  border: 1px solid #8c8c8c;
+  font-size: 13px;
+  padding: 3px auto;
+}
+
+.instruction {
+  font-size: 32px;
+}
+
+.arrow {
+  font-size: 100px;
+  text-align: left;
+}
+
+.row {
+  background-color: #fafafa;
+}
+
+.filteredRecipeCard {
+  position: relative;
+  width: 260px;
+  margin: 0 auto 50px auto;
+  height: 400px;
+  border: 1px solid #666;
+  box-shadow: 2px 2px 19px 0 rgba(50, 50, 50, 0.75);
+  border-radius: 5px;
+  background-image: url(http://www.ravelo.pl/pub/mm/img/220/11522901.jpg);
+  background-size: cover;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.filteredRecipeCard:hover {
+  transform: scale(1.05);
+}
+
+.recipeTitle {
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.allIngredients {
+  color: yellow;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .arrow,
+  .filtersTitle {
+    display: none;
+  }
+
+  .instruction {
+    font-size: 16px;
+  }
+}
+
 .fadeFilteredRecipes-appear {
-  animation: zoomIn 0.3s;
+  animation: zoomIn 0.9s;
+}
+
+.slideInUpFiltered-appear {
+  animation: slideInDown 0.9s;
+}
+
+.slideFilteredRecipes-appear {
+  animation: slideInLeft 0.9s;
+}
+
+.bounceFilteredRecipes-appear {
+  animation: jello 0.9s;
 }
