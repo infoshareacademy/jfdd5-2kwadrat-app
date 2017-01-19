@@ -31,16 +31,16 @@ const NavigationView = (props) => {
               <NavItem eventKey={1} href="#">Przepisy</NavItem>
             </LinkContainer>
 
-            <LinkContainer to="/shops">
+            <LinkContainer className="navItem" to="/shops">
               <NavItem eventKey={2} href="#">Sklepy</NavItem>
             </LinkContainer>
 
-            <LinkContainer to="/filtered-recipes">
+            <LinkContainer className="navItem" to="/filtered-recipes">
               <NavItem eventKey={3} href="#">Przepisy dla Ciebie</NavItem>
             </LinkContainer>
 
             {props.session === null ? (
-              <LinkContainer to="/login">
+              <LinkContainer className="navItem" to="/login">
                 <NavItem eventKey={4} href="#">
                   Zaloguj się
                 </NavItem>
@@ -49,22 +49,22 @@ const NavigationView = (props) => {
               null }
             {props.session !== null ? (
               <NavDropdown eventKey={4.01} title="Moje konto" id="1">
-                <LinkContainer to="/favourite-recipes">
+                <LinkContainer className="navItem" to="/favourite-recipes">
                   <NavItem eventKey={4.2} href="#">Ulubione</NavItem>
                 </LinkContainer>
 
 
-                <LinkContainer to="/needed-ingredient-view">
+                <LinkContainer className="navItem" to="/needed-ingredient-view">
                   <NavItem eventKey={4.3} href="#">Lista zakupów</NavItem>
                 </LinkContainer>
 
 
-                <LinkContainer to="/calendar">
+                <LinkContainer className="navItem" to="/calendar">
                   <NavItem eventKey={4.4} href="#">Kalendarz</NavItem>
                 </LinkContainer>
 
                 <LinkContainer className="navItem" to="/">
-                  <NavItem eventKey={4} href="#"
+                  <NavItem eventKey={5} href="#"
                            onClick={() => props.logout(props.session.id)}>
                     Wyloguj
                   </NavItem>
