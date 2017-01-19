@@ -25,18 +25,12 @@ class NeededIngredient extends React.Component {
 
   render() {
     return (
-      <Col xs={12} md={6} mdOffset={3} className="neededIngredientContainer">
-        <h3>Musisz to kupić:</h3>
+      <Col className="shoppingList" xs={12} md={6} mdOffset={3}>
+        <h3 className="shoppingListTitle">Lista zakupów:</h3>
         {
           this.props.session !== null ?
             <table className="shop-products-table">
-              <thead>
-              <tr>
-                <th> </th>
-                <th>Nazwa</th>
 
-              </tr>
-              </thead>
               <tbody>
               {this.props.shoppingList.map(
                 ingredientId =>
@@ -51,7 +45,7 @@ class NeededIngredient extends React.Component {
                       <img src={item.img} height={50} alt="ingredient"/>
                     </td>
                     <td>
-                      <span className="ingredient-name"> {item.name.toUpperCase()}</span>
+                      <span className="ingredient-name ingredientNameShoppingList"> {item.name.toUpperCase()}</span>
                     </td>
                   </tr>
               )}
@@ -61,7 +55,9 @@ class NeededIngredient extends React.Component {
               <p>Zaloguj się</p>
             </div>
         }
+        <img className="printer" title="wydrukuj listę" src="http://pl.seaicons.com/wp-content/uploads/2016/09/printer-1-icon.png" alt="printer" />
       </Col>
+
     )
   }
 }

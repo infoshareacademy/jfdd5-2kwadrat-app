@@ -1,7 +1,3 @@
-.neededIngredientContainer {
-  background-color: #EFF;
-}
-
 .slide-leave {
   transform: translateX(0%);
 }
@@ -28,4 +24,40 @@ h2#counterValue {
 
 .counterArea {
   margin: 10px 0 40px 0;
+}
+
+.shoppingListTitle {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.shoppingList {
+  padding: 0 8%;
+}
+
+.ingredientNameShoppingList {
+  font-size: 20px;
+  border: none;
+  font-style: italic;
+}
+
+.printer {
+  float: right;
+  margin: 30px;
+  width: 50px;
+  height: auto;
+}
+
+.printer:hover {
+  cursor: pointer;
+  animation: pulsePrinter 1s infinite;
+}
+
+@keyframes pulsePrinter {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
