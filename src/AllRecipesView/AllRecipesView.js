@@ -28,16 +28,18 @@ export default (props) => (
                       transitionAppearTimeout={300}
                       transitionLeaveTimeout={0}
                       transitionAppear={true}>
-                    <div key='recipes' className="recipeCard">
                       <Link to={'/recipes/' + recipe.id}>
+                    <div key='recipes' className="recipeCard">
+
                         <Image className="photo image" src={recipe.image}/>
                         <h2>{recipe.name}</h2>
-                      </Link>
+
                       <div className="icons">
                         <div className="recipeTime">{recipe.time + " min"}</div>
                         <div className="recipeDifficult">{recipe.difficult}</div>
                       </div>
                     </div>
+                      </Link>
                   </ReactCSSTransitionGroup>
                 </Col>
               </ReactCSSTransitionGroup>
