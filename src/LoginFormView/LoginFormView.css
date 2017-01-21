@@ -28,6 +28,9 @@
 #my-loader {
     display:none;
 }
+#my-loader-login {
+    display:none;
+}
 .cssload-loader {
     width: 244px;
     height: 49px;

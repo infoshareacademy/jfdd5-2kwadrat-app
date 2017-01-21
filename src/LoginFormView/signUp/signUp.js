@@ -7,7 +7,8 @@ export default (props) => {
     const password2 = document.getElementById('passwordCheck').value
     return (
         <div>
-            {
+
+          {
                 password === password2 ?
                     (
                         <div>

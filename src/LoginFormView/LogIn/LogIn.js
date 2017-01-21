@@ -64,6 +64,8 @@ class LogIn extends React.Component {
             <br/>
 
             <Button type="submit" bsStyle="success">Zaloguj się</Button>
+            <br/><br/><br/>
+            <div className="cssload-loader" id="my-loader-login">Ładowanie</div>
                 <h4 id="login-alert"></h4>
           </form>
         </Col>
