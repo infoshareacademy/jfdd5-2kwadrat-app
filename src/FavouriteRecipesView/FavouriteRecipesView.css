@@ -1,7 +1,8 @@
 #removeFrmFav {
   position:absolute;
-  right: 0;
-  width: 35px;
+  right: 3px;
+  top: 2px;
+  width: 40px;
   height: auto;
   color:yellow;
   background-size: cover;
