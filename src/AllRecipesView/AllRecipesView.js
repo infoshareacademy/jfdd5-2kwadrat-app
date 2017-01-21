@@ -22,13 +22,13 @@ export default (props) => (
           transitionLeaveTimeout={0}
           transitionAppear={true}>
         <Col key={recipe.id} xs={12} sm={6} md={4}>
-          <ReactCSSTransitionGroup
-              transitionName="zoomIn"
-              transitionEnterTimeout={0}
-              transitionAppearTimeout={300}
-              transitionLeaveTimeout={0}
-              transitionAppear={true}>
             <Link to={'/recipes/' + recipe.id}>
+              <ReactCSSTransitionGroup
+                  transitionName="zoomIn"
+                  transitionEnterTimeout={0}
+                  transitionAppearTimeout={300}
+                  transitionLeaveTimeout={0}
+                  transitionAppear={true}>
               <div key='recipes' className="recipeCard">
                 <Image className="photo image" src={recipe.image}/>
 
@@ -39,8 +39,9 @@ export default (props) => (
                   <div className="recipeDifficult">{recipe.difficult}</div>
                 </div>
               </div>
+              </ReactCSSTransitionGroup>
+
             </Link>
-          </ReactCSSTransitionGroup>
         </Col>
       </ReactCSSTransitionGroup>
       )

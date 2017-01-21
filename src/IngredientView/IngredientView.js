@@ -6,6 +6,8 @@ import GoogleMap from 'google-map-react'
 import './ingredientViewStyle.css'
 import GoChecklist from 'react-icons/lib/go/checklist'
 import {connect} from 'react-redux'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import '../animations.css'
 
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
 const mapStateToProps = state => ({
@@ -28,6 +30,12 @@ const IngredientView = (props) => {
   return (
     <div>
       <Col xs={12}>
+        <ReactCSSTransitionGroup
+            transitionName="fadeIngredient"
+            transitionEnterTimeout={0}
+            transitionAppearTimeout={400}
+            transitionLeaveTimeout={0}
+            transitionAppear={true}>
         <div key={ingredientsWithId.id} className="">
           <Col lg={6} className="ingredientPictureContainer">
 
@@ -95,6 +103,7 @@ const IngredientView = (props) => {
           </Col>
           {props.children}
         </div>
+        </ReactCSSTransitionGroup>
       </Col>
     </div>
   )

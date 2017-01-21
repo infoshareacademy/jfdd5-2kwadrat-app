@@ -101,3 +101,7 @@ hr.style-two {
 .button-close:hover {
     cursor: pointer;
 }
+
+.fadeShop-appear {
+    animation: fadeIn 0.4s
+}
