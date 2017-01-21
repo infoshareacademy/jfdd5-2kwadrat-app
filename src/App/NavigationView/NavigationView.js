@@ -4,7 +4,7 @@ import {Nav, Navbar, NavItem, NavDropdown} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import './NavigationViewStyle.css'
 import {logOut} from '../../LoginFormView/CurrentUserReducer/actions/logOut'
-
+import MdAccountCircle from 'react-icons/lib/md/account-circle'
 const mapStateToProps = state => ({
   session: state.currentUserData.session,
 })
@@ -39,14 +39,6 @@ const NavigationView = (props) => {
               <NavItem eventKey={3} href="#">Przepisy dla Ciebie</NavItem>
             </LinkContainer>
 
-            {props.session === null ? (
-              <LinkContainer className="navItem" to="/login">
-                <NavItem eventKey={4} href="#">
-                  Zaloguj się
-                </NavItem>
-              </LinkContainer>
-            ):
-              null }
             {props.session !== null ? (
               <NavDropdown eventKey={4.01} title="Moje konto" id="1">
                 <LinkContainer className="navItem" to="/favourite-recipes">
@@ -68,10 +60,18 @@ const NavigationView = (props) => {
                            onClick={() => props.logout(props.session.id)}>
                     Wyloguj
                   </NavItem>
-                  </LinkContainer>
+                </LinkContainer>
               </NavDropdown>
             ) : null
             }
+
+            <LinkContainer className="navItem" to="/login">
+              <NavItem eventKey={4} href="#">
+                {props.session === null ?
+                  'Zaloguj się' : <MdAccountCircle className="avatar"/>
+                }
+              </NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -79,4 +79,4 @@ const NavigationView = (props) => {
   )
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(NavigationView)
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationView)
