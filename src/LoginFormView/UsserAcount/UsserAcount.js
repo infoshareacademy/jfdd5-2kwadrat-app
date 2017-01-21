@@ -4,6 +4,11 @@ import {Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {logOut} from '../CurrentUserReducer/actions/logOut'
 import {fetchUserData} from '../CurrentUserReducer/actions/fetchUserData'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import '../../animations.css'
+import './UserAccount.css'
+
+
 const mapStateToProps = (state) => ({
   session: state.currentUserData.session,
   user: state.currentUserData.user
@@ -14,7 +19,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchUserData: (userId, accessToken) => dispatch(fetchUserData(userId, accessToken))
 })
 
-
 class UsserAcount extends React.Component {
 
   componentWillMount() {
@@ -24,35 +28,42 @@ class UsserAcount extends React.Component {
   render() {
     return this.props.user !== null ? (
       <div>
-        <Col xs={6}>
-          <div className="chef-cloud">
-            <h3>Witaj <span className="userName"> {this.props.user.username}</span>!</h3>
-            W zakładce
-            <Link to={'/favourite-recipes'}>
-              <button className="simpleButton usserButton">Ulubione
-              </button>
-            </Link>
-            przeglądaj swoje przepisy.
-            W zakładce
-            <Link to={'/needed-ingredient-view'}>
-              <button className="simpleButton usserButton">Lista zakupów
-              </button>
-            </Link>
-            przeglądaj listy swoich zakupów.
-            W zakładce
-            <Link to={'/calendar'}>
-              <button className="simpleButton usserButton">Kalendarz
-              </button>
-            </Link>
-            planuj co i kiedy będziesz gotować.
-          </div>
-        </Col>
-        <Col xs={6}>
-          <div className="chef">
-          </div>
-        </Col>
+        <ReactCSSTransitionGroup
+            transitionName="fadeMokap"
+            transitionEnterTimeout={0}
+            transitionAppearTimeout={500}
+            transitionLeaveTimeout={0}
+            transitionAppear={true}>
+          <Col xs={6}>
+            <div className="chef-cloud">
+              <h3>Witaj <span className="userName"> {this.props.user.username}</span>!</h3>
+              W zakładce
+                <Link to={'/favourite-recipes'}>
+                  <button className="simpleButton usserButton">Ulubione
+                  </button>
+                </Link>
+              przeglądaj swoje przepisy.
+              W zakładce
+                <Link to={'/needed-ingredient-view'}>
+                  <button className="simpleButton usserButton">Lista zakupów
+                  </button>
+                </Link>
+              przeglądaj listy swoich zakupów.
+              W zakładce
+                <Link to={'/calendar'}>
+                  <button className="simpleButton usserButton">Kalendarz
+                  </button>
+                </Link>
+              planuj co i kiedy będziesz gotować.
+            </div>
+          </Col>
+          <Col xs={6}>
+            <div className="chef">
+            </div>
+          </Col>
+        </ReactCSSTransitionGroup>
       </div>
-    ) : <p>'Fetching user data...'</p>
+      ) : <p>'Fetching user data...'</p>
   }
 }
 

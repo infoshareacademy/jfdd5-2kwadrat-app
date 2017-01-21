@@ -90,7 +90,7 @@ hr.cutIt {
   bottom: 25px;
   font-size: 65px;
   color: silver;
-  right: 60px;
+  right: 10%;
   overflow: hidden;
   text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 }
@@ -125,7 +125,7 @@ hr.cutIt {
 }
 
 .socialFacebook {
- color: #8b9dc3;
+  color: #8b9dc3;
   transition: all .2s ease-in-out;
 }
 
@@ -136,7 +136,7 @@ hr.cutIt {
 }
 
 .socialTwitter {
- color: #d4d8d4;
+  color: #d4d8d4;
   transition: all .2s ease-in-out;
 }
 
@@ -147,11 +147,10 @@ hr.cutIt {
 }
 
 .bunchIngredients:hover {
-  -webkit-animation-name: shakeYourAss;
-  -webkit-animation-duration: 0.8s;
-  -webkit-transform-origin: 50% 50%;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
+  animation: shakeYourAss 0.8s;
+  transform-origin: 50% 50%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 .amount {
@@ -182,7 +181,7 @@ hr.cutIt {
   text-align: justify;
   -webkit-column-count: 3;
   -moz-column-count: 3;
-/ column-count: 3;
+  column-count: 3;
   font-size: 17px;
   column-gap: 60px;
   margin: 0 auto;
@@ -199,13 +198,9 @@ hr.cutIt {
 }
 
 .favorite:hover {
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-  -webkit-animation-duration: 1s;
+  animation: pulse 1s;
   animation-duration: 1s;
-  -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   cursor: pointer;
   color: gold;
@@ -222,6 +217,7 @@ hr.cutIt {
 .bodyField {
   vertical-align: top;
 }
+
 .calendarIcon {
   opacity: 0.6;
 }
@@ -231,14 +227,19 @@ hr.cutIt {
   margin: 25px;
 }
 
-.calendarButton:hover, .calendarButton:hover  .cart {
-  opacity:1;
-  -webkit-animation-name: shakeYourAss;
-  -webkit-animation-duration: 0.8s;
-  -webkit-transform-origin: 50% 50%;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  display:inline-block;
+.cart {
+  height: 40px;
+  width: auto;
+  color: #2da834;
+}
+
+.calendarButton:hover, .cart:hover {
+  opacity: 1;
+  animation: shakeYourAss 0.8s;
+  transform-origin: 50% 50%;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  display: inline-block;
 }
 
 .addToListRecipeView {
@@ -248,6 +249,12 @@ hr.cutIt {
   height: auto;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
+}
+
+.addToListRecipeView:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  color: #1744d8;
 }
 
 .checkedIngredient {
@@ -262,59 +269,53 @@ hr.cutIt {
   transform: scale(1.4);
 }
 
-.addToListRecipeView:hover {
-  cursor: pointer;
-  transform: scale(1.2);
-  color: #1744d8;
-}
-
-@-webkit-keyframes shakeYourAss {
+@keyframes shakeYourAss {
   0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
+    transform: translate(2px, 1px) rotate(0deg);
   }
   10% {
-    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+    transform: translate(-1px, -2px) rotate(-1deg);
   }
   20% {
-    -webkit-transform: translate(-3px, 0px) rotate(1deg);
+    transform: translate(-3px, 0px) rotate(1deg);
   }
   30% {
-    -webkit-transform: translate(0px, 2px) rotate(0deg);
+    transform: translate(0px, 2px) rotate(0deg);
   }
   40% {
-    -webkit-transform: translate(1px, -1px) rotate(1deg);
+    transform: translate(1px, -1px) rotate(1deg);
   }
   50% {
-    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+    transform: translate(-1px, 2px) rotate(-1deg);
   }
   60% {
-    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+    transform: translate(-3px, 1px) rotate(0deg);
   }
   70% {
-    -webkit-transform: translate(2px, 1px) rotate(-1deg);
+    transform: translate(2px, 1px) rotate(-1deg);
   }
   80% {
-    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+    transform: translate(-1px, -1px) rotate(1deg);
   }
   90% {
-    -webkit-transform: translate(2px, 2px) rotate(0deg);
+    transform: translate(2px, 2px) rotate(0deg);
   }
   100% {
-    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+    transform: translate(1px, -2px) rotate(-1deg);
   }
 }
 
 @keyframes pulse {
   25% {
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
     transform: scale(1.2);
   }
   75% {
-    -webkit-transform: scale(0.8);
-    -ms-transform: scale(0.8);
     transform: scale(0.8);
   }
+}
+
+.fadeRecipe-appear {
+  animation: fadeIn 0.5s
 }
 
 @media (max-width: 1200px) {
@@ -334,4 +335,3 @@ hr.cutIt {
     right: 130px;
   }
 }
-

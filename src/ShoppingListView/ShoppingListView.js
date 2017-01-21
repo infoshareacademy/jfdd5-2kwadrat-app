@@ -15,8 +15,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchShoppingList: (userId, accessToken) =>
-    dispatch(fetchShoppingList(userId, accessToken))
+  fetchShoppingList: (userId, accessToken) => dispatch(fetchShoppingList(userId, accessToken))
 })
 
 class NeededIngredient extends React.Component {
@@ -35,6 +34,15 @@ class NeededIngredient extends React.Component {
             transitionAppear={true}>
       <Col className="shoppingList" xs={12} md={6} mdOffset={3}>
         <h3 className="shoppingListTitle">Lista zakupów:</h3>
+        <ReactCSSTransitionGroup
+            transitionName="zoomIn"
+            transitionEnterTimeout={0}
+            transitionAppearTimeout={300}
+            transitionLeaveTimeout={0}
+            transitionAppear={true}>
+          <div>
+
+
         {
           this.props.session !== null ?
             <table className="shop-products-table">
@@ -63,6 +71,8 @@ class NeededIngredient extends React.Component {
               <p>Zaloguj się</p>
             </div>
         }
+          </div>
+        </ReactCSSTransitionGroup>
         <img className="printer" title="wydrukuj listę" src="http://pl.seaicons.com/wp-content/uploads/2016/09/printer-1-icon.png" alt="printer" />
       </Col>
         </ReactCSSTransitionGroup>

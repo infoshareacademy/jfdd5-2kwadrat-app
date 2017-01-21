@@ -93,8 +93,10 @@
 }
 
 .allIngredients {
-  color: yellow;
+  color: #fff;
   font-size: 20px;
+  font-family: cursive;
+  font-style: italic;
 }
 
 .fridgeImg {
