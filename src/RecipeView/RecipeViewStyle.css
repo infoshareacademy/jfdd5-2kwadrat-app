@@ -325,4 +325,11 @@ hr.cutIt {
     right: 130px;
   }
 }
-
+#removeFrmFav {
+  position:absolute;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  color:yellow;
+  background-size: cover;
+}

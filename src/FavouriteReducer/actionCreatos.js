@@ -4,8 +4,9 @@ import {
   FETCH_SHOPPING_LIST__BEGIN,
   FETCH_SHOPPING_LIST__SUCCES,
   ADD_TO_SHOPPING_LIST,
-  ADD_RECIPE_TO_FAV
+  ADD_RECIPE_TO_FAV,
 } from './actionTypes'
+
 
 export const addRecipeToFav = (userId, accessToken, ingredientId) => {
   return dispatch => {
