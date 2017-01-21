@@ -46,9 +46,7 @@ class RecipeView extends React.Component{
   }
   render(){
     return (
-
       <div key={this.recipeWithId.id}>
-        {console.log('ulubione recipy',this.props.favRecipes)}
         <h1 className="recipeName">{this.recipeWithId.name}</h1>
         <Col xs={12} className="recipeViewWrapper">
           <Col lg={6}>
@@ -57,8 +55,8 @@ class RecipeView extends React.Component{
             </div>
             {
               this.props.session !== null ?
-                <p >
-                <span title="Dodaj do ulubionych" className="favorite"
+              this.props.favRecipes.indexOf(this.recipeWithId.id) === -1 ?
+              <span title="Dodaj do ulubionych" className="favorite"
                       onClick={() =>
                       {
                         const favorite = document.getElementsByClassName('favorite')
@@ -67,8 +65,8 @@ class RecipeView extends React.Component{
 
                       }
                       }
-                >&#9055;</span>
-                </p> :
+                >&#9055;</span> : null
+               :
                 null
             }
           </Col>
