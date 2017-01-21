@@ -36,6 +36,13 @@ class FavouriteRecipesView extends React.Component {
           transitionAppear={true}>
         <div>
           <h1>Ulubione przepisy:</h1>
+          <ReactCSSTransitionGroup
+              transitionName="zoomIn"
+              transitionEnterTimeout={0}
+              transitionAppearTimeout={300}
+              transitionLeaveTimeout={0}
+              transitionAppear={true}>
+            <div>
           {
             this.props.session !== null ?
               (
@@ -82,6 +89,8 @@ class FavouriteRecipesView extends React.Component {
               :
               <h1>Zaloduj się by wyświetlić listę</h1>
           }
+          </div>
+          </ReactCSSTransitionGroup>
         </div>
       </ReactCSSTransitionGroup>
     )

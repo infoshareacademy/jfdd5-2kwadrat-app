@@ -107,9 +107,10 @@
 }
 
 .usserButton {
-  padding: 3px;
+  padding: 4px;
   font-size: 15px;
   line-height: 20px;
+  margin: 6px;
 }
 
 .userName {
@@ -117,5 +118,5 @@
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .avatar {
-  border: 0px;
+  border: 0;
 }

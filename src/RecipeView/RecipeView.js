@@ -1,5 +1,4 @@
 import React from 'react'
-import './RecipeViewStyle.css'
 import {Image, Col, Button} from 'react-bootstrap'
 import {recipes} from '../data'
 import {ingredients} from '../data'
@@ -9,10 +8,13 @@ import FaCartPlus from 'react-icons/lib/fa/cart-plus'
 import FaTwitterSquare from 'react-icons/lib/fa/twitter-square'
 import FaFacebookSquare from 'react-icons/lib/fa/facebook-square'
 import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
-import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actionCreator'
 import FaCalendar from 'react-icons/lib/fa/calendar'
 import GoChecklist from 'react-icons/lib/go/checklist'
 import FaCheck from 'react-icons/lib/fa/check'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import './RecipeViewStyle.css'
+import '../animations.css'
+import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actionCreator'
 
 import {addRecipeToFav, addToShoppingList,fetchFavouriteRecipes,fetchShoppingList}from '../FavouriteReducer/actionCreatos'
 
@@ -66,6 +68,28 @@ class RecipeView extends React.Component{
                         const favorite = document.getElementsByClassName('favorite')
                         favorite[0].style.display = 'none'
                         this.props.addRecipe(this.props.session.userId,this.props.session.id,this.recipeWithId.id)
+  return (
+      <ReactCSSTransitionGroup
+          transitionName="fadeRecipe"
+          transitionEnterTimeout={0}
+          transitionAppearTimeout={500}
+          transitionLeaveTimeout={0}
+          transitionAppear={true}>
+      <div key={recipeWithId.id}>
+        <h1 className="recipeName">{recipeWithId.name}</h1>
+        <Col xs={12} className="recipeViewWrapper">
+          <Col lg={6}>
+            <div className="grow pic">
+              <Image className="photo recipeImage" src={recipeWithId.image}/>
+            </div>
+            {
+              props.session !== null ?
+                <p >
+                  <span title="Dodaj do ulubionych" className="favorite"
+                        onClick={() => {
+                          const favorite = document.getElementsByClassName('favorite')
+                          favorite[0].style.display = 'none'
+                          props.addRecipe(props.session.userId, props.session.id, recipeWithId.id)
 
                       }
                       }
@@ -107,12 +131,13 @@ class RecipeView extends React.Component{
                                <span title="Znajdź sklep">
                                   <FaCartPlus size="40px" color="#2da834"
                                               className="cart"/>
+
                                </span>
                                 </Link>
                             </span>
                         }
                         </span>
-                      </li>
+                        </li>
                   )
                 }
               </ul>
@@ -157,34 +182,35 @@ class RecipeView extends React.Component{
         {
           this.props.session !== null ?
 
-            <Col xs={12} md={6} mdOffset={3}>
-              <div className="commentsContainer">
-                <div className="userInformation">
+              <Col xs={12} md={6} mdOffset={3}>
+                <div className="commentsContainer">
+                  <div className="userInformation">
+                  </div>
+                  <form>
+                    <label>
+                      <p className="commentTitle">tytuł:</p> <input name="title" className="titleField"/>
+                    </label>
+
+                    <br/>
+
+                    <label>
+                      <p className="commentBody">treść:</p> <textarea name="body" className="bodyField"></textarea>
+                    </label>
+
+                    <br/>
+
+                    <input type="submit" value="Dodaj komentarz" className="addBtn"/>
+                  </form>
                 </div>
-                <form>
-                  <label>
-                    <p className="commentTitle">tytuł:</p> <input name="title" className="titleField"/>
-                  </label>
-
-                  <br/>
-
-                  <label>
-                    <p className="commentBody">treść:</p> <textarea name="body" className="bodyField"></textarea>
-                  </label>
-
-                  <br/>
-
-                  <input type="submit" value="Dodaj komentarz" className="addBtn"/>
-                </form>
-              </div>
-            </Col>
-            :
-            <p>Zaloguj się aby dodać komentarz</p>
+              </Col>
+              :
+              <p>Zaloguj się aby dodać komentarz</p>
         }
         {this.props.children}
       </div>
-    )
-  }
+      </ReactCSSTransitionGroup>
+  )
+})
 
 }
 

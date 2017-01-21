@@ -93,6 +93,10 @@
   color: #1744d8;;
 }
 
+.fadeIngredient-appear {
+  animation: fadeIn 0.4s
+}
+
 @media (max-width: 1200px) {
   .mapContainer {
     position: relative;

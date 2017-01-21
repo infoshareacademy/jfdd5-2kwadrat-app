@@ -38,43 +38,22 @@ class UsserAcount extends React.Component {
             <div className="chef-cloud">
               <h3>Witaj <span className="userName"> {this.props.user.username}</span>!</h3>
               W zakładce
-              <ReactCSSTransitionGroup
-                  transitionName="fadeInButton"
-                  transitionEnterTimeout={0}
-                  transitionAppearTimeout={1000}
-                  transitionLeaveTimeout={0}
-                  transitionAppear={true}>
                 <Link to={'/favourite-recipes'}>
                   <button className="simpleButton usserButton">Ulubione
                   </button>
                 </Link>
-              </ReactCSSTransitionGroup>
               przeglądaj swoje przepisy.
               W zakładce
-              <ReactCSSTransitionGroup
-                  transitionName="fadeInButton"
-                  transitionEnterTimeout={0}
-                  transitionAppearTimeout={1000}
-                  transitionLeaveTimeout={0}
-                  transitionAppear={true}>
                 <Link to={'/needed-ingredient-view'}>
                   <button className="simpleButton usserButton">Lista zakupów
                   </button>
                 </Link>
-              </ReactCSSTransitionGroup>
               przeglądaj listy swoich zakupów.
               W zakładce
-              <ReactCSSTransitionGroup
-                  transitionName="fadeInButton"
-                  transitionEnterTimeout={0}
-                  transitionAppearTimeout={1000}
-                  transitionLeaveTimeout={0}
-                  transitionAppear={true}>
                 <Link to={'/calendar'}>
                   <button className="simpleButton usserButton">Kalendarz
                   </button>
                 </Link>
-              </ReactCSSTransitionGroup>
               planuj co i kiedy będziesz gotować.
             </div>
           </Col>
