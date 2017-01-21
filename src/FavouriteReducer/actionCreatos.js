@@ -173,9 +173,9 @@ export const removeFromShoppingList = (userId, token, favoriteId) => {
       response => {
         if (response.status === 204) {
           dispatch({
-            type: REMOVE_INGREDIENT__SUCCESS,
-            favoriteId: favoriteId
+            type: REMOVE_INGREDIENT__SUCCESS
           })
+
         }
         else {
           return response.json().then(
