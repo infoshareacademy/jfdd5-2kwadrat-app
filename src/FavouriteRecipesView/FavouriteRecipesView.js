@@ -31,74 +31,75 @@ class FavouriteRecipesView extends React.Component {
 
   render() {
     return (
-      <ReactCSSTransitionGroup
-          transitionName="fadeAllRecipes"
-          transitionEnterTimeout={0}
-          transitionAppearTimeout={400}
-          transitionLeaveTimeout={0}
-          transitionAppear={true}>
-        <div>
-          <h1>Ulubione przepisy:</h1>
-          <ReactCSSTransitionGroup
-              transitionName="zoomIn"
-              transitionEnterTimeout={0}
-              transitionAppearTimeout={300}
-              transitionLeaveTimeout={0}
-              transitionAppear={true}>
-            <div>
-          {
-            this.props.session !== null ?
-              (
-                this.props.favRecipes.map(
-                  recipeId =>
-                    recipes.find(
-                        recipe =>
-                        recipe.id === recipeId
-                    )
-                ).map(
-                  recipe =>
-                    <div key={recipe.id}>
-                      {
+        <ReactCSSTransitionGroup
+            transitionName="fadeAllRecipes"
+            transitionEnterTimeout={0}
+            transitionAppearTimeout={400}
+            transitionLeaveTimeout={0}
+            transitionAppear={true}>
+          <div>
+            <h1>Ulubione przepisy:</h1>
+            <ReactCSSTransitionGroup
+                transitionName="zoomIn"
+                transitionEnterTimeout={0}
+                transitionAppearTimeout={300}
+                transitionLeaveTimeout={0}
+                transitionAppear={true}>
+              <div>
+                {
+                  this.props.session !== null ?
+                      (
+                          this.props.favRecipes.map(
+                              recipeId =>
+                                  recipes.find(
+                                      recipe =>
+                                      recipe.id === recipeId
+                                  )
+                          ).map(
+                              recipe =>
+                                  <div key={recipe.id}>
+                                    {
 
-                        <Col key={recipe.id} xs={12} sm={6} md={4}>
-                          <div className="recipeCard">
-                            <div>
-                              <div className="removeCard" title="usuń z ulubionych">
-                                <TiTimesOutline id="removeFavourite" />
-                              </div>
-                            <MdStarOutline id="removeFrmFav"
-                            onClick={()=>{
-                              this.props.favRecipes.filter(
-                                recipeId =>
-                                recipeId !== recipe.id
-                              )
-                            }
+                                      <Col key={recipe.id} xs={12} sm={6} md={4}>
+                                        <div className="recipeCard">
+                                          <div>
+                                            <div className="removeX" title="usuń z ulubionych">
+                                              <TiTimesOutline id="removeFavourite"/>
+                                            </div>
+                                            <div className="favouriteStar">
+                                              <MdStarOutline id="removeFrmFav"
+                                                             onClick={() => {
+                                                               this.props.favRecipes.filter(
+                                                                   recipeId =>
+                                                                   recipeId !== recipe.id
+                                                               )
+                                                             }
+                                                             }
+                                              />
+                                            </div>
+                                          </div>
+                                          <Link to={'/recipes/' + recipe.id}>
+                                            <Image className="photo image" src={recipe.image}/>
+                                            <h2>{recipe.name}</h2>
+                                            <div className="icons">
+                                              <div className="recipeTime">{recipe.time} <span>min</span></div>
+                                              <div className="recipeDifficult">{recipe.difficult}</div>
+                                            </div>
+                                          </Link>
+                                        </div>
 
-                            }
-                            />
-                            </div>
-                            <Link to={'/recipes/' + recipe.id}>
-                              <Image className="photo image" src={recipe.image}/>
-                              <h2>{recipe.name}</h2>
-                            <div className="icons">
-                              <div className="recipeTime">{recipe.time} <span>min</span></div>
-                              <div className="recipeDifficult">{recipe.difficult}</div>
-                            </div>
-                            </Link>
-                          </div>
-
-                        </Col>
-                      }
-                    </div>
-                )
-              )
-              :
-              <h1>Zaloduj się by wyświetlić listę</h1>
-          }
+                                      </Col>
+                                    }
+                                  </div>
+                          )
+                      )
+                      :
+                      <h1>Zaloduj się by wyświetlić listę</h1>
+                }
+              </div>
+            </ReactCSSTransitionGroup>
           </div>
-          </ReactCSSTransitionGroup>
-        </div>
-      </ReactCSSTransitionGroup>
+        </ReactCSSTransitionGroup>
     )
   }
 
