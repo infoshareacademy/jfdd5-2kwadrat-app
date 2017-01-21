@@ -20,6 +20,7 @@
 .navbar-default .navbar-brand {
   color: #000;
 }
+
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
   color: #000;
 }
@@ -48,10 +49,11 @@
   box-shadow: none;
 }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus  {
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #000;
   border-bottom: 3px solid #2da834;
 }
+
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   background-image: none;
   background-color: inherit;
