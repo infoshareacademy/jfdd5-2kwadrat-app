@@ -4,11 +4,14 @@ import {Image, Col} from 'react-bootstrap'
 import {Link} from 'react-router'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import '../animations.css'
+import './FavouriteRecipesView.css'
 
 import {fetchFavouriteRecipes} from '../FavouriteReducer/actionCreatos'
 
 import recipes from '../data/recipes'
 import MdStarOutline from 'react-icons/lib/md/star-outline'
+import TiTimesOutline from 'react-icons/lib/ti/times'
+
 const mapStateToProps = state => ({
   session: state.currentUserData.session,
   favRecipes: state.favourite.favouriteRecipes
@@ -60,6 +63,9 @@ class FavouriteRecipesView extends React.Component {
                         <Col key={recipe.id} xs={12} sm={6} md={4}>
                           <div className="recipeCard">
                             <div>
+                              <div title="usuń z ulubionych">
+                                <TiTimesOutline id="removeFavourite" />
+                              </div>
                             <MdStarOutline id="removeFrmFav"
                             onClick={()=>{
                               this.props.favRecipes.filter(
