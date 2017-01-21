@@ -26,7 +26,7 @@ class UsserAcount extends React.Component {
       <div>
         <Col xs={6}>
           <div className="chef-cloud">
-            <h3>Witaj {this.props.user.username}!</h3>
+            <h3>Witaj <span className="userName"> {this.props.user.username}</span>!</h3>
             W zakładce
             <Link to={'/favourite-recipes'}>
               <button className="simpleButton usserButton">Ulubione

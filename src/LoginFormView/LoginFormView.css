@@ -163,7 +163,7 @@ display:none;
 }
 
 .chef {
-    margin-top:150px;
+    margin-top:30px;
     height: 550px;
     width: 525px;
     background-size: cover;
@@ -171,7 +171,9 @@ display:none;
 }
 
 .chef-cloud {
-    padding:20px;
+    font-size: 20px;
+    line-height: 40px;
+    padding:26px;
     height:432px;
     width: 583px;
     background-size: cover;
@@ -180,4 +182,9 @@ display:none;
 .usserButton {
     padding:3px;
     font-size: 15px;
+    line-height: 20px;
+}
+
+.userName {
+    color:forestgreen;
 }
