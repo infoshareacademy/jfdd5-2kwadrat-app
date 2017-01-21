@@ -1,10 +1,5 @@
 .recipeCardHeight {
-  height: 490px;
-}
-
-.button-back {
-  height: 70px;
-  position: relative;
+  max-height: 490px;
 }
 
 .missing-ingredients-info {
@@ -12,18 +7,6 @@
   transition: none;
   font-weight: 600;
   background: rgba(255, 255, 255, 0.1);
-}
-
-.btn-back {
-  position: absolute;
-  left: 10px;
-  color: #2CA733;
-}
-
-.btn-back:hover {
-  cursor: pointer;
-  color: green;
-  animation: shake 1s infinite;
 }
 
 @keyframes shake {
@@ -73,6 +56,8 @@
 
 .instruction {
   font-size: 32px;
+  position: relative;
+  top: -400px;
 }
 
 .arrow {
@@ -99,7 +84,7 @@
 }
 
 .filteredRecipeCard:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .recipeTitle {
@@ -112,6 +97,19 @@
   font-size: 20px;
 }
 
+.fridgeImg {
+  height: 400px;
+  opacity: 0.3;
+}
+
+.instructionAndImageDiv {
+  margin-top: 60px;
+}
+
+.btnGroup {
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 767px) {
   .arrow,
   .filtersTitle {
@@ -119,7 +117,25 @@
   }
 
   .instruction {
-    font-size: 16px;
+    font-size: 20px;
+    top: -200px;
+  }
+
+  .fridgeImg {
+    height: 300px;
+    opacity: 0.3;
+  }
+
+  .instructionAndImageDiv {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .btn-group > .btn,
+  .btn-group > .btn-group {
+  float: none;
+  border-radius: 0;
   }
 }
 

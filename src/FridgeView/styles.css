@@ -9,15 +9,11 @@
   border: 1px solid #8c8c8c;
 }
 
-.ingredientFieldContent:checked {
-  background-color: #2da834;
-}
-
 .ingredientFieldContent:hover {
-  transform: scale(1.05);
-  transition: all .2s ease-in-out;
+  transform: scale(1.03);
+  transition: all .1s ease-in-out;
   cursor: pointer;
-  box-shadow: 0 0 2px 2px #2da834;
+  box-shadow: 0 0 1px 1px #2da834;
 }
 
 .filteredIngredientImage {
