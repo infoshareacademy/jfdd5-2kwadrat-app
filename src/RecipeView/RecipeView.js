@@ -141,7 +141,7 @@ export default connect(mapStateToProps, mapDispatchToProps)((props) => {
           <p>Dodane komentarze innych uzytkownikow</p>
         </Col>
         {
-          typeof props.userId === 'number' ?
+          props.session !== null ?
 
             <Col xs={12} md={6} mdOffset={3}>
               <div className="commentsContainer">

@@ -84,16 +84,18 @@ hr.style-two {
 .ingredient-name {
     font-weight: 800;
 }
-.cart {
-    opacity: 0.5;
+.addToShoppingList {
+    margin-top: 3px;
+    color: #79a0e0;
+    width: 45px;
+    height: auto;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
 }
-.cart:hover {
-    opacity:1;
-    animation-name: shakeYourAss;
-    animation-duration: 0.8s;
-    transform-origin: 50% 50%;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+.addToShoppingList:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    color: #1744d8;
 }
 
 .button-close:hover {

@@ -53,7 +53,7 @@ export default [
         name: 'wieprzowina',
         unitOfMeasure: 'gr.',
         amount: 0,
-        img: 'http://www.pngall.com/wp-content/uploads/2016/03/Meat-Free-PNG-Image.png'
+        img: 'http://3c9bl93o71m619w9kn2rfwinkdh.wpengine.netdna-cdn.com/wp-content/uploads/2014/04/fresh-and-thick-ribeye.png'
     },
     {
         id: 9,
