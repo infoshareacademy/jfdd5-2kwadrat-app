@@ -88,7 +88,17 @@ class LogIn extends React.Component {
               <br/>
               <Button type="submit" bsStyle="info">Zapisz się</Button>
             </form>
-
+            <div id="my-loader" className="overlay-loader">
+              <div className="loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
             <h3 id="signUpFail"></h3>
             <h3 id="signUpOk"></h3>
           </div>
