@@ -52,6 +52,12 @@ class RecipeView extends React.Component{
   }
   render(){
     return (
+      <ReactCSSTransitionGroup
+        transitionName="fadeRecipe"
+        transitionEnterTimeout={0}
+        transitionAppearTimeout={500}
+        transitionLeaveTimeout={0}
+        transitionAppear={true}>
       <div key={this.recipeWithId.id}>
         <h1 className="recipeName">{this.recipeWithId.name}</h1>
         <Col xs={12} className="recipeViewWrapper">
@@ -63,37 +69,12 @@ class RecipeView extends React.Component{
               this.props.session !== null ?
               this.props.favRecipes.indexOf(this.recipeWithId.id) === -1 ?
               <span title="Dodaj do ulubionych" className="favorite"
-                      onClick={() =>
-                      {
+                      onClick={() => {
                         const favorite = document.getElementsByClassName('favorite')
                         favorite[0].style.display = 'none'
-                        this.props.addRecipe(this.props.session.userId,this.props.session.id,this.recipeWithId.id)
-  return (
-      <ReactCSSTransitionGroup
-          transitionName="fadeRecipe"
-          transitionEnterTimeout={0}
-          transitionAppearTimeout={500}
-          transitionLeaveTimeout={0}
-          transitionAppear={true}>
-      <div key={recipeWithId.id}>
-        <h1 className="recipeName">{recipeWithId.name}</h1>
-        <Col xs={12} className="recipeViewWrapper">
-          <Col lg={6}>
-            <div className="grow pic">
-              <Image className="photo recipeImage" src={recipeWithId.image}/>
-            </div>
-            {
-              props.session !== null ?
-                <p >
-                  <span title="Dodaj do ulubionych" className="favorite"
-                        onClick={() => {
-                          const favorite = document.getElementsByClassName('favorite')
-                          favorite[0].style.display = 'none'
-                          props.addRecipe(props.session.userId, props.session.id, recipeWithId.id)
-
-                      }
-                      }
-                >&#9055;</span> : null
+                        this.props.addRecipe(this.props.session.userId, this.props.session.id, this.recipeWithId.id)
+                      }}
+              >&#9055;</span> : null
                :
                 null
             }
@@ -210,8 +191,7 @@ class RecipeView extends React.Component{
       </div>
       </ReactCSSTransitionGroup>
   )
-})
-
+}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeView)
