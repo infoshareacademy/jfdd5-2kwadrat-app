@@ -2,14 +2,13 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Image, Col, ButtonGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap'
 import {Link} from 'react-router'
-import './FilteredRecipesView.css'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import {recipes} from '../data'
 import {selectRecipes} from './select'
 import {default as FridgeView} from '../FridgeView/FridgeView.js'
 import '../animations.css'
-import FaThumbsUp from 'react-icons/lib/fa/thumbs-up'
+import './FilteredRecipesView.css'
 
 
 const mapStateToProps = state => ({
@@ -84,7 +83,7 @@ const FilteredRecipes = (props) => {
             </ReactCSSTransitionGroup>
             {
               arrayOfSelectedIngredientsID.length !== 0 ?
-                  <div className="dropdownFilteringButtons">
+                  <div className="btnGroup">
                     <ButtonGroup>
                       <DropdownButton
                           className="dropdownButton"
@@ -207,7 +206,7 @@ const FilteredRecipes = (props) => {
                       recipe => {
                         return (
                             <Link key={recipe.id} to={'/recipes/' + recipe.id}>
-                              <Col key={recipe.id} xs={12} sm={6} md={4}>
+                              <Col key={recipe.id} xs={12} md={6} lg={4}>
                                 <ReactCSSTransitionGroup
                                     transitionName="fadeFilteredRecipes"
                                     transitionEnterTimeout={0}
@@ -272,14 +271,20 @@ const FilteredRecipes = (props) => {
                       transitionAppearTimeout={900}
                       transitionLeaveTimeout={0}
                       transitionAppear={true}>
-                    <p className="instruction">
-                      <p className="arrow">&#8598;</p>
-                      Wpisz nazwę składnika, który masz w lodówce.
-                      <br/>
-                      Kliknij na składnik, gdy się wyświetli.
-                      <br/>
-                      Kliknj na składnik ponownie, aby go usunąć.
-                    </p>
+                    <div className="instructionAndImageDiv">
+                      <img src={process.env.PUBLIC_URL + '/images/fridge-512.png'}
+                           alt="lodowka"
+                           className="fridgeImg"
+                      />
+                      <p className="instruction">
+                        <p className="arrow">&#8598;</p>
+                        Wpisz nazwę składnika, który masz w lodówce.
+                        <br/>
+                        Kliknij na składnik, gdy się wyświetli.
+                        <br/>
+                        Kliknj na składnik ponownie, aby go usunąć.
+                      </p>
+                    </div>
                   </ReactCSSTransitionGroup>
             }
           </div>
