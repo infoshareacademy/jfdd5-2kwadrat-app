@@ -2,9 +2,9 @@ import React from 'react'
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 import {connect} from 'react-redux'
-import {addEventToCalendar} from './CalendarReducer/actionCreator'
 import {removeRecipeTitle} from '../CalendarView/CalendarReducer/actionCreator'
 import {default as CalendarForm} from './CalendarForm/CalendarForm'
+import {addCalendarEvent,fetchCalendarEvents} from '../FavouriteReducer/actionCreatos'
 import {Modal, Button} from 'react-bootstrap'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import '../animations.css'
@@ -14,13 +14,15 @@ BigCalendar.momentLocalizer(moment)
 moment.locale("pl")
 
 const mapStateToProps = state => ({
-  userEvents: state.calendarData.calendarEvents,
   recipeTitle: state.calendarData.presentEventTitle,
+  session: state.currentUserData.session,
+  calendarEvents: state.favourite.calendarEvents
 })
 
 const mapDispatchToProps = dispatch => ({
-  addEvent: (event) => dispatch(addEventToCalendar(event)),
-  removeRecipe: () => dispatch(removeRecipeTitle())
+  removeRecipe: () => dispatch(removeRecipeTitle()),
+  addToCalendar: (userId,accessToken,event) => dispatch(addCalendarEvent(userId,accessToken,event)),
+  fetchEvents: (userId, accessToken) => dispatch(fetchCalendarEvents(userId, accessToken))
 })
 
 class CalendarView extends React.Component {
@@ -61,7 +63,8 @@ class CalendarView extends React.Component {
         events: null,
         showModal: false
       })
-      this.props.addEvent(event)
+      this.props.addToCalendar(this.props.session.userId, this.props.session.id, event)
+      this.props.fetchEvents(this.props.session.userId, this.props.session.id)
 
     }
   }
@@ -76,11 +79,16 @@ class CalendarView extends React.Component {
             },
         )
         this.props.removeRecipe()
-        this.props.addEvent(this.state.events)
+        this.props.addToCalendar(this.props.session.userId, this.props.session.id, this.state.events)
+    this.props.fetchEvents(this.props.session.userId, this.props.session.id)
         this.setState({
             events: []
         })
     }
+
+  componentWillMount() {
+    this.props.fetchEvents(this.props.session.userId, this.props.session.id)
+  }
 
   render() {
     return (
@@ -138,7 +146,7 @@ class CalendarView extends React.Component {
                 this.addEventFromRecipeView(slotInfo)
 
             }
-            events={this.props.userEvents}
+            events={this.props.calendarEvents}
             defaultView='week'
             defaultDate={new Date()}
             messages={{

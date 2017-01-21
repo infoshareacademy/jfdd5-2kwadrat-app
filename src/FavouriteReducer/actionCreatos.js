@@ -5,7 +5,11 @@ import {
   FETCH_SHOPPING_LIST__SUCCES,
   ADD_TO_SHOPPING_LIST,
   ADD_RECIPE_TO_FAV,
+  ADD_CALENDAR_EVENT,
+  FETCH_EVENTS__BEGIN,
+  FETCH_EVENTS__SUCCES
 } from './actionTypes'
+
 
 
 export const addRecipeToFav = (userId, accessToken, ingredientId) => {
@@ -19,9 +23,9 @@ export const addRecipeToFav = (userId, accessToken, ingredientId) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          "itemId":ingredientId,
+          "itemId": ingredientId,
           "itemType": "recipe",
-          "ownerId": 7
+          "ownerId": userId
         })
       }
     )
@@ -39,9 +43,9 @@ export const addToShoppingList = (userId, accessToken, ingredientId) => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          "itemId":ingredientId,
+          "itemId": ingredientId,
           "itemType": "ingredient",
-          "ownerId": 7
+          "ownerId": userId
         })
       }
     )
@@ -87,6 +91,61 @@ export const fetchShoppingList = (userId, accessToken) => {
           item => item.itemId
         )
       })
+    )
+  }
+}
+
+
+export const fetchCalendarEvents = (userId, accessToken) => {
+  return dispatch => {
+    dispatch({type: FETCH_EVENTS__BEGIN})
+    fetch(
+      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
+    ).then(
+      response => response.json()
+    ).then(
+      favoriteItems => dispatch({
+        type: FETCH_EVENTS__SUCCES,
+        events: favoriteItems.filter(
+          item =>
+          item.itemType === 'event'
+        ).map(
+          function(item){
+            var event = {
+              title: item.title,
+              end: new Date(item.end),
+              start: new Date(item.start)
+            }
+            return event
+          }
+        )
+      })
+    )
+  }
+}
+
+
+export const addCalendarEvent = (userId, accessToken, event) => {
+  return dispatch => {
+    dispatch({type: ADD_CALENDAR_EVENT})
+    fetch(
+      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "itemId": 3,
+          "title": event.title,
+          "start": event.start,
+          "end": event.end,
+          "itemType": "event",
+          "ownerId": userId
+        })
+      }
+    ).then(
+      response => fetchCalendarEvents()
     )
   }
 }
