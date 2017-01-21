@@ -36,7 +36,7 @@ class LogIn extends React.Component {
             <h2 className="formTitle">Zaloguj się</h2>
           <form onSubmit={this.handleSubmit}
                 className="registration login-form">
-            <inputLabel className="formLabel">Login:</inputLabel>
+            <inputLabel className="formLabel">Login:   </inputLabel>
 
             <input type="text"
                    className="formInput"
@@ -57,7 +57,7 @@ class LogIn extends React.Component {
             <br/>
             <br/>
 
-            <Button type="submit" bsStyle="success">Zaloguj się</Button>
+            <Button type="submit" bsStyle="info">Zaloguj się</Button>
             <br/><br/><br/>
             <div className="cssload-loader" id="my-loader-login">Ładowanie</div>
                 <h4 id="login-alert"></h4>
@@ -86,7 +86,7 @@ class LogIn extends React.Component {
               <input type="password" className="formInput" id="passwordCheck"/>
               <br/>
               <br/>
-              <Button type="submit" bsStyle="success">Zapisz się</Button>
+              <Button type="submit" bsStyle="info">Zapisz się</Button>
             </form><br/><br/><br/>
             <h3 id="signUpFail"></h3>
             <h3 id="signUpOk"></h3>
