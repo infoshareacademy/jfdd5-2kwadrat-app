@@ -2,7 +2,7 @@ import React from 'react'
 import {Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
 
-import {fetchShoppingList} from '../FavouriteReducer/actionCreatos'
+import {fetchShoppingList,removeFromShoppingList} from '../FavouriteReducer/actionCreatos'
 
 import ingredients from '../data/ingredients'
 import './ShoppingList.css'
@@ -15,7 +15,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchShoppingList: (userId, accessToken) => dispatch(fetchShoppingList(userId, accessToken))
+  fetchShoppingList: (userId, accessToken) => dispatch(fetchShoppingList(userId, accessToken)),
+  remove: (userId, token, favoriteId) => dispatch(removeFromShoppingList(userId, token, favoriteId) )
 })
 
 class NeededIngredient extends React.Component {
@@ -49,10 +50,17 @@ class NeededIngredient extends React.Component {
 
               <tbody>
               {this.props.shoppingList.map(
-                ingredientId =>
-                ingredients.find(
+                item =>
+                ingredients.map(
+                  function(ingredient){
+                    const itemWithID = {
+                      ...ingredient,
+                      additionalId: item.id
+                    }
+                    return itemWithID
+                  }).find(
                   ingredient =>
-                  ingredient.id === ingredientId
+                  ingredient.id === item.itemId
                 )
               ).map(
                 item =>
@@ -62,6 +70,14 @@ class NeededIngredient extends React.Component {
                     </td>
                     <td>
                       <span className="ingredient-name ingredientNameShoppingList"> {item.name.toUpperCase()}</span>
+                    </td>
+                    <td>
+                      <button onClick={() => {
+                        this.props.remove(this.props.session.userId, this.props.session.id, item.additionalId)
+                        return(this.props.fetchShoppingList(this.props.session.userId, this.props.session.id))
+                      }
+
+                      }>usun</button>
                     </td>
                   </tr>
               )}

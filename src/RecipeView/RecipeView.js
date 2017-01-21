@@ -97,7 +97,9 @@ class RecipeView extends React.Component{
                           <span title="Masz ten składnik"><FaCheck className="checkedIngredient" /></span> :
                           <span className="iconOptions">
                               {this.props.session !== null ?
-                              this.props.shoppingList.indexOf(ingredient.id) === -1 ?
+                              this.props.shoppingList.map(
+                                list => list.itemId
+                              ).indexOf(ingredient.id) === -1 ?
                                 <span title="Dodaj do listy zakupów" >
                                 <GoChecklist className=" addToListRecipeView"
                                              id={ingredient.id}
