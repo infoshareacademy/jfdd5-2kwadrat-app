@@ -20,7 +20,7 @@ export default () => (
         transitionAppearTimeout={500}
         transitionEnterTimeout={0}
         transitionAppear={true}>
-    <Col key="ssss" xs={4} className="instruction-image">
+    <Col key="fridgeImage" xs={4} className="instruction-image">
       <img src={process.env.PUBLIC_URL + '/images/fridge-512.png'}
            alt="lodowka"
            height={240}
@@ -34,7 +34,7 @@ export default () => (
         transitionAppearTimeout={500}
         transitionEnterTimeout={0}
         transitionAppear={true}>
-    <Col xs={6}>
+    <Col key="instruction" xs={6}>
       <h2 className="instruction-text">Wypełnij formularz, a nasza wyszukiwarka znajdzie</h2>
 
       <br/>

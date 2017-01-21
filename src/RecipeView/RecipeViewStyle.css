@@ -227,7 +227,13 @@ hr.cutIt {
   margin: 25px;
 }
 
-.calendarButton:hover, .calendarButton:hover .cart {
+.cart {
+  height: 40px;
+  width: auto;
+  color: #2da834;
+}
+
+.calendarButton:hover, .cart:hover {
   opacity: 1;
   animation: shakeYourAss 0.8s;
   transform-origin: 50% 50%;
@@ -306,6 +312,10 @@ hr.cutIt {
   75% {
     transform: scale(0.8);
   }
+}
+
+.fadeRecipe-appear {
+  animation: fadeIn 0.5s
 }
 
 @media (max-width: 1200px) {
