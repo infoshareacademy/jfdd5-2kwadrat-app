@@ -1,6 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux'
-
+import {connect} from 'react-redux'
+import {Col} from 'react-bootstrap'
+import {Link} from 'react-router'
 import {logOut} from '../CurrentUserReducer/actions/logOut'
 import {fetchUserData} from '../CurrentUserReducer/actions/fetchUserData'
 const mapStateToProps = (state) => ({
@@ -23,9 +24,35 @@ class UsserAcount extends React.Component {
   render() {
     return this.props.user !== null ? (
       <div>
-        <h1>Witaj {this.props.user.username}!</h1>
+        <Col xs={6}>
+          <div className="chef-cloud">
+            <h3>Witaj {this.props.user.username}!</h3>
+            W zakładce
+            <Link to={'/favourite-recipes'}>
+              <button className="simpleButton usserButton">Ulubione
+              </button>
+            </Link>
+            przeglądaj swoje przepisy.
+            W zakładce
+            <Link to={'/needed-ingredient-view'}>
+              <button className="simpleButton usserButton">Lista zakupów
+              </button>
+            </Link>
+            przeglądaj listy swoich zakupów.
+            W zakładce
+            <Link to={'/calendar'}>
+              <button className="simpleButton usserButton">Kalendarz
+              </button>
+            </Link>
+            planuj co i kiedy będziesz gotować.
+          </div>
+        </Col>
+        <Col xs={6}>
+          <div className="chef">
+          </div>
+        </Col>
       </div>
-    ):<p>'Fetching user data...'</p>
+    ) : <p>'Fetching user data...'</p>
   }
 }
 
