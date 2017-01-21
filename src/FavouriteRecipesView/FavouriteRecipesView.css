@@ -1,0 +1,30 @@
+#removeFrmFav {
+  position:absolute;
+  right: 0;
+  width: 35px;
+  height: auto;
+  color:yellow;
+  background-size: cover;
+}
+
+#removeFavourite {
+  position:absolute;
+  left: 0;
+  width: 45px;
+  height: auto;
+  color: red;
+  transition: all .2s ease-in-out;
+}
+
+#removeFavourite:hover {
+  transform: scale(1.4);
+  cursor: pointer;
+}
+
+.removeCard {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255,255,255, 0.7);
+  border-radius: 5px 0 20px 0;
+}
