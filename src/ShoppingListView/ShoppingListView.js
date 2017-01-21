@@ -15,8 +15,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchShoppingList: (userId, accessToken) =>
-    dispatch(fetchShoppingList(userId, accessToken))
+  fetchShoppingList: (userId, accessToken) => dispatch(fetchShoppingList(userId, accessToken))
 })
 
 class NeededIngredient extends React.Component {
