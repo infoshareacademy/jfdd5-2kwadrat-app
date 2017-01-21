@@ -14,20 +14,21 @@ import FaCalendar from 'react-icons/lib/fa/calendar'
 import GoChecklist from 'react-icons/lib/go/checklist'
 import FaCheck from 'react-icons/lib/fa/check'
 
-import {addRecipeToFav, addToShoppingList,fetchFavouriteRecipes}from '../FavouriteReducer/actionCreatos'
+import {addRecipeToFav, addToShoppingList,fetchFavouriteRecipes,fetchShoppingList}from '../FavouriteReducer/actionCreatos'
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
   session: state.currentUserData.session,
-  favRecipes: state.favourite.favouriteRecipes
+  favRecipes: state.favourite.favouriteRecipes,
+  shoppingList: state.favourite.shoppingList
 })
 
 const mapDispatchToProps = dispatch => ({
   addToCalendar: (recipe) => dispatch(addToCalendarFromRecipeView(recipe)),
   addToShoppingList: (userId,accessToken,id) => dispatch(addToShoppingList(userId,accessToken,id)),
   addRecipe: (userId,accessToken,id) => dispatch(addRecipeToFav(userId,accessToken,id)),
-  fetchFavRecipes: (userId, accessToken) =>
-    dispatch(fetchFavouriteRecipes(userId, accessToken))
+  fetchFavRecipes: (userId, accessToken) => dispatch(fetchFavouriteRecipes(userId, accessToken)),
+  fetchShoppingList: (userId, accessToken) => dispatch(fetchShoppingList(userId, accessToken))
 })
 
 
@@ -45,6 +46,7 @@ class RecipeView extends React.Component{
 
   componentWillMount() {
     this.props.fetchFavRecipes(this.props.session.userId, this.props.session.id)
+    this.props.fetchShoppingList(this.props.session.userId, this.props.session.id)
   }
   render(){
     return (
@@ -90,6 +92,7 @@ class RecipeView extends React.Component{
                           <span title="Masz ten składnik"><FaCheck className="checkedIngredient" /></span> :
                           <span className="iconOptions">
                               {this.props.session !== null ?
+                              this.props.shoppingList.indexOf(ingredient.id) === -1 ?
                                 <span title="Dodaj do listy zakupów" >
                                 <GoChecklist className=" addToListRecipeView"
                                              id={ingredient.id}
@@ -98,7 +101,7 @@ class RecipeView extends React.Component{
                                                  document.getElementById(ingredient.id).style.display = 'none'
                                                  this.props.addToShoppingList(this.props.session.userId,this.props.session.id,ingredient.id)}
                                              }/>
-                               </span>: null
+                               </span>:null : null
                               }
                             <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
                                <span title="Znajdź sklep">
