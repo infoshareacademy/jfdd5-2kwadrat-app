@@ -1,0 +1,17 @@
+.mokap {
+    border:solid transparent 2px;
+    height: 650px;
+    width: 325px;
+    background: url(http://mockuphone.com/static/images/devices/apple-iphone6-spacegrey-portrait.png) 50% no-repeat;
+    /*-webkit-transform: rotate(-90deg)*/
+}
+
+.screen {
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    color:white;
+    height: 455px;
+    width: 257px;
+    margin:23px;
+    margin-top:86px;
+    border-radius: 4px;
+}

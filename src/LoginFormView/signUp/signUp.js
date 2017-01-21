@@ -7,10 +7,15 @@ export default (props) => {
     const password2 = document.getElementById('passwordCheck').value
     return (
         <div>
-            {
+
+          {
                 password === password2 ?
                     (
                         <div>
+                          {
+                            document.getElementById('signUpFail').innerHTML = ''}
+                          { document.getElementById('my-loader').style.display = "block"
+                          }
                             {
                                 fetch('https://salty-plateau-32425.herokuapp.com/api/users',
                                     {
@@ -41,6 +46,7 @@ export default (props) => {
                                             document.getElementById('passwordField').value = ''
                                             document.getElementById('loginField').value = ''
                                             document.getElementById('signUpFail').innerHTML = ''
+                                          document.getElementById('my-loader').style.display = "none"
                                             document.getElementById('signUpOk').innerHTML =
                                                 '<p>Super! Wszystko poszło okay! Teraz możesz się zalogować i cieszyć się funkcjonalnością!</p>'
                                             return response.json()

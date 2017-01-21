@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Button, Col} from 'react-bootstrap'
 import {default as signUp} from '../signUp/signUp'
-
+import {default as Mokap} from '../../MokapView/MokapView'
 import {logIn} from '../CurrentUserReducer/actions/login'
 
 const mapStateToProps = state => ({
@@ -30,19 +30,13 @@ class LogIn extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mokap-container">
         <Col xs={6}>
-          <h2 className="formTitle">Zaloguj się</h2>
-        </Col>
-
-        <Col xs={6}>
-          <h2 className="formTitle">Zarejestruj się!</h2>
-        </Col>
-
-        <Col xs={6}>
+          <Mokap >
+            <h2 className="formTitle">Zaloguj się</h2>
           <form onSubmit={this.handleSubmit}
-                className="registration">
-            <inputLabel className="formLabel">Login:</inputLabel>
+                className="registration login-form">
+            <inputLabel className="formLabel">Login:   </inputLabel>
 
             <input type="text"
                    className="formInput"
@@ -64,33 +58,40 @@ class LogIn extends React.Component {
             <br/>
 
             <Button type="submit" bsStyle="info">Zaloguj się</Button>
+            <br/><br/><br/>
+            <div className="cssload-loader" id="my-loader-login">Ładowanie</div>
                 <h4 id="login-alert"></h4>
           </form>
+          </Mokap>
+
         </Col>
         <Col xs={6} className="loginContainer">
           <div >
+            <Mokap>
+              <h2 className="formTitle">Zarejestruj się!</h2>
             <form onSubmit={event => {
               event.preventDefault()
               return (signUp(event))
             }}
                   className="registration">
-              <inputLabel className="formLabel">Login :</inputLabel>
+              <inputLabel className="formLabel">Login:</inputLabel>
               <input type="text" className="formInput" id="loginField"/>
               <br/>
               <br/>
-              <inputLabel className="formLabel" id="wrongPassword">Podaj hasło:</inputLabel>
+              <inputLabel className="formLabel" id="wrongPassword">Hasło:</inputLabel>
               <input type="password" className="formInput" id="passwordField"/>
               <br/>
               <br/>
-              <inputLabel className="formLabel" id="wrongPassword">Powtórz hasło:</inputLabel>
+              <inputLabel className="formLabel" id="wrongPassword">Powtórz:</inputLabel>
               <input type="password" className="formInput" id="passwordCheck"/>
               <br/>
               <br/>
               <Button type="submit" bsStyle="info">Zapisz się</Button>
-            </form>
-
+            </form><br/><br/><br/>
             <h3 id="signUpFail"></h3>
             <h3 id="signUpOk"></h3>
+            <div className="cssload-loader" id="my-loader">Ładowanie</div>
+            </Mokap>
           </div>
         </Col>
       </div>
