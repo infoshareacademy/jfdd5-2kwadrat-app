@@ -118,5 +118,5 @@
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .avatar {
-  border: 0px;
+  border: 0;
 }
