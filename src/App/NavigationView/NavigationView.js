@@ -68,7 +68,7 @@ const NavigationView = (props) => {
             <LinkContainer className="navItem" to="/login">
               <NavItem eventKey={4} href="#">
                 {props.session === null ?
-                  'Zaloguj się' : <MdAccountCircle/>
+                  'Zaloguj się' : <MdAccountCircle className="avatar"/>
                 }
               </NavItem>
             </LinkContainer>
