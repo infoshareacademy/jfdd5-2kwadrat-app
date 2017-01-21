@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import {logOut} from '../CurrentUserReducer/actions/logOut'
 import {fetchUserData} from '../CurrentUserReducer/actions/fetchUserData'
-
 const mapStateToProps = (state) => ({
   session: state.currentUserData.session,
   user: state.currentUserData.user
