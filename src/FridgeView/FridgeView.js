@@ -47,7 +47,7 @@ class FridgeView extends React.Component {
         transitionAppear={true}>
         <form onSubmit={this.handleSubmit}>
           <Col className="ingredientInputRow" xs={12}>
-            <h2 className="titles">Wybierz co masz w lodówce</h2>
+            <h2 className="titles">Wybierz składniki</h2>
 
             <FormControl
               className="ingredientInput"
