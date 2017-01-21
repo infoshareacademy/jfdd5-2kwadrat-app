@@ -245,6 +245,12 @@ hr.cutIt {
   transition: all .2s ease-in-out;
 }
 
+.addToListRecipeView:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  color: #1744d8;
+}
+
 .checkedIngredient {
   float: right;
   font-size: 40px;
@@ -255,12 +261,6 @@ hr.cutIt {
 
 .checkedIngredient:hover {
   transform: scale(1.4);
-}
-
-.addToListRecipeView:hover {
-  cursor: pointer;
-  transform: scale(1.2);
-  color: #1744d8;
 }
 
 @keyframes shakeYourAss {

@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {Modal} from 'react-bootstrap'
 import {Link} from 'react-router'
 import {Image} from 'react-bootstrap'
-import FaCartPlus from 'react-icons/lib/fa/cart-plus'
+import GoChecklist from 'react-icons/lib/go/checklist'
 
 
 
@@ -111,7 +111,7 @@ const ShopView = React.createClass({
                       </td>
                       <td>
                         <span title="Dodaj do listy zakupów">
-                        <FaCartPlus  size="30px" color="#2da834" className="cart"/>
+                        <GoChecklist className="addToShoppingList"/>
                         </span>
                       </td>
                     </tr>
