@@ -9,6 +9,8 @@ import {recipes} from '../data'
 import {selectRecipes} from './select'
 import {default as FridgeView} from '../FridgeView/FridgeView.js'
 import '../animations.css'
+import FaThumbsUp from 'react-icons/lib/fa/thumbs-up'
+
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
