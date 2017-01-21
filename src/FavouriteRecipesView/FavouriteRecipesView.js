@@ -63,7 +63,7 @@ class FavouriteRecipesView extends React.Component {
                         <Col key={recipe.id} xs={12} sm={6} md={4}>
                           <div className="recipeCard">
                             <div>
-                              <div title="usuń z ulubionych">
+                              <div className="removeCard" title="usuń z ulubionych">
                                 <TiTimesOutline id="removeFavourite" />
                               </div>
                             <MdStarOutline id="removeFrmFav"
