@@ -41,6 +41,8 @@ class RecipeView extends React.Component{
       selected =>
         selected.id
     )
+
+
   componentWillMount() {
     this.props.fetchFavRecipes(this.props.session.userId, this.props.session.id)
   }
@@ -90,8 +92,11 @@ class RecipeView extends React.Component{
                               {this.props.session !== null ?
                                 <span title="Dodaj do listy zakupów" >
                                 <GoChecklist className=" addToListRecipeView"
+                                             id={ingredient.id}
                                              onClick={
-                                               ()=> this.props.addToShoppingList(this.props.session.userId,this.props.session.id,ingredient.id)
+                                               ()=>{
+                                                 document.getElementById(ingredient.id).style.display = 'none'
+                                                 this.props.addToShoppingList(this.props.session.userId,this.props.session.id,ingredient.id)}
                                              }/>
                                </span>: null
                               }
