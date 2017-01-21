@@ -14,7 +14,6 @@
 }
 .mokap-container{
     margin-left:140px;
-    margin-top:100px;
 }
 
 .formInput {
@@ -187,4 +186,8 @@ display:none;
 
 .userName {
     color:forestgreen;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .avatar {
+    border:0px;
 }
