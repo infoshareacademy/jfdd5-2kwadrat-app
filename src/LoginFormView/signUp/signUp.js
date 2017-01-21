@@ -11,7 +11,10 @@ export default (props) => {
                 password === password2 ?
                     (
                         <div>
-                          { document.getElementById('my-loader').style.display = "block"}
+                          {
+                            document.getElementById('signUpFail').innerHTML = ''}
+                          { document.getElementById('my-loader').style.display = "block"
+                          }
                             {
                                 fetch('https://salty-plateau-32425.herokuapp.com/api/users',
                                     {

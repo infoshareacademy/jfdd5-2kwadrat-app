@@ -63,7 +63,7 @@ class LogIn extends React.Component {
             <br/>
             <br/>
 
-            <Button type="submit" bsStyle="info">Zaloguj się</Button>
+            <Button type="submit" bsStyle="success">Zaloguj się</Button>
                 <h4 id="login-alert"></h4>
           </form>
         </Col>
@@ -86,21 +86,11 @@ class LogIn extends React.Component {
               <input type="password" className="formInput" id="passwordCheck"/>
               <br/>
               <br/>
-              <Button type="submit" bsStyle="info">Zapisz się</Button>
-            </form>
-            <div id="my-loader" className="overlay-loader">
-              <div className="loader">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-            </div>
+              <Button type="submit" bsStyle="success">Zapisz się</Button>
+            </form><br/><br/><br/>
             <h3 id="signUpFail"></h3>
             <h3 id="signUpOk"></h3>
+            <div className="cssload-loader" id="my-loader">Ładowanie</div>
           </div>
         </Col>
       </div>
