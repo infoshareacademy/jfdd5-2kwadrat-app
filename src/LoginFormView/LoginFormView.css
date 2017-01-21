@@ -161,3 +161,30 @@ display:none;
         width: 15px;
     }
 }
+
+.chef {
+    margin-top:30px;
+    height: 550px;
+    width: 525px;
+    background-size: cover;
+    background-image: url("http://www.puertadelsol.se/images/Logos-clip-art/chef.png");
+}
+
+.chef-cloud {
+    font-size: 20px;
+    line-height: 40px;
+    padding:26px;
+    height:432px;
+    width: 583px;
+    background-size: cover;
+    background-image: url('http://www.clipartkid.com/images/528/caldwell-see-more-about-comic-books-comics-and-super-heros-NlRl3a-clipart.png');
+}
+.usserButton {
+    padding:3px;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.userName {
+    color:forestgreen;
+}
