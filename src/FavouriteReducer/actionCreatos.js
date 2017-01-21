@@ -3,12 +3,14 @@ import {
   FETCH_FAV_RECIPES__BEGIN,
   FETCH_SHOPPING_LIST__BEGIN,
   FETCH_SHOPPING_LIST__SUCCES,
-  ADD_TO_SHOPPING_LIST
+  ADD_TO_SHOPPING_LIST,
+  ADD_RECIPE_TO_FAV,
 } from './actionTypes'
+
 
 export const addRecipeToFav = (userId, accessToken, ingredientId) => {
   return dispatch => {
-    dispatch({type: ADD_TO_SHOPPING_LIST})
+    dispatch({type: ADD_RECIPE_TO_FAV})
     fetch(
       'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken,
       {

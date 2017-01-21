@@ -8,7 +8,7 @@ import '../animations.css'
 import {fetchFavouriteRecipes} from '../FavouriteReducer/actionCreatos'
 
 import recipes from '../data/recipes'
-
+import MdStarOutline from 'react-icons/lib/md/star-outline'
 const mapStateToProps = state => ({
   session: state.currentUserData.session,
   favRecipes: state.favourite.favouriteRecipes
@@ -56,17 +56,31 @@ class FavouriteRecipesView extends React.Component {
                   recipe =>
                     <div key={recipe.id}>
                       {
+
                         <Col key={recipe.id} xs={12} sm={6} md={4}>
-                          <Link to={'/recipes/' + recipe.id}>
                           <div className="recipeCard">
+                            <div>
+                            <MdStarOutline id="removeFrmFav"
+                            onClick={()=>{
+                              this.props.favRecipes.filter(
+                                recipeId =>
+                                recipeId !== recipe.id
+                              )
+                            }
+
+                            }
+                            />
+                            </div>
+                            <Link to={'/recipes/' + recipe.id}>
                               <Image className="photo image" src={recipe.image}/>
                               <h2>{recipe.name}</h2>
                             <div className="icons">
                               <div className="recipeTime">{recipe.time} <span>min</span></div>
                               <div className="recipeDifficult">{recipe.difficult}</div>
                             </div>
+                            </Link>
                           </div>
-                          </Link>
+
                         </Col>
                       }
                     </div>
