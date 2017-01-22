@@ -8,13 +8,17 @@ import GoChecklist from 'react-icons/lib/go/checklist'
 import {connect} from 'react-redux'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import '../animations.css'
+import {addToShoppingList,fetchShoppingList}from '../FavouriteReducer/actionCreatos'
 
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
 const mapStateToProps = state => ({
-
+  session: state.currentUserData.session,
+  shoppingList: state.favourite.shoppingList
 })
 
 const mapDispatchToProps = dispatch =>({
+  addToShoppingList: (userId,accessToken,id) => dispatch(addToShoppingList(userId,accessToken,id)),
+  fetchShoppingList: (userId, accessToken) => dispatch(fetchShoppingList(userId, accessToken))
 
 })
 
@@ -65,11 +69,19 @@ const IngredientView = (props) => {
                 }
                 <li>
                     <span title="Dodaj do listy zakupów" >
-              {
-                props.user !== null ?
-                    <GoChecklist className="addToList" onClick={() => props.addIngredient(ingredientsWithId.id)}/>:
-                    null
-              }
+                  {props.session !== null ?
+                    props.shoppingList.map(
+                      list => list.itemId
+                    ).indexOf(ingredientsWithId.id) === -1 ?
+                      <span title="Dodaj do listy zakupów" >
+                                <GoChecklist className=" addToListRecipeView"
+                                             id={ingredientsWithId.id}
+                                             onClick={
+                                               ()=>{
+                                                 props.addToShoppingList(props.session.userId,props.session.id,ingredientsWithId.id)}
+                                             }/>
+                               </span>:null : null
+                  }
                     </span>
 
                 </li>

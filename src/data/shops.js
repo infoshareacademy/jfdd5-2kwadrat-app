@@ -423,14 +423,7 @@ export default [
         id: 1,
         ingredientPrice: 2.04
       },
-      {
-        id: 5,
-        ingredientPrice: 4.84
-      },
-      {
-        id: 1,
-        ingredientPrice: 3.04
-      },
+
       {
         id: 2,
         ingredientPrice: 2.04
