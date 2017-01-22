@@ -13,7 +13,10 @@ import {
   REMOVE_INGREDIENT__SUCCESS,
   REMOVE_RECIPE__BEGIN,
   REMOVE_RECIPE__FAIL,
-  REMOVE_RECIPE__SUCCESS
+  REMOVE_RECIPE__SUCCESS,
+  REMOVE_EVENT__FAIL,
+  REMOVE_EVENT__BEGIN,
+  REMOVE_EVENT__SUCCESS
 } from './actionTypes'
 
 
@@ -134,10 +137,11 @@ export const fetchCalendarEvents = (userId, accessToken) => {
           item.itemType === 'event'
         ).map(
           function(item){
-            var event = {
+            const event = {
               title: item.title,
               end: new Date(item.end),
-              start: new Date(item.start)
+              start: new Date(item.start),
+              id: item.id
             }
             return event
           }
@@ -230,6 +234,37 @@ export const removeRecipeFromFav = (userId, token, favoriteId) => {
         else {
           return response.json().then(
             error => dispatch({type: REMOVE_RECIPE__FAIL, error: error})
+          )
+        }
+      }
+    )
+  }
+}
+
+export const removeEvent = (userId, token, favoriteId) => {
+  return (dispatch) => {
+    dispatch({
+      type: REMOVE_EVENT__BEGIN
+    })
+
+    fetch('https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems/' + favoriteId + '?access_token=' + token, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    ).then(
+      response => {
+        if (response.status === 204) {
+          dispatch({
+            type: REMOVE_EVENT__SUCCESS
+          })
+          dispatch(fetchCalendarEvents(userId, token))
+
+        }
+        else {
+          return response.json().then(
+            error => dispatch({type: REMOVE_EVENT__FAIL, error: error})
           )
         }
       }
