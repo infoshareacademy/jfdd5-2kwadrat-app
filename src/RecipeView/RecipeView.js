@@ -108,7 +108,7 @@ class RecipeView extends React.Component{
                                              id={ingredient.id}
                                              onClick={
                                                ()=>{
-                                                 document.getElementById(ingredient.id).style.display = 'none'
+
                                                  this.props.addToShoppingList(this.props.session.userId,this.props.session.id,ingredient.id)}
                                              }/>
                                </span>:null : null

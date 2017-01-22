@@ -14,6 +14,33 @@ import {
 } from './actionTypes'
 
 
+export const fetchShoppingList = (userId, accessToken) => {
+  return dispatch => {
+    dispatch({type: FETCH_SHOPPING_LIST__BEGIN})
+    fetch(
+      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
+    ).then(
+      response => response.json()
+    ).then(
+      favoriteItems => dispatch({
+        type: FETCH_SHOPPING_LIST__SUCCES,
+        shoppingListIds: favoriteItems.filter(
+          item =>
+          item.itemType === 'ingredient'
+        ).map(
+          function(item){
+            var ingredient = {
+              id:item.id,
+              itemId:item.itemId
+            }
+            return ingredient
+          }
+        )
+      })
+    )
+  }
+}
+
 
 export const addRecipeToFav = (userId, accessToken, ingredientId) => {
   return dispatch => {
@@ -51,6 +78,11 @@ export const addToShoppingList = (userId, accessToken, ingredientId) => {
           "ownerId": userId
         })
       }
+    ).then(
+      function () {
+        dispatch(fetchShoppingList(userId, accessToken))
+
+      }
     )
   }
 }
@@ -76,33 +108,6 @@ export const fetchFavouriteRecipes = (userId, accessToken) => {
   }
 }
 
-
-export const fetchShoppingList = (userId, accessToken) => {
-  return dispatch => {
-    dispatch({type: FETCH_SHOPPING_LIST__BEGIN})
-    fetch(
-      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
-    ).then(
-      response => response.json()
-    ).then(
-      favoriteItems => dispatch({
-        type: FETCH_SHOPPING_LIST__SUCCES,
-        shoppingListIds: favoriteItems.filter(
-          item =>
-          item.itemType === 'ingredient'
-        ).map(
-          function(item){
-            var ingredient = {
-              id:item.id,
-              itemId:item.itemId
-            }
-            return ingredient
-          }
-        )
-      })
-    )
-  }
-}
 
 
 export const fetchCalendarEvents = (userId, accessToken) => {
@@ -179,6 +184,7 @@ export const removeFromShoppingList = (userId, token, favoriteId) => {
           dispatch({
             type: REMOVE_INGREDIENT__SUCCESS
           })
+          dispatch(fetchShoppingList(userId, token))
 
         }
         else {
