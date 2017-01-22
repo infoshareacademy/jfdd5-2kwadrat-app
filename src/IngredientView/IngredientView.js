@@ -68,22 +68,21 @@ const IngredientView = (props) => {
                   )
                 }
                 <li>
-                    <span title="Dodaj do listy zakupów" >
-                  {props.session !== null ?
-                    props.shoppingList.map(
-                      list => list.itemId
-                    ).indexOf(ingredientsWithId.id) === -1 ?
-                      <span title="Dodaj do listy zakupów" >
-                                <GoChecklist className=" addToListRecipeView"
-                                             id={ingredientsWithId.id}
-                                             onClick={
-                                               ()=>{
-                                                 props.addToShoppingList(props.session.userId,props.session.id,ingredientsWithId.id)}
-                                             }/>
-                               </span>:null : null
-                  }
-                    </span>
-
+                  <span title="Dodaj do listy zakupów" >
+                    {props.session !== null ?
+                      props.shoppingList.map(
+                        list => list.itemId
+                      ).indexOf(ingredientsWithId.id) === -1 ?
+                        <span title="Dodaj do listy zakupów" >
+                          <GoChecklist className=" addToListRecipeView"
+                             id={ingredientsWithId.id}
+                             onClick={
+                               ()=>{
+                                 props.addToShoppingList(props.session.userId,props.session.id,ingredientsWithId.id)}
+                             }/>
+                         </span>:null : null
+                    }
+                  </span>
                 </li>
               </ul>
             </div>
@@ -102,12 +101,12 @@ const IngredientView = (props) => {
                   {myShops.map(
                     shop =>
                       <ShopMarker key={shop.id}
-                                  img={shop.logo}
-                                  name={shop.name}
-                                  lat={shop.location.lat}
-                                  lng={shop.location.lng}
-                                  text={shop.name}
-                                  shop={shop}/>
+                        img={shop.logo}
+                        name={shop.name}
+                        lat={shop.location.lat}
+                        lng={shop.location.lng}
+                        text={shop.name}
+                        shop={shop}/>
                   )}
                 </GoogleMap>
               </div>
