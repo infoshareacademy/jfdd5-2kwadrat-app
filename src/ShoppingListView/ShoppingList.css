@@ -44,6 +44,10 @@ h2 #counterValue {
   animation: pulsePrinter 1s infinite;
 }
 
+.removeButton {
+  padding: 8px;
+}
+
 @keyframes pulsePrinter {
   0% {
     transform: scale(1);

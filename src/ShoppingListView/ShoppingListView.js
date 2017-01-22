@@ -67,7 +67,7 @@ class NeededIngredient extends React.Component {
                               className="ingredient-name ingredientNameShoppingList"> {item.name.toUpperCase()}</span>
                           </td>
                           <td>
-                            <button onClick={() => {
+                            <button className="btn-danger removeButton" onClick={() => {
                               this.props.remove(this.props.session.userId, this.props.session.id, item.additionalId)
                             }
                             }>usun
