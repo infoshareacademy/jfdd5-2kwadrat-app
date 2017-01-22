@@ -6,7 +6,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import '../animations.css'
 import './FavouriteRecipesView.css'
 
-import {fetchFavouriteRecipes} from '../FavouriteReducer/actionCreatos'
+import {fetchFavouriteRecipes,removeRecipeFromFav} from '../FavouriteReducer/actionCreatos'
 
 import recipes from '../data/recipes'
 import MdStarOutline from 'react-icons/lib/md/star-outline'
@@ -18,8 +18,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchProps = dispatch => ({
-  fetchFavRecipes: (userId, accessToken) =>
-      dispatch(fetchFavouriteRecipes(userId, accessToken))
+  fetchFavRecipes: (userId, accessToken) => dispatch(fetchFavouriteRecipes(userId, accessToken)),
+  remove: (userId, token, favoriteId) => dispatch(removeRecipeFromFav(userId, token, favoriteId))
 })
 
 
@@ -50,11 +50,18 @@ class FavouriteRecipesView extends React.Component {
                   this.props.session !== null ?
                       (
                           this.props.favRecipes.map(
-                              recipeId =>
-                                  recipes.find(
-                                      recipe =>
-                                      recipe.id === recipeId
-                                  )
+                            list =>
+                            recipes.map(
+                              function(recipe){
+                                const recipeWithID = {
+                                  ...recipe,
+                                  additionalId: list.id
+                                }
+                                return recipeWithID
+                              }).find(
+                                recipe =>
+                                recipe.id === list.itemId
+                            )
                           ).map(
                               recipe =>
                                   <div key={recipe.id}>

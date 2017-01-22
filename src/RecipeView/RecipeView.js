@@ -70,7 +70,9 @@ class RecipeView extends React.Component{
             </div>
             {
               this.props.session !== null ?
-              this.props.favRecipes.indexOf(this.recipeWithId.id) === -1 ?
+              this.props.favRecipes.map(
+                recipe => recipe.itemId
+              ).indexOf(this.recipeWithId.id) === -1 ?
               <span title="Dodaj do ulubionych" className="favorite"
                       onClick={() => {
                         const favorite = document.getElementsByClassName('favorite')
