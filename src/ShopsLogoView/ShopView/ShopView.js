@@ -6,9 +6,19 @@ import {Link} from 'react-router'
 import {Image} from 'react-bootstrap'
 import GoChecklist from 'react-icons/lib/go/checklist'
 
+import {addToShoppingList,fetchShoppingList} from '../../FavouriteReducer/actionCreatos'
+
+
 
 const mapStateToProps = state => ({
-  shops: state.shopsData.shops
+  shops: state.shopsData.shops,
+  session: state.currentUserData.session,
+  shoppingList: state.favourite.shoppingList
+})
+
+const mapDispatchToProps = dispatch => ({
+  addToShoppingList: (userId,accessToken,id) => dispatch(addToShoppingList(userId,accessToken,id)),
+  fetchShoppingList: (userId, accessToken) => dispatch(fetchShoppingList(userId, accessToken))
 })
 
 const ShopView = React.createClass({
@@ -108,9 +118,20 @@ const ShopView = React.createClass({
                               Tylko <span className="red-price">{item.price}</span> zł / 1kg
                             </td>
                             <td>
-                        <span title="Dodaj do listy zakupów">
-                        <GoChecklist className="addToShoppingList"/>
-                        </span>
+                              {this.props.session !== null ?
+                                this.props.shoppingList.map(
+                                  list => list.itemId
+                                ).indexOf(item.ingredient.id) === -1 ?
+                                  <span title="Dodaj do listy zakupów" >
+                                <GoChecklist className=" addToListRecipeView"
+                                             id={item.ingredient.id}
+                                             onClick={
+                                               ()=>{
+
+                                                 this.props.addToShoppingList(this.props.session.userId,this.props.session.id,item.ingredient.id)}
+                                             }/>
+                               </span>:null : null
+                              }
                             </td>
                           </tr>
                   )
@@ -129,4 +150,4 @@ const ShopView = React.createClass({
   }
 })
 
-export default connect(mapStateToProps)(ShopView)
+export default connect(mapStateToProps,mapDispatchToProps)(ShopView)
