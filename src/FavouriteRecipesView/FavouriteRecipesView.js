@@ -48,18 +48,18 @@ class FavouriteRecipesView extends React.Component {
                 this.props.session !== null ?
                   (
                     this.props.favRecipes.map(
-                        list =>
-                            recipes.map(
-                                function (recipe) {
-                                  const recipeWithID = {
-                                    ...recipe,
-                                    additionalId: list.id
-                                  }
-                                  return recipeWithID
-                                }).find(
-                                recipe =>
-                                recipe.id === list.itemId
-                            )
+                      list =>
+                        recipes.map(
+                          function (recipe) {
+                            const recipeWithID = {
+                              ...recipe,
+                              additionalId: list.id
+                            };
+                            return recipeWithID
+                          }).find(
+                          recipe =>
+                          recipe.id === list.itemId
+                        )
                     ).map(
                       recipe =>
                         <div key={recipe.id}>
