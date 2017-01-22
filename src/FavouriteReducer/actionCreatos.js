@@ -7,7 +7,10 @@ import {
   ADD_RECIPE_TO_FAV,
   ADD_CALENDAR_EVENT,
   FETCH_EVENTS__BEGIN,
-  FETCH_EVENTS__SUCCES
+  FETCH_EVENTS__SUCCES,
+  REMOVE_INGREDIENT__BEGIN,
+  REMOVE_INGREDIENT__FAIL,
+  REMOVE_INGREDIENT__SUCCESS
 } from './actionTypes'
 
 
@@ -88,7 +91,13 @@ export const fetchShoppingList = (userId, accessToken) => {
           item =>
           item.itemType === 'ingredient'
         ).map(
-          item => item.itemId
+          function(item){
+            var ingredient = {
+              id:item.id,
+              itemId:item.itemId
+            }
+            return ingredient
+          }
         )
       })
     )
@@ -144,8 +153,36 @@ export const addCalendarEvent = (userId, accessToken, event) => {
           "ownerId": userId
         })
       }
+    )
+  }
+}
+
+export const removeFromShoppingList = (userId, token, favoriteId) => {
+  return (dispatch) => {
+    dispatch({
+      type: REMOVE_INGREDIENT__BEGIN
+    })
+
+    fetch('https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems/' + favoriteId + '?access_token=' + token, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
     ).then(
-      response => fetchCalendarEvents()
+      response => {
+        if (response.status === 204) {
+          dispatch({
+            type: REMOVE_INGREDIENT__SUCCESS
+          })
+
+        }
+        else {
+          return response.json().then(
+            error => dispatch({type: REMOVE_INGREDIENT__FAIL, error: error})
+          )
+        }
+      }
     )
   }
 }
