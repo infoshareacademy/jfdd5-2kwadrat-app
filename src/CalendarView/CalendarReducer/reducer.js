@@ -1,27 +1,27 @@
-import {ADD_EVENT_TO_CALENDAR,ADD_RECIPE_TITLE,REMOVE_RECIPE_TITLE} from './actionTypes'
+import {ADD_EVENT_TO_CALENDAR, ADD_RECIPE_TITLE, REMOVE_RECIPE_TITLE} from './actionTypes'
 
 const initialState = ({
-  calendarEvents:[],
-  presentEventTitle:null
-})
+  calendarEvents: [],
+  presentEventTitle: null
+});
 
 export default (state = initialState, action = {}) => {
-  switch(action.type){
+  switch (action.type) {
     case ADD_EVENT_TO_CALENDAR:
       return {
         ...state,
-        calendarEvents : state.calendarEvents.concat(action.event)
-      }
+        calendarEvents: state.calendarEvents.concat(action.event)
+      };
     case ADD_RECIPE_TITLE:
       return {
         ...state,
         presentEventTitle: action.recipe.name
-      }
+      };
     case REMOVE_RECIPE_TITLE:
       return {
         ...state,
         presentEventTitle: null
-      }
+      };
     default:
       return state
   }
