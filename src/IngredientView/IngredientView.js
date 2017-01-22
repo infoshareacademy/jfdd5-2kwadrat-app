@@ -3,29 +3,22 @@ import {ingredients} from '../data'
 import {shops} from '../data'
 import {Image, Col} from 'react-bootstrap'
 import GoogleMap from 'google-map-react'
-import './ingredientViewStyle.css'
 import GoChecklist from 'react-icons/lib/go/checklist'
 import {connect} from 'react-redux'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import './ingredientViewStyle.css'
 import '../animations.css'
-
 import ShopMarker from '../ShopsLogoView/ShopMarker/ShopMarker'
-const mapStateToProps = state => ({
 
-})
-
-const mapDispatchToProps = dispatch =>({
-
-})
 
 const IngredientView = (props) => {
   const ingredientsWithId = ingredients.find(
     ingredient => ingredient.id === parseInt(props.params.ingredientId, 10)
-  )
+  );
 
   const myShops = shops.filter(
     shop => shop.ingredients.find(ingredient => ingredient.id === ingredientsWithId.id)
-  )
+  );
 
   return (
     <div>
@@ -64,14 +57,13 @@ const IngredientView = (props) => {
                   )
                 }
                 <li>
-                    <span title="Dodaj do listy zakupów" >
-              {
-                props.user !== null ?
-                    <GoChecklist className="addToList" onClick={() => props.addIngredient(ingredientsWithId.id)}/>:
-                    null
-              }
-                    </span>
-
+                  <span title="Dodaj do listy zakupów" >
+                    {
+                      props.user !== null ?
+                        <GoChecklist className="addToList" onClick={() => props.addIngredient(ingredientsWithId.id)}/>:
+                        null
+                    }
+                  </span>
                 </li>
               </ul>
             </div>
@@ -107,5 +99,5 @@ const IngredientView = (props) => {
       </Col>
     </div>
   )
-}
-export default connect(mapStateToProps, mapDispatchToProps) (IngredientView)
+};
+export default IngredientView
