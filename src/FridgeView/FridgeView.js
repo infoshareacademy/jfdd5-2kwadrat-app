@@ -11,7 +11,7 @@ import '../animations.css'
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   addIngredient: (ingredient) => dispatch({
@@ -23,16 +23,16 @@ const mapDispatchToProps = dispatch => ({
     type: 'REMOVE_SELECTED_INGREDIENT',
     ingredientId: ingredient
   })
-})
+});
 
 
 class FridgeView extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.handleSubmit = (event) => {
       event.preventDefault()
-    }
+    };
 
     this.state = {
       ingredients: []
@@ -105,10 +105,10 @@ class FridgeView extends React.Component {
 
         <Col className="formBottomHalf" xs={12}>
           {this.props.selectedIngredients.length === 0 ? null :
-            <hr className="middleDividingLine"></hr>}
+            <hr className="middleDividingLine" />}
           {this.props.selectedIngredients.length === 0 ? null :
-            <h2 className="titles">Wybrane produkty:</h2>}
-
+            <h2 className="titles">Wybrane produkty:</h2>
+          }
           {
             this.props.selectedIngredients.map(
               ingredient =>
@@ -138,12 +138,8 @@ class FridgeView extends React.Component {
             )
           }
           {this.props.selectedIngredients.length === 0 ? null :
-            <hr className="bottomDividingLine"></hr>}
+            <hr className="bottomDividingLine" />}
         </Col>
-
-        {/*//na onClick wysyłam informację do stora że lista jest gotowa;*/}
-        {/*// w reducerze wpisuję nowy stan;*/}
-        {/*// w FilteredRecipesView zamieniam ternary operator na to czy lista jest w sotrze czy nie*/}
       </ReactCSSTransitionGroup>
     )
   }

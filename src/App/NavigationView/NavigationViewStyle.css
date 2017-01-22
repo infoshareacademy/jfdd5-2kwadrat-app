@@ -31,17 +31,9 @@
   border-bottom: 3px solid #2da834;
 }
 
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a {
-  box-shadow: none;
-}
-
 .navbar-default .navbar-nav > li > a {
   color: #000;
   border-bottom: 3px solid #fafafa;
-}
-
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #000;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a {

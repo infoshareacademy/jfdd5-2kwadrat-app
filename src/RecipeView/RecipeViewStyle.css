@@ -8,18 +8,12 @@ a:hover, a:focus {
   margin: 20px;
   overflow: hidden;
   border: 1px solid #bbb;
-  -webkit-box-shadow: 10px 10px 30px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 30px -6px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 30px -6px rgba(0, 0, 0, 0.75);
 }
 
 .grow .recipeImage {
   height: 400px;
   width: 500px;
-
-  -webkit-transition: all 1s ease-out;
-  -moz-transition: all 1s ease-out;
-  -o-transition: all 1s ease-out;
   transition: all 1s ease-out;
 }
 
@@ -68,20 +62,18 @@ hr.cutIt {
   letter-spacing: 5px;
   margin-bottom: 0;
   border-radius: 40px 40px 0 0;
-  color: #FFF;
+  color: #fff;
   padding: 7px;
   text-shadow: -1px 0 #DDD, 0 1px #DDD, 1px 0 #DDD, 0 -1px #DDD;
-
 }
 
 .recipeViewWrapper {
   border-radius: 0 0 30px 30px;
   padding: 30px;
-  border-bottom: 1px solid #BBB;
-  border-left: 1px solid #BBB;
-  border-right: 1px solid #BBB;
+  border-bottom: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
   margin-bottom: 5px;
-
 }
 
 .favorite {
@@ -269,6 +261,10 @@ hr.cutIt {
   transform: scale(1.4);
 }
 
+.fadeRecipe-appear {
+  animation: fadeIn 0.5s
+}
+
 @keyframes shakeYourAss {
   0% {
     transform: translate(2px, 1px) rotate(0deg);
@@ -312,10 +308,6 @@ hr.cutIt {
   75% {
     transform: scale(0.8);
   }
-}
-
-.fadeRecipe-appear {
-  animation: fadeIn 0.5s
 }
 
 @media (max-width: 1200px) {
