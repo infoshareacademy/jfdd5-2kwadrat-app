@@ -67,6 +67,6 @@ a:hover {
 }
 
 .simpleButton:active {
-  top:1px;
+  top: 1px;
   background-image: linear-gradient(bottom, rgb(69, 138, 47) 100%, rgb(124, 212, 110) 0%);
 }

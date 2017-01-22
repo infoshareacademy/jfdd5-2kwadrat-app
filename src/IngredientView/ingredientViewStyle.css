@@ -1,10 +1,10 @@
 .mapContainer {
   position: absolute;
-  right:0;
+  right: 0;
 }
 
 .listContainer {
- position: absolute;
+  position: absolute;
   z-index: 5;
 }
 
@@ -83,7 +83,7 @@
   margin-top: 20px;
   color: #79a0e0;
   width: 70px;
-  height:auto;
+  height: auto;
   transition: all .2s ease-in-out;
 }
 
