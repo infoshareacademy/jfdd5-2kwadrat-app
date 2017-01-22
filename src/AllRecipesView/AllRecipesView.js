@@ -9,9 +9,8 @@ import '../index.css'
 
 
 export default (props) => (
-  <div className="wrapper">
+<div className="wrapper">
   {props.children}
-
   {
     recipes.map(recipe => {
       return (
@@ -45,7 +44,7 @@ export default (props) => (
       </ReactCSSTransitionGroup>
       )
     }
-    )
-  }
-  </div>
+)
+}
+</div>
 )
