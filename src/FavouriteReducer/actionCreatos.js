@@ -137,7 +137,8 @@ export const fetchCalendarEvents = (userId, accessToken) => {
             var event = {
               title: item.title,
               end: new Date(item.end),
-              start: new Date(item.start)
+              start: new Date(item.start),
+              id: item.id
             }
             return event
           }

@@ -32,9 +32,19 @@ class CalendarView extends React.Component {
     this.state = {
       events: null,
       showModal: false,
-      showModal2: true
+      showModal2: true,
+      showModal3:false
     }
-
+this.open3 = () => {
+      this.setState({
+        showModal3:true
+        })
+}
+this.close3 = () => {
+  this.setState({
+    showModal3:false
+  })
+}
     this.open = (dateInfo) => {
       this.setState({
         ...this.state,
@@ -116,7 +126,7 @@ class CalendarView extends React.Component {
           </Modal.Footer>
         </Modal>
 
-        <Modal show={this.state.showModal} onHide={this.close}>
+        <Modal show={this.state.showModal} onHide={() => this.setState({showModal:false})}>
           <Modal.Header closeButton>
             <Modal.Title>
               <h3>Wybierz danie:</h3>
@@ -127,6 +137,22 @@ class CalendarView extends React.Component {
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close} bsStyle="success">Potwierdż</Button>
+            <Button onClick={() => this.setState({showModal:false})} bsStyle="info">Nie chce nic gotować</Button>
+          </Modal.Footer>
+        </Modal>
+
+        <Modal show={this.state.showModal3} onHide={this.close3}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              <h3>O KURCZĘ</h3>
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            O tej porze juz coś gotujesz. Może chcesz usunąć to danie z kalendarza?
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.close3} bsStyle="success">Potwierdż</Button>
+            <Button onClick={this.close3} bsStyle="danger">Usuń</Button>
           </Modal.Footer>
         </Modal>
 
@@ -138,7 +164,7 @@ class CalendarView extends React.Component {
           <BigCalendar
             selectable
             popup
-            onSelectEvent={event => alert('Termin już zajęty!   ' + event.title)}
+            onSelectEvent={event => this.open3()}
             onSelectSlot={(slotInfo) =>
               this.props.recipeTitle === null ?
                 this.open(slotInfo) :
