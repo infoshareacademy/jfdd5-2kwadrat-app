@@ -10,9 +10,39 @@ import {
   FETCH_EVENTS__SUCCES,
   REMOVE_INGREDIENT__BEGIN,
   REMOVE_INGREDIENT__FAIL,
-  REMOVE_INGREDIENT__SUCCESS
+  REMOVE_INGREDIENT__SUCCESS,
+  REMOVE_RECIPE__BEGIN,
+  REMOVE_RECIPE__FAIL,
+  REMOVE_RECIPE__SUCCESS
 } from './actionTypes'
 
+
+export const fetchShoppingList = (userId, accessToken) => {
+  return dispatch => {
+    dispatch({type: FETCH_SHOPPING_LIST__BEGIN})
+    fetch(
+      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
+    ).then(
+      response => response.json()
+    ).then(
+      favoriteItems => dispatch({
+        type: FETCH_SHOPPING_LIST__SUCCES,
+        shoppingListIds: favoriteItems.filter(
+          item =>
+          item.itemType === 'ingredient'
+        ).map(
+          function(item){
+            const ingredient = {
+              id:item.id,
+              itemId:item.itemId
+            }
+            return ingredient
+          }
+        )
+      })
+    )
+  }
+}
 
 
 export const addRecipeToFav = (userId, accessToken, ingredientId) => {
@@ -51,6 +81,11 @@ export const addToShoppingList = (userId, accessToken, ingredientId) => {
           "ownerId": userId
         })
       }
+    ).then(
+      function () {
+        dispatch(fetchShoppingList(userId, accessToken))
+
+      }
     )
   }
 }
@@ -69,40 +104,19 @@ export const fetchFavouriteRecipes = (userId, accessToken) => {
           item =>
           item.itemType === 'recipe'
         ).map(
-          item => item.itemId
-        )
-      })
-    )
-  }
-}
-
-
-export const fetchShoppingList = (userId, accessToken) => {
-  return dispatch => {
-    dispatch({type: FETCH_SHOPPING_LIST__BEGIN})
-    fetch(
-      'https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
-    ).then(
-      response => response.json()
-    ).then(
-      favoriteItems => dispatch({
-        type: FETCH_SHOPPING_LIST__SUCCES,
-        shoppingListIds: favoriteItems.filter(
-          item =>
-          item.itemType === 'ingredient'
-        ).map(
           function(item){
-            var ingredient = {
+            const recipe = {
               id:item.id,
               itemId:item.itemId
             }
-            return ingredient
+            return recipe
           }
         )
       })
     )
   }
 }
+
 
 
 export const fetchCalendarEvents = (userId, accessToken) => {
@@ -153,6 +167,10 @@ export const addCalendarEvent = (userId, accessToken, event) => {
           "ownerId": userId
         })
       }
+    ).then(
+     function(){
+       dispatch(fetchCalendarEvents(userId,accessToken))
+     }
     )
   }
 }
@@ -175,11 +193,43 @@ export const removeFromShoppingList = (userId, token, favoriteId) => {
           dispatch({
             type: REMOVE_INGREDIENT__SUCCESS
           })
+          dispatch(fetchShoppingList(userId, token))
 
         }
         else {
           return response.json().then(
             error => dispatch({type: REMOVE_INGREDIENT__FAIL, error: error})
+          )
+        }
+      }
+    )
+  }
+}
+
+export const removeRecipeFromFav = (userId, token, favoriteId) => {
+  return (dispatch) => {
+    dispatch({
+      type: REMOVE_RECIPE__BEGIN
+    })
+
+    fetch('https://salty-plateau-32425.herokuapp.com/api/users/' + userId + '/favoriteItems/' + favoriteId + '?access_token=' + token, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    ).then(
+      response => {
+        if (response.status === 204) {
+          dispatch({
+            type: REMOVE_RECIPE__SUCCESS
+          })
+          dispatch(fetchFavouriteRecipes(userId, token))
+
+        }
+        else {
+          return response.json().then(
+            error => dispatch({type: REMOVE_RECIPE__FAIL, error: error})
           )
         }
       }

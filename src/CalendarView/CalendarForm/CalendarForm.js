@@ -11,7 +11,7 @@ class CalendarForm extends React.Component {
             <div >
 
 
-                <FormGroup controlId="formControlsSelect">
+                <FormGroup>
                     <FormControl componentClass="select"
                                  className="zupa"
                                  id="modalNameInput"

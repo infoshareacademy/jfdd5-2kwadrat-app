@@ -47,8 +47,11 @@ class RecipeView extends React.Component{
 
 
   componentWillMount() {
-    this.props.fetchFavRecipes(this.props.session.userId, this.props.session.id)
-    this.props.fetchShoppingList(this.props.session.userId, this.props.session.id)
+   if( this.props.session !== null) {
+     this.props.fetchFavRecipes(this.props.session.userId, this.props.session.id)
+     this.props.fetchShoppingList(this.props.session.userId, this.props.session.id)
+   }
+
   }
   render(){
     return (
@@ -67,7 +70,9 @@ class RecipeView extends React.Component{
             </div>
             {
               this.props.session !== null ?
-              this.props.favRecipes.indexOf(this.recipeWithId.id) === -1 ?
+              this.props.favRecipes.map(
+                recipe => recipe.itemId
+              ).indexOf(this.recipeWithId.id) === -1 ?
               <span title="Dodaj do ulubionych" className="favorite"
                       onClick={() => {
                         const favorite = document.getElementsByClassName('favorite')
@@ -105,7 +110,7 @@ class RecipeView extends React.Component{
                                              id={ingredient.id}
                                              onClick={
                                                ()=>{
-                                                 document.getElementById(ingredient.id).style.display = 'none'
+
                                                  this.props.addToShoppingList(this.props.session.userId,this.props.session.id,ingredient.id)}
                                              }/>
                                </span>:null : null
