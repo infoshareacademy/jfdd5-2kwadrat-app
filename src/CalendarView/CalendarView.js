@@ -64,7 +64,6 @@ class CalendarView extends React.Component {
         showModal: false
       })
       this.props.addToCalendar(this.props.session.userId, this.props.session.id, event)
-      this.props.fetchEvents(this.props.session.userId, this.props.session.id)
 
     }
   }
@@ -80,11 +79,11 @@ class CalendarView extends React.Component {
         )
         this.props.removeRecipe()
         this.props.addToCalendar(this.props.session.userId, this.props.session.id, this.state.events)
-    this.props.fetchEvents(this.props.session.userId, this.props.session.id)
         this.setState({
             events: []
         })
     }
+
 
   componentWillMount() {
     this.props.fetchEvents(this.props.session.userId, this.props.session.id)

@@ -153,6 +153,10 @@ export const addCalendarEvent = (userId, accessToken, event) => {
           "ownerId": userId
         })
       }
+    ).then(
+     function(){
+       dispatch(fetchCalendarEvents(userId,accessToken))
+     }
     )
   }
 }

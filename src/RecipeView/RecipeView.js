@@ -47,8 +47,11 @@ class RecipeView extends React.Component{
 
 
   componentWillMount() {
-    this.props.fetchFavRecipes(this.props.session.userId, this.props.session.id)
-    this.props.fetchShoppingList(this.props.session.userId, this.props.session.id)
+   if( this.props.session !== null) {
+     this.props.fetchFavRecipes(this.props.session.userId, this.props.session.id)
+     this.props.fetchShoppingList(this.props.session.userId, this.props.session.id)
+   }
+
   }
   render(){
     return (
