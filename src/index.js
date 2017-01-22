@@ -5,7 +5,6 @@ import {Provider} from 'react-redux'
 import {RecipeView} from './RecipeView'
 import {ShopsLogoView} from './ShopsLogoView'
 import {FilteredRecipesView} from './FilteredRecipesView'
-import {LoginFormView} from './LoginFormView'
 import {FavouriteRecipesView} from './FavouriteRecipesView'
 import {default as ShoppingListView} from './ShoppingListView/ShoppingListView'
 import {CalendarView} from './CalendarView'
@@ -19,6 +18,8 @@ import {App} from './App'
 import {InstructionView} from './InstructionView'
 import {AllRecipesView} from './AllRecipesView'
 import {IngredientView} from './IngredientView'
+import {LoginFormView} from './LoginFormView'
+
 
 
 
