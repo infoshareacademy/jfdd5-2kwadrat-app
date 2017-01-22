@@ -15,15 +15,15 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import './RecipeViewStyle.css'
 import '../animations.css'
 import {addToCalendarFromRecipeView} from '../CalendarView/CalendarReducer/actionCreator'
-
 import {addRecipeToFav, addToShoppingList,fetchFavouriteRecipes,fetchShoppingList}from '../FavouriteReducer/actionCreatos'
+
 
 const mapStateToProps = state => ({
   selectedIngredients: state.selectedIngredients.selectedIngredients,
   session: state.currentUserData.session,
   favRecipes: state.favourite.favouriteRecipes,
   shoppingList: state.favourite.shoppingList
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   addToCalendar: (recipe) => dispatch(addToCalendarFromRecipeView(recipe)),
@@ -31,24 +31,24 @@ const mapDispatchToProps = dispatch => ({
   addRecipe: (userId,accessToken,id) => dispatch(addRecipeToFav(userId,accessToken,id)),
   fetchFavRecipes: (userId, accessToken) => dispatch(fetchFavouriteRecipes(userId, accessToken)),
   fetchShoppingList: (userId, accessToken) => dispatch(fetchShoppingList(userId, accessToken))
-})
+});
 
 
 class RecipeView extends React.Component{
 
   recipeWithId = recipes.find(
     recipe => recipe.id === parseInt(this.props.params.recipeId, 10)
-  )
+  );
   arrayOfSelectedIngredientsID =
     this.props.selectedIngredients.map(
       selected =>
         selected.id
-    )
+    );
 
 
   componentWillMount() {
    if( this.props.session !== null) {
-     this.props.fetchFavRecipes(this.props.session.userId, this.props.session.id)
+     this.props.fetchFavRecipes(this.props.session.userId, this.props.session.id);
      this.props.fetchShoppingList(this.props.session.userId, this.props.session.id)
    }
 
@@ -61,119 +61,120 @@ class RecipeView extends React.Component{
         transitionAppearTimeout={500}
         transitionLeaveTimeout={0}
         transitionAppear={true}>
-      <div key={this.recipeWithId.id}>
-        <h1 className="recipeName">{this.recipeWithId.name}</h1>
-        <Col xs={12} className="recipeViewWrapper">
-          <Col lg={6}>
-            <div className="grow pic">
-              <Image className="photo recipeImage" src={this.recipeWithId.image}/>
-            </div>
-            {
-              this.props.session !== null ?
-              this.props.favRecipes.map(
-                recipe => recipe.itemId
-              ).indexOf(this.recipeWithId.id) === -1 ?
-              <span title="Dodaj do ulubionych" className="favorite"
-                      onClick={() => {
-                        const favorite = document.getElementsByClassName('favorite')
-                        favorite[0].style.display = 'none'
-                        this.props.addRecipe(this.props.session.userId, this.props.session.id, this.recipeWithId.id)
-                      }}
-              >&#9055;</span> : null
-               :
-                null
-            }
-          </Col>
-          <Col lg={6}>
-            <hr className="cutIt"/>
-            <div className="manualView">
-              <span className="ingredient">Składniki:</span>
-              <ul className="ingredientsList">
-                {
-                  this.recipeWithId.ingredients.map(
-                    ingredient =>
-                      <li key={ingredient.id}>
-                      <span>
-                        {ingredients.find(item => item.id === ingredient.id).name}
-                      </span>
-                        {" "}<span className="amount">{ingredient.ingredientAmount}</span> {ingredient.unitMeasure}
-                        <span key={ingredient.id}>
-                        { this.arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 && this.props.session !== null ?
-                          <span title="Masz ten składnik"><FaCheck className="checkedIngredient" /></span> :
-                          <span className="iconOptions">
-                              {this.props.session !== null ?
-                              this.props.shoppingList.map(
-                                list => list.itemId
-                              ).indexOf(ingredient.id) === -1 ?
-                                <span title="Dodaj do listy zakupów" >
-                                <GoChecklist className=" addToListRecipeView"
-                                             id={ingredient.id}
-                                             onClick={
-                                               ()=>{
+        <div key={this.recipeWithId.id}>
+          <h1 className="recipeName">{this.recipeWithId.name}</h1>
 
-                                                 this.props.addToShoppingList(this.props.session.userId,this.props.session.id,ingredient.id)}
-                                             }/>
-                               </span>:null : null
-                              }
-                            <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
-                               <span title="Znajdź sklep">
-                                  <FaCartPlus size="40px" color="#2da834"
-                                              className="cart"/>
-
-                               </span>
-                                </Link>
-                            </span>
-                        }
-                        </span>
-                        </li>
-                  )
-                }
-              </ul>
+          <Col xs={12} className="recipeViewWrapper">
+            <Col lg={6}>
+              <div className="grow pic">
+                <Image className="photo recipeImage" src={this.recipeWithId.image}/>
+              </div>
               {
                 this.props.session !== null ?
-                  <Link to={"/calendar"}>
-                    <div title="Dodaj przepis do swojego kalendarza" className="calendarButton">
-                      <FaCalendar size="40px" color="#2da834"
-                                  className="cart"/>
-                      <Button className="addToCalendar"
-                              bsStyle="success"
-                              onClick={() =>this.props.addToCalendar(this.recipeWithId)}
-                      >Dodaj do kalendarza
-                      </Button>
-                    </div>
-                  </Link>:
-                  null
+                this.props.favRecipes.map(
+                  recipe => recipe.itemId
+                ).indexOf(this.recipeWithId.id) === -1 ?
+                <span title="Dodaj do ulubionych" className="favorite"
+                  onClick={() => {
+                    const favorite = document.getElementsByClassName('favorite')
+                    favorite[0].style.display = 'none'
+                    this.props.addRecipe(this.props.session.userId, this.props.session.id, this.recipeWithId.id)
+                  }}
+                >&#9055;</span> : null
+                 : null
               }
-            </div>
-            <div title="udostępnij" className="socialIcons">
-              <a href="https://plus.google.com/" target="_blank">
-                <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
-              </a>
+            </Col>
 
-              <a href="https://www.facebook.com/" target="_blank">
-                <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
-              </a>
+            <Col lg={6}>
+              <hr className="cutIt"/>
+              <div className="manualView">
+                <span className="ingredient">Składniki:</span>
+                <ul className="ingredientsList">
+                  {
+                    this.recipeWithId.ingredients.map(
+                      ingredient =>
+                        <li key={ingredient.id}>
+                        <span>
+                          {ingredients.find(item => item.id === ingredient.id).name}
+                        </span>
+                          {" "}<span className="amount">{ingredient.ingredientAmount}</span> {ingredient.unitMeasure}
+                          <span key={ingredient.id}>
+                          { this.arrayOfSelectedIngredientsID.indexOf(ingredient.id) !== -1 && this.props.session !== null ?
+                            <span title="Masz ten składnik"><FaCheck className="checkedIngredient" /></span> :
+                            <span className="iconOptions">
+                              {this.props.session !== null ?
+                                this.props.shoppingList.map(
+                                  list => list.itemId
+                                ).indexOf(ingredient.id) === -1 ?
+                                  <span title="Dodaj do listy zakupów" >
+                                    <GoChecklist className=" addToListRecipeView"
+                                       id={ingredient.id}
+                                       onClick={
+                                         ()=>{
 
-              <a href="https://twitter.com/" target="_blank">
-                <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
-              </a>
-            </div>
+                                           this.props.addToShoppingList(this.props.session.userId,this.props.session.id,ingredient.id)}
+                                       }/>
+                                 </span>:null : null
+                              }
+                              <Link className="findIngredient" to={'/ingredient/' + ingredient.id}>
+                                 <span title="Znajdź sklep">
+                                    <FaCartPlus size="40px" color="#2da834"
+                                      className="cart"/>
+                                 </span>
+                              </Link>
+                            </span>
+                          }
+                          </span>
+                        </li>
+                    )
+                  }
+                </ul>
+                {
+                  this.props.session !== null ?
+                    <Link to={"/calendar"}>
+                      <div title="Dodaj przepis do swojego kalendarza" className="calendarButton">
+                        <FaCalendar size="40px" color="#2da834"
+                          className="cart"/>
+                        <Button className="addToCalendar"
+                          bsStyle="success"
+                          onClick={() =>this.props.addToCalendar(this.recipeWithId)}
+                        >Dodaj do kalendarza
+                        </Button>
+                      </div>
+                    </Link>:
+                    null
+                }
+              </div>
+
+              <div title="udostępnij" className="socialIcons">
+                <a href="https://plus.google.com/" target="_blank">
+                  <FaGooglePlusSquare size="40px" className="socialIcon socialGplus"/>
+                </a>
+
+                <a href="https://www.facebook.com/" target="_blank">
+                  <FaFacebookSquare size="40px" className="socialIcon socialFacebook"/>
+                </a>
+
+                <a href="https://twitter.com/" target="_blank">
+                  <FaTwitterSquare size="40px" className="socialIcon socialTwitter"/>
+                </a>
+              </div>
+            </Col>
+
+            <Col xs={12}>
+              <hr className="aboveDescription"/>
+              <p className="description">{this.recipeWithId.description}</p>
+            </Col>
           </Col>
+
           <Col xs={12}>
-            <hr className="aboveDescription"/>
-            <p className="description">{this.recipeWithId.description}</p>
+            <p>Dodane komentarze innych uzytkownikow</p>
           </Col>
-        </Col>
-        <Col xs={12}>
-          <p>Dodane komentarze innych uzytkownikow</p>
-        </Col>
-        {
-          this.props.session !== null ?
-
+          {
+            this.props.session !== null ?
               <Col xs={12} md={6} mdOffset={3}>
                 <div className="commentsContainer">
-                  <div className="userInformation">
-                  </div>
+                  <div className="userInformation"></div>
                   <form>
                     <label>
                       <p className="commentTitle">tytuł:</p> <input name="title" className="titleField"/>
@@ -193,9 +194,9 @@ class RecipeView extends React.Component{
               </Col>
               :
               <p>Zaloguj się aby dodać komentarz</p>
-        }
-        {this.props.children}
-      </div>
+          }
+          {this.props.children}
+        </div>
       </ReactCSSTransitionGroup>
   )
 }
