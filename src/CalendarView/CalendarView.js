@@ -151,7 +151,7 @@ class CalendarView extends React.Component {
             </Modal.Footer>
           </Modal>
 
-          <Modal show={this.state.showModal3} onHide={this.close3}>
+          <Modal show={this.state.showModal3} onHide={() => this.setState({showModal3: false})}>
             <Modal.Header closeButton>
               <Modal.Title>
                 <h3>O KURCZĘ</h3>
@@ -163,7 +163,7 @@ class CalendarView extends React.Component {
             </Modal.Body>
 
             <Modal.Footer>
-              <Button onClick={this.close3} bsStyle="success">Wróć</Button>
+              <Button onClick={() => this.setState({showModal3: false})} bsStyle="success">Wróć</Button>
 
               <Button onClick={this.close3} bsStyle="danger">Usuń</Button>
             </Modal.Footer>
