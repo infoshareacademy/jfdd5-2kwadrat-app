@@ -7,16 +7,7 @@
   animation: slide-out 400ms ease-out forwards;
 }
 
-@keyframes slide-out {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(130%);
-  }
-}
-
-h2#counterValue {
+h2 #counterValue {
   color: black;
   padding-top: 0;
   margin: 0;
@@ -53,11 +44,24 @@ h2#counterValue {
   animation: pulsePrinter 1s infinite;
 }
 
+.removeButton {
+  padding: 8px;
+}
+
 @keyframes pulsePrinter {
   0% {
     transform: scale(1);
   }
   50% {
     transform: scale(1.2);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(130%);
   }
 }

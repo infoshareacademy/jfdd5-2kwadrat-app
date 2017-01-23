@@ -2,12 +2,11 @@ import React from 'react'
 
 
 export default (props) => {
-  const login = document.getElementById('loginField').value
-  const password = document.getElementById('passwordField').value
-  const password2 = document.getElementById('passwordCheck').value
+  const login = document.getElementById('loginField').value;
+  const password = document.getElementById('passwordField').value;
+  const password2 = document.getElementById('passwordCheck').value;
   return (
     <div>
-
       {
         password === password2 ?
           (
@@ -31,28 +30,28 @@ export default (props) => {
                     })
                   }).then(
                   response => {
-                    console.log('opdpowiedz', response)
+                    console.log('opdpowiedz', response);
                     if (response.status == '422') {
-                      document.getElementById('loginField').value = ''
-                      document.getElementById('loginField').style.border = 'green solid 2px'
-                      document.getElementById('my-loader').style.display = "none"
-                      document.getElementById('passwordCheck').value = ''
-                      document.getElementById('passwordCheck').style.border = "red solid 2px"
-                      document.getElementById('passwordField').value = ''
-                      document.getElementById('passwordField').style.border = "red solid 2px"
+                      document.getElementById('loginField').value = '';
+                      document.getElementById('loginField').style.border = 'green solid 2px';
+                      document.getElementById('my-loader').style.display = "none";
+                      document.getElementById('passwordCheck').value = '';
+                      document.getElementById('passwordCheck').style.border = "red solid 2px";
+                      document.getElementById('passwordField').value = '';
+                      document.getElementById('passwordField').style.border = "red solid 2px";
                       document.getElementById('signUpFail').innerHTML =
                         ('<p>Login jest już zajęty. Może coś bardziej kreatywnego?</p>')
                     }
                     else {
-                      document.getElementById('passwordField').style.border = ""
-                      document.getElementById('passwordCheck').style.border = ""
-                      document.getElementById('passwordCheck').value = ''
-                      document.getElementById('passwordField').value = ''
-                      document.getElementById('loginField').value = ''
-                      document.getElementById('signUpFail').innerHTML = ''
-                      document.getElementById('my-loader').style.display = "none"
+                      document.getElementById('passwordField').style.border = "";
+                      document.getElementById('passwordCheck').style.border = "";
+                      document.getElementById('passwordCheck').value = '';
+                      document.getElementById('passwordField').value = '';
+                      document.getElementById('loginField').value = '';
+                      document.getElementById('signUpFail').innerHTML = '';
+                      document.getElementById('my-loader').style.display = "none";
                       document.getElementById('signUpOk').innerHTML =
-                        '<p>Super! Wszystko poszło okay! Teraz możesz się zalogować i cieszyć się funkcjonalnością!</p>'
+                        '<p>Super! Wszystko poszło okay! Teraz możesz się zalogować i cieszyć funkcjonalnościami!</p>';
                       return response.json()
                     }
                   }
@@ -65,17 +64,15 @@ export default (props) => {
           : <div>
           {
             function () {
-              document.getElementById('passwordCheck').value = ''
-              document.getElementById('passwordCheck').style.border = "red solid 2px"
-              document.getElementById('passwordField').value = ''
-              document.getElementById('passwordField').style.border = "red solid 2px"
+              document.getElementById('passwordCheck').value = '';
+              document.getElementById('passwordCheck').style.border = "red solid 2px";
+              document.getElementById('passwordField').value = '';
+              document.getElementById('passwordField').style.border = "red solid 2px";
               document.getElementById('signUpFail').innerHTML =
-                ('<p>Hasła są niezgodne<br/>Spróbuj jeszcze raz UWAŻNIE.</p>')
+                ('<p>Hasła są niezgodne<br/>Spróbuj jeszcze raz.</p>')
             }()
-
-          }</div>
-
-
+          }
+          </div>
       }
     </div>
   )

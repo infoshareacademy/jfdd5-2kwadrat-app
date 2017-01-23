@@ -2,16 +2,18 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Nav, Navbar, NavItem, NavDropdown} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
-import './NavigationViewStyle.css'
 import {logOut} from '../../LoginFormView/CurrentUserReducer/actions/logOut'
 import MdAccountCircle from 'react-icons/lib/md/account-circle'
+import './NavigationViewStyle.css'
+
+
 const mapStateToProps = state => ({
   session: state.currentUserData.session,
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   logout: (accessToken) => dispatch(logOut(accessToken))
-})
+});
 
 
 const NavigationView = (props) => {
@@ -20,11 +22,13 @@ const NavigationView = (props) => {
     <div className="container">
       <Navbar className="navbar-default" collapseOnSelect>
         <Navbar.Header>
-          <Navbar.Brand >
+          <Navbar.Brand>
             <a className="logoIMF navbar-brand navbar-header" href="/">INSIDE MY FRIDGE</a>
           </Navbar.Brand>
+
           <Navbar.Toggle className="hamburger"/>
         </Navbar.Header>
+
         <Navbar.Collapse>
           <Nav pullRight className="navigation">
             <LinkContainer className="navItem" to="/recipes">
@@ -45,11 +49,9 @@ const NavigationView = (props) => {
                   <NavItem eventKey={4.2} href="#">Ulubione</NavItem>
                 </LinkContainer>
 
-
                 <LinkContainer className="navItem" to="/needed-ingredient-view">
                   <NavItem eventKey={4.3} href="#">Lista zakupów</NavItem>
                 </LinkContainer>
-
 
                 <LinkContainer className="navItem" to="/calendar">
                   <NavItem eventKey={4.4} href="#">Kalendarz</NavItem>
@@ -77,6 +79,6 @@ const NavigationView = (props) => {
       </Navbar>
     </div>
   )
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationView)

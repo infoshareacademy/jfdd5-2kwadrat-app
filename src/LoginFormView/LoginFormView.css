@@ -1,5 +1,5 @@
 #login-alert, #signUpFail {
-  color: white;
+  color: #fff;
   font-size: 18px;
   background-color: rgba(255, 0, 0, 0.7);
 }
@@ -10,7 +10,7 @@
 
 .formLabel {
   float: left;
-  color: white;
+  color: #fff;
 }
 
 .mokap-container {
@@ -20,7 +20,7 @@
 .formInput {
   float: right;
   border: #2cb5e8 solid 2px;
-  color: black;
+  color: #000;
 }
 
 .formTitle {
@@ -29,7 +29,7 @@
 }
 
 #signUpOk p {
-  color: white;
+  color: #fff;
   font-size: 16px;
 }
 
@@ -49,7 +49,7 @@
   text-transform: uppercase;
   font-weight: 900;
   font-size: 16px;
-  color: white;
+  color: #fff;
   letter-spacing: 0.2em;
 }
 
@@ -58,7 +58,7 @@
   display: block;
   width: 15px;
   height: 15px;
-  background: white;
+  background: #fff;
   position: absolute;
   animation: cssload-load 0.7s infinite alternate ease-in-out;
 }
@@ -69,23 +69,6 @@
 
 .cssload-loader::after {
   bottom: 0;
-}
-
-@keyframes cssload-load {
-  0% {
-    left: 0;
-    height: 29px;
-    width: 15px;
-  }
-  50% {
-    height: 8px;
-    width: 39px;
-  }
-  100% {
-    left: 229px;
-    height: 29px;
-    width: 15px;
-  }
 }
 
 .chef {
@@ -106,7 +89,7 @@
   background-image: url('http://www.clipartkid.com/images/528/caldwell-see-more-about-comic-books-comics-and-super-heros-NlRl3a-clipart.png');
 }
 
-.usserButton {
+.userButton {
   padding: 4px;
   font-size: 15px;
   line-height: 20px;
@@ -120,3 +103,21 @@
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .avatar {
   border: 0;
 }
+
+@keyframes cssload-load {
+  0% {
+    left: 0;
+    height: 29px;
+    width: 15px;
+  }
+  50% {
+    height: 8px;
+    width: 39px;
+  }
+  100% {
+    left: 229px;
+    height: 29px;
+    width: 15px;
+  }
+}
+

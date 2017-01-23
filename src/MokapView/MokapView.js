@@ -5,7 +5,6 @@ export default (props)=> {
   return (
     <div className="mokap">
       <div className="screen">
-
         {props.children}
       </div>
     </div>

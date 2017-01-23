@@ -22,7 +22,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const ShopView = React.createClass({
-
   getInitialState() {
     return {
       showModal: false,
@@ -45,7 +44,6 @@ const ShopView = React.createClass({
       },
     )
   },
-
 
   render(){
     return (
@@ -148,6 +146,6 @@ const ShopView = React.createClass({
         </div>
     )
   }
-})
+});
 
 export default connect(mapStateToProps,mapDispatchToProps)(ShopView)

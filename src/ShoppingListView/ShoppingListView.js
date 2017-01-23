@@ -1,30 +1,27 @@
 import React from 'react'
 import {Col} from 'react-bootstrap'
 import {connect} from 'react-redux'
-
+import ingredients from '../data/ingredients'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import './ShoppingList.css'
+import '../animations.css'
 import {fetchShoppingList, removeFromShoppingList} from '../FavouriteReducer/actionCreatos'
 
-import ingredients from '../data/ingredients'
-import './ShoppingList.css'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import '../animations.css'
 
 const mapStateToProps = state => ({
   session: state.currentUserData.session,
   shoppingList: state.favourite.shoppingList
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchShoppingList: (userId, accessToken) => dispatch(fetchShoppingList(userId, accessToken)),
   remove: (userId, token, favoriteId) => dispatch(removeFromShoppingList(userId, token, favoriteId))
-})
+});
 
 class NeededIngredient extends React.Component {
-
   componentWillMount() {
     this.props.fetchShoppingList(this.props.session.userId, this.props.session.id)
   }
-
   render() {
     return (
       <ReactCSSTransitionGroup
@@ -42,12 +39,9 @@ class NeededIngredient extends React.Component {
             transitionLeaveTimeout={0}
             transitionAppear={true}>
             <div>
-
-
               {
                 this.props.session !== null ?
                   <table className="shop-products-table">
-
                     <tbody>
                     {this.props.shoppingList.map(
                       item =>
@@ -56,7 +50,7 @@ class NeededIngredient extends React.Component {
                             const itemWithID = {
                               ...ingredient,
                               additionalId: item.id
-                            }
+                            };
                             return itemWithID
                           }).find(
                           ingredient =>
@@ -73,11 +67,9 @@ class NeededIngredient extends React.Component {
                               className="ingredient-name ingredientNameShoppingList"> {item.name.toUpperCase()}</span>
                           </td>
                           <td>
-                            <button onClick={() => {
+                            <button className="btn-danger removeButton" onClick={() => {
                               this.props.remove(this.props.session.userId, this.props.session.id, item.additionalId)
-
                             }
-
                             }>usun
                             </button>
                           </td>
@@ -91,6 +83,7 @@ class NeededIngredient extends React.Component {
               }
             </div>
           </ReactCSSTransitionGroup>
+
           <img className="printer" title="wydrukuj listę"
                src="http://pl.seaicons.com/wp-content/uploads/2016/09/printer-1-icon.png" alt="printer"/>
         </Col>

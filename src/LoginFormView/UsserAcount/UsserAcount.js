@@ -2,9 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Col} from 'react-bootstrap'
 import {Link} from 'react-router'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {logOut} from '../CurrentUserReducer/actions/logOut'
 import {fetchUserData} from '../CurrentUserReducer/actions/fetchUserData'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import '../../animations.css'
 import './UserAccount.css'
 
@@ -12,12 +12,12 @@ import './UserAccount.css'
 const mapStateToProps = (state) => ({
   session: state.currentUserData.session,
   user: state.currentUserData.user
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   logout: (accessToken) => dispatch(logOut(accessToken)),
   fetchUserData: (userId, accessToken) => dispatch(fetchUserData(userId, accessToken))
-})
+});
 
 class UsserAcount extends React.Component {
 
@@ -39,19 +39,19 @@ class UsserAcount extends React.Component {
               <h3>Witaj <span className="userName"> {this.props.user.username}</span>!</h3>
               W zakładce
                 <Link to={'/favourite-recipes'}>
-                  <button className="simpleButton usserButton">Ulubione
+                  <button className="simpleButton userButton">Ulubione
                   </button>
                 </Link>
               przeglądaj swoje przepisy.
               W zakładce
                 <Link to={'/needed-ingredient-view'}>
-                  <button className="simpleButton usserButton">Lista zakupów
+                  <button className="simpleButton userButton">Lista zakupów
                   </button>
                 </Link>
               przeglądaj listy swoich zakupów.
               W zakładce
                 <Link to={'/calendar'}>
-                  <button className="simpleButton usserButton">Kalendarz
+                  <button className="simpleButton userButton">Kalendarz
                   </button>
                 </Link>
               planuj co i kiedy będziesz gotować.

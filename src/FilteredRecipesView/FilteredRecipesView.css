@@ -3,7 +3,7 @@
 }
 
 .missing-ingredients-info {
-  color: white;
+  color: #fff;
   transition: none;
   font-weight: 600;
   background: rgba(255, 255, 255, 0.1);
@@ -112,6 +112,22 @@
   margin-bottom: 20px;
 }
 
+.fadeFilteredRecipes-appear {
+  animation: zoomIn 0.9s;
+}
+
+.slideInUpFiltered-appear {
+  animation: slideInDown 0.9s;
+}
+
+.slideFilteredRecipes-appear {
+  animation: slideInLeft 0.9s;
+}
+
+.bounceFilteredRecipes-appear {
+  animation: jello 0.9s;
+}
+
 @media screen and (max-width: 767px) {
   .arrow,
   .filtersTitle {
@@ -136,23 +152,7 @@
 @media screen and (max-width: 470px) {
   .btn-group > .btn,
   .btn-group > .btn-group {
-  float: none;
-  border-radius: 0;
+    float: none;
+    border-radius: 0;
   }
-}
-
-.fadeFilteredRecipes-appear {
-  animation: zoomIn 0.9s;
-}
-
-.slideInUpFiltered-appear {
-  animation: slideInDown 0.9s;
-}
-
-.slideFilteredRecipes-appear {
-  animation: slideInLeft 0.9s;
-}
-
-.bounceFilteredRecipes-appear {
-  animation: jello 0.9s;
 }
